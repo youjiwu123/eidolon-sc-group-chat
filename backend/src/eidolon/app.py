@@ -1,7 +1,11 @@
 """The backend's HTTP API."""
 
 import asyncio
+import hashlib
+import base64
+import binascii
 import json
+import logging
 import math
 from collections.abc import AsyncIterator, Callable
 from contextlib import aclosing, asynccontextmanager
@@ -25,16 +29,21 @@ from eidolon.call import (
     SessionDescription,
 )
 from eidolon.characters import Character, ScriptedLine, in_idol_order
+from eidolon.bailian import transcribe
 from eidolon.engine import ENDED, TurnJudged, shown
+from eidolon.llm import ChatLLM, ChatMessage
 from eidolon.greetings import (
     LANDING_MEMORY_STILL_PATH,
     call_opener_path,
     call_poster_path,
     greeting_path,
+    voice_line,
     voxels_path,
 )
+from eidolon.delivery_cues import spoken_by, voiced
 from eidolon.reply_format import SegmentComplete, SegmentDelta, SpeechDelta
 from eidolon.own_keys import BroughtKeys, CallsUnavailable, UnknownService, named_services
+from eidolon.throttle import Throttled
 from eidolon.producer import (
     MAX_FORM_OF_ADDRESS_LENGTH,
     Birthday,
@@ -60,14 +69,90 @@ from eidolon.stats import add_stats_routes
 from eidolon.service_status import add_service_status_routes
 from eidolon.stand_outfits import list_path, outfit_path
 from eidolon.store import Conversation, ConversationEvent, IsCurrent, ReachOut, Recorded
-from eidolon.throttle import Throttled
 from eidolon.turn_outcome import TurnOutcome
 from eidolon.usage import OverLimit
+
+log = logging.getLogger(__name__)
 from eidolon.world import World
 
 _PICTURE_CACHE = {"Cache-Control": "public, max-age=86400"}
 """Avatars and call backgrounds change only with a deploy (ADR-0003): browsers keep them a
 day, then revalidate by ETag, so lists showing every avatar don't download them each visit."""
+
+NO_CHAT_MODEL = (
+    "还没有配置对话模型：在服务器的 .env 里填 CHAT_LLM_BASE_URL、CHAT_LLM_API_KEY、"
+    "CHAT_LLM_MODEL（或在后台配置页里填），重启后端后就能对话"
+)
+"""What a turn answers while `EIDOLON_CHAT_LLM_OPTIONAL=1` and no model is filled in yet."""
+
+MAX_TURN_IMAGE_BYTES = 8 * 1024 * 1024
+"""The largest picture a turn may bring, in bytes: a bigger one is refused, not shrunk."""
+
+MAX_VOICE_BYTES = 8 * 1024 * 1024
+"""The largest voice message, in bytes: 16 kHz 16-bit mono, about four minutes."""
+
+PICTURE_QUESTION = (
+    "先客观描述这张图片，一两句中文，只写看得见的东西（颜色、物体、场景），不要发挥。\n"
+    "然后另起一行，只回答图里的人物是谁，三选一：\n"
+    "- 就是「{name}」（{name_zh}）本人：回答「本人」；\n"
+    "- 是下面名单里的另一位，只写她的名字（必须名字和她的外表特征都对得上，拿不准就回答「不确定」，不要猜）；\n"
+    "- 都不是，或者看不出来：回答「不确定」。\n"
+    "名单：{roster}\n"
+    "「{name}」的外表特征：{appearance}"
+)
+"""What the model is asked about a picture the user sent, apart from her character prompt: a
+long role-play prompt drowns the picture out on smaller models, so what it shows is worked
+out first and then told to her in words — whether it is her, and which of the others it is,
+an anime character being hard to place from a picture alone."""
+
+
+async def _describe_picture(
+    llm: "ChatLLM",
+    picture: tuple[bytes, str],
+    character: Character | None = None,
+    roster: str = "",
+) -> tuple[str, bool | None, str | None]:
+    """What the picture shows, in a sentence; whether it is her (None when it cannot be
+    told); and, when it is another of the characters, which one."""
+    appearance = (character.photo_appearance if character else None) or "（没有记录）"
+    question = PICTURE_QUESTION.format(
+        name=character.name if character else "这位角色",
+        name_zh=character.name_zh if character else "",
+        appearance=appearance,
+        roster=roster or "（没有名单）",
+    )
+    said = ""
+    async for item in llm.stream([ChatMessage("user", question, image=picture)]):
+        if isinstance(item, str):
+            said += item
+    lines = [line.strip() for line in said.strip().splitlines() if line.strip()]
+    if not lines:
+        return "", None, None
+    verdict = lines[-1]
+    description = " ".join(lines[:-1]).strip()[:500] or verdict
+    if "本人" in verdict:
+        return description, True, None
+    if "不确定" in verdict or "不是" in verdict:
+        return description, None, None
+    return description, False, verdict[:40]  # one of the others, as she is named
+
+
+def _decode_turn_image(data_url: str | None) -> tuple[bytes, str] | None:
+    """The picture a turn brought, and its media type, out of its data URL; None if it
+    brought none. What is not one is refused, saying what it should look like."""
+    if not data_url:
+        return None
+    head, _, payload = data_url.partition(",")
+    if not head.startswith("data:image/") or not head.endswith(";base64"):
+        raise HTTPException(422, "图片要写成 data:image/<类型>;base64,<数据>")
+    mime = head[len("data:"):-len(";base64")]
+    try:
+        raw = base64.b64decode(payload, validate=True)
+    except (binascii.Error, ValueError):
+        raise HTTPException(422, "图片的 base64 数据不合法") from None
+    if len(raw) > MAX_TURN_IMAGE_BYTES:
+        raise HTTPException(413, "图片太大了，最大 8 MB")
+    return raw, mime
 
 
 def _picture(path: Path, request: Request) -> Response:
@@ -87,6 +172,9 @@ class NewConversation(BaseModel):
 
 class TurnInput(BaseModel):
     text: str
+    image: str | None = None
+    """The user's picture for this turn, as a data URL (`data:image/png;base64,…`): sent to
+    a model that can see it, and kept on the turn's message for the record to show."""
     own_keys: OwnKeysInput | None = None
     """The user's own keys, which their browser keeps, for the turn to run on; the shape
     calls bring too. A turn uses only the LLMs and image generation, voice keys brought
@@ -565,7 +653,114 @@ def create_app(backend: Backend) -> FastAPI:
         """The conversation's record: its messages, conversation events and reach-outs, in
         order. The user reads it: its reach-outs are seen from now on."""
         conversation = conversation_or_404(conversation_id, user_id)
-        return [recorded(entry) for entry in store.read_by_user(conversation.id)]
+        entries = [recorded(entry) for entry in store.read_by_user(conversation.id)]
+        with_images = store.user_image_message_ids(conversation.id)
+        for entry in entries:  # a message the user sent a picture with says so, for the page
+            if entry.get("id") in with_images:
+                entry["image"] = True
+        return entries
+
+    @app.get("/api/messages/{message_id}/image")
+    def message_image(message_id: int, user_id: UserId) -> Response:
+        """The picture the user sent with that message; 404 for anyone else's."""
+        found = store.user_image(message_id, user_id)
+        if found is None:
+            raise HTTPException(404, "没有这张图片")
+        data, mime = found
+        return Response(
+            data, media_type=mime, headers={"Cache-Control": "private, max-age=31536000"}
+        )
+
+    @app.get("/api/messages/{message_id}/speech")
+    async def message_speech(message_id: int, user_id: UserId) -> Response:
+        """Her reply said aloud: voiced the first time the user asks for it, on the
+        deployer's voice, and kept with the message so asking again voices nothing; 404 for
+        anyone else's."""
+        speaking = store.message_to_speak(message_id, user_id)
+        if speaking is None:
+            raise HTTPException(404, "没有这条消息")
+        kept = store.message_speech(message_id)
+        if kept is not None:
+            data, mime = kept
+            return Response(
+                data, media_type=mime, headers={"Cache-Control": "private, max-age=31536000"}
+            )
+        voice = backend.config.voice
+        if voice is None:
+            raise HTTPException(503, "还没有配置语音合成")
+        character_id, ja, conversation_id = speaking
+        character = characters.get(character_id)
+        voice_id = (character.voice_id if character else "").strip()
+        if not voice_id:
+            raise HTTPException(503, "她还没有声音")
+        said = spoken_by(voiced(ja), voice.model)
+        if not said.strip():
+            raise HTTPException(503, "这条回复没有可以念出来的文字")
+        try:
+            data = await voice_line(voice, said, voice_id)
+        except Exception as e:  # voiced or not, the reply itself stays
+            raise HTTPException(502, f"语音合成失败了：{e}") from e
+        store.keep_message_speech(message_id, conversation_id, "audio/mpeg", data)
+        return Response(
+            data, media_type="audio/mpeg", headers={"Cache-Control": "private, max-age=31536000"}
+        )
+
+    @app.get("/api/characters/{character_id}/call-opener/speech")
+    async def call_opener_speech(character_id: str) -> Response:
+        """Her call opener said aloud, so that answering a call she speaks first: voiced the
+        first time it is asked for and kept on disk, since the opener does not change."""
+        character = characters.get(character_id)
+        if character is None or character.call_opener is None:
+            raise HTTPException(404, "她没有开场白")
+        voice = backend.config.voice
+        if voice is None:
+            raise HTTPException(503, "还没有配置语音合成")
+        voice_id = (character.voice_id or "").strip()
+        if not voice_id:
+            raise HTTPException(503, "她还没有声音")
+        ja = getattr(character.call_opener, "ja", "") or ""
+        said = spoken_by(voiced(ja), voice.model)
+        if not said.strip():
+            raise HTTPException(503, "开场白没有可以念出来的文字")
+        digest = hashlib.sha1(f"{voice.model}:{voice_id}:{said}".encode()).hexdigest()[:16]
+        kept = Path("/data/speech") / f"opener-{character_id}-{digest}.mp3"
+        if not kept.exists():
+            try:
+                data = await voice_line(voice, said, voice_id)
+            except Exception as e:
+                raise HTTPException(502, f"语音合成失败了：{e}") from e
+            kept.parent.mkdir(parents=True, exist_ok=True)
+            kept.write_bytes(data)
+        return Response(
+            kept.read_bytes(),
+            media_type="audio/mpeg",
+            headers={"Cache-Control": "private, max-age=31536000"},
+        )
+
+    @app.post("/api/voice")
+    async def hear_voice(request: Request, user_id: UserId) -> dict[str, str]:
+        """What a voice message says, so the composer can send it as text: 16 kHz 16-bit mono
+        PCM in the body, transcribed on the deployer's speech recognition."""
+        pcm = await request.body()
+        if not pcm:
+            raise HTTPException(422, "没有收到声音")
+        if len(pcm) > MAX_VOICE_BYTES:
+            raise HTTPException(413, "语音太长了，最多 8 MB")
+        hearing = backend.config.hearing
+        if hearing is None or hearing.provider != "bailian":
+            raise HTTPException(503, "还没有配置语音识别")
+        try:
+            heard = await transcribe(
+                api_key=hearing.api_key,
+                model=backend.settings.bailian_stt_model,
+                region=hearing.region,
+                pcm=pcm,
+            )
+        except Exception as e:  # nothing was sent, so nothing is lost
+            raise HTTPException(502, f"没能听清这段语音：{e}") from e
+        if not heard.strip():
+            raise HTTPException(422, "没有听清，再说一次？")
+        return {"text": heard}
 
     @app.post("/api/conversations/{conversation_id}/turns")
     def text_turn(
@@ -578,16 +773,46 @@ def create_app(backend: Backend) -> FastAPI:
         if body.own_llm is not None:  # transitional: see `TurnInput.own_llm`
             raise HTTPException(422, "页面已经更新，请刷新后再发")
         brought = body.own_keys.brought() if body.own_keys else BroughtKeys()
+        if not backend.config.chat_model.text.configured and brought.llm is None:
+            # A deployment still being set up (EIDOLON_CHAT_LLM_OPTIONAL=1) has no model of
+            # its own: only a turn bringing its own LLM can run, and the rest are told why.
+            raise HTTPException(503, NO_CHAT_MODEL)
         admission = admissions.turn(user_id, conversation.character_id, brought)
         outcome = TurnOutcome(admission.recording, admission.settle)
+        picture = _decode_turn_image(body.image)
 
         async def events() -> AsyncIterator[str]:
             # Closed as the response is, so that the turn is no longer under way once the user
             # has gone (`Store.taking_turn`).
             with outcome.running():
+                note = None
+                is_her: bool | None = None
+                other: str | None = None
+                if picture is not None:  # what it shows, worked out before her prompt is built
+                    # A background model of its own was chosen, so let it read the picture: a
+                    # cheap or better-seeing one, leaving the model that plays her to talk.
+                    reader = (
+                        admission.llms.background
+                        if backend.settings.background_llm_explicit
+                        else admission.llms.chat
+                    )
+                    try:
+                        note, is_her, other = await _describe_picture(
+                            reader,
+                            picture,
+                            characters.get(conversation.character_id),
+                            roster="；".join(
+                                f"{c.name}（{c.photo_appearance}）" if c.photo_appearance else c.name
+                                for c in characters.values()
+                            ),
+                        )
+                        note = note or None
+                    except Exception:  # her turn still runs, just without the picture told
+                        log.exception("could not describe the picture in conversation %s", conversation.id)
                 async with aclosing(engine.turn(
                     conversation, body.text, admission.llms, device_timezone,
-                    own_image=brought.image,
+                    own_image=brought.image, image=picture, picture_note=note,
+                    picture_is_her=is_her, picture_other=other,
                 )) as turn:
                     async for event in turn:
                         outcome.see(event)
@@ -596,6 +821,8 @@ def create_app(backend: Backend) -> FastAPI:
                         if isinstance(event, SegmentComplete | SpeechDelta | TurnJudged):
                             continue
                         yield _sse(shown(event))
+            if picture is not None:  # kept once the turn is on the record, to show it again
+                store.keep_user_image(conversation.id, body.text, picture[1], picture[0])
 
         return _TurnResponse(events(), lambda: outcome.over(cut_short_by_failure=False))
 

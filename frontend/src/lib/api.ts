@@ -140,6 +140,8 @@ export type Message = {
   affinity: AffinityChange | null;
   /** The photo she sent with her reply (GLOSSARY.md「照片」); none on a reply without one. */
   photo?: Photo;
+  /** Whether the user sent a picture with this message: it comes from `/api/messages/<id>/image`. */
+  image?: boolean;
 };
 
 /** How a photo she sent is coming along: being generated, sent, or not sent after all, and why not. */
@@ -755,11 +757,16 @@ export async function getCallSetup(conversationId: string, own: readonly OwnServ
  * Sends one text turn, bringing the user's own LLM (as `own_keys`) if this browser keeps one for
  * them, and yields the reply's server-sent events as they arrive.
  */
-export async function* sendTurn(conversationId: string, text: string, userId: string): AsyncGenerator<TurnEvent> {
+export async function* sendTurn(
+  conversationId: string,
+  text: string,
+  userId: string,
+  image?: string | null,
+): AsyncGenerator<TurnEvent> {
   const res = await api(`/api/conversations/${conversationId}/turns`, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ text, own_keys: turnOwnKeys(userId) }),
+    body: JSON.stringify({ text, image: image ?? undefined, own_keys: turnOwnKeys(userId) }),
   });
   if (!res.ok || !res.body) {
     await json(res);

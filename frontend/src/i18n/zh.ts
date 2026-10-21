@@ -171,11 +171,23 @@ export const zh = {
     callTooltip: "语音通话",
     placeholder: "用中文或日语说点什么",
     send: "发送",
+    /** 输入框左边发图片的按钮，和选中图片后的预览。 */
+    attachImage: "发一张图片给她看",
+    removeImage: "取消这张图片",
+    imageAttached: "准备发给她的图片",
     /** 消息区里跨天处的日期条；昨天、更早的写法和列表一样（conversationList）。 */
     today: "今天",
     emptyTitle: (name: string) => `和${name}打个招呼吧`,
     emptyDescription: "打字，或者点右上角的电话和她通话。",
     replying: (name: string) => `${name}正在回复`,
+    /** 她的回复气泡旁的小喇叭：点了才合成这条的语音（要花语音合成的钱，所以不自动合成）。 */
+    speak: "朗读这条回复",
+    speaking: "正在朗读，再点一下停下",
+    /** 输入框右边发语音的按钮：点一下开始录，再点一下停下并发送。 */
+    voiceStart: "录一段语音发给她",
+    voiceStop: "停下并发送这段语音",
+    /** 拿不到麦克风（纯 HTTP 的局域网地址、或用户拒绝了权限）时的提示。 */
+    voiceBlocked: "拿不到麦克风：请用 HTTPS 或 localhost 打开这个页面，并允许麦克风权限",
     /** 对话事件（GLOSSARY.md「对话事件」）给用户看的一句话：消息区的分隔线和列表的「最后一句」都用它。 */
     events: {
       hung_up: (name: string) => `${name}挂断了电话`,
@@ -249,7 +261,7 @@ export const zh = {
     ownLLMExempts: "带上自己的 LLM，文字对话就不受限额。",
     /** 页首的好感度标识和它点开的说明（GLOSSARY.md「好感度」「冷却」）。只说档位，不说数值。 */
     affinity: {
-      tiers: { cold: "冷淡", distant: "疏远", trust: "信任", close: "亲近", intimate: "亲密" },
+      tiers: { cold: "冷淡", distant: "疏远", trust: "信任", close: "亲近", intimate: "亲密", love: "爱意" },
       /** 每一档的大意，写在说明里档名下面。 */
       notes: {
         cold: "她对你明显冷淡，话很少。",
@@ -257,6 +269,7 @@ export const zh = {
         trust: "你们一直以来的关系。",
         close: "她比平时更放松，更愿意和你说心里话。",
         intimate: "她非常信赖你，会说平时不轻易说的心事。",
+        love: "她已经把心意说出口了：会更直白地想你、黏你，也会吃醋。",
       },
       label: (tier: string) => `你们的关系：${tier}`,
       title: (tier: string) => `你们现在的关系：${tier}`,
@@ -278,6 +291,15 @@ export const zh = {
         unhappier: (name: string) => `${name}有点不高兴`,
         /** 送礼让她解除了冷却。 */
         thawed: (name: string) => `${name}愿意和你说话了`,
+      },
+      /** 她那条回复下面那行：判断模型给这一轮打的分，以及实际变化量。 */
+      note: (step: string, feeling: string) => `好感 ${step} · ${feeling}`,
+      /** 判断模型的分级，从「伤到你」到「很高兴」；和她被告诉的话一致（backend `_FEELINGS`）。 */
+      feelings: {
+        byLevel: ["伤到了她", "让她有点不舒服", "没什么感觉", "有点开心", "很开心，觉得被在意"],
+        happier: "有点开心",
+        unhappier: "有点不高兴",
+        outOfLine: "很受伤、很生气",
       },
     },
     /** 页首的「换衣装」和它打开的面板（spec「衣装与换衣装」）。 */
@@ -1988,3 +2010,4 @@ export const zh = {
     lastUpdated: "最后更新：2026 年 10 月 20 日",
   },
 };
+

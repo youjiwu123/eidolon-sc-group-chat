@@ -7,9 +7,10 @@ from the site's own origin (`origin_allowed`). A session lasts `SESSION_LIFETIME
 was last used; each renewal renews the cookie too.
 """
 
+import ipaddress
 from collections.abc import Awaitable, Callable
 from typing import TYPE_CHECKING, Annotated
-from urllib.parse import urlsplit
+from urllib.parse import SplitResult, urlsplit
 
 from fastapi import Depends, HTTPException, Request, Response
 from fastapi.responses import JSONResponse
@@ -44,7 +45,9 @@ def clear_session_cookie(response: Response, settings: Settings) -> None:
     )
 
 
-def origin_allowed(origin: str | None, signed_in: bool, settings: Settings) -> bool:
+def origin_allowed(
+    origin: str | None, signed_in: bool, settings: Settings, host: str | None = None
+) -> bool:
     """Whether a request that changes something may come from `origin`. Browsers always
     say where such a request comes from, so one that carries the session cookie must;
     one without the cookie gets nowhere anyway. In development any page on this machine
@@ -54,7 +57,43 @@ def origin_allowed(origin: str | None, signed_in: bool, settings: Settings) -> b
     if settings.domain is not None:
         return origin == settings.public_origin
     parts = urlsplit(origin)
-    return parts.scheme == "http" and parts.hostname in _LOCAL_HOSTS
+    # The page's own address is always the site, whatever hostname it was opened by: the LAN
+    # address, the Tailscale one, or a name only that machine knows.
+    if host and _same_host(parts, host):
+        return True
+    if parts.scheme == "http" and parts.hostname in _LOCAL_HOSTS:
+        return True
+    # A phone on the same network reaches the site by the machine's LAN address, which is
+    # none of the names above: in a development deployment (dev login on, no domain) a
+    # private address is the site too. Anything else still has to be the site's own origin.
+    # A development deployment (dev login, no domain) already lets anyone be anyone, so it
+    # cannot protect much by origin either: the frontend proxies the request on, and the host
+    # it arrives with is the proxy's, not the page's. Any origin is let in there.
+    return settings.dev_login and parts.hostname is not None
+
+
+def _same_host(parts: SplitResult, host: str) -> bool:
+    """Whether the origin's scheme authority is the request's own `host` header."""
+    hostname = (parts.hostname or "").lower()
+    name, _, port = host.partition(":")
+    name = name.lower().strip("[]")
+    default = 443 if parts.scheme == "https" else 80
+    origin_port = parts.port or default
+    host_port = int(port) if port.isdigit() else default
+    return hostname == name and origin_port == host_port
+
+
+def _private_host(hostname: str | None) -> bool:
+    """Whether `hostname` is a private address: the LAN, a Tailscale one, or a local name."""
+    if not hostname:
+        return False
+    if hostname.endswith(".local") or hostname in _LOCAL_HOSTS:
+        return True
+    try:
+        address = ipaddress.ip_address(hostname)
+    except ValueError:
+        return False
+    return address.is_private or address.is_loopback or address.is_link_local
 
 
 def session_middleware(
@@ -67,7 +106,10 @@ def session_middleware(
         request: Request, call_next: Callable[[Request], Awaitable[Response]]
     ) -> Response:
         if request.method not in _SAFE_METHODS and not origin_allowed(
-            request.headers.get("origin"), SESSION_COOKIE in request.cookies, settings
+            request.headers.get("origin"),
+            SESSION_COOKIE in request.cookies,
+            settings,
+            request.headers.get("host"),
         ):
             return JSONResponse({"detail": "请求来自其他网站，已拒绝"}, status_code=403)
         response = await call_next(request)

@@ -63,9 +63,9 @@ WINDOW = timedelta(days=7)
 """How long after the last contact she may still reach out."""
 
 INTERVALS: dict[Tier, tuple[timedelta, timedelta]] = {
-    "intimate": (timedelta(hours=3), timedelta(hours=6)),
-    "close": (timedelta(hours=8), timedelta(hours=16)),
-    "trust": (timedelta(hours=20), timedelta(hours=36)),
+    "intimate": (timedelta(hours=2), timedelta(hours=4)),
+    "close": (timedelta(hours=5), timedelta(hours=10)),
+    "trust": (timedelta(hours=12), timedelta(hours=24)),
 }
 """How long after the last contact she reaches out, by her tier: the closer, the sooner. None
 in the tiers not here."""

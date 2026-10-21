@@ -636,7 +636,14 @@ def test_stand_assets_url_is_read_without_its_trailing_slash(monkeypatch: pytest
     assert stand_assets_url_from_env() == "http://localhost:8765"
 
 
-@pytest.mark.parametrize("value", ["stand.example/eidolon", "/stand", "ftp://stand.example"])
+def test_a_path_on_the_site_is_allowed_for_the_stands(monkeypatch: pytest.MonkeyPatch):
+    """`/stands` 这种同源路径是合法的：站点从哪个地址打开就从哪拿素材。"""
+    monkeypatch.setenv("EIDOLON_STAND_ASSETS_URL", "/stands")
+
+    assert stand_assets_url_from_env() == "/stands"
+
+
+@pytest.mark.parametrize("value", ["stand.example/eidolon", "ftp://stand.example"])
 def test_stand_assets_url_must_be_a_web_address(monkeypatch: pytest.MonkeyPatch, value: str):
     monkeypatch.setenv("EIDOLON_STAND_ASSETS_URL", value)
 

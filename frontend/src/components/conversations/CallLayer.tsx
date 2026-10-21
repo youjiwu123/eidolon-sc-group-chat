@@ -189,6 +189,20 @@ export function CallLayer(props: Props) {
   useEffect(() => {
     onEscape.current = ended ? props.onDismiss : props.onCollapse;
   });
+  // 接通时她先开口：放她的开场白（第一次会合成并缓存），通话结束后重置。
+  const spokeOpener = useRef(false);
+  useEffect(() => {
+    if (call.phase !== "connected") {
+      if (call.phase === "ended") spokeOpener.current = false;
+      return;
+    }
+    if (spokeOpener.current) return;
+    spokeOpener.current = true;
+    const audio = new Audio(`/api/characters/${character.id}/call-opener/speech`);
+    void audio.play().catch(() => undefined);
+    return () => audio.pause();
+  }, [call.phase, character.id]);
+
   // 展开时把焦点移进来，屏幕阅读器从这里读起。
   useEffect(() => {
     if (isCollapsed) return;

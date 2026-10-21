@@ -102,7 +102,7 @@ async def reached_out(
         settings=settings, random=FakeRandom(MIDDLE), **services,
     )
     database = settings.database_path
-    last_contact(database, conversation, clock.now - timedelta(hours=28))
+    last_contact(database, conversation, clock.now - timedelta(hours=18))
     await backend_of(client).reach_outs.run_due()
     at = place(database, conversation, clock.now - timedelta(hours=1))
     await live_in(client, "Asia/Tokyo")

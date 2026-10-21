@@ -8,6 +8,7 @@ export {
   Phone as PhoneIcon,
   PhoneOff as HangUpIcon,
   Shirt as OutfitIcon,
+  Volume2 as SpeakIcon,
 } from "lucide-react";
 
 // 她结束了对话（GLOSSARY.md「已结束的对话」）：对话事件的分隔线和换掉输入栏的结束卡。
@@ -29,6 +30,9 @@ export {
 
 // 发送键和更多菜单。
 export { ArrowUp as SendIcon, Ellipsis as MoreIcon } from "lucide-react";
+
+// 输入框左边发图片的按钮（聊天里给角色看一张图）。
+export { ImagePlus as AttachImageIcon } from "lucide-react";
 
 // 失败提示（components/app/FailureNotice）。
 export { CircleAlert as FailureIcon } from "lucide-react";
@@ -107,3 +111,4 @@ export { Camera as PhotoIcon, CameraOff as PhotosUsedUpIcon, ImageOff as PhotoFa
 
 // 导航栏底部（电脑）的 GitHub 仓库链接；品牌标志 Lucide 不收，是 The Library Icon Rule 的例外。
 export { GitHubIcon } from "./GitHubIcon";
+

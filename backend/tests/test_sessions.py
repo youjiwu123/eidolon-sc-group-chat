@@ -125,19 +125,23 @@ async def test_signing_out_ends_the_session_on_this_device_only(make_client: Cli
 
 
 @pytest.mark.parametrize(
-    "origin", ["https://evil.example", "http://localhost.evil.example:3000", "null"]
+    "origin, allowed",
+    [("https://evil.example", True), ("http://localhost.evil.example:3000", True), ("null", False)],
 )
-async def test_requests_that_change_something_from_other_sites_are_refused(
-    make_client: ClientFactory, origin: str
+async def test_in_development_a_page_from_anywhere_is_the_site_as_anyone_may_be_anyone(
+    make_client: ClientFactory, origin: str, allowed: bool
 ):
+    """A development deployment (dev login, no domain) lets anyone be anyone; the frontend
+    proxies requests on, so the host the backend sees is the proxy's and the origin cannot
+    tell the page's own address from another's. Any page that says where it is is let in;
+    `null`, which says it is nowhere, is not."""
     client = make_client(FakeLLM())
 
     res = await client.post(
         "/api/conversations", json={"character_id": "mano"}, headers={"Origin": origin}
     )
 
-    assert res.status_code == 403
-    assert (await mano_conversations(client)).json() == []
+    assert res.status_code == (201 if allowed else 403)
     reading = await client.get(
         "/api/conversations", params={"character_id": "mano"}, headers={"Origin": origin}
     )

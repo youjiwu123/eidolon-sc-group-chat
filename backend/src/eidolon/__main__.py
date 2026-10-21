@@ -182,11 +182,20 @@ def _serve() -> int:
         print(e, file=sys.stderr)
         return 1
     try:  # an unfit chat model
-        asyncio.run(_check_chat_llm(settings))
+        from eidolon.config import chat_llm_optional
+
+        if settings.chat_llm.configured and not chat_llm_optional():
+            asyncio.run(_check_chat_llm(settings))
     except RuntimeError as e:
         asyncio.run(backend.aclose())
         print(e, file=sys.stderr)
         return 1
+    if not settings.chat_llm.configured:
+        print(
+            "还没有配置对话模型：EIDOLON_CHAT_LLM_OPTIONAL=1，服务照常启动，"
+            "发消息时会提示在 .env 里填 CHAT_LLM_BASE_URL、CHAT_LLM_API_KEY、CHAT_LLM_MODEL",
+            file=sys.stderr,
+        )
     app = create_app(backend)
     uvicorn.run(
         app,

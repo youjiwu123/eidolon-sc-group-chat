@@ -136,7 +136,7 @@ docker compose cp backend:/data/drafts/mano.md characters/sheets/mano.md
 - **合成上传**：改了台词、音色或读音之后，运行 `uv run --env-file=../.env eidolon greeting upload`。它只合成存储桶里还没有的，再删掉旧版本。
 - **没有音频时**：没配 `EIDOLON_STAND_ASSETS_URL`，或者存储桶里还没有音频时，落地页只显示字幕。
 
-**开场白**是落地页演示来电里，访客接听后打来电话的那位说的第一句话，写在 `call_opener`、`call_opener_subtitle` 两项里，只有她需要配。规则、合成上传和没有音频时的样子都和招呼一样。来电锁屏上她的卡图不在角色配置里，手动放进存储桶，见 [deploy.md](deploy.md)「来电卡图」。
+**开场白**是通话接通后她先说的第一句话，落地页演示来电和登录后的每一通电话都会放它，写在 `call_opener`、`call_opener_subtitle` 两项里；没配的角色接通后直接进入对话。规则和没有音频时的样子都和招呼一样：落地页用 `eidolon greeting upload` 合成上传的那一份（见上面「招呼」），登录后的通话由后端在第一次接通时合成，缓存在数据卷里。来电锁屏上她的卡图不在角色配置里，手动放进存储桶，见 [deploy.md](deploy.md)「来电卡图」。
 
 存储桶的设置、退出码和下线办法见 [`deploy.md`](deploy.md) 的「招呼」。
 

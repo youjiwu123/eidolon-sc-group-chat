@@ -303,6 +303,17 @@ def effort_problem(effort: object, protocol: str) -> str | None:
     return None
 
 
+def chat_llm_optional() -> bool:
+    """`EIDOLON_CHAT_LLM_OPTIONAL=1`: run without a chat model, filling it in later.
+
+    The deployment then starts with empty `CHAT_LLM_*` (or with a key that does not work
+    yet), skips the startup check, and answers a turn with a message saying what to fill in,
+    instead of refusing to start. Meant for a local setup being put together before its
+    keys arrive: a public deployment should keep the check and fail loudly.
+    """
+    return os.environ.get("EIDOLON_CHAT_LLM_OPTIONAL", "").strip() == "1"
+
+
 @dataclass(frozen=True)
 class LLMSettings:
     """One model slot: the protocol its service speaks, where it is, and which model."""
@@ -317,6 +328,11 @@ class LLMSettings:
     """None to send none, leaving it to the model."""
     extra_body: dict[str, Any] | None = None
     """Merged into every request last (see `checked_extra_body`)."""
+
+    @property
+    def configured(self) -> bool:
+        """Whether this slot can be called at all: an address, a key and a model."""
+        return bool(self.base_url and self.api_key and self.model)
 
     @classmethod
     def chat_from_env(cls) -> "LLMSettings":
@@ -336,6 +352,8 @@ class LLMSettings:
         def required(name: str) -> str:
             if found := value(name):
                 return found
+            if chat_llm_optional():
+                return ""  # a deployment running without a chat model until it is filled in
             alternative = f"（或 {fallback}_LLM_{name}）" if fallback else ""
             raise RuntimeError(f"环境变量 {slot}_LLM_{name}{alternative}未设置")
 
@@ -401,6 +419,10 @@ class Settings:
     chat_llm: LLMSettings
     background_llm: LLMSettings = None  # pyright: ignore[reportAssignmentType]  # see below
     """Left out, the background model is the chat model."""
+    background_llm_explicit: bool = False
+    """Whether a background model was chosen at all (`BACKGROUND_LLM_*` filled in), rather
+    than following the chat model: pictures the user sends are read by it when it is, so a
+    cheaper or better-seeing model can be given that job alone."""
     call_reasoning_effort: ReasoningEffort | None = None
     """The chat model's in calls (`CHAT_LLM_CALL_REASONING_EFFORT`): see `chat_model`."""
     ice_servers: list[IceServer] = field(default_factory=lambda: list(DEFAULT_ICE_SERVERS))
@@ -511,6 +533,10 @@ class Settings:
             characters_path=characters_path_from_env(),
             chat_llm=chat_llm,
             background_llm=LLMSettings.background_from_env(),
+            background_llm_explicit=any(
+                os.environ.get(f"BACKGROUND_LLM_{name}")
+                for name in ("BASE_URL", "API_KEY", "MODEL")
+            ),
             call_reasoning_effort=effort_from_env(
                 "CHAT_LLM_CALL_REASONING_EFFORT", chat_llm.protocol
             ),
@@ -598,14 +624,19 @@ def event_names_path_from_env() -> Path:
 
 
 def stand_assets_url_from_env() -> str | None:
-    """`EIDOLON_STAND_ASSETS_URL`, the stands' public address, without a trailing slash."""
+    """`EIDOLON_STAND_ASSETS_URL`, where the stands are reached from the browser, without a
+    trailing slash: an http(s) address, or a path (`/stands`) served by the site itself, so
+    that the page asks whichever address it was opened on — the LAN's, Tailscale's, or one
+    behind HTTPS."""
     value = (os.environ.get("EIDOLON_STAND_ASSETS_URL") or "").strip().rstrip("/")
     if not value:
         return None
+    if value.startswith("/"):
+        return value
     if not value.startswith(("https://", "http://")):
         raise RuntimeError(
-            f"环境变量 EIDOLON_STAND_ASSETS_URL 应为立绘素材的公开访问地址（http:// 或 https:// 开头），"
-            f"而不是 {value}"
+            f"环境变量 EIDOLON_STAND_ASSETS_URL 应为立绘素材的公开访问地址（http:// 或 https:// 开头，"
+            f"或站点自己的路径如 /stands），而不是 {value}"
         )
     return value
 

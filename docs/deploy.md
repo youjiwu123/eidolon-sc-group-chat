@@ -228,7 +228,7 @@ docker compose -f docker-compose.prod.yml exec backend eidolon eval memory --jso
 | `thumbnails/<stand 或 stand_costume>/<enzaId>.png` | 这套衣装的缩略图：电脑「半身 ADV」的取景，400×500，透明背景 |
 | `outfits/<idol_id>.json` | 这位角色的衣装清单，换衣装面板按它列出衣装 |
 | `greetings/<角色标识>-<哈希>.mp3` | 落地页上她的招呼，由 `eidolon greeting upload` 合成上传，见下面的「招呼」 |
-| `call-openers/<角色标识>-<哈希>.mp3` | 落地页演示来电里她的开场白，同样由 `eidolon greeting upload` 合成上传，见下面「招呼」里的「开场白」 |
+| `call-openers/<角色标识>-<哈希>.mp3` | 落地页演示来电里她的开场白（登录后的通话由后端按同一段文字另行合成），同样由 `eidolon greeting upload` 合成上传，见下面「招呼」里的「开场白」 |
 | `call-posters/<角色标识>.webp` | 落地页演示来电里她的卡图（联系人海报），手动上传，见下面「招呼」里的「来电卡图」 |
 | `landing-voxels/<角色标识>.json` | 落地页第 5 幕里她的体素小人，手动上传，见下面「招呼」里的「体素小人」 |
 | `landing-memory/still.webp` | 落地页第 5 幕事先渲染好的终局全景图，给不播放动画的访客，手动上传，见下面「招呼」里的「第 5 幕的静止图」 |
@@ -347,7 +347,7 @@ greeting_subtitle = "……初次见面"              # 中文字幕
 
 ### 开场白
 
-落地页第 4 幕的演示来电里，访客接听后打来电话的那位说一句开场白（GLOSSARY.md「开场白」）。它和招呼一样写在 `characters.toml` 她那一段，规则也一样（两项一起配、双引号单行、语气提示只给语音合成听），只有打来电话的那一位需要配，没配的话接通后只有立绘和计时：
+通话接通后她先说一句开场白（GLOSSARY.md「开场白」）：落地页第 4 幕的演示来电放存储桶里的那一份；登录后用户拨打的电话，由后端在第一次接通时按同一段文字合成，缓存在数据卷的 `speech/` 下，以后再接通直接放缓存。它和招呼一样写在 `characters.toml` 她那一段，规则也一样（两项一起配、双引号单行、语气提示只给语音合成听）；没配的话接通后只有立绘和计时：
 
 ```toml
 call_opener = "[shyly] あっ、もしもし……真乃です。えっと、今、お電話だいじょうぶですか？"
