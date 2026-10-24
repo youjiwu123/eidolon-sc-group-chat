@@ -262,6 +262,8 @@ export const zh = {
     /** 页首的好感度标识和它点开的说明（GLOSSARY.md「好感度」「冷却」）。只说档位，不说数值。 */
     affinity: {
       tiers: { cold: "冷淡", distant: "疏远", trust: "信任", close: "亲近", intimate: "亲密", love: "爱意" },
+      /** 管理者专用：更多菜单里的入口，打开调整这位角色好感度的对话框。 */
+      adjust: "调整好感度",
       /** 每一档的大意，写在说明里档名下面。 */
       notes: {
         cold: "她对你明显冷淡，话很少。",
@@ -1272,6 +1274,16 @@ export const zh = {
         edit: "修改单独限额",
         takeOff: "取消单独限额",
       },
+      affinity: {
+        title: "好感度",
+        hint: "手动设定这位用户对某位角色的好感度（0–120）。保存后立即生效，并解除冷却；用户仍然只看得到档位，看不到数值。",
+        character: "角色",
+        value: "好感值",
+        current: (tier: string, value: string) => `当前：${tier} · ${value}`,
+        save: "保存好感度",
+        saved: "已保存。",
+        invalid: "填 0 到 120 之间的数值。",
+      },
       limitsDialog: {
         title: (name: string) => `${name} 的单独限额`,
         hint: "只对这位用户生效，保存后从他的下一个回合、下一次通话起按这里的数字计算；没有单独设定的一项跟随全站。不计入限额的回合和通话照常放行。单次通话的时长和回合上限对所有人都一样，不能单独设。",
@@ -1756,6 +1768,23 @@ export const zh = {
     },
   },
   /** 礼物页（GLOSSARY.md「礼物」「抽奖」，DESIGN.md「礼物页」）。 */
+  groups: {
+    title: "群聊",
+    entry: "打开群聊",
+    create: "新建群聊",
+    pick: (min: number, max: number) => `选 ${min}–${max} 个人，她们会一起说话。`,
+    createConfirm: (count: number) => (count >= 2 ? `建群（${count} 人）` : `至少选 2 个人（已选 ${count}）`),
+    empty: "还没有群聊。建一个，把几个人拉进来一起说话。",
+    back: "返回",
+    placeholder: "说点什么……",
+    placeholderHint: "说点什么……（/名字 可以只对某个人说）",
+    send: "发送",
+    thinking: "她们在想怎么接……",
+    typing: (name: string) => `${name}正在输入……`,
+    saveName: "保存",
+    chatter: "让她们自己聊",
+    renameHint: "点名字可以改",
+  },
   gifts: {
     title: "礼物",
     loading: "正在读取礼物",

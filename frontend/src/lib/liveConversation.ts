@@ -789,9 +789,13 @@ export class LiveConversation {
     }, CUE_MS);
   }
 
+  /** Re-reads her affinity, as an admin's setting changes it outside a turn. */
+  async refreshAffinity(): Promise<void> {
+    await this.readAffinity();
+  }
+
   /** Reads her affinity as the page opens; if it cannot be read, there is none to show. */
-  private async readAffinity(): Promise<void> {
-    let affinity: AffinityStatus | null = null;
+  private async readAffinity(): Promise<void> {    let affinity: AffinityStatus | null = null;
     try {
       affinity = await this.ports.getAffinity(this.characterId);
     } catch {

@@ -52,6 +52,7 @@ import { cn } from "@/lib/utils";
 import { herVars } from "@/theme/herVars";
 import {
   AchievementsIcon,
+  AffinityHeartIcon,
   AttachImageIcon,
   BackIcon,
   CloseIcon,
@@ -71,6 +72,7 @@ import {
 import { Ja } from "@/theme/Ja";
 
 import { AchievementsPanel } from "./AchievementsPanel";
+import { AdminAffinityDialog } from "./AdminAffinityDialog";
 import { AffinityBadge, CueArrowIcon } from "./AffinityBadge";
 import { CallBar } from "./CallBar";
 import { EVENT_ICONS, eventText } from "./EventIcon";
@@ -132,6 +134,7 @@ export function ConversationView({
   const outfits = useStandOutfits(character);
   const [pickingOutfit, setPickingOutfit] = useState(false);
   const [pickingPast, setPickingPast] = useState(false);
+  const [adjustingAffinity, setAdjustingAffinity] = useState(false);
   // 这一轮要发给她的图片：选中的 data URL，发出去或取消后清空。
   const [picture, setPicture] = useState<string | null>(null);
   const pictureInput = useRef<HTMLInputElement>(null);
@@ -281,6 +284,13 @@ export function ConversationView({
               <AchievementsIcon aria-hidden />
               {copy.achievements.open}
               {achievements.isUnseen && <UnseenDot className="ml-auto" />}
+            </DropdownMenuItem>
+          )}
+          {/* 管理者才能手动设定好感度：普通用户看不到，接口本身也只认管理员。 */}
+          {account?.is_admin && affinity && (
+            <DropdownMenuItem onClick={() => setAdjustingAffinity(true)}>
+              <AffinityHeartIcon aria-hidden />
+              {t.affinity.adjust}
             </DropdownMenuItem>
           )}
         </DropdownMenuContent>
@@ -555,6 +565,14 @@ export function ConversationView({
         color={character.color}
         her={achievements.her}
         unseen={achievements.unseenRows}
+      />
+      <AdminAffinityDialog
+        userId={userId}
+        character={character}
+        affinity={affinity}
+        isOpen={adjustingAffinity}
+        onOpenChange={setAdjustingAffinity}
+        onSaved={() => void live?.refreshAffinity()}
       />
       {live && (
         <LiveCallLayer

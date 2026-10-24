@@ -464,6 +464,11 @@ class Affinities:
         shows it is to show it only while affinity is on."""
         return self._read(user_id, character_id).tier
 
+    def value(self, user_id: str, character_id: str) -> float:
+        """The user's affinity with the character now, having recovered, on or off. For the
+        admin console, which sets it and may show it; never for the user."""
+        return self._read(user_id, character_id).value
+
     def cooldown_until(self, user_id: str, character_id: str) -> datetime | None:
         """When the cooldown the character is in with the user ends; None if she is in none,
         or while affinity is off, when none holds whatever is kept."""
@@ -585,6 +590,27 @@ class Affinities:
                     (NORMAL, now.isoformat(), user_id, character_id),
                 )
         return below
+
+    def set_value(self, user_id: str, character_id: str, value: float) -> Affinity:
+        """Set it exactly, out of any cooldown, as the admin console's manual setting does;
+        held between the lowest and the highest. The day's gains start over, so a setting
+        does not use up what turns may still raise. Nothing is told of it: no change, no
+        listener. Returns it as set."""
+        with self._lock, self._db:
+            now = self._clock()
+            after = Affinity(min(max(value, LOWEST), HIGHEST), now, False)
+            self._db.execute(
+                "INSERT OR REPLACE INTO affinities (user_id, character_id, value, updated_at,"
+                " cooling, gained_today, gained_on) VALUES (?, ?, ?, ?, 0, 0, ?)",
+                (
+                    user_id,
+                    character_id,
+                    after.value,
+                    now.isoformat(),
+                    day_of(now).isoformat(),
+                ),
+            )
+        return after
 
     def close(self) -> None:
         with self._lock:

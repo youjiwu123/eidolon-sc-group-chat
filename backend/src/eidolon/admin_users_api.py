@@ -35,6 +35,7 @@ from pydantic import BaseModel, Field, model_validator
 from eidolon.accounts import is_admin
 from eidolon.activity import ActivityLog, RecordRow
 from eidolon.admin_api import Admin
+from eidolon.affinity import HIGHEST
 from eidolon.assembly import Backend
 from eidolon.store import NotFound, User
 from eidolon.usage import UserLimits
@@ -79,6 +80,14 @@ class LimitsInput(BaseModel):
         ):
             raise ValueError("至少要单独设定回合数、通话次数或照片数中的一项")
         return self
+
+
+class AffinityInput(BaseModel):
+    """A value to set a user's affinity with a character to by hand, from the lowest to the
+    highest; out of any cooldown, the day's gains starting over."""
+
+    character_id: str
+    value: float = Field(ge=0, le=HIGHEST)
 
 
 def recent_usage(records: list[RecordRow], since: datetime) -> dict:
@@ -206,3 +215,32 @@ def add_admin_user_routes(app: FastAPI, backend: Backend) -> None:
         details(user_id)
         limiter.set_user_limits(user_id, None)
         return details(user_id)
+
+    @app.get("/api/admin/users/{user_id}/affinity")
+    def read_affinity(user_id: str, _: Admin) -> dict:
+        """The user's affinity with every character, by value and tier; 404 for no such user."""
+        details(user_id)
+        return {
+            "affinities": [
+                {
+                    "character_id": character_id,
+                    "value": round(backend.affinities.value(user_id, character_id), 1),
+                    "tier": backend.affinities.tier(user_id, character_id),
+                }
+                for character_id in backend.characters
+            ]
+        }
+
+    @app.put("/api/admin/users/{user_id}/affinity")
+    def set_affinity(user_id: str, body: AffinityInput, _: Admin) -> dict:
+        """Set the user's affinity with the character by hand, out of any cooldown; 404 for
+        no such user or character."""
+        details(user_id)
+        if body.character_id not in backend.characters:
+            raise HTTPException(404, "没有这位角色")
+        after = backend.affinities.set_value(user_id, body.character_id, body.value)
+        return {
+            "character_id": body.character_id,
+            "value": round(after.value, 1),
+            "tier": after.tier,
+        }

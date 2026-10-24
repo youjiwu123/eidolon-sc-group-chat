@@ -140,6 +140,7 @@ from eidolon.reply_format import (
     SegmentDelta,
     SpeechDelta,
     format_reply,
+    TEXT_ACTIONS,
 )
 from eidolon.retrieval import RECALL_STORY_TOOL, Retrieval, Retrieved
 from eidolon.store import (
@@ -1012,6 +1013,8 @@ class ConversationEngine:
         if any(m.photo_failed for m in history):
             context.append(NOT_RECEIVED)
         context += closing
+        if voiced_by is None:  # 文字回合才允许用圆括号写她的动作，通话里那会被念出来
+            context = [*context, TEXT_ACTIONS]
         prompt.append(ChatMessage("system", "\n\n".join(context)))
         prompt.append(ChatMessage("user", f"{narration.get(None, '')}{text}", image=image))
         return prompt

@@ -20,6 +20,8 @@ import sqlite3
 from pathlib import Path
 
 USER_DATA = [
+    ("group_messages", "group_id IN (SELECT id FROM group_conversations WHERE user_id = ?)"),
+    ("group_conversations", "user_id = ?"),
     ("memory_vectors", "user_id = ?"),
     ("memories", "user_id = ?"),
     ("photos", "conversation_id IN (SELECT id FROM conversations WHERE user_id = ?)"),

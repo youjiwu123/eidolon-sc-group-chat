@@ -61,6 +61,7 @@ from eidolon.admin_users_api import add_admin_user_routes
 from eidolon.admin_config_api import add_admin_config_routes
 from eidolon.admin_prices_api import add_admin_price_routes
 from eidolon.announcements_api import add_announcement_routes
+from eidolon import group_chat
 from eidolon.gifts_api import add_gift_routes
 from eidolon.photos_api import add_photo_routes
 from eidolon.sessions import UserId, session_middleware
@@ -322,6 +323,7 @@ def create_app(backend: Backend) -> FastAPI:
     store, characters, engine = backend.store, backend.characters, backend.engine
     memory, calls, admissions = backend.memories, backend.calls, backend.admissions
     gift_catalog, titles = backend.gift_catalog, backend.titles
+    group_chat.ensure_schema(store._db)  # 群聊的表，和单聊分开
 
     def gift_of(event: ConversationEvent) -> dict:
         """For a gift record, which gift and its name, to show it by."""
@@ -761,6 +763,151 @@ def create_app(backend: Backend) -> FastAPI:
         if not heard.strip():
             raise HTTPException(422, "没有听清，再说一次？")
         return {"text": heard}
+
+    class GroupInput(BaseModel):
+        character_ids: list[str]
+        title: str | None = None
+
+    class GroupTurnInput(BaseModel):
+        text: str
+        target_id: str | None = None
+
+    def group_or_404(group_id: str, user_id: str) -> group_chat.Group:
+        group = group_chat.get_group(store, group_id)
+        if group is None or group.user_id != user_id:
+            raise HTTPException(404, "没有这个群")
+        return group
+
+    def group_json(group: group_chat.Group, last: group_chat.GroupMessage | None) -> dict:
+        return {
+            "id": group.id,
+            "title": group.title,
+            "participants": list(group.participants),
+            "created_at": group.created_at,
+            "last_message": message_json(last) if last else None,
+        }
+
+    def message_json(message: group_chat.GroupMessage | None) -> dict | None:
+        if message is None:
+            return None
+        return {
+            "id": message.id,
+            "role": message.role,
+            "speaker_id": message.speaker_id,
+            "segments": [{"ja": s.ja, "zh": s.zh} for s in message.segments],
+            "created_at": message.created_at,
+        }
+
+    @app.post("/api/groups")
+    def make_group(body: GroupInput, user_id: UserId) -> dict:
+        """建一个群，拉 2–4 个人。"""
+        wanted = list(dict.fromkeys(body.character_ids))
+        unknown = [c for c in wanted if c not in characters]
+        if unknown:
+            raise HTTPException(422, f"没有这些角色：{', '.join(unknown)}")
+        if not group_chat.MIN_PARTICIPANTS <= len(wanted) <= group_chat.MAX_PARTICIPANTS:
+            raise HTTPException(
+                422,
+                f"群聊要 {group_chat.MIN_PARTICIPANTS}–{group_chat.MAX_PARTICIPANTS} 个人",
+            )
+        group = group_chat.create_group(store, user_id, wanted, body.title)
+        return group_json(group, None)
+
+    @app.get("/api/groups")
+    def my_groups(user_id: UserId) -> dict:
+        return {
+            "groups": [
+                group_json(group, last) for group, last in group_chat.list_groups(store, user_id)
+            ]
+        }
+
+    @app.get("/api/groups/{group_id}/messages")
+    def group_messages(group_id: str, user_id: UserId) -> dict:
+        group = group_or_404(group_id, user_id)
+        return {
+            "group": group_json(group, None),
+            "messages": [message_json(m) for m in group_chat.messages_of(store, group.id)],
+        }
+
+    @app.patch("/api/groups/{group_id}")
+    def rename_group(group_id: str, body: dict, user_id: UserId) -> dict:
+        """给群改个名字；传空名字就回到「成员名」。"""
+        group = group_or_404(group_id, user_id)
+        title = (body.get("title") or "").strip() or None
+        if title is not None and len(title) > 40:
+            raise HTTPException(422, "名字太长了，40 个字以内")
+        group_chat.rename_group(store, group.id, title)
+        return group_json(group_chat.get_group(store, group.id) or group, None)
+
+    @app.post("/api/groups/{group_id}/chatter")
+    async def group_chatter(group_id: str, user_id: UserId) -> StreamingResponse:
+        """没人说话时，让她们自己聊两三句。"""
+        group = group_or_404(group_id, user_id)
+        members = [characters[c] for c in group.participants if c in characters]
+        if len(members) < 2:
+            raise HTTPException(422, "群里至少要两个人")
+        admission = admissions.turn(user_id, members[0].id, BroughtKeys())
+
+        async def events() -> AsyncIterator[str]:
+            def send(payload: dict) -> str:
+                return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
+
+            async for kind, speaker_id, message in group_chat.run_chatter(
+                store, group, characters, admission.llms.chat, admission.llms.background
+            ):
+                if kind == "thinking":
+                    yield send({"type": "thinking", "speaker_id": speaker_id})
+                elif message is not None:
+                    yield send({"type": "message", "message": message_json(message)})
+            yield send({"type": "done"})
+
+        return StreamingResponse(events(), media_type="text/event-stream")
+
+    @app.delete("/api/groups/{group_id}")
+    def drop_group(group_id: str, user_id: UserId) -> dict:
+        group = group_or_404(group_id, user_id)
+        group_chat.delete_group(store, group.id)
+        return {"deleted": group.id}
+
+    @app.post("/api/groups/{group_id}/turns")
+    async def group_turn(group_id: str, body: GroupTurnInput, user_id: UserId) -> StreamingResponse:
+        """我发一句话，她们一条接一条地说。一条一条推给页面，别一起冒出来。
+
+        事件：`{"type":"thinking","speaker_id":...}`（她想说话）、
+        `{"type":"message","message":{...}}`（她说完了）、`{"type":"done"}`。"""
+        group = group_or_404(group_id, user_id)
+        text = body.text.strip()
+        if not text:
+            raise HTTPException(422, "说点什么吧")
+        members = [characters[c] for c in group.participants if c in characters]
+        if not members:
+            raise HTTPException(422, "群里没有人")
+        brought = BroughtKeys()
+        if not backend.config.chat_model.text.configured and brought.llm is None:
+            raise HTTPException(503, NO_CHAT_MODEL)
+        admission = admissions.turn(user_id, members[0].id, brought)
+
+        async def events() -> AsyncIterator[str]:
+            def send(payload: dict) -> str:
+                return f"data: {json.dumps(payload, ensure_ascii=False)}\n\n"
+
+            yield send({"type": "user", "segments": [{"ja": "", "zh": text}]})
+            async for kind, speaker_id, message in group_chat.run_turn(
+                store,
+                group,
+                characters,
+                text,
+                admission.llms.chat,
+                admission.llms.background,
+                forced=(body.target_id,) if body.target_id else (),
+            ):
+                if kind == "thinking":
+                    yield send({"type": "thinking", "speaker_id": speaker_id})
+                elif message is not None:
+                    yield send({"type": "message", "message": message_json(message)})
+            yield send({"type": "done"})
+
+        return StreamingResponse(events(), media_type="text/event-stream")
 
     @app.post("/api/conversations/{conversation_id}/turns")
     def text_turn(
