@@ -72,7 +72,8 @@ const LIP: Record<Emotion, string> = {
 
 /**
  * Which animations show `direction` in an outfit with these `animations` (name → duration in
- * seconds). With reduced motion the body is always `wait`; faces, mouth, nods and gaze go on.
+ * seconds). With reduced motion the body is always the idle one (`wait`); faces, mouth, nods and
+ * gaze go on.
  */
 export function pickAnimations(
   direction: StandDirection,
@@ -84,13 +85,23 @@ export function pickAnimations(
   const k = LIP[mood];
   const mouth = pick([`lip_${k}`, `lip_${k}1`, `lip_${k}2`, "lip_smile", "lip_wait"]) ?? anyMouth(animations);
   const nodding = nod && pick([nod.kind, `${nod.kind}2`]);
+  // An outfit need not have `wait` at all; stand still in `idle` or `stand` instead, or in
+  // whatever it opens with, rather than leaving the body track empty.
+  const idle = idleAnimation(animations) ?? "wait";
   return {
-    body: reducedMotion ? "wait" : (pick(BODY[mood]) ?? "wait"),
+    body: reducedMotion ? idle : (pick(BODY[mood]) ?? idle),
     face: pick(FACE[mood]) ?? "blank",
     mouth: mouth ? { name: mouth, open: direction.speaking } : null,
     nod: nod && nodding ? { name: nodding, id: nod.id } : null,
     eye: direction.looking && animations.has("eye_front") ? "eye_front" : null,
   };
+}
+
+/** The animation she stands still in: `wait`, `idle`, `stand`, else the first the outfit has
+ * (null only when it has none at all). */
+export function idleAnimation(animations: ReadonlyMap<string, number>): string | null {
+  for (const name of ["wait", "idle", "stand"]) if (animations.has(name)) return name;
+  return animations.keys().next().value ?? null;
 }
 
 /** Any talking mouth that moves: not a still `lip_*_s`, nor `lip_a`. */

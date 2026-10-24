@@ -23,6 +23,8 @@ type Props = {
   isReducedMotion: boolean;
   /** 每试完一套衣装：载入了没有（换衣装的预览据此判断画面上是不是这一套）。 */
   onTried?: (outfit: Outfit, isLoaded: boolean) => void;
+  /** 载入并量出整个人以后报一次它的宽高（和取景同一坐标系）：对话页角上的小人按它定画布的高矮。 */
+  onMeasured?: (size: { width: number; height: number }) => void;
   /** 画布的像素比上限，默认同通话层（`MAX_PIXEL_RATIO`）。挂载时定下，之后不变。 */
   maxPixelRatio?: number;
   /** 静帧：只画一帧就停（落地页的「减少动态效果」档）。挂载时定下，之后不变。 */
@@ -31,7 +33,7 @@ type Props = {
 
 /**
  * 立绘（spec「通话层」「衣装与换衣装」）：铺满外框的一块画布，外框的位置和大小由用的地方决定
- * （通话层、换衣装的大预览）。加载中什么都不画（只露出背景图和纱），到了用 0.3 秒淡入。
+ * （通话层、换衣装的大预览、对话页角上的小人）。加载中什么都不画（只露出背景图和纱），到了用 0.3 秒淡入。
  * 衣装依次试，一套加载不到就换下一套；都不行时画布一直是空的，同样只剩背景图，不提示用户；
  * 换一通电话（重新挂载）或者换一套衣装再试。已经画出来之后换衣装失败的，身上那套照旧。
  * runtime 加载不到、浏览器不支持 WebGL 时整块去掉，这次挂载不再重试。
@@ -44,6 +46,7 @@ export function Stand({
   direction,
   isReducedMotion,
   onTried,
+  onMeasured,
   maxPixelRatio,
   isStill = false,
 }: Props) {
@@ -60,6 +63,10 @@ export function Stand({
   const tried = useRef(onTried);
   useEffect(() => {
     tried.current = onTried;
+  });
+  const measured = useRef(onMeasured);
+  useEffect(() => {
+    measured.current = onMeasured;
   });
 
   useEffect(() => {
@@ -114,6 +121,8 @@ export function Stand({
       try {
         await ready.load(outfit);
         if (cancelled) return;
+        const size = ready.size;
+        if (size) measured.current?.(size);
         setPhase("shown");
         tried.current?.(outfit, true);
       } catch {

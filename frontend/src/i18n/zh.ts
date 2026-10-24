@@ -188,6 +188,10 @@ export const zh = {
     voiceStop: "停下并发送这段语音",
     /** 拿不到麦克风（纯 HTTP 的局域网地址、或用户拒绝了权限）时的提示。 */
     voiceBlocked: "拿不到麦克风：请用 HTTPS 或 localhost 打开这个页面，并允许麦克风权限",
+    /** 对话页右下角站着的小立绘（DESIGN.md「对话页的立绘小人」）：点她一下时的读屏名字。 */
+    companion: {
+      poke: (name: string) => `戳一下${name}`,
+    },
     /** 对话事件（GLOSSARY.md「对话事件」）给用户看的一句话：消息区的分隔线和列表的「最后一句」都用它。 */
     events: {
       hung_up: (name: string) => `${name}挂断了电话`,
@@ -589,6 +593,8 @@ export const zh = {
       phoneTextureOff: "电话质感关",
       scspAvatarsOn: "SCSP 头像开",
       scspAvatarsOff: "SCSP 头像关",
+      chatStandOn: "立绘开",
+      chatStandOff: "立绘关",
       reachOutsOn: "开",
       reachOutsOff: "关",
       ownKeysNone: "全部用部署者的服务",
@@ -699,6 +705,8 @@ export const zh = {
     },
     appearance: {
       scspAvatars: "SCSP 头像",
+      /** 对话页右下角的小立绘（DESIGN.md「对话页的立绘小人」）：默认开，只记在这台设备上。 */
+      chatStand: "对话页显示立绘",
     },
     call: {
       mic: "默认麦克风",

@@ -3,6 +3,7 @@
 import NextLink from "next/link";
 import {
   useEffect,
+  useMemo,
   useRef,
   useState,
   useSyncExternalStore,
@@ -75,6 +76,7 @@ import { AchievementsPanel } from "./AchievementsPanel";
 import { AdminAffinityDialog } from "./AdminAffinityDialog";
 import { AffinityBadge, CueArrowIcon } from "./AffinityBadge";
 import { CallBar } from "./CallBar";
+import { ChatCompanion } from "./ChatCompanion";
 import { EVENT_ICONS, eventText } from "./EventIcon";
 import { LiveCallLayer } from "./CallLayer";
 import { OutfitPicker } from "./OutfitPicker";
@@ -125,7 +127,7 @@ export function ConversationView({
   character: Character;
   onBack?: () => void;
 }) {
-  const { open, close, go, guard, account, showPast } = useDirectory();
+  const { open, close, go, guard, account, appearance, showPast } = useDirectory();
   const isFullScreen = !useWide();
   const isReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)", false);
   const [live, setLive] = useState<LiveConversation | null>(null);
@@ -148,6 +150,17 @@ export function ConversationView({
   const achievements = useHerAchievements(character.id, userId, snapshot.herUnlockedAt);
   // 解除时刻按制作人的时区写成今天或明天。
   const timeZone = useProducerTimezone();
+  // 她最后一条回复：正在写，还是刚写完（右下角的小立绘据此想事情、动一会儿嘴）。
+  const lastReply = useMemo(() => {
+    for (let i = entries.length - 1; i >= 0; i--) {
+      const entry = entries[i];
+      if (entry.kind !== "character") continue;
+      if (entry.pending) return { isReplying: true, said: null };
+      const characters = entry.segments.reduce((sum, segment) => sum + segment.ja.length, 0);
+      return { isReplying: false, said: { key: entry.key, characters } };
+    }
+    return { isReplying: false, said: null };
+  }, [entries]);
 
   // 向外壳要她的对话（外壳里留着她的通话就用那一份，否则打开她最新的一个，从没聊过就开一个新的）；
   // 离开这一页时交回：通话还在进行就留在外壳里，否则就此告别。
@@ -492,7 +505,7 @@ export function ConversationView({
   return (
     <Frame character={character} subtree={subtree} header={header}>
       {barShown && <CallBar ref={focus.note} call={call} onExpand={() => live?.expand()} />}
-      <div inert={isCovered} className="min-h-0 flex-1">
+      <div inert={isCovered} className="relative min-h-0 flex-1">
         {/* 历史对话：读到之前转圈；换一段时消息区重来，停在最底 */}
         {viewing ? (
           viewing.status === "open" ? (
@@ -536,6 +549,15 @@ export function ConversationView({
             character={character}
             affinityOn={affinity !== null}
             timeZone={timeZone}
+          />
+        )}
+        {/* 右下角站着的小立绘：通话层或者通话条在用时整块拿掉，免得和通话层的立绘重复 */}
+        {appearance.chatStand && !layer && !viewing && outfits && (
+          <ChatCompanion
+            character={character}
+            outfits={outfits.toTry}
+            isReplying={lastReply.isReplying}
+            said={lastReply.said}
           />
         )}
       </div>

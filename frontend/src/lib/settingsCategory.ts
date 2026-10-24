@@ -108,7 +108,10 @@ export function settingsSummaries(values: SettingsValues): Partial<Record<Settin
   if (memoryCount !== null) summaries.memories = memoryCount === 0 ? t.noMemories : t.memories(memoryCount);
   if (daysKnown !== null) summaries.stats = t.daysKnown(daysKnown);
   if (call) summaries.call = `${copy.settings.call.qualities[call.quality]} · ${call.phoneTexture ? t.phoneTextureOn : t.phoneTextureOff}`;
-  if (appearance) summaries.appearance = appearance.scspAvatars ? t.scspAvatarsOn : t.scspAvatarsOff;
+  if (appearance)
+    summaries.appearance = `${appearance.scspAvatars ? t.scspAvatarsOn : t.scspAvatarsOff} · ${
+      appearance.chatStand ? t.chatStandOn : t.chatStandOff
+    }`;
   if (reachOuts !== null) summaries["reach-outs"] = reachOuts ? t.reachOutsOn : t.reachOutsOff;
   if (ownServices) {
     const owned = OWN_SERVICES.filter((service) => ownServices.includes(service));

@@ -111,9 +111,13 @@ describe("一级列表上的摘要", () => {
     expect(settingsSummaries({ ...loading, call: { ...call, phoneTexture: false } }).call).toBe("高保真 · 电话质感关");
   });
 
-  it("外观是 SCSP 头像开／关", () => {
-    expect(settingsSummaries({ ...loading, appearance: { scspAvatars: true } }).appearance).toBe("SCSP 头像开");
-    expect(settingsSummaries({ ...loading, appearance: { scspAvatars: false } }).appearance).toBe("SCSP 头像关");
+  it("外观是 SCSP 头像和对话页的立绘开／关", () => {
+    expect(settingsSummaries({ ...loading, appearance: { scspAvatars: true, chatStand: true } }).appearance).toBe(
+      "SCSP 头像开 · 立绘开",
+    );
+    expect(settingsSummaries({ ...loading, appearance: { scspAvatars: false, chatStand: false } }).appearance).toBe(
+      "SCSP 头像关 · 立绘关",
+    );
   });
 
   it("搭话是开／关", () => {

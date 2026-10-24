@@ -66,6 +66,17 @@ describe("pickAnimations：身体、表情和口型", () => {
     expect(pick(KOGANE_NO_SAD, { mood: "sad" })).toMatchObject({ body: "wait", face: "face_sad" });
   });
 
+  it("没有 wait 的衣装：待机用 idle、stand，都没有就用第一个动画", () => {
+    const idle = new Map([["idle", 1], ["smile1", 1]]);
+    expect(pickAnimations(direction({ mood: "sad" }), idle, false).body).toBe("idle");
+    expect(pickAnimations(direction({ mood: "sad" }), idle, true).body).toBe("idle");
+    const stand = new Map([["stand", 1], ["smile1", 1]]);
+    expect(pickAnimations(direction({ mood: "sad" }), stand, false).body).toBe("stand");
+    const first = new Map([["smile1", 1], ["surp1", 1]]);
+    expect(pickAnimations(direction({ mood: "sad" }), first, false).body).toBe("smile1");
+    expect(pickAnimations(direction({ mood: "sad" }), new Map(), false).body).toBe("wait");
+  });
+
   it("逐级往后找：开心 smile1 → smile2，表情 face_smile → face_smile2", () => {
     expect(pick(without(MANO, "smile1", "face_smile"), { mood: "happy" })).toMatchObject({
       body: "smile2",

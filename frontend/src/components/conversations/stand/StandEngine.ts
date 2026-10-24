@@ -160,6 +160,16 @@ export class StandEngine {
   }
 
   /**
+   * 现在这套衣装的整个人有多大（初始姿势下量的宽高，和取景同一个坐标系）；还没载入时为 null。
+   * 对话页角上的立绘小人按它定画布的高矮。
+   */
+  get size(): { width: number; height: number } | null {
+    if (!this.pose) return null;
+    const { width, height } = this.pose.bounds;
+    return { width, height };
+  }
+
+  /**
    * 载入一套衣装，按当前的立绘指令摆好姿势后开始绘制；已经穿着另一套时，换上这一套并释放上一套的素材。
    * 素材加载不到、数据读不了时 reject，身上那套照旧。接连换了几套时只换上最后要的那一套，
    * 前面几套到了也不换，素材直接释放。
