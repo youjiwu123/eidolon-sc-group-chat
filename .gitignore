@@ -45,3 +45,6 @@ characters/backups/
 
 # 前端构建缓存（下载的字体源文件）
 /frontend/.cache/
+
+# 作息模拟的输出报告
+tools/schedule/simulate.report.txt
