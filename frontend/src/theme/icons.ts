@@ -22,6 +22,7 @@ export { ChevronDown as ShowMoreIcon, ChevronUp as ShowLessIcon } from "lucide-r
 
 // 后台导航用的图标。
 export {
+  FileText as PromptsIcon,
   LayoutDashboard as DashboardIcon,
   Megaphone as AnnouncementsIcon,
   SlidersHorizontal as ConfigIcon,
@@ -70,8 +71,10 @@ export { ArrowDown as SortedIcon, ArrowUpDown as SortableIcon } from "lucide-rea
 // 通话层右上角的「只看文字」胶囊。
 export { Captions as TextOnlyIcon } from "lucide-react";
 
-// 导航栏（电脑）和 dock（手机）的三项。
+// 导航栏（电脑）和 dock（手机）的四项。
 export { Gift as GiftIcon, MessageCircle as ConversationsIcon, Settings as SettingsIcon } from "lucide-react";
+// 剧情回放（`/story`）的入口，也是每一话卡上占着场景图位置的图标。
+export { BookOpen as StoryIcon } from "lucide-react";
 
 // 礼物页：抽奖台的「抽一次」和抽到稀有礼物时插画角上的闪光；我的礼物的四个类别筛选；
 // 重置卡确认框里「现在的档位 → 信任」的箭头。
@@ -111,4 +114,10 @@ export { Camera as PhotoIcon, CameraOff as PhotosUsedUpIcon, ImageOff as PhotoFa
 
 // 导航栏底部（电脑）的 GitHub 仓库链接；品牌标志 Lucide 不收，是 The Library Icon Rule 的例外。
 export { GitHubIcon } from "./GitHubIcon";
+
+// 对话页右下角小立绘脚边的把手：拖动改她的大小（DESIGN.md「对话页的立绘小人」）。
+export { Scaling as ResizeIcon } from "lucide-react";
+
+// 原声（功能 1）：对话页气泡旁的「原声」键；播放键。
+export { Quote as VoiceIcon, Play as PlayIcon } from "lucide-react";
 

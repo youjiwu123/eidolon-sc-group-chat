@@ -32,6 +32,7 @@ import { DEFAULT_APPEARANCE, keepAppearance, loadAppearance, withAppearance, typ
 import {
   createConversation,
   getAccount,
+  getConversationScene,
   getPhoto,
   listCharacters,
   listConversations,
@@ -373,6 +374,7 @@ export function DirectoryProvider({ children }: { children: ReactNode }) {
         onRewarded: rewarded,
         startCall: (conversationId, preferences, handlers) => startCall(conversationId, preferences, handlers, userId),
         sendTurn: (conversationId, text, image) => sendTurn(conversationId, text, userId, image),
+        getScene: getConversationScene,
         getPhoto,
         getAffinity,
         preferences: { load: loadCallPreferences, save: saveCallPreferences },

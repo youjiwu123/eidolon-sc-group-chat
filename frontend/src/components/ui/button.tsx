@@ -41,6 +41,8 @@ const buttonVariants = cva(
         toast: "rounded-full bg-background text-foreground hover:bg-background/90",
         // eidolon: 统计页好感度分组收起时的「+N」和展开后的收起键（DESIGN.md「统计页」）：和头像一样的圆，中性底、muted 字。
         more: "rounded-full bg-muted text-subtitle text-muted-foreground tabular-nums hover:bg-muted/70 hover:text-foreground",
+        // eidolon: 对话页首的「显示立绘」胶囊（DESIGN.md「对话页的立绘小人」）：中性的 muted 底，字用前景色。
+        pill: "rounded-full bg-muted text-foreground hover:bg-muted/70",
       },
       size: {
         default:

@@ -17,6 +17,14 @@ export type StandDirection = {
   /** She looks at the user. */
   looking: boolean;
   nod: Nod | null;
+  /** The body animation this very line comes with (her small talk carries the originals'): played
+   * when the outfit has it, otherwise the mood picks one. */
+  body?: string;
+  /** The face this very line comes with; `blank` hands the face back to the body's own. */
+  face?: string;
+  /** How sure the judge was of her mood, 0 to 1: a sure answer plays the stronger variant of
+   * that mood's animation when the outfit has one (smile1 → smile2, shy1 → shy2, ...). */
+  strength?: number;
 };
 
 /** How she looks when a call starts. */
@@ -37,26 +45,55 @@ export type TrackAnimations = {
   eye: string | null;
 };
 
-/** Body animations for each emotion, the first the outfit has being played; `wait` if none. */
+/** How sure the judge has to be (0–1) of her mood for the stronger variant to play. */
+const STRONG_AT = 0.6;
+/** How sure it has to be for the most extreme face of all (crying, eyes squeezed shut). */
+const EXTREME_AT = 0.85;
+
+/** The most extreme face of an emotion, for a mood the judge is all but certain of. */
+const EXTREME_FACE: Partial<Record<Emotion, string[]>> = {
+  happy: ["face_close", "face_close2"],
+  shy: ["face_close2", "face_close"],
+  sad: ["face_cry"],
+};
+
+/** The body animations for each emotion, the first the outfit has being played; `wait` if none. */
 const BODY: Record<Emotion, string[]> = {
   calm: ["wait"],
-  happy: ["smile1", "smile2"],
+  happy: ["smile1", "smile2", "smile3", "smile4"],
   shy: ["shy1", "shy2", "smile2"],
   surprised: ["surp1", "surp2"],
   sad: ["sad1", "sad2"],
-  angry: ["anger1", "anger2"],
+  angry: ["anger1", "anger2", "anger3"],
   thinking: ["think", "think1", "think2", "wait4", "wait"],
 };
 
 /** Faces for each emotion; `blank` if none, the face `face_wait` being only for `wait` bodies. */
 const FACE: Record<Emotion, string[]> = {
   calm: ["face_wait"],
-  happy: ["face_smile", "face_smile1", "face_smile2"],
+  happy: ["face_smile", "face_smile1", "face_smile2", "face_smile3"],
   shy: ["face_shy", "face_shy2"],
   surprised: ["face_surp"],
   sad: ["face_sad"],
   angry: ["face_anger", "face_anger1", "face_anger2"],
   thinking: ["face_serious"],
+};
+
+/** The stronger body of each emotion, for a mood the judge is sure of; `BODY`'s fallbacks are
+ * never stronger than the mood's own, so they are not in here. */
+const STRONGER: Partial<Record<Emotion, string[]>> = {
+  happy: ["smile4", "smile3", "smile2"],
+  shy: ["shy2"],
+  surprised: ["surp2"],
+  sad: ["sad2"],
+  angry: ["anger3", "anger2"],
+};
+
+/** The stronger face of each emotion, as `STRONGER` is for the body. */
+const STRONGER_FACE: Partial<Record<Emotion, string[]>> = {
+  happy: ["face_smile3", "face_smile2", "face_smile1"],
+  shy: ["face_shy2"],
+  angry: ["face_anger2", "face_anger1"],
 };
 
 /** The `<k>` of each emotion's talking mouth, `lip_<k>`. */
@@ -88,9 +125,26 @@ export function pickAnimations(
   // An outfit need not have `wait` at all; stand still in `idle` or `stand` instead, or in
   // whatever it opens with, rather than leaving the body track empty.
   const idle = idleAnimation(animations) ?? "wait";
+  // A line that comes with its own body and face (her small talk) is played as it was made, as
+  // far as this outfit has them.
+  const named = (name?: string) => (name && animations.has(name) ? name : null);
+  // A mood the judge was sure of plays its stronger variant, when the outfit has one; the most
+  // extreme face when it is all but certain.
+  const strong = (direction.strength ?? 0) >= STRONG_AT;
+  const extreme = (direction.strength ?? 0) >= EXTREME_AT;
   return {
-    body: reducedMotion ? idle : (pick(BODY[mood]) ?? idle),
-    face: pick(FACE[mood]) ?? "blank",
+    body: reducedMotion
+      ? idle
+      : (named(direction.body) ??
+        (strong ? pick(STRONGER[mood] ?? []) : undefined) ??
+        pick(BODY[mood]) ??
+        idle),
+    face:
+      named(direction.face) ??
+      (extreme ? pick(EXTREME_FACE[mood] ?? []) : undefined) ??
+      (strong ? pick(STRONGER_FACE[mood] ?? []) : undefined) ??
+      pick(FACE[mood]) ??
+      "blank",
     mouth: mouth ? { name: mouth, open: direction.speaking } : null,
     nod: nod && nodding ? { name: nodding, id: nod.id } : null,
     eye: direction.looking && animations.has("eye_front") ? "eye_front" : null,

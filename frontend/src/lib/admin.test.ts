@@ -6,6 +6,7 @@ describe("adminPage", () => {
   it("picks the admin console page a path is on, the dashboard by default", () => {
     const cases: [string, ReturnType<typeof adminPage>][] = [
       ["/admin", "dashboard"],
+      ["/admin/prompts", "prompts"],
       ["/admin/users", "users"],
       ["/admin/users/u-123", "users"],
       ["/admin/usersettings", "dashboard"],

@@ -8,8 +8,10 @@ import type { AffinityChange, AffinityStatus } from "@/lib/affinity";
 import {
   ApiError,
   type CallEvent,
+  type CallScene,
   type Conversation,
   type LatestConversation,
+  type NowScene,
   type Photo,
   type PhotoStatus,
   type Recorded,
@@ -29,6 +31,7 @@ import {
   type LogAction,
 } from "@/lib/conversationLog";
 import { toFailure, type Failure } from "@/lib/failure";
+import type { Emotion } from "@/lib/standAnimations";
 import {
   BLANK_CARD,
   lineOf,
@@ -98,6 +101,11 @@ export type Layer = { call: ShownCall; collapsed: boolean };
 
 export type MicNotice = "fell_back" | "unavailable" | "lost";
 
+/** The scene one dial was given, and which dial it belongs to: asked once when the call is
+ * dialed, so the call layer keeps that background and the opener that came with it for the
+ * whole call. `scene` is null once it has been asked for and there is none to show. */
+export type SceneOfDial = { dial: number; scene: CallScene | null };
+
 /**
  * Whether her conversation is open, and which (`id`): `opening` while it is looked up (or
  * started) and its messages loaded, and again while a new conversation is started; `failed`
@@ -110,14 +118,27 @@ export type OpenState =
 
 /** The conversation open, or null if none is: still opening, being left for a new one, or
  * failed to open. */
-function openIdOf(state: OpenState): string | null {
+export function openIdOf(state: OpenState): string | null {
   return state.status === "open" ? state.id : null;
 }
 
+/** How she said the reply just recorded: her emotion, whether she nodded or shook her head,
+ * and when the judge answered. */
+export type EmotionCue = { mood: Emotion; nod: "yes" | "no" | null; strength: number; at: number };
+
 export type Snapshot = {
   conversation: OpenState;
+  /** The scene the call layer's dial was given, with its opener; null until the call is
+   * dialed and while it is being asked for. */
+  scene: SceneOfDial | null;
   entries: Entry[];
   call: CallState;
+  /** How she said her latest reply, judged once it was recorded (DESIGN.md「对话页的立绘小人」);
+   * null until one is judged, and while the judge model is off. */
+  lastEmotion: EmotionCue | null;
+  /** 页首的「现在」这一处地方：对话里说定搬过去（后端判出来的），或者页首的地点下拉栏里自己挑的，
+   * 都是它；null 时按排期表算。 */
+  movedScene: NowScene["scene"] | null;
   /** The call layer: the call it draws and whether it is folded onto the conversation. Null
    * until this page has dialed once; after that it keeps the last call, folded away, so the
    * layer has something to draw as it slides down. Dialing and a call that ends for a reason
@@ -208,6 +229,7 @@ type State = Omit<
 
 const IDLE: Omit<State, "log" | "card" | "stand" | "dial" | "callPhotoId"> = {
   conversation: { status: "opening" },
+  scene: null,
   call: { phase: "idle" },
   layer: null,
   pickingMic: false,
@@ -224,6 +246,8 @@ const IDLE: Omit<State, "log" | "card" | "stand" | "dial" | "callPhotoId"> = {
   trophy: null,
   herUnlockedAt: null,
   newPhoto: false,
+  lastEmotion: null,
+  movedScene: null,
 };
 
 /** What the page shows before a conversation is open. */
@@ -277,6 +301,8 @@ export type Ports = {
   createConversation: (characterId: string) => Promise<Conversation>;
   /** A conversation's record; reading it has the user see her reach-outs in it. */
   listMessages: (conversationId: string) => Promise<Recorded[]>;
+  /** 接通时她身后的场景（连同开场白）；一通电话问一次，问到什么就一直用它。 */
+  getScene: (conversationId: string) => Promise<CallScene>;
   /** The conversation list's line for her has changed: a turn was recorded, or a
    * conversation was started. Told even after the page is left. */
   onListChanged: () => void;
@@ -422,6 +448,12 @@ export class LiveConversation {
     this.update({ draft: draft.slice(0, MAX_INPUT_LENGTH) });
   }
 
+  /** 页首的地点下拉栏里自己挑了一处（DESIGN.md「通话场景」）：页首的「现在」立刻换过去，不用等
+   * `/now` 再问；`null` 是回到按作息表算的地方。下一回合说定搬家时照旧跟着换。 */
+  pickPlace(scene: NowScene["scene"] | null): void {
+    this.update({ movedScene: scene });
+  }
+
   /** Send what is in the input box as a text turn. */
   async submit(image?: string | null): Promise<void> {
     const text = this.state.draft.trim();
@@ -446,6 +478,16 @@ export class LiveConversation {
     let done = false;
     try {
       for await (const event of this.ports.sendTurn(conversationId, text, image)) {
+        // How she said the reply, judged just after it was recorded: the pet takes it up.
+        if (event.type === "emotion") {
+          this.update({ lastEmotion: { mood: event.emotion, nod: event.nod, strength: event.strength, at: this.now() } });
+          continue;
+        }
+        // 他们这一回合说定换了地方：页首的「现在」和接下来的通话背景都跟着换。
+        if (event.type === "scene") {
+          this.update({ movedScene: event.scene });
+          continue;
+        }
         this.applyTurnEvent(event);
         if (event.type === "done") done = true;
         // A turn that failed leaves no record and does not count towards the limit.
@@ -498,11 +540,14 @@ export class LiveConversation {
     this.update({
       call: { phase: "dialing", dial },
       dial,
+      // 这一拨问一次「她在哪」：问到了这一通就一直用那张背景和那句开场白，不再另抽一次。
+      scene: null,
       micMuted: false,
       failure: null,
       callPhotoId: null,
       newPhoto: false,
     });
+    void this.readScene(conversationId, dial);
     const current = () => this.attempt === attempt;
     let held = false;
     // The gate: what the call sends once it is over changes nothing.
@@ -804,6 +849,20 @@ export class LiveConversation {
     this.showAffinity(affinity);
   }
 
+  /** Asks where she is for this dial, once, and keeps the answer with the dial it belongs to:
+   * the call layer draws that scene and plays the opener that came with it for the whole call.
+   * An answer for another dial, another conversation, or after the page is left is dropped. */
+  private async readScene(conversationId: string, dial: number): Promise<void> {
+    let scene: CallScene | null = null;
+    try {
+      scene = await this.ports.getScene(conversationId);
+    } catch {
+      // No scene: the call layer keeps her own background and fixed opener.
+    }
+    if (this.disposed || this.state.dial !== dial || this.openConversationId() !== conversationId) return;
+    this.update({ scene: { dial, scene } });
+  }
+
   /** The backend refused a turn or call for a cooldown it says ends `until`. */
   private cooled(until: string): void {
     this.showAffinity({ tier: "cold", cooldown_until: until });
@@ -855,7 +914,13 @@ export class LiveConversation {
   private showConversation(conversationId: string, messages: Recorded[], change: Partial<State> = {}): void {
     this.apply(
       { type: "loaded", messages },
-      { ...change, conversation: { status: "open", id: conversationId }, card: BLANK_CARD },
+      // 换了一段对话：上一段里说定（或自己挑）的地方不再适用，页首交回 `/now` 的那张。
+      {
+        ...change,
+        conversation: { status: "open", id: conversationId },
+        card: BLANK_CARD,
+        movedScene: null,
+      },
     );
   }
 

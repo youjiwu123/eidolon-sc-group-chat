@@ -12,6 +12,8 @@ import type { AffinityCue } from "@/lib/liveConversation";
 import { cn } from "@/lib/utils";
 import { AffinityDownIcon, AffinityUpIcon, CooldownIcon, GiftIcon } from "@/theme/icons";
 
+import { AffinityModeSwitches } from "./AffinityModeSwitches";
+
 const t = copy.conversation.affinity;
 
 /**
@@ -20,7 +22,7 @@ const t = copy.conversation.affinity;
  * 宽度跟着内容走，手机上高度不小于 44px；挤不下时名字截断，不挤压电话键和更多菜单。
  * 一个回合刚改变了好感度（`cue`）时，心形跳一下、右上角叠一个升降小箭头（「升」用她的按钮色）。
  * 说明末尾是「送她一件礼物」的链接，平时和冷却中都有，跳到礼物页（`gifts`）。好感度和礼物同一个开关，
- * 这个标识在就是开放着。
+ * 这个标识在就是开放着。说明最后是这个角色的特殊档开关（`AffinityModeSwitches`），每个角色各一份。
  */
 export function AffinityBadge({
   status,
@@ -28,6 +30,7 @@ export function AffinityBadge({
   name,
   timeZone,
   gifts,
+  characterId,
   subtree,
 }: {
   status: AffinityStatus;
@@ -39,6 +42,8 @@ export function AffinityBadge({
   timeZone: string;
   /** 送礼链接去的礼物页，带着她（`giftsHref`）。 */
   gifts: string;
+  /** 这位角色的 id：她的特殊档开关各自一份，按它存。 */
+  characterId: string;
   subtree: RefObject<HTMLDivElement | null>;
 }) {
   const badge = badgeOf(status, name, new Date(), timeZone);
@@ -85,6 +90,7 @@ export function AffinityBadge({
           <GiftIcon aria-hidden className="size-4" />
           {copy.gifts.giveHer}
         </ShellLink>
+        <AffinityModeSwitches characterId={characterId} />
       </PopoverContent>
     </Popover>
   );

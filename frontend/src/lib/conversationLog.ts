@@ -2,7 +2,7 @@
 // the same turn events whether the turn is typed or spoken in a call.
 
 import type { AffinityChange } from "@/lib/affinity";
-import type { ConversationEvent, EventKind, Photo, PhotoStatus, Recorded, Segment, TurnEvent } from "@/lib/api";
+import type { ConversationEvent, EventKind, MessageVoice, Photo, PhotoStatus, Recorded, Segment, TurnEvent } from "@/lib/api";
 
 /** One message or conversation event shown, or her reach-out, shown as her reply is but marked
  * `reachOut` (GLOSSARY.md「搭话」). `at` (ISO) is when it was recorded; for the turn
@@ -31,6 +31,8 @@ export type Entry =
       at: string;
       affinity: AffinityChange | null;
       photo: Photo | null;
+      /** 她说到的原声（`Message.voice`），没有时是 null；点气泡旁的「原声」放它。 */
+      voice?: MessageVoice | null;
       photosUsedUp?: string;
       reachOut?: true;
     };
@@ -102,6 +104,12 @@ export function conversationLog(log: ConversationLog, action: LogAction): Conver
     case "error":
     case "interrupted":
       return withoutTurn(log);
+    // How she said the reply just recorded: the pet's business, not the log's.
+    case "emotion":
+      return log;
+    // 说定换了地方：页首的「现在」和通话背景的事，不是对话记录里的东西。
+    case "scene":
+      return log;
     case "event":
       return { ...log, entries: [...log.entries, toEntry(action.event)] };
     case "photo-status": {
@@ -227,5 +235,6 @@ function toEntry(message: Recorded): Entry {
         at: message.created_at,
         affinity: message.affinity,
         photo: message.photo ?? null,
+        ...(message.voice ? { voice: message.voice } : {}),
       };
 }

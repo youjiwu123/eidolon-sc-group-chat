@@ -12,10 +12,11 @@ import { currentNavItem, FIRST_LEVEL, isTyping, NAV_ITEMS, navDestination, type 
 import { REPOSITORY_URL } from "@/lib/repository";
 import { useReachOutNotifications } from "@/lib/notify";
 import { cn } from "@/lib/utils";
-import { ConversationsIcon, GiftIcon, GitHubIcon, SettingsIcon } from "@/theme/icons";
+import { ConversationsIcon, GiftIcon, GitHubIcon, SettingsIcon, StoryIcon } from "@/theme/icons";
 
 const ICONS: Record<NavItem, typeof SettingsIcon> = {
   conversations: ConversationsIcon,
+  story: StoryIcon,
   gifts: GiftIcon,
   settings: SettingsIcon,
 };
@@ -27,7 +28,7 @@ const DOTTED: Partial<Record<NavItem, string>> = {
 };
 
 /**
- * 导航栏（电脑）：最左一条 72px，右边一条细线，不能收起；对话、礼物、设置从上往下，GitHub 仓库链接在最底下
+ * 导航栏（电脑）：最左一条 72px，右边一条细线，不能收起；对话、礼物、剧情、设置从上往下，GitHub 仓库链接在最底下
  * （DESIGN.md「Layout」）。窄屏由 CSS 藏起来，换成 dock。通话层只盖住它右边，展开时它照样能点（见 NavLinks）。
  */
 export function NavRail() {
@@ -85,7 +86,7 @@ function NavLinks({ className }: { className: string }) {
   const current = currentNavItem(pathname);
   const unseen = characters !== null && hasUnseen(characters, latest, { preferences, onScreen });
   useReachOutNotifications(characters, latest);
-  const dots: Record<NavItem, boolean> = { conversations: unseen, gifts: newRewards, settings: false };
+  const dots: Record<NavItem, boolean> = { conversations: unseen, story: false, gifts: newRewards, settings: false };
   return NAV_ITEMS.map((item) => {
     const Icon = ICONS[item];
     const isCurrent = item === current;

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { CallEvent } from "@/lib/api";
 import { CALM, type Emotion, type StandDirection } from "@/lib/standAnimations";
-import { directionOf, directStand, startingStand, type StandEvent, type StandState } from "@/lib/standDirection";
+import { directionOf, directStand, startingStand, withOpener, type StandEvent, type StandState } from "@/lib/standDirection";
 
 /** The stand after these events in a call, from its start. */
 function after(events: StandEvent[], options: { textOnly?: boolean } = {}): StandState {
@@ -14,8 +14,14 @@ function direction(events: StandEvent[], options: { textOnly?: boolean } = {}): 
 }
 
 /** The judged emotion of segment `segment` of reply `reply`, with a nod if given. */
-function emotion(reply: number, segment: number, feeling: Emotion, nod: "yes" | "no" | null = null): CallEvent {
-  return { type: "emotion", reply, segment, emotion: feeling, nod };
+function emotion(
+  reply: number,
+  segment: number,
+  feeling: Emotion,
+  nod: "yes" | "no" | null = null,
+  strength?: number,
+): CallEvent {
+  return { type: "emotion", reply, segment, emotion: feeling, nod, ...(strength === undefined ? {} : { strength }) };
 }
 
 function playing(reply: number, segment: number): CallEvent {
@@ -113,12 +119,45 @@ describe("standDirection: who is speaking", () => {
   });
 });
 
+describe("standDirection: 开场白", () => {
+  it("开场白在放的时候她动嘴，停了就不动，只看文字也不动", () => {
+    const calm = direction([]);
+
+    expect(withOpener(calm, true, false).speaking).toBe(true);
+    expect(withOpener(calm, false, false).speaking).toBe(false);
+    expect(withOpener(calm, true, true).speaking).toBe(false);
+  });
+
+  it("开场白判出来的语气照着摆，点头用这一通电话的编号", () => {
+    const calm = direction([]);
+    const mood = { emotion: "sad" as const, nod: "yes" as const, strength: 0.92 };
+
+    expect(withOpener(calm, true, false, mood, 7)).toMatchObject({
+      speaking: true,
+      mood: "sad",
+      strength: 0.92,
+      nod: { kind: "yes", id: 7 },
+    });
+    // 只看文字时表情也不换
+    expect(withOpener(calm, true, true, mood, 7)).toBe(calm);
+    expect(withOpener(calm, true, false, null, 7)).toMatchObject({ speaking: true, mood: "calm" });
+  });
+});
+
 describe("standDirection: her emotions", () => {
   it("changes as her voice starts playing the segment, not before", () => {
     const judged = [reply(1), subtitle(0), emotion(1, 0, "happy")];
 
     expect(direction(judged).mood).toBe("calm");
     expect(direction([...judged, playing(1, 0)]).mood).toBe("happy");
+  });
+
+  it("carries how sure the judge was, for the stronger variant to play", () => {
+    const judged = [reply(1), subtitle(0), emotion(1, 0, "sad", null, 0.92), playing(1, 0)];
+
+    expect(direction(judged).strength).toBe(0.92);
+    // 平静的那一段沿用原来的心情，也就沿用原来的把握
+    expect(direction([...judged, playing(1, 1), emotion(1, 1, "calm", null, 0.4), botStarted]).strength).toBe(0.92);
   });
 
   it("changes on a late emotion while the segment is still playing", () => {

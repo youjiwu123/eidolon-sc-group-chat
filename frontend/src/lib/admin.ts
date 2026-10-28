@@ -1,5 +1,5 @@
 /** The admin console's pages, in the order its navigation lists them. */
-export const ADMIN_PAGES = ["dashboard", "config", "users", "announcements"] as const;
+export const ADMIN_PAGES = ["dashboard", "config", "prompts", "users", "announcements"] as const;
 
 export type AdminPage = (typeof ADMIN_PAGES)[number];
 
@@ -7,6 +7,7 @@ export type AdminPage = (typeof ADMIN_PAGES)[number];
 export const ADMIN_HREFS: Record<AdminPage, string> = {
   dashboard: "/admin",
   config: "/admin/config",
+  prompts: "/admin/prompts",
   users: "/admin/users",
   announcements: "/admin/announcements",
 };

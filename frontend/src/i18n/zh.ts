@@ -32,6 +32,8 @@ export const zh = {
     conversations: "对话",
     /** 「对话」图标上有点时读屏读的名字：列表里有一行有没看过的搭话。 */
     conversationsUnseen: "对话，有没看过的搭话",
+    /** 剧情回放（`/story`）。 */
+    story: "剧情",
     gifts: "礼物",
     /** 「礼物」图标上有点时读屏读的名字：有新到的抽奖次数。 */
     giftsRewarded: "礼物，有新到的抽奖次数",
@@ -171,6 +173,7 @@ export const zh = {
     callTooltip: "语音通话",
     placeholder: "用中文或日语说点什么",
     send: "发送",
+    stop: "停止",
     /** 输入框左边发图片的按钮，和选中图片后的预览。 */
     attachImage: "发一张图片给她看",
     removeImage: "取消这张图片",
@@ -183,15 +186,27 @@ export const zh = {
     /** 她的回复气泡旁的小喇叭：点了才合成这条的语音（要花语音合成的钱，所以不自动合成）。 */
     speak: "朗读这条回复",
     speaking: "正在朗读，再点一下停下",
+    /** 气泡旁那个「原声」键（功能 1）：这条回复说到了原作里的一句名台词，点开播当时的录音。 */
+    voiceOriginal: "原声",
+    voiceOriginalPlay: "播放她说这句话的原声",
+    voiceOriginalStop: "正在播放原声，再点一下停下",
     /** 输入框右边发语音的按钮：点一下开始录，再点一下停下并发送。 */
     voiceStart: "录一段语音发给她",
     voiceStop: "停下并发送这段语音",
     /** 拿不到麦克风（纯 HTTP 的局域网地址、或用户拒绝了权限）时的提示。 */
     voiceBlocked: "拿不到麦克风：请用 HTTPS 或 localhost 打开这个页面，并允许麦克风权限",
-    /** 对话页右下角站着的小立绘（DESIGN.md「对话页的立绘小人」）：点她一下时的读屏名字。 */
+    /** 对话页右下角站着的小立绘（DESIGN.md「对话页的立绘小人」）：点她一下、拖她脚边的把手时的读屏名字。 */
     companion: {
       poke: (name: string) => `戳一下${name}`,
+      resize: "拖动改变大小",
+      /** 悬停她脚边、打开「隐藏立绘」的「⋯」键的读屏名字。 */
+      menu: "立绘选项",
     },
+    /** 立绘在这台设备上的临时隐藏（和外观里全局的「对话页显示立绘」分开）：收起来以后页首的胶囊恢复。 */
+    hideStand: "隐藏立绘",
+    showStand: "显示立绘",
+    /** 页首的「现在：{场景}」小胶囊：不打电话也能看到她这会儿在哪；活动写在悬停提示里。 */
+    now: (scene: string) => `现在：${scene}`,
     /** 对话事件（GLOSSARY.md「对话事件」）给用户看的一句话：消息区的分隔线和列表的「最后一句」都用它。 */
     events: {
       hung_up: (name: string) => `${name}挂断了电话`,
@@ -307,6 +322,11 @@ export const zh = {
         unhappier: "有点不高兴",
         outOfLine: "很受伤、很生气",
       },
+      /** 好感度说明下面的特殊档开关（每个角色各一份）。 */
+      modes: {
+        label: "特殊档",
+        hint: "每个角色各管各的，好感各档都生效。",
+      },
     },
     /** 页首的「换衣装」和它打开的面板（spec「衣装与换衣装」）。 */
     outfits: {
@@ -329,6 +349,21 @@ export const zh = {
       wear: "穿这套",
       preview: (card: string) => `预览${card}`,
     },
+  },
+  /**
+   * 页首的地点下拉栏（单聊页首的「现在」胶囊、群聊页首的地点键共用，`PlacePicker`）：
+   * 列出场景表里所有能挑的地方（名字加一句 hint），最上面一项取消自己挑的。
+   */
+  place: {
+    title: "选择地点",
+    /** 单聊：回到按她的作息表算的地方。 */
+    follow: "跟随作息",
+    /** 群聊：不给群里设地点。 */
+    none: "不设置",
+    /** 场景表还没读到、读不到，和换地点没换过去时的说明。 */
+    loading: "正在读取地点",
+    loadFailed: "地点列表没能读取",
+    pickFailed: "地点没能换过去",
   },
   /** 通话层、收起后的通话条、列表里的通话状态（spec「通话层」「通话状态」）；换一位角色、离开导航外壳前的确认框。 */
   call: {
@@ -565,6 +600,12 @@ export const zh = {
     submit: "同意并开始",
     signOut: "退出登录",
     declineHint: "不同意的话，退出登录即可；在你同意之前，不会保存任何对话。",
+  },
+  display: {
+    scale: "界面比例",
+    scaleHint: "手机上嫌字小或嫌挤，先调这里：整站一起缩放。",
+    font: "字号",
+    fontHint: "只放大文字，按钮和间距不变。",
   },
   settings: {
     title: "设置",
@@ -887,6 +928,7 @@ export const zh = {
     pages: {
       dashboard: "看板",
       config: "配置",
+      prompts: "提示词",
       users: "用户",
       announcements: "公告",
     },
@@ -894,6 +936,58 @@ export const zh = {
     backToSettings: "返回设置",
     toggleNav: "展开或收起后台导航",
     breadcrumb: "当前位置",
+    prompts: {
+      intro: "直接看和改角色与模式的提示词。",
+      hint: "改完即时生效；保存前会自动备份一份。",
+      loading: "正在读取…",
+      empty: "没有可以编辑的提示词。",
+      listTitle: "全部提示词",
+      listLabel: "提示词列表",
+      listHint: "角色提示词按角色配置的顺序排在「角色提示词」里，特殊档按模式表里的顺序排在「特殊提示词」里。",
+      kinds: { sheet: "角色提示词", modes: "模式表", mode: "特殊档", affinity: "好感度提示词" },
+      /** 列表里的三组：角色人设、特殊档（一个模式一格）、好感度各档。 */
+      groups: { sheets: "角色提示词", modes: "特殊提示词", affinity: "好感度提示词" },
+      bytes: (n: number) => `${n} 字节`,
+      neverSaved: "还没保存过",
+      contentLabel: "提示词正文",
+      /** 特殊档按三栏编辑，不用手写 TOML。 */
+      fields: {
+        name: "名字",
+        description: "说明（设置里给她看的那一句）",
+        descriptionPlaceholder: "只在夜里出现的另一面。",
+        prompt: "提示词",
+      },
+      select: "在左边选一条提示词。",
+      unsaved: "有还没保存的改动。",
+      unchanged: "没有改动。",
+      tooLarge: "太长了：最多 200 KB。",
+      emptyContent: "提示词不能为空。",
+      save: "保存",
+      saving: "正在保存…",
+      reset: "还原改动",
+      saved: "已保存，新的回合和通话立即使用新提示词。",
+      savedReload: "已保存，重启后端后生效。",
+      unsavedConfirm: "有还没保存的改动，切换会丢掉。继续吗？",
+      delete: "删除这个特殊档",
+      deleting: "正在删除…",
+      deleteConfirm: (name: string) =>
+        `删掉「${name}」？模式表里别的特殊档不动，她已经开着的这个开关也会一起关掉；删除前会自动备份一份。`,
+      deleted: (name: string) => `已删除「${name}」。`,
+      newMode: {
+        title: "新建特殊档",
+        hint: "名字、说明和提示词自己写。新建的会作为一格排在模式表最后；聊天界面的好感度弹层里也会多一个开关，好感各档都生效。",
+        name: "名字",
+        namePlaceholder: "例如「深夜值班」",
+        description: "说明（可选）",
+        descriptionPlaceholder: "设置里她看到的那一句",
+        prompt: "提示词",
+        promptPlaceholder: "「你现在……」用你自己的话说她这时是什么样子。",
+        create: "新建",
+        creating: "正在新建…",
+        created: (name: string) => `已新建「${name}」。去聊天界面点开好感度，最下面就是它的开关。`,
+        saveFirst: "先把模式表里没保存的改动保存了，再新建。",
+      },
+    },
     comingSoon: "这一页还在做。",
     usage: {
       units: { tokens: "tokens", bytes: "字节", characters: "字符", seconds: "秒", images: "张" } as Record<
@@ -1291,6 +1385,10 @@ export const zh = {
         save: "保存好感度",
         saved: "已保存。",
         invalid: "填 0 到 120 之间的数值。",
+        /** 对话框里的锁：锁上以后聊天和送礼都改不动它，她也不会因此分开或挂断。 */
+        lock: "锁定好感度",
+        lockHint: "锁上以后，聊天和送礼都不会让她加减好感度，她也不会因为好感度结束或挂断对话。",
+        lockedNote: "已锁定：聊天和送礼都不会再改它。",
       },
       limitsDialog: {
         title: (name: string) => `${name} 的单独限额`,
@@ -1787,11 +1885,54 @@ export const zh = {
     placeholder: "说点什么……",
     placeholderHint: "说点什么……（/名字 可以只对某个人说）",
     send: "发送",
+    speakingLoading: "合成中……",
+    speaking: "停止",
+    speak: "朗读",
+    /** 连续朗读：她的回复一条接一条自动念下去。 */
+    listen: "听她们说",
+    stopListening: "别念了",
+    stop: "停止",
     thinking: "她们在想怎么接……",
     typing: (name: string) => `${name}正在输入……`,
     saveName: "保存",
     chatter: "让她们自己聊",
+    /** 群聊里管整群立绘的隐藏开关（和外观里全局的「对话页显示立绘」分开）：任意一位的「⋯」收起来，页首的胶囊恢复。 */
+    hideStand: "隐藏立绘",
+    showStand: "显示立绘",
+    invite: "邀请",
+    inviteHint: "点一个人，把她拉进这个群。",
+    quotaOut: "这一小时的次数用完了，自动聊天已关掉。",
+    /** 语音房：麦克风说话，她们用各自的声音回。 */
+    room: "语音房",
+    roomHint: "点一下麦克风开免提，随时开口；她们会用自己的声音接话，插话直接说就行，不方便说话就打字。",
+    roomUnsupported: "这个浏览器不能语音识别，先打字吧（Chrome、Edge 可以说话）。",
+    roomListening: "免提中，在听……",
+    roomHearing: (heard: string) => `听到：${heard}`,
+    roomMicOff: "麦克风关着",
+    roomHandsFree: "免提中",
+    roomHandsFreeOn: "开免提",
+    /** 群通话（几个格子那种）。 */
+    call: "语音通话",
+    callDialing: "正在接通……",
+    callConnected: "已接通",
+    callFailed: "没接通",
+    callMicOn: "关麦克风",
+    callMicOff: "开麦克风",
+    callHangUp: "挂断",
+    callSpeaking: "在说…",
+    callSubtitleHint: "她们说的话会出现在这里",
+    roomHandsFreeOff: "关免提",
+    roomSpeaking: (name: string) => `${name}在说……`,
+    roomEnd: "结束语音",
+    roomNoMic: "没有听到，再说一次？",
+    roomDenied: "麦克风没打开，允许以后再说（或者先打字）。",
+    autoStopped: "自动聊天开了 20 分钟，已经帮你关掉了。",
     renameHint: "点名字可以改",
+    /** 群聊页首的地点下拉栏：群里现在的地点；还没挑时按钮写「选地点」（菜单里「不设置」那一项在 copy.place）。 */
+    place: {
+      current: (name: string) => `地点：${name}`,
+      pick: "选地点",
+    },
   },
   gifts: {
     title: "礼物",
@@ -1908,6 +2049,46 @@ export const zh = {
       title: "礼物暂时没有开放",
       description: "这里还没有开放好感度和礼物。已经有的礼物会留着，开放后照常能送。",
     },
+  },
+  /** 剧情回放（功能 4）：按培育路线、活动、特别企划、卡面（按角色）、主页营业和 SCSP 剧本组翻每一话。 */
+  story: {
+    title: "剧情",
+    /** 左栏页首的话数合计。 */
+    total: (n: number) => `共 ${n} 话`,
+    /** 分区筛选的读屏名字。 */
+    sectionsLabel: "剧情分区",
+    /** 七个分区；`bu`（营业剧情）和 `other` 归在「其他」里，由 lib/story 分区。 */
+    sections: {
+      route: "培育路线",
+      event: "活动",
+      special: "特别企划",
+      card: "卡面",
+      mypage: "主页营业",
+      scsp: "SCSP",
+      other: "其他",
+    } as Record<string, string>,
+    /** 分区下面一行：几个单元、多少话。 */
+    sectionSummary: (units: number, episodes: number) => `${units} 个单元 · ${episodes} 话`,
+    loading: "正在读取剧情",
+    /** 一个单元都没有（数据还没构建）。 */
+    empty: "还没有剧情数据",
+    emptyHint: "剧情数据还没有准备好。",
+    /** 宽屏上还没选单元时右栏的提示。 */
+    pick: "选一个单元",
+    pickHint: "左边按培育路线、活动、特别企划、卡面、主页营业和 SCSP 剧本组列出全部单元，选中一个就看它的话。",
+    /** 单元详情：话数、出场角色、主题、每一张卡的「第几话」和章数。 */
+    episodes: (n: number) => `${n} 话`,
+    cast: (names: string) => `出场：${names}`,
+    themes: "主题",
+    cardNo: (n: number) => `第 ${n} 话`,
+    chapterNo: (n: number) => `第 ${n} 章`,
+    /** 一章里收着几话时的行尾。 */
+    chapterEpisodes: (n: number) => `${n} 话`,
+    /** SCSP 剧本组的「出处」：它是哪个组（数据里的 `s01` 这样）。 */
+    scspGroup: (group: string) => `SCSP 剧本组 ${group}`,
+    /** 出场角色里不属于角色的两个人：制作人和社长。 */
+    producer: "制作人",
+    president: "天井努",
   },
   /** 成就（GLOSSARY.md「成就」）：她的对话页面板和礼物页那一小节里每一行的字。 */
   achievements: {
@@ -2045,6 +2226,17 @@ export const zh = {
     ],
     seePrivacy: "数据怎样保存和处理，见{privacy}。",
     lastUpdated: "最后更新：2026 年 10 月 20 日",
+  },
+  /** 生日原声彩蛋（功能 2）：制作人生日那天进对话列表时弹的那张卡。 */
+  birthday: {
+    title: "今天是你的生日",
+    from: (name: string) => `${name}为你准备了一段祝福。`,
+    hint: "点下面的按钮，听她亲口对你说。",
+    play: "播放她的祝福",
+    stop: "先停一下",
+    /** 放到第几段了。 */
+    progress: (current: number, total: number) => `第 ${current} / ${total} 段`,
+    thanks: "收下这份祝福",
   },
 };
 

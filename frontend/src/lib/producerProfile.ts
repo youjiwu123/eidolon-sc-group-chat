@@ -25,8 +25,9 @@ export function toDraft(profile: ProducerProfile): Draft {
   };
 }
 
-/** 先用 missingBirthDay 挡下半个生日；传进来只选了月的草稿会抛错，不会把它存成清空。 */
-export function fromDraft(draft: Draft): ProducerProfile {
+/** 先用 missingBirthDay 挡下半个生日；传进来只选了月的草稿会抛错，不会把它存成清空。
+ * 模式不在这张表单里，单独保存，所以这里不带 special_mode。 */
+export function fromDraft(draft: Draft): Omit<ProducerProfile, "special_mode"> {
   if (missingBirthDay(draft)) throw new Error("birthday has a month but no day");
   return {
     form_of_address: draft.formOfAddress.trim() || null,

@@ -102,11 +102,44 @@ describe("pickAnimations：身体、表情和口型", () => {
     expect(pick(without(KOGANE, "think", "wait4"), { mood: "thinking" }).body).toBe("wait");
   });
 
+  it("判得很确定时用更夸张的那一版，拿不准时用温和的那一版", () => {
+    expect(pick(KOGANE, { mood: "happy", strength: 0.7 })).toMatchObject({ body: "smile4", face: "face_smile" });
+    expect(pick(KOGANE, { mood: "happy", strength: 0.3 })).toMatchObject({ body: "smile1" });
+    expect(pick(MANO, { mood: "sad", strength: 0.7 })).toMatchObject({ body: "sad2", face: "face_sad" });
+    expect(pick(MANO, { mood: "shy", strength: 0.7 }).body).toBe("shy2");
+    expect(pick(KOGANE, { mood: "shy", strength: 0.7 }).face).toBe("face_shy2");
+    // 几乎可以确定时用最夸张的那张脸：哭、笑到闭眼
+    expect(pick(MANO, { mood: "sad", strength: 0.95 })).toMatchObject({ body: "sad2", face: "face_cry" });
+    expect(pick(MANO, { mood: "happy", strength: 0.95 })).toMatchObject({ face: "face_close" });
+    // 小台词自带的那一套优先，不受把握程度影响
+    expect(pick(MANO, { mood: "sad", strength: 0.95, body: "smile2", face: "face_close" })).toMatchObject({
+      body: "smile2",
+      face: "face_close",
+    });
+  });
+
   it("减少动态效果时，身体一律用 wait，表情、口型和点头照常", () => {
     expect(pick(KOGANE, { mood: "angry" }, true)).toMatchObject({ body: "wait", face: "face_anger" });
     expect(pick(MANO, { mood: "happy" }, true)).toMatchObject({ body: "wait", face: "face_smile" });
     expect(pick(KOGANE, { mood: "sad", speaking: true }, true).mouth).toEqual({ name: "lip_sad", open: true });
     expect(pick(MANO, { nod: { kind: "yes", id: 1 } }, true).nod).toEqual({ name: "yes", id: 1 });
+  });
+
+  it("她这一句自带的身体和表情：衣装里有就照着播，没有就按心情挑", () => {
+    expect(pick(MANO, { mood: "sad", body: "smile2", face: "face_close" })).toMatchObject({
+      body: "smile2",
+      face: "face_close",
+    });
+    // 恋钟这套没有 face_surp，身体动作也没有这个：都回到按心情挑
+    expect(pick(KOGANE, { mood: "sad", body: "没有的动作", face: "face_surp" })).toMatchObject({
+      body: "sad1",
+      face: "face_sad",
+    });
+    // 减少动态效果时身体照旧用 wait，但这一句的脸还是那一张
+    expect(pick(MANO, { mood: "sad", body: "smile2", face: "face_close" }, true)).toMatchObject({
+      body: "wait",
+      face: "face_close",
+    });
   });
 });
 

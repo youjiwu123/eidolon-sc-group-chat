@@ -14,7 +14,15 @@ const blank = { formOfAddress: "", gender: "" as const, timezone: "", birthMonth
 
 describe("toDraft", () => {
   it("把没有设置的项变成空白，表示沿用默认", () => {
-    expect(toDraft({ form_of_address: null, gender: null, timezone: null, birthday: null })).toEqual({
+    expect(
+      toDraft({
+        form_of_address: null,
+        gender: null,
+        timezone: null,
+        birthday: null,
+        special_mode: "",
+      }),
+    ).toEqual({
       formOfAddress: "",
       gender: "",
       timezone: "",
@@ -30,6 +38,7 @@ describe("toDraft", () => {
         gender: "female",
         timezone: "Asia/Tokyo",
         birthday: { month: 2, day: 29 },
+        special_mode: "special",
       }),
     ).toEqual({
       formOfAddress: "小林さん",

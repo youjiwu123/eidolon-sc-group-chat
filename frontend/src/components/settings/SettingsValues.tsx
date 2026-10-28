@@ -50,7 +50,12 @@ export function SettingsValuesProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let current = true;
     getProfile().then(
-      (saved) => current && setProfile({ saved: toDraft(saved), draft: toDraft(saved) }),
+      (saved) =>
+        current &&
+        setProfile({
+          saved: toDraft(saved),
+          draft: toDraft(saved),
+        }),
       (e) => current && setProfileFailure(toFailure(e)),
     );
     return () => {
@@ -98,7 +103,8 @@ export function SettingsValuesProvider({ children }: { children: ReactNode }) {
         setProfileAttempt((n) => n + 1);
       },
       editProfile: (draft) => setProfile((profile) => profile && { ...profile, draft }),
-      profileSaved: (saved) => setProfile({ saved, draft: saved }),
+      profileSaved: (saved) =>
+        setProfile((profile) => profile && { ...profile, saved, draft: saved }),
       memoryCountChanged: setMemoryCount,
       callChanged: setCall,
     }),

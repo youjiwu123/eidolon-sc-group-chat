@@ -19,6 +19,8 @@ describe("在不在导航外壳里", () => {
     "/settings?tab=own-keys",
     "/settings/own-keys",
     "/gifts?to=mano",
+    "/story",
+    "/story/card-mano-0a1b2c3d4e5f",
   ])("%s 在外壳里", (href) => {
     expect(isInShell(href)).toBe(true);
   });
@@ -36,6 +38,7 @@ describe("在不在导航外壳里", () => {
     "/conversations-old",
     "/settingsx",
     "/gifts/cake",
+    "/storyx",
     "/api/auth/link/google",
   ])("%s 在外壳外面", (href) => {
     expect(isInShell(href)).toBe(false);
@@ -52,11 +55,13 @@ describe("外壳顶上的通话条", () => {
     expect(showsShellCallBar("/conversations", null)).toBe(false);
   });
 
-  it("通话中在设置、礼物、对话列表、别人的对话页上出现", () => {
+  it("通话中在设置、礼物、剧情、对话列表、别人的对话页上出现", () => {
     expect(showsShellCallBar("/settings", "mano")).toBe(true);
     expect(showsShellCallBar("/gifts", "mano")).toBe(true);
     expect(showsShellCallBar("/settings?tab=call", "mano")).toBe(true);
     expect(showsShellCallBar("/conversations", "mano")).toBe(true);
+    expect(showsShellCallBar("/story", "mano")).toBe(true);
+    expect(showsShellCallBar("/story/route-wing-mano", "mano")).toBe(true);
     expect(showsShellCallBar("/conversation/hiori", "mano")).toBe(true);
   });
 
@@ -81,6 +86,8 @@ describe("去某个网址时通话怎么样", () => {
     expect(departure("/settings?tab=own-keys", "mano")).toBe("keep");
     expect(departure("/settings/memories", "mano")).toBe("keep");
     expect(departure("/gifts?to=hiori", "mano")).toBe("keep");
+    expect(departure("/story", "mano")).toBe("keep");
+    expect(departure("/story/route-wing-mano", "mano")).toBe("keep");
   });
 
   it("通话中回她自己的对话页，通话留着", () => {
@@ -103,6 +110,8 @@ describe("导航栏和 dock 的当前项", () => {
     ["/settings", "settings"],
     ["/settings/own-keys", "settings"],
     ["/gifts?to=mano", "gifts"],
+    ["/story", "story"],
+    ["/story/card-mano-0a1b2c3d4e5f", "story"],
   ] as const)("%s 的当前项是 %s", (href, item) => {
     expect(currentNavItem(href)).toBe(item);
   });
@@ -133,14 +142,16 @@ describe("点导航栏、dock 里的一项去哪", () => {
     expect(navDestination("gifts", "/settings/call")).toBe("/gifts");
   });
 
-  it("在二级页面上（她的对话页、设置的一类）再点当前那一项，回到这一项的第一级", () => {
+  it("在二级页面上（她的对话页、设置的一类、一个剧情单元）再点当前那一项，回到这一项的第一级", () => {
     expect(navDestination("conversations", "/conversation/mano")).toBe("/conversations");
     expect(navDestination("settings", "/settings/call")).toBe("/settings");
+    expect(navDestination("story", "/story/route-wing-mano")).toBe("/story");
   });
 
   it("已经在第一级时再点当前那一项，不动", () => {
     expect(navDestination("conversations", "/conversations")).toBeNull();
     expect(navDestination("gifts", "/gifts")).toBeNull();
+    expect(navDestination("story", "/story")).toBeNull();
   });
 });
 

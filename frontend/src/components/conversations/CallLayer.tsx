@@ -18,7 +18,15 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { copy } from "@/i18n";
 import { cueText } from "@/lib/affinity";
-import { photoImageUrl, type Character, type Outfit, type Photo, type Segment } from "@/lib/api";
+import {
+  getCallOpenerEmotion,
+  photoImageUrl,
+  type CallScene,
+  type Character,
+  type Outfit,
+  type Photo,
+  type Segment,
+} from "@/lib/api";
 import { endCard, type CallEnd } from "@/lib/callEnd";
 import { clock, showTime } from "@/lib/callTime";
 import { giftsHref } from "@/lib/gifts";
@@ -30,9 +38,11 @@ import {
   type AffinityCue,
   type LiveConversation,
   type MicNotice,
+  type SceneOfDial,
   type ShownCall,
 } from "@/lib/liveConversation";
-import type { StandDirection } from "@/lib/standAnimations";
+import type { Emotion, StandDirection } from "@/lib/standAnimations";
+import { withOpener } from "@/lib/standDirection";
 import { cn } from "@/lib/utils";
 import {
   CollapseIcon,
@@ -58,6 +68,8 @@ const t = copy.call;
 
 type Props = {
   character: Character;
+  /** 这一拨问到的场景（连同开场白）；背景和开场白都只认这一份回答。 */
+  scene: SceneOfDial | null;
   call: ShownCall;
   /** 收起：回到 IM（或者通话层展开前所在的那一页），通话照常继续。收起时整层 inert，焦点由画它的那一页送回页上。 */
   isCollapsed: boolean;
@@ -82,6 +94,12 @@ type Props = {
   affinityCue: AffinityCue | null;
   /** 她的立绘该是什么样子；她没有立绘时用不上。 */
   standDirection: StandDirection;
+  /** 她的开场白正在放：不走通话管线的那一段，立绘据此自己动嘴、换表情。 */
+  openerVoicing?: boolean;
+  /** 她开场白判出来的语气（判一次、记在后端），和回复一样照着摆。 */
+  openerMood?: { emotion: Emotion; nod: "yes" | "no" | null; strength: number } | null;
+  /** 开场白里点头、摇头的编号：一通电话一个，免得和回复的点头撞上。 */
+  openerNodId?: number;
   /** 立绘依次试的衣装：选中的那套，再是默认衣装；她没有立绘时用不上。 */
   standOutfits: readonly Outfit[];
   onCollapse: () => void;
@@ -138,6 +156,7 @@ export function LiveCallLayer({
   return (
     <CallLayer
       character={character}
+      scene={snapshot.scene}
       call={layer.call}
       isCollapsed={layer.collapsed}
       layerRef={layerRef}
@@ -180,28 +199,59 @@ export function LiveCallLayer({
  * 她在这通电话里发来照片时，台词卡上方出一张小卡（电脑）或一颗胶囊（手机），结束卡上不带。
  */
 export function CallLayer(props: Props) {
-  const { character, call, isCollapsed, isFullScreen, isReducedMotion, layerRef } = props;
+  const { character, scene: sceneOfDial, call, isCollapsed, isFullScreen, isReducedMotion, layerRef } = props;
   const ended = call.phase === "ended";
   const hasStand = Boolean(character.stand);
+
+  // 这一拨问到的场景（`liveConversation` 里一通电话只问一次）：问到之前先照旧用她的背景图。
+  // 回答带着它是哪一拨的；旧拨号的晚到回答不换掉现在这张，背景也就不会在通话里跳。
+  const sceneAnswer = sceneOfDial?.dial === call.dial ? sceneOfDial : null;
+  const scene = sceneAnswer?.scene ?? null;
 
   // Esc 收起（结束页上是回到对话）；按键时取最新的回调。
   const onEscape = useRef(() => {});
   useEffect(() => {
     onEscape.current = ended ? props.onDismiss : props.onCollapse;
   });
-  // 接通时她先开口：放她的开场白（第一次会合成并缓存），通话结束后重置。
-  const spokeOpener = useRef(false);
+  // 接通时她先开口：放她的开场白（第一次会合成并缓存），一通电话一次。
+  // 只在「这一拨的场景」回答到了才放：背景和开场白必须出自同一次回答，不能先拿她固定的
+  // 那句顶上（那会和稍后换上的场景对不上）；她没有场景开场白时才退回固定的那句。
+  // 开场白不走通话的语音管线（它是事先备好的一段音频），所以立绘得自己知道她正在说：
+  // 播的时候让她动嘴，播完停下；这段时间台词卡显示它的字幕。
+  const openerDial = useRef<number | null>(null);
+  const [openerVoicing, setOpenerVoicing] = useState(false);
+  /** 她开场白的语气：判一次记在后端，接通前后问一次就够。 */
+  const [openerMood, setOpenerMood] = useState<{
+    emotion: Emotion;
+    nod: "yes" | "no" | null;
+    strength: number;
+  } | null>(null);
   useEffect(() => {
     if (call.phase !== "connected") {
-      if (call.phase === "ended") spokeOpener.current = false;
+      setOpenerVoicing(false);
       return;
     }
-    if (spokeOpener.current) return;
-    spokeOpener.current = true;
-    const audio = new Audio(`/api/characters/${character.id}/call-opener/speech`);
-    void audio.play().catch(() => undefined);
-    return () => audio.pause();
-  }, [call.phase, character.id]);
+    if (openerDial.current === call.dial || sceneAnswer === null) return;
+    openerDial.current = call.dial;
+    void getCallOpenerEmotion(character.id)
+      .catch(() => null)
+      .then((answer) => {
+        if (answer) setOpenerMood({ emotion: answer.emotion, nod: answer.nod, strength: answer.strength });
+      });
+    const audio = new Audio(
+      scene?.opener?.speech_url ?? `/api/characters/${character.id}/call-opener/speech`,
+    );
+    const started = () => setOpenerVoicing(true);
+    const stopped = () => setOpenerVoicing(false);
+    audio.addEventListener("playing", started);
+    audio.addEventListener("ended", stopped);
+    audio.addEventListener("error", stopped);
+    void audio.play().catch(stopped);
+    return () => {
+      audio.pause();
+      setOpenerVoicing(false);
+    };
+  }, [call.phase, call.dial, character.id, sceneAnswer, scene?.opener?.speech_url]);
 
   // 展开时把焦点移进来，屏幕阅读器从这里读起。
   useEffect(() => {
@@ -231,8 +281,15 @@ export function CallLayer(props: Props) {
         isCollapsed ? "invisible translate-y-full" : "translate-y-0",
       )}
     >
-      <Backdrop character={character} />
-      {hasStand && <StandStage {...props} />}
+      <Backdrop character={character} scene={scene} />
+      {hasStand && (
+          <StandStage
+            {...props}
+            openerVoicing={openerVoicing}
+            openerMood={openerMood}
+            openerNodId={props.call.dial}
+          />
+        )}
 
       <header className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-2 px-4 pt-4">
         <div className="flex justify-start">
@@ -305,7 +362,10 @@ export function CallLayer(props: Props) {
             {call.phase === "connected" && props.photo && (
               <CallPhoto key={props.photo.id} photo={props.photo} isFullScreen={isFullScreen} />
             )}
-            {call.phase === "connected" && <LineCard {...props} />}
+            {call.phase === "connected" && (
+              // 开场白正在放时，台词卡换成它的日语和字幕；放完（或者她开口说下一句）再回到平时的样子。
+              <LineCard {...props} opener={openerVoicing ? (scene?.opener ?? null) : null} />
+            )}
           </>
         )}
       </div>
@@ -319,21 +379,28 @@ export function CallLayer(props: Props) {
  * 底：没有背景图时她的头像放大、`blur-3xl`；有背景图时背景图清晰铺满。上面压一层从 25% 黑到
  * call.deep 混黑（`her-call-shade`）的渐变，白字的可读性全靠它（DESIGN.md「Call layer」）。
  */
-function Backdrop({ character }: { character: Character }) {
-  const src = character.background_url ?? character.avatar_url;
+function Backdrop({ character, scene }: { character: Character; scene: CallScene | null }) {
+  const src = scene?.image_url ?? character.background_url ?? character.avatar_url;
+  const isScene = Boolean(scene);
   return (
     <>
       {src && (
-        // 纯装饰的底图，不经 next/image：头像要整张放大模糊，背景图按 cover 铺满。
+        // 纯装饰的底图，不经 next/image：头像要整张放大模糊，背景图和场景图按 cover 铺满。
         <img
+          key={src}
           src={src}
           alt=""
           aria-hidden
           className={cn(
-            "pointer-events-none absolute inset-0 size-full object-cover",
-            !character.background_url && "scale-125 blur-3xl",
+            "pointer-events-none absolute inset-0 size-full object-cover transition-opacity duration-700",
+            !character.background_url && !isScene && "scale-125 blur-3xl",
           )}
         />
+      )}
+      {scene && (
+        <span className="pointer-events-none absolute left-4 top-16 rounded-full bg-black/35 px-2.5 py-1 text-meta text-white/90 backdrop-blur-sm">
+          {scene.name}
+        </span>
       )}
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/25 to-her-call-shade" />
     </>
@@ -366,7 +433,14 @@ function StandStage(props: Props) {
           framing={isFullScreen ? "knees" : "waist"}
           isPaused={isCollapsed}
           entrance={isFullScreen && !isReducedMotion ? "rise" : "fade"}
-          direction={standDirection}
+          // 开场白在放的时候也让她动嘴（只看文字时不动，和别的时候一样）。
+          direction={withOpener(
+            standDirection,
+            props.openerVoicing === true,
+            props.textOnly,
+            props.openerMood,
+            props.openerNodId,
+          )}
           isReducedMotion={isReducedMotion}
         />
       </div>
@@ -443,8 +517,18 @@ function Ripple({ isOn, children }: { isOn: boolean; children: ReactNode }) {
 /**
  * 台词卡：她当前这句的日语原文在上、字幕在下；「只看文字」开着时上一句以 45% 不透明度留在上面。
  * 她还没开口时是一句提示。用户正在说、还没定稿的话放在最下面。
+ * 开场白正在放时（`opener`）先显示它的日语和字幕，和她平时的台词同一副样子；她没有说下一句
+ * 之前它就是这一句。
  */
-function LineCard({ line, previousLine, hearing, textOnly }: Props) {
+function LineCard({
+  line,
+  previousLine,
+  hearing,
+  textOnly,
+  opener,
+}: Pick<Props, "line" | "previousLine" | "hearing" | "textOnly"> & {
+  opener: { ja: string; zh: string } | null;
+}) {
   return (
     <div className="w-full max-w-[34em] rounded-3xl bg-white/12 px-5 py-4 text-center text-balance backdrop-blur-md">
       <div aria-live="polite">
@@ -462,6 +546,13 @@ function LineCard({ line, previousLine, hearing, textOnly }: Props) {
               <Ja>{line.ja}</Ja>
             </p>
             {line.zh && <p className="mt-1 text-sm text-white/80">{line.zh}</p>}
+          </>
+        ) : opener ? (
+          <>
+            <p className="text-call-line leading-relaxed">
+              <Ja>{opener.ja}</Ja>
+            </p>
+            {opener.zh && <p className="mt-1 text-sm text-white/80">{opener.zh}</p>}
           </>
         ) : (
           <p className="text-sm text-white/80">{textOnly ? t.repliesInText : t.speakFreely}</p>

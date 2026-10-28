@@ -25,15 +25,18 @@ function conversationOf(path: string): string | null {
   return match ? decodeURIComponent(match[1]) : null;
 }
 
-/** The conversations (list and each character's page), the gifts page and the settings
- * (memories among them) are in the shell; the admin console, `/about`, the privacy policy, the
- * terms, sign-in and consent are out of it, and so is anything on another site. */
+/** The conversations (list and each character's page), the story replay, the
+ * gifts page and the settings (memories among them) are in the shell; the admin console, `/about`,
+ * the privacy policy, the terms, sign-in and consent are out of it, and so is anything on another
+ * site. */
 export function isInShell(href: string): boolean {
   const { path, local } = pathOf(href);
   if (!local) return false;
   return (
     path === "/conversations" ||
     conversationOf(path) !== null ||
+    path === "/story" ||
+    path.startsWith("/story/") ||
     path === "/gifts" ||
     path === "/settings" ||
     path.startsWith("/settings/")
@@ -58,14 +61,16 @@ export function departure(href: string, callee: string | null): Departure {
   return other !== null && other !== callee ? "ask" : "keep";
 }
 
-/** The items of the rail and the dock, top to bottom (left to right on the dock). */
-export const NAV_ITEMS = ["conversations", "gifts", "settings"] as const;
+/** The items of the rail and the dock, top to bottom (left to right on the dock).
+ * 剧情 sits after 礼物 and before 设置: the three the shell had keep their order. */
+export const NAV_ITEMS = ["conversations", "gifts", "story", "settings"] as const;
 export type NavItem = (typeof NAV_ITEMS)[number];
 
 /** Each item's first level; her conversation page and a settings category below it are its second.
- * The gifts page has no second level. */
+ * The story replay and the gifts page have no second level. */
 export const FIRST_LEVEL: Record<NavItem, string> = {
   conversations: "/conversations",
+  story: "/story",
   gifts: "/gifts",
   settings: "/settings",
 };
@@ -75,6 +80,7 @@ export function currentNavItem(href: string): NavItem | null {
   const { path } = pathOf(href);
   if (!isInShell(href)) return null;
   if (path === "/gifts") return "gifts";
+  if (path === "/story" || path.startsWith("/story/")) return "story";
   return path === "/settings" || path.startsWith("/settings/") ? "settings" : "conversations";
 }
 

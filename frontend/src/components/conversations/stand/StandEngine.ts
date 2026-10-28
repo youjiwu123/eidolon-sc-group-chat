@@ -1,5 +1,5 @@
 import type { Outfit } from "@/lib/api";
-import { CALM, pickAnimations, type Emotion, type StandDirection } from "@/lib/standAnimations";
+import { CALM, pickAnimations, type StandDirection } from "@/lib/standAnimations";
 import { FrameGate, MAX_PIXEL_RATIO, pixelRatio } from "@/lib/standFrames";
 
 import type {
@@ -61,8 +61,8 @@ type Pose = {
 };
 
 type Shown = {
-  /** 身体动作按哪种心情选的：心情变了才换身体动作。 */
-  mood: Emotion | null;
+  /** 身体轨道上现在放的是哪个动作：换了才切，情绪变了但动作没变时不打断。 */
+  body: string | null;
   face: string | null;
   /** 口型的名字和开合，例如 `lip_smile open`。 */
   mouth: string | null;
@@ -236,7 +236,7 @@ export class StandEngine {
       bounds: { x: offset.x, y: offset.y, width: size.x, height: size.y },
       clips: new Map(),
       // 立绘到之前的点头已经过去了，不补。
-      shown: { mood: null, face: null, mouth: null, eye: null, nod: this.direction.nod?.id ?? null },
+      shown: { body: null, face: null, mouth: null, eye: null, nod: this.direction.nod?.id ?? null },
     };
   }
 
@@ -313,8 +313,9 @@ export class StandEngine {
   private follow(pose: Pose): void {
     const { state, shown } = pose;
     const want = pickAnimations(this.direction, pose.animations, this.reducedMotion);
-    if (shown.mood !== this.direction.mood) {
-      shown.mood = this.direction.mood;
+    // 按要放的动作名换，而不是按心情：两句心情一样、身体动作不一样时（小台词各自带着自己的）也要换。
+    if (shown.body !== want.body) {
+      shown.body = want.body;
       this.playBody(pose, want.body);
     }
     if (shown.face !== want.face) {
@@ -355,7 +356,10 @@ export class StandEngine {
     if (!animations.has(name)) return;
     const current = state.getCurrent(TRACK.body);
     if (current?.animation.name === name) return;
-    const relay = current && this.event(data, current.animation.name, "relay");
+    // 正在放「把手放下」那一套时不再接一次：短时间内连着换动作（想事情 → 待机 → 难过）会接力两遍，
+    // 3.6 里第二次接力会把排在后面的动作卡掉，人停在半路。这时候直接换过去，反而干净。
+    const relaying = current?.animation.name.startsWith("arm_down") === true;
+    const relay = current && !relaying ? this.event(data, current.animation.name, "relay") : null;
     let entry: TrackEntry;
     if (relay && animations.has(relay.value)) {
       state.setAnimation(TRACK.body, relay.value, false);

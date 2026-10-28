@@ -93,6 +93,19 @@ export type Stand = {
  * directory (ending in `/`) holding its `data.json`, `data.atlas` and `data.png`. */
 export type Outfit = { id: string; url: string };
 
+/** A line she says when poked on the conversation page (DESIGN.md「对话页的立绘小人」): what she
+ * says in Japanese and its subtitle, the mood it is said in, the body animation and face it was
+ * made with, and where its voice is. */
+export type SmallTalkLine = {
+  id: string;
+  ja: string;
+  zh: string;
+  mood: Emotion;
+  body: string;
+  face: string;
+  voice: string;
+};
+
 export type Conversation = {
   id: string;
   character_id: string;
@@ -142,7 +155,32 @@ export type Message = {
   photo?: Photo;
   /** Whether the user sent a picture with this message: it comes from `/api/messages/<id>/image`. */
   image?: boolean;
+  /** 她说到的原声（功能 1）：回复里逐字包含原声表里的某句名台词时才有，null 是没有。
+   * 历史消息也现算，不另存；生日祝福的音频不走这里。 */
+  voice?: MessageVoice | null;
 };
+
+/** 一句原声（`characters/voices.toml`）：出自哪段剧情、第几句、日语原文、中文字幕和音频。 */
+export type VoiceLine = {
+  story: string;
+  /** 在这段剧情里的第几句，四位编号。 */
+  line: string;
+  /** 日语原文，可以带换行。 */
+  text: string;
+  /** 官方中译；没有时是空字符串。 */
+  subtitle: string;
+  /** 音频，`/api/voices/...` 下。 */
+  audio_url: string;
+  /** 大约多长（秒）。 */
+  seconds: number;
+  kind: VoiceKind;
+};
+
+/** 原声的两种：名台词（对话页气泡旁用）和生日祝福（生日那天用）。 */
+export type VoiceKind = "quote" | "birthday";
+
+/** 一条回复里她说到的原声（`Message.voice`）：在气泡旁点「原声」放的就是这一段。 */
+export type MessageVoice = Pick<VoiceLine, "audio_url" | "text" | "subtitle" | "seconds">;
 
 /** How a photo she sent is coming along: being generated, sent, or not sent after all, and why not. */
 export type PhotoStatus = { status: "pending" | "ready" | "failed"; reason: string | null };
@@ -207,7 +245,13 @@ export type TurnEvent =
       ended?: ConversationEvent | null;
       rewarded?: Rewarded | null;
     }
-  | { type: "error"; message: string };
+  | { type: "error"; message: string }
+  /** How she said the reply, judged once it was recorded: comes after `done`, when the judge
+   * model is on. */
+  | { type: "emotion"; emotion: Emotion; nod: "yes" | "no" | null; strength: number }
+  /** 这一回合里他们**说定**换了地方（DESIGN.md「通话场景」）：也跟在 `done` 后面，页首的
+   * 「现在」和接下来的通话背景跟着换。 */
+  | { type: "scene"; scene: NowScene["scene"] };
 
 export type Gender = "male" | "female";
 
@@ -217,6 +261,15 @@ export type ProducerProfile = {
   gender: Gender | null;
   timezone: string | null;
   birthday: Birthday | null;
+  /** 选中的模式 id（特殊档等），空串是关闭。只在好感最高档生效。 */
+  special_mode: string;
+};
+
+/** 制作人档案里可选的一种模式（`characters/modes.toml`），只在好感最高档之上叠加。 */
+export type ProducerMode = {
+  id: string;
+  name: string;
+  description: string;
 };
 
 /** The producer's birthday: month and day only, no year. */
@@ -241,7 +294,7 @@ export type Memory = {
  * limit. She hanging up, it gives the event that she did, just recorded in the conversation,
  * and for a cooldown when it ends. */
 export type CallEvent =
-  | Exclude<TurnEvent, { type: "user" | "photo" }>
+  | Exclude<TurnEvent, { type: "user" | "photo" | "emotion" }>
   | CallUserEvent
   | CallPhotoEvent
   | SegmentPlaying
@@ -270,7 +323,13 @@ export type CallPhotoEvent =
 /** Her voice has started playing segment `segment` of reply `reply`, replies being numbered
  * from 1 within the call. Sent as the segment's first audio goes out, so it arrives a little
  * before it is heard; a segment cut off before it is voiced gets none. */
-export type SegmentPlaying = { type: "segment-playing"; reply: number; segment: number };
+export type SegmentPlaying = {
+  type: "segment-playing";
+  reply: number;
+  segment: number;
+  /** In a group call, which of the group says it (absent: the call's own character). */
+  speaker?: string | null;
+};
 
 /** How she feels in segment `segment` of reply `reply`, and whether she nods (`yes`) or shakes
  * her head (`no`) at it; `calm` when it could not be told for sure. Sent once the segment is
@@ -282,6 +341,8 @@ export type SegmentEmotion = {
   segment: number;
   emotion: Emotion;
   nod: Nod["kind"] | null;
+  /** How sure the judge was of the emotion, 0–1: the surer, the stronger the stand's variant. */
+  strength?: number;
 };
 
 /** Why the backend hung up (`EndReason` in `call_outcome.py`). */
@@ -413,6 +474,59 @@ export async function api(path: string, init: RequestInit = {}): Promise<Respons
   const res = await fetch(path, { ...init, headers: apiHeaders(init.headers) });
   followRedirect(res);
   return res;
+}
+
+/** A line she says when poked on the conversation page (DESIGN.md「对话页的立绘小人」), one for
+ * this hour preferred; null when she has none to say (the corpus is not there, or not hers). */
+export async function getSmallTalk(characterId: string): Promise<SmallTalkLine | null> {
+  const hour = new Date().getHours();
+  const res = await api(`/api/characters/${encodeURIComponent(characterId)}/small-talk?hour=${hour}`);
+  if (!res.ok) return null;
+  const { line } = (await res.json()) as { line: SmallTalkLine };
+  return line;
+}
+
+/** 生日原声彩蛋（功能 2）：今天是制作人的生日时是她的一段祝福，不是（或者今天已经给过一次）时
+ * `active` 是 false。`character` 里的名字按 `name_zh` 优先显示。 */
+export type BirthdayEgg =
+  | { active: false }
+  | {
+      active: true;
+      character: {
+        id: string;
+        name: string;
+        name_zh: string | null;
+        color: string;
+        avatar_url: string | null;
+      };
+      /** 按 `story`、`line` 排好，依次播放，各自配 `subtitle`。 */
+      lines: { audio_url: string; text: string; subtitle: string }[];
+    };
+
+/** 今天的生日彩蛋。一天只在第一次问时给（后端记着，前端也在这台设备上记着当天看过）。 */
+export async function getBirthdayEgg(): Promise<BirthdayEgg> {
+  return json(await api("/api/birthday"));
+}
+
+/** How she says her call opener (DESIGN.md「开场白」): judged once per character, the call's
+ * stand taking it up as it does a reply's. Null when she has no opener, or it cannot be
+ * judged (no judge model). */
+export async function getCallOpenerEmotion(
+  characterId: string,
+): Promise<{ emotion: Emotion; nod: "yes" | "no" | null; strength: number } | null> {
+  const res = await api(`/api/characters/${encodeURIComponent(characterId)}/call-opener/emotion`);
+  if (!res.ok) return null;
+  return (await res.json()) as { emotion: Emotion; nod: "yes" | "no" | null; strength: number };
+}
+/** How she said this reply, judged when first asked for: the pet takes it up while the reply is
+ * read aloud (DESIGN.md「对话页的立绘小人」). Null when it cannot be judged, or when the judge
+ * model is off. */
+export async function getMessageEmotion(
+  messageId: number,
+): Promise<{ emotion: Emotion; nod: "yes" | "no" | null; strength: number } | null> {
+  const res = await api(`/api/messages/${messageId}/emotion`);
+  if (!res.ok) return null;
+  return (await res.json()) as { emotion: Emotion; nod: "yes" | "no" | null; strength: number };
 }
 
 /** The ways to sign in the backend offers, and how to reach the deployer (null if the
@@ -665,7 +779,13 @@ export async function getProfile(): Promise<ProducerProfile> {
   return json(await api("/api/profile"));
 }
 
-export async function saveProfile(profile: ProducerProfile): Promise<ProducerProfile> {
+/** 可选的特殊档等模式；部署者没有配 `characters/modes.toml` 时为空。 */
+export async function getModes(): Promise<ProducerMode[]> {
+  return json(await api("/api/modes"));
+}
+
+/** 档案整份保存；只带 `special_mode` 时后端保留其他项，模式可以单独换。 */
+export async function saveProfile(profile: Partial<ProducerProfile>): Promise<ProducerProfile> {
   return json(
     await api("/api/profile", {
       method: "PUT",
@@ -673,6 +793,29 @@ export async function saveProfile(profile: ProducerProfile): Promise<ProducerPro
       body: JSON.stringify(profile),
     }),
   );
+}
+
+/** 她身上开着的特殊档等模式（每个角色各一份），按 id；别的角色不受影响。 */
+export async function getCharacterModes(characterId: string): Promise<string[]> {
+  const body = await json<{ enabled: string[] }>(
+    await api(`/api/characters/${encodeURIComponent(characterId)}/modes`),
+  );
+  return body.enabled;
+}
+
+/** 只把 `enabled` 这几个模式开在她身上，其余关掉；返回后台最后存下的那几个。 */
+export async function saveCharacterModes(
+  characterId: string,
+  enabled: readonly string[],
+): Promise<string[]> {
+  const body = await json<{ enabled: string[] }>(
+    await api(`/api/characters/${encodeURIComponent(characterId)}/modes`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ enabled }),
+    }),
+  );
+  return body.enabled;
 }
 
 /** Newest first. */
@@ -748,6 +891,102 @@ export type CallSetup = { iceServers: RTCIceServer[]; maxCallSeconds: number | n
 /** Asked before a call into `conversationId` that is to bring the user's own keys for `own`,
  * naming those services but bringing none of the keys: the call itself brings them. Refused, as
  * the call would be, while she is in a cooldown. */
+/** Asked before a call into `groupId`: the same setup a call into a conversation gets. */
+export async function getGroupCallSetup(groupId: string): Promise<CallSetup> {
+  return json(await api(`/api/groups/${encodeURIComponent(groupId)}/ice-servers`));
+}
+
+/** 接通电话时她身后的场景（DESIGN.md「通话场景」）：`chat` 是按最近的对话判的，`behavior`
+ * 是冷启动随机一条预设行为，`schedule` 是按她的排期表（节日 / 事件 / 星期几 + 时段 / 随机池）
+ * 挑的，`fallback` 是兜底那张。 */
+export type CallScene = {
+  id: string;
+  name: string;
+  hint: string;
+  image_url: string;
+  why: string;
+  source: "chat" | "behavior" | "schedule" | "fallback";
+  /** 接通时说的第一句（跟着场景写的）；没有就是 null，照旧用她那句固定的。 */
+  opener: { ja: string; zh: string; speech_url: string } | null;
+};
+
+export async function getConversationScene(conversationId: string): Promise<CallScene> {
+  const body = (await json(
+    await api(`/api/conversations/${encodeURIComponent(conversationId)}/scene`),
+  )) as { scene: CallScene };
+  return body.scene;
+}
+
+/** 她现在在哪（不打电话也看得到）：这段对话里说定搬过地方就是那儿（`chat`），页首的下拉栏里
+ * 自己挑的也是那儿（`manual`），否则按排期表算的当前场景，同一格反复问结果一样。`source` 是
+ * 这一步怎么定下来的；`until` 是这一格结束的时刻（ISO，+09:00）。 */
+export type NowScene = {
+  scene: { id: string; name: string; image_url: string };
+  /** 她这会儿在做什么；页首小胶囊的悬停提示用它。 */
+  activity: string;
+  source: "holiday" | "event" | "slot" | "pool" | "behavior" | "fallback" | "chat" | "manual";
+  until: string;
+};
+
+export async function getConversationNow(conversationId: string): Promise<NowScene> {
+  return json(await api(`/api/conversations/${encodeURIComponent(conversationId)}/now`));
+}
+
+/** 场景图的地址：后端在 `NowScene.scene` 和群聊的地点上给的也是这个（`/api/scenes/<id>`）；
+ * 万一哪一处没给，就按场景 id 拼。 */
+export function sceneImageUrl(id: string): string {
+  return `/api/scenes/${encodeURIComponent(id)}`;
+}
+
+/** 页首的地点下拉栏里的一个场景：场景表里能挑的地方（`characters/scenes.toml`）。 */
+export type SceneEntry = { id: string; name: string; hint: string };
+
+/** 场景表里所有能挑的地方，按表里的顺序；页首的地点下拉栏列它。 */
+export async function getScenes(): Promise<SceneEntry[]> {
+  return json(await api("/api/scenes"));
+}
+
+/** 页首的地点下拉栏给这段对话自己挑一处地方（DESIGN.md「通话场景」）：`sceneId` 为 null 是回到
+ * 按她的作息表算的地方。返回和 `/now` 一样的对象，页首的「现在」拿它换过去。 */
+export async function setConversationPlace(conversationId: string, sceneId: string | null): Promise<NowScene> {
+  return json(
+    await api(`/api/conversations/${encodeURIComponent(conversationId)}/place`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ scene_id: sceneId }),
+    }),
+  );
+}
+
+/** 群聊现在的地点（场景表里的一处）；群里没挑是 null。 */
+export type GroupPlace = NowScene["scene"];
+
+/** 群聊现在的地点：群里没挑就是 null。 */
+export async function getGroupPlace(groupId: string): Promise<GroupPlace | null> {
+  const body = await json<{ scene: GroupPlace | null }>(
+    await api(`/api/groups/${encodeURIComponent(groupId)}/place`),
+  );
+  return body.scene;
+}
+
+/** 群聊页首挑一处地方（null 是不设置）：返回群里现在的地点。 */
+export async function setGroupPlace(groupId: string, sceneId: string | null): Promise<GroupPlace | null> {
+  const body = await json<{ scene: GroupPlace | null }>(
+    await api(`/api/groups/${encodeURIComponent(groupId)}/place`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ scene_id: sceneId }),
+    }),
+  );
+  return body.scene;
+}
+
+export async function getGroupScene(groupId: string): Promise<CallScene> {
+  const body = (await json(
+    await api(`/api/groups/${encodeURIComponent(groupId)}/scene`),
+  )) as { scene: CallScene };
+  return body.scene;
+}
 export async function getCallSetup(conversationId: string, own: readonly OwnService[]): Promise<CallSetup> {
   const path = `/api/ice-servers?conversation=${encodeURIComponent(conversationId)}`;
   return json(await api(own.length ? `${path}&own=${own.join(",")}` : path));

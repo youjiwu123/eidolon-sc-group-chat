@@ -3,6 +3,7 @@ import type { AffinityStatus } from "@/lib/affinity";
 import {
   ApiError,
   type CallEvent,
+  type CallScene,
   type Conversation,
   type ConversationEvent,
   type LatestConversation,
@@ -87,6 +88,17 @@ function record(id: string): Conversation {
   return { id, character_id: "hikari", created_at: "2026-09-27T00:00:00Z" };
 }
 
+/** The scene each call is given unless a test says otherwise. */
+const SCENE: CallScene = {
+  id: "studio",
+  name: "练习室",
+  hint: "铺着木地板的练习室",
+  image_url: "/api/scenes/studio",
+  why: "在练舞",
+  source: "behavior",
+  opener: { ja: "もしもし", zh: "喂", speech_url: "/api/characters/hikari/call-opener/speech?scene=studio" },
+};
+
 type Options = {
   /** Her conversations, newest first; one, "c1", unless a test says otherwise. */
   conversations?: Conversation[];
@@ -131,6 +143,7 @@ function opening(options: Options = {}) {
       return conversation;
     },
     listMessages: async (conversationId) => (conversationId === "c1" ? (options.messages ?? []) : []),
+    getScene: async () => SCENE,
     getAffinity: async () => options.affinity ?? null,
     getPhoto: async () => ({ status: "pending", reason: null }),
     onListChanged: () => listChanged++,
@@ -475,6 +488,80 @@ describe("LiveConversation: which call it is", () => {
     attempts[0].handlers.onDropped();
 
     expect(live.snapshot().call).toMatchObject({ phase: "ended", dial: 1 });
+  });
+});
+
+describe("LiveConversation: the call's scene", () => {
+  it("asks once when the call is dialed, and keeps that answer for the call", async () => {
+    let asked = 0;
+    const { live, attempts } = await conversation({
+      ports: {
+        getScene: async () => {
+          asked++;
+          return SCENE;
+        },
+      },
+    });
+    expect(asked).toBe(0);
+
+    const calling = live.startCall();
+    expect(live.snapshot().scene).toBeNull();
+    attempts[0].connect(new FakeCall());
+    await calling;
+    await settled();
+
+    expect(asked).toBe(1);
+    expect(live.snapshot().scene).toEqual({ dial: 1, scene: SCENE });
+  });
+
+  it("drops an answer for a dial that is no longer the one under way", async () => {
+    let answerFirst: (scene: CallScene) => void = () => {};
+    const first = new Promise<CallScene>((resolve) => (answerFirst = resolve));
+    const other: CallScene = { ...SCENE, id: "park", name: "公园" };
+    let asked = 0;
+    const { live, attempts } = await conversation({
+      ports: {
+        getScene: () => {
+          asked++;
+          return asked === 1 ? first : Promise.resolve(other);
+        },
+      },
+    });
+
+    const one = live.startCall();
+    await live.hangUp();
+    const two = live.startCall();
+    attempts[1].connect(new FakeCall());
+    await two;
+    attempts[0].fail(new Error("这一拨已经挂了"));
+    await one;
+    await settled();
+
+    expect(asked).toBe(2);
+    expect(live.snapshot().scene).toEqual({ dial: 2, scene: other });
+
+    // 第一拨的答案回来得再晚，也不换掉第二拨的场景。
+    answerFirst(SCENE);
+    await settled();
+
+    expect(live.snapshot().scene).toEqual({ dial: 2, scene: other });
+  });
+
+  it("goes on without a scene when it cannot be read", async () => {
+    const { live, attempts } = await conversation({
+      ports: {
+        getScene: async () => {
+          throw new Error("没有场景");
+        },
+      },
+    });
+
+    const calling = live.startCall();
+    attempts[0].connect(new FakeCall());
+    await calling;
+    await settled();
+
+    expect(live.snapshot().scene).toEqual({ dial: 1, scene: null });
   });
 });
 
@@ -2125,6 +2212,30 @@ describe("LiveConversation: a new conversation", () => {
     await live.startNewConversation();
 
     expect(created).toEqual([]);
+  });
+});
+
+describe("LiveConversation: the place on the header", () => {
+  /** What the place dropdown at the top of the page picked, as `snapshot.movedScene` has it. */
+  const park = { id: "park", name: "公园", image_url: "/api/scenes/park" };
+
+  it("shows a place picked by hand at once, and goes back to what her schedule says", async () => {
+    const { live } = await conversation();
+
+    live.pickPlace(park);
+    const picked = live.snapshot().movedScene;
+    live.pickPlace(null);
+
+    expect({ picked, back: live.snapshot().movedScene }).toEqual({ picked: park, back: null });
+  });
+
+  it("forgets it once another conversation is started", async () => {
+    const { live } = await conversation({ messages: history });
+
+    live.pickPlace(park);
+    await live.startNewConversation();
+
+    expect(live.snapshot()).toMatchObject({ conversation: { status: "open", id: "new1" }, movedScene: null });
   });
 });
 

@@ -243,8 +243,13 @@ export async function deleteUser(id: string): Promise<void> {
 }
 
 /** A user's affinity with one character, as the admin console shows and sets it: by value
- * and tier. The user never sees the value. */
-export type AdminAffinity = { character_id: string; value: number; tier: Tier };
+ * and tier, and whether it is locked against turns and gifts. The user never sees the value. */
+export type AdminAffinity = {
+  character_id: string;
+  value: number;
+  tier: Tier;
+  locked: boolean;
+};
 
 /** The user's affinity with every character, by value and tier. */
 export async function getAdminAffinities(id: string): Promise<AdminAffinity[]> {
@@ -254,17 +259,23 @@ export async function getAdminAffinities(id: string): Promise<AdminAffinity[]> {
   return body.affinities;
 }
 
-/** Set the user's affinity with the character by hand, out of any cooldown; 0–120. */
+/** Set the user's affinity with the character by hand, out of any cooldown; 0–120. With
+ * `locked`, lock it against turns and gifts, or let it move again with false. */
 export async function setAdminAffinity(
   id: string,
   characterId: string,
   value: number,
+  locked?: boolean,
 ): Promise<AdminAffinity> {
   return json<AdminAffinity>(
     await api(`/api/admin/users/${encodeURIComponent(id)}/affinity`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ character_id: characterId, value }),
+      body: JSON.stringify({
+        character_id: characterId,
+        value,
+        ...(locked === undefined ? {} : { locked }),
+      }),
     }),
   );
 }

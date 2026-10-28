@@ -16,7 +16,7 @@
 
 import type { CallEvent, SegmentEmotion, SegmentPlaying } from "@/lib/api";
 import { SPEAKING, type Speaking } from "@/lib/call";
-import { CALM, type Nod, type StandDirection } from "@/lib/standAnimations";
+import { CALM, type Emotion, type Nod, type StandDirection } from "@/lib/standAnimations";
 
 /** A segment of one of her replies in the call. */
 type SegmentAt = Pick<SegmentPlaying, "reply" | "segment">;
@@ -153,7 +153,9 @@ function showEmotion(state: StandState, judged: SegmentEmotion): StandState {
   const { emotion, segment, nod } = judged;
   const { direction } = state;
   const mood = emotion === "calm" && segment > 0 ? direction.mood : emotion;
-  const shown = { ...state, shown: judged, direction: { ...direction, mood } };
+  // 判得多有把握跟着一起走：换了心情才换把握程度，平静那一段沿用原来的。
+  const strength = mood === direction.mood ? direction.strength : judged.strength;
+  const shown = { ...state, shown: judged, direction: { ...direction, mood, strength } };
   return nod ? nodded(shown, nod) : shown;
 }
 
@@ -165,6 +167,27 @@ function withSpeakingAndLooking(state: StandState): StandState {
   const looking = state.userSpeaking || (state.interruptedByTyping && !state.voicing);
   if (speaking === state.direction.speaking && looking === state.direction.looking) return state;
   return { ...state, direction: { ...state.direction, speaking, looking } };
+}
+
+/** 她的开场白在放的时候（DESIGN.md「开场白」）：那一段是事先备好的音频，不走通话的语音管线，
+ * 立绘得自己知道她正在说——嘴跟着动，表情和动作照判出来的那一次来，和回完一条回复时一样。
+ * 只看文字时不动嘴、也不换表情，和别的时候一样。 */
+export function withOpener(
+  direction: StandDirection,
+  voicing: boolean,
+  textOnly: boolean,
+  mood?: { emotion: Emotion; nod: "yes" | "no" | null; strength: number } | null,
+  nodId?: number,
+): StandDirection {
+  if (!voicing || textOnly) return direction;
+  const next: StandDirection = { ...direction, speaking: true };
+  if (!mood) return next;
+  return {
+    ...next,
+    mood: mood.emotion,
+    strength: mood.strength,
+    nod: mood.nod && nodId !== undefined ? { kind: mood.nod, id: nodId } : null,
+  };
 }
 
 function key({ reply, segment }: SegmentAt): string {

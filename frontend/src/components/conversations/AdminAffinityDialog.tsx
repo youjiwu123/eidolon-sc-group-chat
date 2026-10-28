@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useId, useState, type FormEvent } from "react";
 
 import { FailureNotice } from "@/components/app/FailureNotice";
 import { NumberInput } from "@/components/app/admin/NumberInput";
@@ -14,6 +14,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
+import { Field, FieldContent, FieldDescription, FieldLabel } from "@/components/ui/field";
+import { Switch } from "@/components/ui/switch";
 import { copy } from "@/i18n";
 import { getAdminAffinities, setAdminAffinity } from "@/lib/adminUsers";
 import type { AffinityStatus, Tier } from "@/lib/affinity";
@@ -46,11 +48,13 @@ export function AdminAffinityDialog({
 }) {
   const [value, setValue] = useState<number | null>(null);
   const [tier, setTier] = useState<Tier | null>(null);
+  const [locked, setLocked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [failure, setFailure] = useState<Failure | null>(null);
   const [problem, setProblem] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const lockId = useId();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -65,6 +69,7 @@ export function AdminAffinityDialog({
         const found = listed.find((one) => one.character_id === character.id);
         setValue(found?.value ?? null);
         setTier(found?.tier ?? affinity?.tier ?? null);
+        setLocked(found?.locked ?? false);
       },
       (e) => {
         if (live) setFailure(toFailure(e));
@@ -88,9 +93,10 @@ export function AdminAffinityDialog({
     setProblem(null);
     setSaved(false);
     try {
-      const updated = await setAdminAffinity(userId, character.id, value);
+      const updated = await setAdminAffinity(userId, character.id, value, locked);
       setValue(updated.value);
       setTier(updated.tier);
+      setLocked(updated.locked);
       setSaved(true);
       onSaved();
     } catch (e) {
@@ -129,6 +135,24 @@ export function AdminAffinityDialog({
             <p className="text-sm text-muted-foreground">
               {t.current(shownTier, String(value ?? ""))}
             </p>
+          )}
+          <Field orientation="horizontal">
+            <FieldContent>
+              <FieldLabel htmlFor={lockId}>{t.lock}</FieldLabel>
+              <FieldDescription>{t.lockHint}</FieldDescription>
+            </FieldContent>
+            <Switch
+              id={lockId}
+              checked={locked}
+              disabled={loading}
+              onCheckedChange={(checked) => {
+                setLocked(checked);
+                setSaved(false);
+              }}
+            />
+          </Field>
+          {locked && (
+            <p className="text-sm text-muted-foreground">{t.lockedNote}</p>
           )}
           {failure && <FailureNotice failure={failure} />}
           {problem && (

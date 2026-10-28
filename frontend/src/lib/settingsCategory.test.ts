@@ -83,17 +83,19 @@ describe("一级列表上的摘要", () => {
 
   it("档案是称呼 · 时区；没填称呼、时区自动时照实说", () => {
     const filled = { ...blank, formOfAddress: "小林さん", timezone: "Asia/Tokyo" };
-    expect(settingsSummaries({ ...loading, profile: { saved: filled, draft: filled } }).profile).toBe(
-      "小林さん · Asia/Tokyo",
-    );
-    expect(settingsSummaries({ ...loading, profile: { saved: blank, draft: blank } }).profile).toBe(
-      "按各自的习惯 · 自动（Asia/Shanghai）",
-    );
+    expect(
+      settingsSummaries({ ...loading, profile: { saved: filled, draft: filled } }).profile,
+    ).toBe("小林さん · Asia/Tokyo");
+    expect(
+      settingsSummaries({ ...loading, profile: { saved: blank, draft: blank } }).profile,
+    ).toBe("按各自的习惯 · 自动（Asia/Shanghai）");
   });
 
   it("档案改了没保存时整句换成「有修改未保存」", () => {
     const draft = { ...blank, formOfAddress: "小林さん" };
-    expect(settingsSummaries({ ...loading, profile: { saved: blank, draft } }).profile).toBe("有修改未保存");
+    expect(
+      settingsSummaries({ ...loading, profile: { saved: blank, draft } }).profile,
+    ).toBe("有修改未保存");
   });
 
   it("记忆是条数，一条都没有时「还没有记忆」", () => {

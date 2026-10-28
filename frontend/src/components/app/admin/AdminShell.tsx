@@ -30,13 +30,21 @@ import {
 } from "@/components/ui/sidebar";
 import { copy } from "@/i18n";
 import { ADMIN_HREFS, ADMIN_PAGES, adminPage, type AdminPage } from "@/lib/admin";
-import { AnnouncementsIcon, BackIcon, ConfigIcon, DashboardIcon, UsersIcon } from "@/theme/icons";
+import {
+  AnnouncementsIcon,
+  BackIcon,
+  ConfigIcon,
+  DashboardIcon,
+  PromptsIcon,
+  UsersIcon,
+} from "@/theme/icons";
 
 const t = copy.admin;
 
 const ICONS: Record<AdminPage, typeof DashboardIcon> = {
   dashboard: DashboardIcon,
   config: ConfigIcon,
+  prompts: PromptsIcon,
   users: UsersIcon,
   announcements: AnnouncementsIcon,
 };

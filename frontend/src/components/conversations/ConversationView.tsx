@@ -39,7 +39,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { copy } from "@/i18n";
 import { cueText, changeNote, untilText } from "@/lib/affinity";
-import type { Character } from "@/lib/api";
+import { getConversationNow, sceneImageUrl, setConversationPlace, type Character, type NowScene } from "@/lib/api";
 import type { Entry } from "@/lib/conversationLog";
 import type { Failure } from "@/lib/failure";
 import { giftsHref } from "@/lib/gifts";
@@ -47,8 +47,10 @@ import { isLive, NOT_OPEN, type LiveConversation, type Trophy } from "@/lib/live
 import { linesOf, type Line } from "@/lib/messageLines";
 import { pastDay } from "@/lib/pastConversations";
 import { photosUsedUpText } from "@/lib/photoFailure";
+import { loadStandHidden, saveStandHidden } from "@/lib/standVisibility";
 import { hearVoice, startRecording, type Recording } from "@/lib/voiceMessage";
 import { speechState, subscribeSpeech, toggleSpeech } from "@/lib/messageSpeech";
+import { stopVoiceLine, subscribeVoiceLine, toggleVoiceLine, voiceLineState } from "@/lib/voiceLine";
 import { cn } from "@/lib/utils";
 import { herVars } from "@/theme/herVars";
 import {
@@ -69,6 +71,7 @@ import {
   PhotosUsedUpIcon,
   SendIcon,
   SpeakIcon,
+  VoiceIcon,
 } from "@/theme/icons";
 import { Ja } from "@/theme/Ja";
 
@@ -82,6 +85,8 @@ import { LiveCallLayer } from "./CallLayer";
 import { OutfitPicker } from "./OutfitPicker";
 import { PastConversations } from "./PastConversations";
 import { PhotoBlock } from "./PhotoBlock";
+import { PlaceBackdrop } from "./PlaceBackdrop";
+import { PlacePicker } from "./PlacePicker";
 import { useDirectory, useWide } from "./ConversationDirectory";
 import { useFocusBack } from "./useFocusBack";
 import { useHerAchievements } from "./useHerAchievements";
@@ -134,8 +139,28 @@ export function ConversationView({
   const snapshot = useSyncExternalStore(live?.subscribe ?? noSubscription, live?.snapshot ?? notOpen, notOpen);
   const { conversation, entries, call, layer, hearing, draft, failure } = snapshot;
   const outfits = useStandOutfits(character);
+  // 立绘在这一条对话里被临时收起来了吗（DESIGN.md「对话页的立绘小人」）：和外观里全局的「对话页显示立绘」分开，
+  // 按对话记在这台设备上，刷新、重开还在；全局开关关着时这条不起作用。
+  const conversationId = conversation.status === "open" ? conversation.id : null;
+  const standHiddenKey = conversationId === null ? null : `chatStandHidden:${conversationId}`;
+  const [standHidden, setStandHidden] = useState(false);
+  useEffect(() => {
+    setStandHidden(standHiddenKey === null ? false : loadStandHidden(standHiddenKey));
+  }, [standHiddenKey]);
+  const hideStand = () => {
+    if (standHiddenKey === null) return;
+    setStandHidden(true);
+    saveStandHidden(standHiddenKey, true);
+  };
+  const restoreStand = () => {
+    if (standHiddenKey === null) return;
+    setStandHidden(false);
+    saveStandHidden(standHiddenKey, false);
+  };
   const [pickingOutfit, setPickingOutfit] = useState(false);
   const [pickingPast, setPickingPast] = useState(false);
+  // 她现在在哪（不打电话也看得到）：页首的小胶囊；后端按（角色、日期、时段）固定，同一格不变。
+  const [nowScene, setNowScene] = useState<NowScene | null>(null);
   const [adjustingAffinity, setAdjustingAffinity] = useState(false);
   // 这一轮要发给她的图片：选中的 data URL，发出去或取消后清空。
   const [picture, setPicture] = useState<string | null>(null);
@@ -161,6 +186,25 @@ export function ConversationView({
     }
     return { isReplying: false, said: null };
   }, [entries]);
+  // 正在朗读的那条回复：小立绘头顶的气泡里显示它在念的那一段。
+  const speaking = useSyncExternalStore(subscribeSpeech, speechState, speechState);
+  const spoken = useMemo(() => {
+    if (!speaking) return null;
+    const entry = entries.find(
+      (candidate) =>
+        candidate.kind === "character" &&
+        /^[mr]\d+$/.test(candidate.key) &&
+        Number(candidate.key.slice(1)) === speaking.messageId,
+    );
+    if (!entry || entry.kind !== "character" || entry.segments.length === 0) return null;
+    return {
+      ja: entry.segments.map((segment) => segment.ja).join("\n"),
+      zh: entry.segments
+        .map((segment) => segment.zh)
+        .filter(Boolean)
+        .join(" "),
+    };
+  }, [speaking, entries]);
 
   // 向外壳要她的对话（外壳里留着她的通话就用那一份，否则打开她最新的一个，从没聊过就开一个新的）；
   // 离开这一页时交回：通话还在进行就留在外壳里，否则就此告别。
@@ -175,6 +219,43 @@ export function ConversationView({
   useEffect(() => {
     showPast(isPastShown);
   }, [isPastShown, showPast]);
+
+  // 她现在在哪（不打电话也看得到）：进页面问一次，到这一格结束再问一次；看历史对话时不问。
+  // 后端按（角色、日期、时段）固定，同一格刷新几次都是同一张，不会闪。
+  useEffect(() => {
+    if (conversationId === null || isPastShown) {
+      setNowScene(null);
+      return;
+    }
+    let live = true;
+    let timer: number | undefined;
+    const load = (): void => {
+      getConversationNow(conversationId)
+        .then((next) => {
+          if (!live) return;
+          setNowScene(next);
+          const wait = Date.parse(next.until) - Date.now() + 1000;
+          if (Number.isFinite(wait) && wait > 0) timer = window.setTimeout(load, wait);
+        })
+        .catch(() => {
+          if (live) setNowScene(null);
+        });
+    };
+    load();
+    return () => {
+      live = false;
+      if (timer !== undefined) window.clearTimeout(timer);
+    };
+  }, [conversationId, isPastShown]);
+
+  // 页首的下拉栏里自己挑一处地方：接口回来的就是新的「现在」，页首立刻换过去，不用等 `/now` 再问。
+  // 对话里说定的那处（`movedScene`）也一起换掉，否则它还盖在轮询来的那张上面。
+  const pickPlace = async (sceneId: string | null): Promise<void> => {
+    if (conversationId === null) return;
+    const next = await setConversationPlace(conversationId, sceneId);
+    setNowScene(next);
+    live?.pickPlace(sceneId === null ? null : next.scene);
+  };
 
   // 收起时到的照片就在这页的对话记录里：外壳顶上通话条的「新照片」到这里就算看过了。
   useEffect(() => {
@@ -201,6 +282,25 @@ export function ConversationView({
 
   // 页首的图标键：手机上触控目标不小于 44px（DESIGN.md「Layout」）。
   const headerKey = "max-md:size-11";
+  // 页首的那张「现在」：对话里说定搬过去（`movedScene`）、或者刚在页首的下拉栏里自己挑的，先盖住
+  // 轮询来的那张，都是同一个地方；`pinned` 说这一处是不是自己挑的（不是就按她的作息表算）。
+  const shownNow =
+    snapshot.movedScene !== null
+      ? { id: snapshot.movedScene.id, name: snapshot.movedScene.name, activity: "", pinned: true }
+      : nowScene === null
+        ? null
+        : {
+            id: nowScene.scene.id,
+            name: nowScene.scene.name,
+            activity: nowScene.activity,
+            // `chat` 是对话里说定的、`manual` 是页首下拉栏里自己挑的，两种都记在这段对话上。
+            pinned: nowScene.source === "manual" || nowScene.source === "chat",
+          };
+  // 消息区背后的地点图（DESIGN.md「通话场景」）：对话里说定搬过去的（`movedScene`，刚搬的那一下）优先，
+  // 否则铺她这会儿在的地方——按她的作息表算出来的（slot、holiday、behavior 这些）也铺，不挑 `source`。
+  // 看历史对话时仍然不铺。
+  const placeScene = snapshot.movedScene ?? nowScene?.scene ?? null;
+  const placeImage = placeScene === null || isPastShown ? null : placeScene.image_url || sceneImageUrl(placeScene.id);
   // 历史对话里拨不出去，通话中也一样（回到通话走通话条）；通话中换成实心的「回到通话」。
   const phone: { tip: string; label: string; disabled?: boolean; onClick?: () => void; filled?: boolean } = viewing
     ? { tip: t.past.callTooltip, label: t.call(character.name), disabled: true }
@@ -240,10 +340,36 @@ export function ConversationView({
       )}
       <div className="flex min-w-0 flex-1 flex-col px-2">
         <h1 className="truncate text-header">{character.name}</h1>
-        {viewing?.status === "open" && (
+        {viewing?.status === "open" ? (
           <p className="truncate text-meta text-muted-foreground">{t.past.heading(pastDay(viewing.at, new Date()))}</p>
+        ) : (
+          shownNow && (
+            // 她现在在哪：小胶囊只写场景名（活动放在悬停提示里；窄屏放不下时截断），点开是地点下拉栏，
+            // 可以自己挑一处，或者回到按她的作息表算的地方。
+            <PlacePicker
+              sceneId={shownNow.pinned ? shownNow.id : null}
+              clearLabel={copy.place.follow}
+              trigger={
+                <button
+                  type="button"
+                  title={shownNow.activity || undefined}
+                  className="inline-block w-fit max-w-full truncate rounded-full bg-foreground/10 px-2 py-0.5 text-meta text-muted-foreground outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+                />
+              }
+              container={subtree}
+              onPick={pickPlace}
+            >
+              {t.now(shownNow.name)}
+            </PlacePicker>
+          )
         )}
       </div>
+      {/* 立绘收起来时页首的「显示立绘」胶囊：点一下恢复（通话中、看历史对话时立绘本就不画，不出这个胶囊） */}
+      {appearance.chatStand && standHidden && !layer && !viewing && standHiddenKey !== null && (
+        <Button variant="pill" className="max-md:h-11" onClick={restoreStand}>
+          {t.showStand}
+        </Button>
+      )}
       {phoneKey}
       {trophy && <TrophyCue key={trophy.key} trophy={trophy} isReducedMotion={isReducedMotion} />}
       {/* 礼貌的 live region 一直在，奖杯出现时读「成就，抽奖 +n」；按 key 换节点，同样的 n 再来一次也读 */}
@@ -257,6 +383,7 @@ export function ConversationView({
           name={character.name}
           timeZone={timeZone}
           gifts={gifts}
+          characterId={character.id}
           subtree={subtree}
         />
       )}
@@ -505,7 +632,9 @@ export function ConversationView({
   return (
     <Frame character={character} subtree={subtree} header={header}>
       {barShown && <CallBar ref={focus.note} call={call} onExpand={() => live?.expand()} />}
-      <div inert={isCovered} className="relative min-h-0 flex-1">
+      <div inert={isCovered} className="relative isolate min-h-0 flex-1">
+        {/* 地点图在最底下（-z-10）：页首、消息、输入栏都在它上面，不接点击 */}
+        <PlaceBackdrop imageUrl={placeImage} />
         {/* 历史对话：读到之前转圈；换一段时消息区重来，停在最底 */}
         {viewing ? (
           viewing.status === "open" ? (
@@ -551,13 +680,17 @@ export function ConversationView({
             timeZone={timeZone}
           />
         )}
-        {/* 右下角站着的小立绘：通话层或者通话条在用时整块拿掉，免得和通话层的立绘重复 */}
-        {appearance.chatStand && !layer && !viewing && outfits && (
+        {/* 右下角站着的小立绘：通话层或者通话条在用时整块拿掉，免得和通话层的立绘重复；本地收起来了也不画 */}
+        {appearance.chatStand && !layer && !viewing && outfits && !standHidden && (
           <ChatCompanion
             character={character}
             outfits={outfits.toTry}
             isReplying={lastReply.isReplying}
             said={lastReply.said}
+            spoken={spoken}
+            emotion={snapshot.lastEmotion}
+            onHide={standHiddenKey === null ? undefined : hideStand}
+            menuContainer={subtree}
           />
         )}
       </div>
@@ -839,13 +972,21 @@ function Bubbled({
 }) {
   const time = <time className="shrink-0 pb-0.5 text-meta text-muted-foreground tabular-nums">{clock(entry.at)}</time>;
   const speech = useSyncExternalStore(subscribeSpeech, speechState, speechState);
+  // 这条回复说到的原声（功能 1）：放到哪一段、是不是正在放它；一段原声只放一个。
+  const voice = entry.kind === "character" ? (entry.voice ?? null) : null;
+  const clip = useSyncExternalStore(subscribeVoiceLine, voiceLineState, voiceLineState);
+  const clipKey = `${entry.key}:${voice?.audio_url ?? ""}`;
+  const playingVoice = voice !== null && clip?.key === clipKey;
   /** 这条回复在数据库里的编号（`m12`、搭话的 `r12`）；还没落库的聊天记录没有。 */
   const speechId = /^[mr]\d+$/.test(entry.key) ? Number(entry.key.slice(1)) : null;
   const speaker =
     speechId === null ? null : (
       <button
         type="button"
-        onClick={() => toggleSpeech(speechId)}
+        onClick={() => {
+          stopVoiceLine(); // 和「原声」共用一个耳朵
+          toggleSpeech(speechId);
+        }}
         aria-label={speech?.messageId === speechId ? t.speaking : t.speak}
         aria-pressed={speech?.messageId === speechId}
         className="shrink-0 pb-0.5 text-muted-foreground transition-colors hover:text-foreground"
@@ -857,6 +998,23 @@ function Bubbled({
         )}
       </button>
     );
+  const originalVoice = voice === null ? null : (
+    <button
+      type="button"
+      onClick={() => toggleVoiceLine(clipKey, voice.audio_url)}
+      aria-label={playingVoice ? t.voiceOriginalStop : t.voiceOriginalPlay}
+      aria-pressed={playingVoice}
+      title={t.voiceOriginalPlay}
+      className="flex shrink-0 items-center gap-0.5 pb-0.5 text-meta text-muted-foreground transition-colors hover:text-foreground"
+    >
+      {playingVoice && clip?.phase === "loading" ? (
+        <Spinner className="size-3.5" />
+      ) : (
+        <VoiceIcon aria-hidden className="size-3.5" />
+      )}
+      {t.voiceOriginal}
+    </button>
+  );
   if (entry.kind === "user") {
     return (
       <Message align="end">
@@ -907,9 +1065,19 @@ function Bubbled({
               )}
             </BubbleContent>
           </Bubble>
+          {last && !entry.pending && originalVoice}
           {last && !entry.pending && speaker}
           {last && !entry.pending && time}
         </div>
+        {/* 原声正在放时的那段：日语原句在上、中文字幕在下（The Original-Then-Subtitle Rule）。 */}
+        {playingVoice && voice && (
+          <div className="flex max-w-[min(30rem,78vw)] flex-col gap-0.5 px-1">
+            <p className="text-japanese-line whitespace-pre-wrap">
+              <Ja>{voice.text}</Ja>
+            </p>
+            {voice.subtitle && <p className="text-subtitle text-muted-foreground">{voice.subtitle}</p>}
+          </div>
+        )}
       </MessageContent>
     </Message>
   );

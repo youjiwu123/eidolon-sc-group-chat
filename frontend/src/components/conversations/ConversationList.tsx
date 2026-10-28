@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { BirthdayCard } from "@/components/app/BirthdayCard";
 import { SignInButton } from "@/components/app/FailureNotice";
 import { MarkedAvatar } from "@/components/app/MarkedAvatar";
 import { GroupRows } from "./GroupRows";
@@ -137,6 +138,8 @@ export function ConversationList({ selectedId }: { selectedId: string | null }) 
           </>
         )}
       </div>
+      {/* 她今天生日时的那张卡（功能 2）：只在对话列表页弹一次，这台设备上记着今天看过了。 */}
+      <BirthdayCard userId={account?.id ?? null} />
     </div>
   );
 }
