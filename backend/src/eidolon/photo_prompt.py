@@ -18,11 +18,12 @@ empty gets its default. Swimsuits, pajamas, lying on a bed, a pool and the beach
 crossing it. Neither the deployer nor any user changes the table.
 
 The positive prompt is fixed around them: who she is (her character tag and the work's
-tag), the deployment's art style, written in as the deployer wrote it (weights, artists
-and all; none if empty), her looks, the tags for how the photo is taken, `rating:general` and V5's standard
-quality tags, written out rather than left to the service's switch. The negative prompt is
-fixed altogether: `nsfw`, the Human Focus preset, and what no photo of hers shows
-(ADR-0023). Neither the deployer nor any user changes them.
+tag), then what the conversation has her doing, where and wearing what (in that order, so
+the scene outranks everything below it), then her looks, and last the deployment's art
+style, written in as the deployer wrote it (weights, artists and all; none if empty), and
+V5's standard quality tags, written out rather than left to the service's switch. The
+negative prompt is fixed altogether: `nsfw`, the Human Focus preset, and what no photo of
+hers shows (ADR-0023). Neither the deployer nor any user changes them.
 """
 
 import json
@@ -129,25 +130,33 @@ def read_tag(text: str) -> PhotoTag:
 
 def image_prompt(character: Character, tag: PhotoTag, style: str = "") -> ImagePrompt:
     """The prompts a photo of `character` (who has her photo tags) is generated from, as
-    `tag` says it is taken, in the art style `style`."""
+    `tag` says it is taken, in the art style `style`.
+
+    Tags are written in the order they matter: who she is first (her character tag and the
+    work's), then what the conversation has her doing, where and wearing what, then her
+    looks, and the deployment's art style last but for the quality tags — a scene the
+    conversation set up outranks the style it is drawn in."""
     assert character.photo_tag is not None and character.photo_appearance is not None
     action = tag.action
     if tag.shot == "other" and not any(g in t for t in action for g in _GAZES):
         action = (*action, LOOKING_AT_VIEWER)
     positive = (
-        "1girl", "solo", character.photo_tag, WORK_TAG, *_styled(style),
-        character.photo_appearance, *_shot_tags(tag.shot), tag.framing, *tag.place,
-        *tag.outfit, *action, *QUALITY_TAGS,
+        "1girl", "solo", character.photo_tag, WORK_TAG,
+        *action, *tag.place, *tag.outfit, tag.framing, *_shot_tags(tag.shot),
+        character.photo_appearance, *_styled(style), *QUALITY_TAGS,
     )
     return ImagePrompt(", ".join(positive), NEGATIVE_PROMPT)
 
 
 def check_prompt(style: str = "") -> ImagePrompt:
     """The prompts a change to an image service is tried with: no one in particular, in the
-    art style `style`, otherwise as any photo is."""
+    art style `style`, otherwise as any photo is.
+
+    The style comes after what the photo shows, as in `image_prompt`, so a check sends its
+    tags in the same order a real photo does."""
     positive = (
-        "1girl", "solo", *_styled(style), "upper body", "indoors", "smile", LOOKING_AT_VIEWER,
-        *QUALITY_TAGS,
+        "1girl", "solo", "upper body", "indoors", "smile", LOOKING_AT_VIEWER,
+        *_styled(style), *QUALITY_TAGS,
     )
     return ImagePrompt(", ".join(positive), NEGATIVE_PROMPT)
 

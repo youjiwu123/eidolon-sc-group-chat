@@ -21,7 +21,8 @@ from tests.test_activity_records import admin_client, dashboard, health
 from tests.test_photos import IMAGE, WORDS, asking, photo_events, settled
 from tests.test_text_turn import send_turn, start_conversation
 
-HEAD = "1girl, solo, sakuragi mano, idolmaster shiny colors, brown hair, medium hair, brown eyes"
+HEAD = "1girl, solo, sakuragi mano, idolmaster shiny colors"
+LOOKS = "brown hair, medium hair, brown eyes"
 TAIL = "rating:general, very aesthetic, masterpiece, no text"
 
 CROSSING = """
@@ -72,11 +73,11 @@ async def test_what_crosses_the_line_is_stripped_and_counted_never_named(
 
     [crossing, all_of_it] = (r["body"]["input"] for r in image.requests)
     assert crossing == (
-        f"{HEAD}, full body, beach, poolside, sparkly sand, swimsuit, one-piece swimsuit, pajamas,"
-        f" lying, on bed, peace sign, looking at viewer, {TAIL}"
+        f"{HEAD}, lying, on bed, peace sign, looking at viewer, beach, poolside, sparkly sand,"
+        f" swimsuit, one-piece swimsuit, pajamas, full body, {LOOKS}, {TAIL}"
     )
     assert all_of_it == (
-        f"{HEAD}, upper body, indoors, casual, smile, looking at viewer, {TAIL}"
+        f"{HEAD}, smile, looking at viewer, indoors, casual, upper body, {LOOKS}, {TAIL}"
     )
     unknown = [r.getMessage() for r in caplog.records if r.name == "eidolon.photo_prompt"]
     assert any("sparkly sand" in m for m in unknown), unknown

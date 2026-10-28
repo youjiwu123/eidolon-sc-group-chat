@@ -167,7 +167,8 @@ action: sitting, smile
         [photo] = photo_events(await send_turn(client, conversation, asked))
         await settled(client, photo["id"])
 
-    head = "1girl, solo, sakuragi mano, idolmaster shiny colors, brown hair, medium hair, brown eyes"
+    head = "1girl, solo, sakuragi mano, idolmaster shiny colors"
+    looks = "brown hair, medium hair, brown eyes"
     tail = "rating:general, very aesthetic, masterpiece, no text"
     negative = (
         "nsfw, lowres, artistic error, film grain, scan artifacts, worst quality, bad quality,"
@@ -178,11 +179,11 @@ action: sitting, smile
     )
     [first, second] = image.requests
     assert first["body"]["input"] == (
-        f"{head}, selfie, looking at viewer, upper body, cafe, indoors, sunlight, day,"
-        f" white shirt, cardigan, peace sign, smile, {tail}"
+        f"{head}, peace sign, smile, cafe, indoors, sunlight, day, white shirt, cardigan,"
+        f" upper body, selfie, looking at viewer, {looks}, {tail}"
     )
     assert second["body"]["input"] == (
-        f"{head}, cowboy shot, indoors, casual, sitting, smile, looking at viewer, {tail}"
+        f"{head}, sitting, smile, looking at viewer, indoors, casual, cowboy shot, {looks}, {tail}"
     )
     for request in image.requests:
         body = request["body"]
