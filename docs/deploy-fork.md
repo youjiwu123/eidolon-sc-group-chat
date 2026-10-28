@@ -146,3 +146,46 @@ frontend/src/components/conversations/Group*.tsx   群聊界面
 ```
 
 设计背景见 `.scratch/group-chat/spec.md`，变更记录见 `README.local.md`。
+
+## 9. 改作息（可选）
+
+「现在：…」、聊天背景和通话背景里的场景，默认按 `characters/schedules/<角色>.week*.toml` 走。
+仓库里带的是 29 份草案，想改就：
+
+1. 复制一份草稿成正式名（正式名优先于 `.draft`）：
+
+   ```sh
+   cp characters/schedules/fuyuko.week.draft.toml characters/schedules/fuyuko.week.toml
+   ```
+
+2. 每格一条 `[[slots]]`：
+
+   ```toml
+   [[slots]]
+   character = "fuyuko"
+   day = "mon"          # mon..sun
+   slot = "afternoon"   # morning 6-10 / noon 10-14 / afternoon 14-18 / evening 18-22 / night 22-2
+   scene = "lounge"     # 必须是 characters/scenes.toml 里的 id
+   activity = "在事务所休息室的沙发上核对台本，和路过的制作人聊了两句"
+   weight = 5           # 同一格里的相对权重
+   why = "地点统计：事务所休息室 19.3%"   # 只给人看，不进提示词
+   ```
+
+   `activity` 会进提示词的「此刻」。可选的 `[[pools]]`（随机池）、`[[events]]`、`[[holidays]]`
+   写法见 `characters/schedules.model.md`，例子见 `characters/schedules.mano.draft.toml`。
+
+3. 重启后端（作息在启动时读进内存）：
+
+   ```sh
+   docker compose restart backend
+   ```
+
+4. 验证：对话页页首的「现在：X」，或 `GET /api/conversations/<id>/now` 看 `source` 是不是 `slot`。
+   场景 id 写错不会崩，日志里会报「排期表读不了，改用预设行为」；没有作息文件的角色用
+   `characters.toml` 里的 `[[behaviors]]`。
+
+5. 想加新场景：`characters/scenes.toml` 里加一条 `[[scenes]]`（`id` / `name` / `hint` / `image`），
+   图片放进 `characters/scenes/<image>`；`/api/scenes/<id>`、页首、聊天和通话背景都用它。
+
+> 这些作息是草案：多数角色只有固定槽位，没有节日覆盖、突发事件和随机池；生成脚本不在仓库里，
+> 想重新生成要先准备 `corpus/` 和 `.scratch/schedule/` 的工具。
