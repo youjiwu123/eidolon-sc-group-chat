@@ -1,0 +1,1167 @@
+# 真乃的一周作息 × 地点草案（接在 schedules.mano.draft.toml 后面，先别接进代码）。
+#
+# 证据 vs 推断：
+#   - 证据：剧情台词按 bg 归到场景的计数（.scratch/schedule/bg_table.md、digest.md）、
+#     台词里的时间词、人设 characters/sheets/mano.md、档案 characters/facts/mano.md。
+#     例：练习室台词 24.2% 带レッスン/練習、休息室占 18.3%、学校 bg 只有 0.9%、
+#     电车台词早晚两头都带时间词、00034 里她提过「駅前に新しいお店」。
+#   - 推断：原作没有时钟，脚本里也没有星期几。day 的分配（周一周三周五上学+练习、周二收录、
+#     周四休息跑腿、周六工作、周日休息）是照「高一学生 + 偶像工作」排的；每个 slot 的
+#     activity、weight 是推断，`why` 里写了「推断」的就是没有直接出处。
+#   - 合并后的 84 个场景让学校、商店街、超市、河堤、公寓这些地方终于有 id 可用；
+#     地点对得上，但「哪一天去」仍然是推断。night 是 22-2 点，会跨到第二天。
+#   - 2026-10 追加（本文件后半部分）：`[[pools]]` 随机池把不在固定槽位的 37 个日常场景接进来，
+#     `[[holidays]]` 让日本日历改她的一天（日历本体在 characters/holidays.toml），
+#     `[[events]]` 从 8 条扩到 17 条并加了 `conditions`。
+#     一次通话的选择顺序是：节日覆盖 > 事件（条件命中才 roll）> 固定槽位（按 weight）
+#     > 随机池（按 chance 覆盖槽位）。字段含义见 characters/schedules.model.md。
+
+# ---------------------------------------------------------------------------
+# 周一：学校 + 练习室
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "起床，给阳台的花浇一遍水，蹲在笼子边跟ピーちゃん说声早上好再出门"
+weight = 4
+why = "她房间的台词 6.0% 带早间词；00804 里她对ピーちゃん说「おはよう……ピーちゃん」；档案：她每天给花浇水"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "坐公交车去学校，车上人多就贴着门站，尽量把自己缩得小一点"
+weight = 2
+why = "电车台词早上 10.4% 带早间词、夜里 16.9%（通勤两头）；档案：她坐公交车去事务所，车太挤时很辛苦"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，课间被同学问电视上的事，笑着点头，其实有点不知道怎么接"
+weight = 3
+why = "她是高一学生；学校台词 32 句（「水曜日は学校の用事が」「今日は学校と打ち合わせだけで」）；学校 bg 只占 0.9%，合并前连教室都没有"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休在操场边吃便当，看见鸟落在栏杆上，筷子就停住了"
+weight = 2
+why = "00648 学校操场 27 句、00248 体育馆 40 句，是学校场景的全部；档案：喜欢和鸟说话、便当自己做"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "放学直接去练习室，把周末没做好的转身一个人磨到能过"
+weight = 3
+why = "练习室台词里 24.2% 带レッスン/練習，是全部场景最高；「今日はずっとここを使う予定で」"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "跟制作人对台本、确认这周的行程，被夸一句就「ほわ」地低下头"
+weight = 2
+why = "休息室台词 18.3%，全部场景最高；休息室台词 12% 带仕事/打ち合わせ 这类词"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "evening"
+scene = "studio_small"
+activity = "灯織和めぐる先走了，她一个人留在小练习室又跳了半小时"
+weight = 2
+why = "scenes.habits.draft 里她那条就是「趁没人多练一会儿」；小练习室是她加练的地方（推断）"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "evening"
+scene = "train"
+activity = "坐车回家，靠着窗不知不觉睡着，快到站才惊醒"
+weight = 2
+why = "00126「私、寝ちゃってたんだね……」；电车台词夜里 16.9% 带时间词（最高）"
+
+[[slots]]
+character = "mano"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "到家先跟ピーちゃん把今天的事一件件讲完，再写作业写到打哈欠"
+weight = 3
+why = "深夜通话的默认场景是家；「おやすみ……っ」「寝なきゃいけないのもわかってるんですけど……」"
+
+# ---------------------------------------------------------------------------
+# 周二：收录 + 化妆间
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "morning"
+scene = "lounge"
+activity = "一早到事务所，跟めぐるちゃん、灯織ちゃん在休息室碰头，把今天的收录单过一遍"
+weight = 2
+why = "00001 就是三人早上在休息室准备（12.7%，单场景最高），台词里有「お、おはよう、めぐるちゃんっ」"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "morning"
+scene = "recording_studio"
+activity = "进录音棚先开嗓，一句副歌反复唱到制作人点头"
+weight = 3
+why = "她的台词里収録/仕事 一类词不少，录音棚是收录的落点；具体排到周二属于推断"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "noon"
+scene = "recording_studio"
+activity = "收录到中午，趁休息听一遍刚才的录音，觉得自己还是不够好"
+weight = 2
+why = "同一批台词里她常说「できないことが多い」；录音棚的日程是推断"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "noon"
+scene = "dressing_room"
+activity = "在化妆间吃便当，被化妆师按着补妆，嘴里还含着饭"
+weight = 2
+why = "收录前后进化妆间是行业常识（推断）；便当有档案依据（她会自己做便当）"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "对着化妆镜练表情，练到脸都僵了，被めぐるちゃん笑"
+weight = 2
+why = "她会在镜子前练（练习室里也是对着镜子）；化妆间里具体做什么是推断"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "收录完了被拉去隔壁摄影棚，补拍几张宣传照"
+weight = 1
+why = "撮影是她工作的一部分（台词里出现）；具体排期是推断"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "收工后跟灯織、めぐる在休息室磨蹭，聊今天谁被夸了"
+weight = 3
+why = "三人同框最多的地方就是休息室；「お疲れさま」的收尾大量落在这"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "evening"
+scene = "train"
+activity = "坐车回家，靠着窗看外面的灯，耳机里放着今天录的歌"
+weight = 2
+why = "电车两头通勤都有时间词；00125 里有「おやすみなさい、プロデューサーさん」"
+
+[[slots]]
+character = "mano"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "到家洗澡，把今天收录的曲子放一遍，跟着哼到忘了时间"
+weight = 3
+why = "家是夜里的私空间（家里台词 6.0% 带早间词，说明家=起居）；她心情好会不知不觉哼歌"
+
+# ---------------------------------------------------------------------------
+# 周三：学校 + 体育馆 + 加练
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "morning"
+scene = "stone_path"
+activity = "走石板坡道去学校，树影一晃一晃，她走得很慢"
+weight = 2
+why = "石板路在候选表里就是「通往学校或神社的路」；她喜欢散步、走得慢（档案）——具体路线是推断"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "早读，把昨天没写完的作业补完，不会的题先空着"
+weight = 2
+why = "「宿題……難しいね」；她说自己学习不算拿手（推断）"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "noon"
+scene = "cooking_room"
+activity = "家政课做菜，她切得最慢，摆盘却最认真，被老师夸了一句"
+weight = 2
+why = "她会自己做便当、懂山菜和料理（档案）；家政教室是合并后新增的学校场景——排到周三是推断"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间在走廊被别班女生叫住说「櫻木さん、綺麗だった！」，她红着脸道谢"
+weight = 2
+why = "档案里就有同学这句「櫻木さん、綺麗だった！」；00042 学校走廊是课间的样子"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "放学去练习室，跟灯織一起练，被她指出脚步慢半拍"
+weight = 3
+why = "00014 里两人清早就在练习室（「レッスンの時間、まだなのに」）；练习室台词 24.2% 带练习词"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "afternoon"
+scene = "gym"
+activity = "体育馆有社团在用，她在角落等场地，顺便看别人打球"
+weight = 1
+why = "00248 学校体育馆 40 句，是她学校 bg 的大头；具体到周三是推断"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "evening"
+scene = "studio_small"
+activity = "小练习室加练，把今天被指出的地方单独跳十遍"
+weight = 2
+why = "「できないことが多いから、たくさん練習しなきゃ」；小练习室是她加练的地方（推断）"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "evening"
+scene = "train"
+activity = "坐车回家，车上人多，她一路抓着吊环没敢动"
+weight = 2
+why = "档案：车太挤时很辛苦、下车像「決死の覚悟」；电车台词夜里 16.9% 带时间词"
+
+[[slots]]
+character = "mano"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "写完作业给ピーちゃん换水，自己先趴在桌上睡着了"
+weight = 3
+why = "「寝なきゃいけないのもわかってるんですけど……」；家+ピーちゃん是档案里的日常"
+
+# ---------------------------------------------------------------------------
+# 周四：休息、跑腿
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "难得没有工作，睡到自然醒，起来先把花搬到有太阳的地方"
+weight = 3
+why = "档案：兴趣是「公園で日向ぼっこ」、每天给花浇水；休息日睡懒觉是推断"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "morning"
+scene = "laundry"
+activity = "把攒了几天的衣服拿去自助洗衣店，等的时候坐在折叠椅上发呆"
+weight = 2
+why = "她最喜欢「お日様の香り」（晒过太阳的衣服）——洗衣店是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "noon"
+scene = "supermarket"
+activity = "去超市买便当的料，站在货架前算这个月还剩多少零花钱"
+weight = 3
+why = "她会自己做便当、懂山菜和料理（档案）；超市是照「买菜做饭」推断的"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "noon"
+scene = "shopstreet"
+activity = "绕去商店街，一家一家慢慢看，看到鸟图案的小东西就走不动"
+weight = 2
+why = "档案：喜欢逛没去过的商店街、逛得慢、所有鸟主题小物都喜欢"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "afternoon"
+scene = "flowershop"
+activity = "在花店看当季的花，最后只买了一小盆最便宜的"
+weight = 1
+why = "档案：她自己养花，花开的时候会「ほわぁ」一声；花店是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "afternoon"
+scene = "mall"
+activity = "去商场看衣服，试了一件又放回去，最后买了鹦鹉造型的束口袋"
+weight = 2
+why = "档案：买过鹦鹉造型的束口袋、逛得慢、怕别人等所以以前总一个人逛"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "evening"
+scene = "river"
+activity = "傍晚沿河堤走，走到桥下看水面发一会儿呆"
+weight = 3
+why = "档案：事务所的河边捡垃圾企划、和ノクチル在河边踢罐子；她喜欢散步、常走着走着走很远"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "evening"
+scene = "park_night"
+activity = "天黑了顺路进公园，在长椅上坐一会儿才回家"
+weight = 2
+why = "00203 是傍晚/夜的公园（28 句）；公园是她最喜欢的地方（档案）"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "night"
+scene = "kitchen"
+activity = "回家试做新便当的菜色，做多了第二天带给灯織她们"
+weight = 2
+why = "她会自己做便当、带便当去野餐（档案）；厨房这场是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "thu"
+slot = "night"
+scene = "convenience_store"
+activity = "发现家里没有牛奶了，穿着拖鞋去便利店，顺手买了个布丁"
+weight = 1
+why = "便利店是跑腿日的补充（推断）；她喜欢慢慢挑东西（档案）"
+
+# ---------------------------------------------------------------------------
+# 周五：学校 + 练习室 + 办公室
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "起得比平时早，把制服熨好，给ピーちゃん添了食才出门"
+weight = 3
+why = "她房间的台词 6.0% 带早间词；早上跟ピーちゃん说话有 00804 的出处"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "morning"
+scene = "music_room"
+activity = "音乐教室早自习，她在钢琴上弹了两句今天要练的歌"
+weight = 2
+why = "她会唱歌、听到鸟叫就想跟着唱（档案）；音乐教室是合并后新增的学校场景——排到周五是推断"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，笔记记得很整齐，黑板抄慢了就借同学的"
+weight = 2
+why = "高一学生；「学校でグループ課題が出ていて」说明她有小组作业"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休一个人去操场边坐着，鸽子落过来，她就掰面包"
+weight = 1
+why = "档案：喜欢和公园的鸽子说话；00648 学校操场 27 句"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "放学去练习室，把下周要用的新舞整个过一遍"
+weight = 3
+why = "练习室台词 24.2% 带レッスン/練習；「今日はずっとここを使う予定で」"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "afternoon"
+scene = "office"
+activity = "去办公室交这周的记录，顺便被塞了下周的行程表"
+weight = 1
+why = "她的事务所工作里有打ち合わせ（休息室台词 12% 带工作词）；办公室这场是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "收工前在休息室跟はづきさん确认下周的安排，被塞了一颗糖"
+weight = 2
+why = "はづき是事务员（人设、档案）；休息室台词 12% 带打ち合わせ 这类词"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "evening"
+scene = "studio_small"
+activity = "临走又回小练习室，把今天没顺的地方跳顺了才肯走"
+weight = 2
+why = "scenes.habits.draft 里她那条「趁没人多练一会儿」；练习室里有人来赶的场面有出处"
+
+[[slots]]
+character = "mano"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "到家已经很晚，洗完澡一边晾头发一边跟ピーちゃん说话"
+weight = 3
+why = "家是深夜通话的默认场景；ピーちゃん是「私の大切な家族」"
+
+# ---------------------------------------------------------------------------
+# 周六：工作（拍摄、演出）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "morning"
+scene = "train"
+activity = "周六一早坐车去摄影棚，车上人少，她靠着窗补觉"
+weight = 2
+why = "电车台词早上 10.4% 带早间词；周六排了工作是推断"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "morning"
+scene = "photo_studio"
+activity = "拍杂志照，被要求笑得更开一点，她试了好几次"
+weight = 3
+why = "撮影是她工作的一部分（台词里有）；摄影棚这场是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "noon"
+scene = "dressing_room"
+activity = "在化妆间换第二套衣服，头发被重新盘起来"
+weight = 3
+why = "拍摄中间要换装补妆（行业常识，推断）；化妆间这场是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "noon"
+scene = "backstage"
+activity = "后台等上场，抱着台本把台词又默了一遍"
+weight = 2
+why = "她上台前会紧张（「私が、お客さんたちの前で歌う……／ほわぁ……」）；后台是合并后新增的侧幕场景"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "afternoon"
+scene = "stage"
+activity = "下午有小型演出，她在侧幕等自己的段落，手心全是汗"
+weight = 3
+why = "舞台侧幕、器材箱、台边的折叠椅就是 stage 的场景；上台前她喊「輝きをみんなに届けよう！」"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "演出结束回事务所，累得在休息室沙发上不想动"
+weight = 1
+why = "休息室是收工的落点；「お疲れさま」的收尾大量落在这"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "晚上跟灯織、めぐる去车站前新开的店吃饭，三个人点了不一样的定食"
+weight = 2
+why = "00034 里她说「駅前に新しいお店があったの／灯織ちゃんと一緒に食べたいね」"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "evening"
+scene = "train"
+activity = "吃完饭坐车回家，靠着窗听她们发来的语音"
+weight = 1
+why = "电车两头通勤都有时间词（夜里 16.9%）；周六晚上的具体安排是推断"
+
+[[slots]]
+character = "mano"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "到家倒头就睡，房间的灯还开着"
+weight = 2
+why = "「寝なきゃいけないのもわかってるんですけど……」；工作一天很累是推断"
+
+# ---------------------------------------------------------------------------
+# 周日：休息、见朋友
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "morning"
+scene = "home_living"
+activity = "睡到快中午，跟爸妈一起在客厅吃早午饭，电视开着没人看"
+weight = 2
+why = "档案：和父母同住、妈妈性格开朗；家里的客厅（黄窗帘、餐桌）是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "morning"
+scene = "park"
+activity = "去事务所旁边的公园晒太阳、喂鸽子，坐着坐着就小声唱起来"
+weight = 3
+why = "公园台词 7.1%；00203 里她对灯織说「おはよう」「朝ごはん、食べた？」；档案：兴趣是「公園で日向ぼっこ」"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "约灯織、めぐる在咖啡店吃饭，三个人挤一张小桌"
+weight = 2
+why = "档案：三人也一起去咖啡店吃饭"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "noon"
+scene = "restaurant"
+activity = "或者去车站前那家新店，她盯着菜单看了很久才决定"
+weight = 1
+why = "00034「駅前に新しいお店があったの」——她说过想和灯織一起去"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "afternoon"
+scene = "river"
+activity = "下午沿河堤走到很远，捡了一袋子别人丢的垃圾"
+weight = 2
+why = "档案：事务所的河边捡垃圾企划、和ノクチル踢罐子；她喜欢散步、常走得很远"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "afternoon"
+scene = "arcade"
+activity = "跟灯織、めぐる去游戏厅，三个人合力夹娃娃，夹到一只鸟"
+weight = 2
+why = "档案：三人一起去游戏厅合力夹娃娃、买了猫头鹰图案的同款小物"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "回家跟爸妈吃晚饭，帮忙收拾，饭后再去看一眼ピーちゃん"
+weight = 2
+why = "档案：和父母同住；晚饭在客厅是推断"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "evening"
+scene = "apartment_living"
+activity = "晚上去めぐる家开お泊り会，就是第 39 回那种"
+weight = 1
+why = "档案：三人常开お泊り会，在八宮家那次是第 39 回；公寓客厅是照这个推断的"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "night"
+scene = "apartment_living"
+activity = "在めぐる家客厅聊到很晚，聊到灯織先睡着"
+weight = 2
+why = "同上（お泊り会）；聊到半夜是推断"
+
+[[slots]]
+character = "mano"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "或者已经在客房躺下，盯着天花板想下周的练习"
+weight = 1
+why = "お泊り会住下（推断）；这间是客房、不是她家的粉色房间——bedroom 的 hint 已经写明"
+
+# ===========================================================================
+# 随机池（daily-life 场景）—— 让剩下的日常地点也能被抽到
+# ===========================================================================
+#
+# 固定槽位只用到 34 个场景（32 个日常 + stage/backstage），池子把**不在固定槽位里的 37 个日常
+# 场景**接进来：先按作息/日历/事件决定这一格该在哪，池子再按 `chance` 中签，中签就换成池子里
+# 的一个地点。所以池子只放「日常地点」——演出、宴会、机场、保龄球、酒吧、居酒屋、季节限定都不放，
+# 它们只在 `[[events]]` 或 `[[holidays]]` 里出现。
+#
+# 不进池子的 14 个（事件/节日专用，理由见 characters/schedules.model.md）：
+#   stage / backstage              演出（stage 在周六下午、backstage 在周六中午的固定槽位里）
+#   banquet                        宴会厅：打ち上げ、圣诞会
+#   beach                          海边：要出远门（夏日事件 + 海の日）
+#   flower_field / cherry / ginkgo 季节限定（山の日 / 花見 / 紅葉狩り）
+#   hospital_corridor / exam_room  生病（冬天事件）
+#   hall                           礼堂：学园祭/合唱祭（文化の日）
+#   izakaya / bar                  未成年，只在忘年会事件里露个面（喝ウーロン茶）
+#   airport                        出远门
+#   bowling                        要专门约
+# `sky`（说不准）是判断模型挑不出来时的兜底，不是「地点」，也不进池子。
+# 37 + 32 = 69 个日常场景，一个不落；校验脚本会断言这件事。
+#
+# 多个池子同时命中时，`slot` 更具体的优先（夜里的 `slot = "night"` 池压过 `slot = "any"` 池）。
+
+[[pools]]
+character = "mano"
+day = "any"
+slot = "any"
+chance = 0.18
+scenes = [
+  "office_corridor", "meeting_room", "street", "street_night", "shrine", "garden",
+  "car", "station", "washitsu", "bathroom", "sento", "dorm", "esports_room",
+  "library", "art_room", "lecture_hall", "school_gate", "roof", "office_reception",
+  "bookstore", "cake_shop", "bakery", "general_store", "petshop", "fastfood",
+  "station_hall", "subway", "vending_machine", "crossroad", "railway_crossing",
+  "residential_street", "alley", "coast_road", "observatory", "temple", "lake",
+  "office_building",
+]
+weights = [
+  1, 1, 2, 1, 1, 1,
+  1, 2, 1, 1, 1, 1, 1,
+  1, 1, 1, 1, 1, 1,
+  2, 1, 1, 1, 1, 1,
+  1, 1, 2, 1, 1,
+  2, 1, 1, 1, 1, 1,
+  1,
+]
+why = "37 个日常地点基本等权（只有街上、车站、书店、自动贩卖机、住宅街给 2，因为它们是她的日常动线），chance 0.18 是「这一天不按作息走」的概率——权重压平是为了「随便哪天都可能在某处」，不是为了像真实作息。"
+
+[[pools]]
+character = "mano"
+day = "any"
+slot = "night"
+chance = 0.18
+scenes = [
+  "street_night", "station", "station_hall", "subway", "vending_machine",
+  "residential_street", "alley", "crossroad", "car", "sento", "observatory",
+  "office_corridor", "fastfood",
+]
+weights = [2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+why = "夜 22-2 点还说得过去的地方：夜街、车站、地铁、自动贩卖机、住宅街、小巷、十字路口、车里、钱汤、展望台、加班的事务所走廊、深夜快餐。学校、教室、花田这些夜里不会去的地方不进夜池。"
+
+# ===========================================================================
+# 节日覆盖（优先级高于事件和槽位）
+# ===========================================================================
+#
+# `holiday` 指向 characters/holidays.toml 的 id（那边是日历权威）；`dates`/`ranges` 只是镜像
+# （只有一天/一段时写 `date`/`range`，见 citizens_holiday），让这份排期文件自己读得懂——
+# **改日期只改 holidays.toml**，校验脚本会抓不一致。
+# `slots` 省略=五个时段全盖；`scenes` 必须来自 84 条场景表，`weights` 与它等长。
+# `priority`：数字越大越优先，同一天命中多条取最大，平手取文件里靠前的。
+#   100 元日 / 95 初詣 / 90 公休 / 85 振替・国民の休日 / 80 大晦日・クリスマス
+#   70 花見・お盆・夏祭り / 65 GW / 60 七夕・紅葉狩り・ハロウィン / 55 節分・ひな祭り・バレンタイン
+# `chance` 省略=1.0；只给窗口型节日（花見/お盆/夏祭り/紅葉狩り/GW）设，表示「这天真的去了」。
+
+[[holidays]]
+holiday = "new_year"
+dates = ["2026-01-01", "2027-01-01"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shrine", "home_living"]
+weights = [3, 2]
+priority = 100
+activity = "元旦，刚在神社参完拜，手里还攥着给家里求的御守，说话比平时更轻一点"
+
+[[holidays]]
+holiday = "hatsumode"
+ranges = [
+  { from = "2026-01-01", to = "2026-01-03" },
+  { from = "2027-01-01", to = "2027-01-03" },
+]
+slots = ["morning", "noon"]
+scenes = ["shrine", "home_living"]
+weights = [3, 1]
+priority = 95
+activity = "初詣回来，人还是很多，她把抽到的签小心折好放进钱包"
+
+[[holidays]]
+holiday = "coming_of_age"
+dates = ["2026-01-12", "2027-01-11"]
+slots = ["morning", "noon"]
+scenes = ["shrine", "street"]
+weights = [3, 1]
+priority = 90
+activity = "成人式那天，神社前全是振袖。她站在边上看了很久，说「あと二年で、私も」"
+
+[[holidays]]
+holiday = "setsubun"
+dates = ["2026-02-03", "2027-02-03"]
+slots = ["evening", "night"]
+scenes = ["shrine", "home_living", "supermarket"]
+weights = [2, 3, 1]
+priority = 55
+activity = "節分，刚撒完豆子蹲在地上捡，围裙口袋里还塞着没吃完的惠方卷"
+
+[[holidays]]
+holiday = "national_foundation_day"
+dates = ["2026-02-11", "2027-02-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "street", "home_living"]
+weights = [3, 2, 1]
+priority = 90
+activity = "建国記念の日，也不知道该做什么，就横在公园的长椅上晒了一下午太阳"
+
+[[holidays]]
+holiday = "valentine"
+dates = ["2026-02-14", "2027-02-14"]
+slots = ["morning", "evening"]
+scenes = ["kitchen", "home", "cake_shop"]
+weights = [3, 2, 1]
+priority = 55
+activity = "バレンタイン，厨房里一堆失败的巧克力，能送人的只有三块"
+
+[[holidays]]
+holiday = "emperors_birthday"
+dates = ["2026-02-23", "2027-02-23"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "garden", "home_living"]
+weights = [3, 2, 1]
+priority = 90
+activity = "天皇誕生日，公园的梅花刚开一点，她凑近闻了闻又缩回围巾里"
+
+[[holidays]]
+holiday = "hinamatsuri"
+dates = ["2026-03-03", "2027-03-03"]
+slots = ["noon", "evening"]
+scenes = ["washitsu", "home_living", "cake_shop"]
+weights = [3, 2, 1]
+priority = 55
+activity = "ひな祭り，在奶奶家的和室看雏人形，被说「大きくなったね」"
+
+[[holidays]]
+holiday = "vernal_equinox"
+dates = ["2026-03-20", "2027-03-21"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["temple", "cherry", "park"]
+weights = [3, 2, 1]
+priority = 90
+activity = "春分の日，扫完墓回来，路上樱花开了一半"
+
+[[holidays]]
+holiday = "hanami"
+ranges = [
+  { from = "2026-03-25", to = "2026-04-05" },
+  { from = "2027-03-26", to = "2027-04-06" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["cherry", "park", "river"]
+weights = [3, 2, 1]
+priority = 70
+chance = 0.45
+activity = "花見，便当是自己做的，蛋卷有点歪，铺在樱树下倒也不难看"
+
+[[holidays]]
+holiday = "showa_day"
+dates = ["2026-04-29", "2027-04-29"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["garden", "park", "home_living"]
+weights = [2, 2, 1]
+priority = 90
+activity = "昭和の日，听爷爷讲了一下午昭和的事，其实只听懂一半"
+
+[[holidays]]
+holiday = "golden_week"
+ranges = [
+  { from = "2026-04-29", to = "2026-05-06" },
+  { from = "2027-04-29", to = "2027-05-05" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["street", "mall", "restaurant"]
+weights = [3, 2, 1]
+priority = 65
+chance = 0.4
+activity = "ゴールデンウィーク，街上人挤人，她攥着灯織的袖子不敢松"
+
+[[holidays]]
+holiday = "constitution_day"
+dates = ["2026-05-03", "2027-05-03"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shopstreet", "restaurant", "home_living"]
+weights = [2, 3, 1]
+priority = 90
+activity = "憲法記念日，连休正中间，在家庭餐厅排了四十分钟的队"
+
+[[holidays]]
+holiday = "greenery_day"
+dates = ["2026-05-04", "2027-05-04"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "garden", "lake"]
+weights = [3, 2, 1]
+priority = 90
+activity = "みどりの日，公园的新绿亮得晃眼，她看叶子看了一个小时"
+
+[[holidays]]
+holiday = "childrens_day"
+dates = ["2026-05-05", "2027-05-05"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "home_living", "supermarket"]
+weights = [3, 2, 1]
+priority = 90
+activity = "こどもの日，超市门口的鲤鱼旗很好看，她买了两个柏饼"
+
+[[holidays]]
+holiday = "substitute_holiday"
+dates = ["2026-05-06", "2027-03-22"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shopstreet", "cafe", "park"]
+weights = [3, 2, 2]
+priority = 85
+activity = "振替休日，日历上多出来的一天，她不知道干什么，就在商店街从头走到尾"
+
+[[holidays]]
+holiday = "marine_day"
+dates = ["2026-07-20", "2027-07-19"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["beach", "coast_road", "observatory"]
+weights = [3, 2, 1]
+priority = 90
+activity = "海の日，跟着事务所来海边出外景，海风把头发吹得乱七八糟"
+
+[[holidays]]
+holiday = "tanabata"
+dates = ["2026-07-07", "2027-07-07"]
+slots = ["evening", "night"]
+scenes = ["shopstreet", "garden", "park_night"]
+weights = [3, 2, 2]
+priority = 60
+activity = "七夕，商店街的竹枝上挂满短册，她写的那张藏到最里面"
+
+[[holidays]]
+holiday = "natsumatsuri"
+ranges = [
+  { from = "2026-07-15", to = "2026-08-31" },
+  { from = "2027-07-15", to = "2027-08-31" },
+]
+slots = ["evening", "night"]
+scenes = ["shrine", "river", "park_night"]
+weights = [2, 3, 2]
+priority = 70
+chance = 0.3
+activity = "夏祭り，浴衣是妈妈帮忙穿的，木屐走两步就疼，她还是想多逛一会儿"
+
+[[holidays]]
+holiday = "mountain_day"
+dates = ["2026-08-11", "2027-08-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["flower_field", "lake", "stone_path"]
+weights = [3, 2, 1]
+priority = 90
+activity = "山の日，坐了很久的车去看山上的花田，手里多了一袋车站买的土产"
+
+[[holidays]]
+holiday = "obon"
+ranges = [
+  { from = "2026-08-13", to = "2026-08-16" },
+  { from = "2027-08-13", to = "2027-08-16" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["washitsu", "temple", "home_living"]
+weights = [3, 2, 2]
+priority = 70
+chance = 0.8
+activity = "お盆，回奶奶家，墓前的水换得很仔细，被夸了一句就低下头"
+
+[[holidays]]
+holiday = "respect_for_the_aged_day"
+dates = ["2026-09-21", "2027-09-20"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["washitsu", "home_living", "garden"]
+weights = [3, 2, 1]
+priority = 90
+activity = "敬老の日，在奶奶家的和室喝茶，被塞了一整袋点心"
+
+[[holidays]]
+holiday = "citizens_holiday"
+date = "2026-09-22"
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "river", "home_living"]
+weights = [3, 2, 1]
+priority = 85
+activity = "国民の休日，夹在两个祝日中间的那天，她在公园坐了一下午"
+
+[[holidays]]
+holiday = "autumnal_equinox"
+dates = ["2026-09-23", "2027-09-23"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["ginkgo", "temple", "park"]
+weights = [3, 2, 1]
+priority = 90
+activity = "秋分の日，扫完墓顺路去看银杏，叶子还没全黄"
+
+[[holidays]]
+holiday = "sports_day"
+dates = ["2026-10-12", "2027-10-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "river", "observatory"]
+weights = [2, 3, 1]
+priority = 90
+activity = "スポーツの日，跑是不行的，走倒是走了很远，又走到河堤尽头"
+
+[[holidays]]
+holiday = "halloween"
+dates = ["2026-10-31", "2027-10-31"]
+slots = ["evening", "night"]
+scenes = ["street_night", "shopstreet", "cafe"]
+weights = [3, 2, 1]
+priority = 60
+activity = "ハロウィン，事务所的变装，她被分到猫耳，只在休息室转了一圈"
+
+[[holidays]]
+holiday = "culture_day"
+dates = ["2026-11-03", "2027-11-03"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["hall", "ginkgo", "garden"]
+weights = [3, 2, 1]
+priority = 90
+activity = "文化の日，学校合唱祭，在礼堂侧幕等着上场，手心全是汗"
+
+[[holidays]]
+holiday = "momijigari"
+ranges = [
+  { from = "2026-11-10", to = "2026-11-30" },
+  { from = "2027-11-10", to = "2027-11-30" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["ginkgo", "garden", "temple"]
+weights = [3, 2, 1]
+priority = 60
+chance = 0.4
+activity = "紅葉狩り，银杏落了一地，她踩着走，声音很好听"
+
+[[holidays]]
+holiday = "labor_thanksgiving_day"
+dates = ["2026-11-23", "2027-11-23"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["ginkgo", "restaurant", "home_living"]
+weights = [2, 3, 1]
+priority = 90
+activity = "勤労感謝の日，给事务所每个人写了小卡片，写给はづきさん的那张最长"
+
+[[holidays]]
+holiday = "christmas_eve"
+dates = ["2026-12-24", "2027-12-24"]
+slots = ["evening", "night"]
+scenes = ["street_night", "restaurant", "home_living"]
+weights = [3, 2, 2]
+priority = 80
+activity = "クリスマスイブ，街上的灯饰亮得晃眼，她捧着小蛋糕往家走"
+
+[[holidays]]
+holiday = "christmas"
+dates = ["2026-12-25", "2027-12-25"]
+slots = ["noon", "evening", "night"]
+scenes = ["banquet", "home_living", "street_night"]
+weights = [2, 3, 2]
+priority = 80
+activity = "クリスマス，收录结束，事务所在宴会厅开了小小的圣诞会"
+
+# 大晦日多带一天 2025-12-31：1 月 1 日 00:30 的电话算前一天的 night，靠这一天接上。
+[[holidays]]
+holiday = "omisoka"
+dates = ["2025-12-31", "2026-12-31", "2027-12-31"]
+slots = ["evening", "night"]
+scenes = ["temple", "home_living", "shrine"]
+weights = [3, 2, 2]
+priority = 80
+activity = "大晦日，刚吃完年越しそば，正要去神社排队等钟声"
+
+# ---------------------------------------------------------------------------
+# 突发事件（chance 是每次通话命中这个事件的概率，不是占比；文件顺序就是优先级）
+# ---------------------------------------------------------------------------
+#
+# `conditions` 是闸门：全部条件都命中才轮到 roll `chance`，不写就是不设限。
+# 键：season（spring/summer/autumn/winter）、weather（clear/cloudy/rain/snow）、
+#     holiday（characters/holidays.toml 的 id）、weekday（weekday/weekend）、slot（五个时段）。
+# 值可以是单值也可以是数组（命中任一即可）。
+# 节日专属的事件排在最前面（夏祭り的花火）；其余按「日常 → 季节」排——前面的先吃掉机会，
+# 罕见事件才显得罕见，所以越靠后越少出现。
+#
+# 三个无条件事件（studio 0.10→0.055 / lounge 0.08→0.045 / train 0.06→0.03）都缩到原来的
+# 一半上下：它们排在最前面，原先吃掉太多机会，全年事件命中率 36.3%；压下来之后约 29.8%
+# （每天五次通话里约 1.5 次由事件决定，其余按作息和池子走）。数字由 .scratch/schedule/simulate.py 复核。
+
+[[events]]
+character = "mano"
+chance = 0.10
+scene = "river"
+activity = "夏祭り的晚上，她在河堤上被人流推着走，花火升起来的时候忘了说话"
+conditions = { holiday = "natsumatsuri", slot = ["evening", "night"] }
+why = "夏祭り/花火大会 是夏天最像「她的一天被打断」的日子；花火落在河堤是因为 00258/00265 的河堤有黄昏与夜版，且她本来就常在河边散步（档案）"
+
+[[events]]
+character = "mano"
+chance = 0.12
+scene = "park"
+activity = "在公园晒太阳晒着睡着，醒来天已经黑了，慌张地道歉"
+why = "00017（公园黄昏）「す、すみません……いつのまにか寝ちゃってて……」"
+conditions = { weather = "clear" }
+
+[[events]]
+character = "mano"
+chance = 0.055
+scene = "studio"
+activity = "被临时叫去加练，一练就是两个小时，出来的时候腿都在抖"
+why = "「ほわっ？臨時レッスン？　私、なんにも聞いてなくて……」"
+
+[[events]]
+character = "mano"
+chance = 0.045
+scene = "lounge"
+activity = "临时来了收录，妆还没化完就被推进摄影棚"
+why = "她的台词里収録/撮影/仕事 一类词不少，休息室是她被打包带走的地方"
+
+[[events]]
+character = "mano"
+chance = 0.08
+scene = "home"
+activity = "有点感冒，今天窝在家里没出门，ピーちゃん在旁边陪着"
+conditions = { season = "winter" }
+why = "剧情里她身体相关的台词很少，这条是推断"
+
+[[events]]
+character = "mano"
+chance = 0.03
+scene = "train"
+activity = "在电车上睡过站，慌慌张张地又坐回来"
+why = "00126「私、寝ちゃってたんだね……」、00125 里在车上睡着"
+
+[[events]]
+character = "mano"
+chance = 0.06
+scene = "flower_field"
+activity = "休息日一个人坐车去看花，回来的时候手里多了一袋车站买的土产"
+conditions = { season = ["spring", "autumn"] }
+why = "档案：喜欢看季节变化的花草、去远足爬山看山上的花——具体到花田是推断"
+
+[[events]]
+character = "mano"
+chance = 0.06
+scene = "observatory"
+activity = "休息日一个人坐车去高台，看城市看到天黑才下山"
+conditions = { weather = "clear" }
+why = "bg_table 里 00144（高台/展望）47 句、00145（高台日落）35 句；她常去的就是能看很远的高处（推断）"
+
+[[events]]
+character = "mano"
+chance = 0.05
+scene = "beach"
+activity = "跟着事务所去海边出外景，一整天不在东京，晒黑了一点"
+conditions = { season = "summer" }
+why = "海边台词 1.5%，「私、海も楽しみなんだっ」；档案：她喜欢散步和远足，出远门会兴奋"
+
+[[events]]
+character = "mano"
+chance = 0.08
+scene = "cherry"
+activity = "收工路上拐进樱花道，站着看了很久，走的时候头发上落了两片花瓣"
+conditions = { season = "spring" }
+why = "樱花道是合并后新增的场景；档案：她喜欢看季节变化的花草，「春天的樱花」是最强的一条——具体绕路是推断"
+
+[[events]]
+character = "mano"
+chance = 0.04
+scene = "hall"
+activity = "文化祭的准备，她在礼堂后台等灯光试好，手里抱着要搬的道具箱"
+conditions = { season = "autumn" }
+why = "礼堂是合并后新增的场景（幕布/成排座椅/小舞台）；学园祭和合唱祭都排在秋天（推断），文化の日 的合唱祭也在礼堂"
+
+[[events]]
+character = "mano"
+chance = 0.05
+scene = "banquet"
+activity = "演出结束后的打ち上げ，她被安排在最里面那桌，杯子里是ウーロン茶"
+conditions = { season = ["autumn", "winter"], slot = ["evening", "night"] }
+why = "打ち上げ是行业惯例（推断）；宴会厅是合并后新增的场景（圆桌/花艺/幕布），只在庆功的场合出现"
+
+[[events]]
+character = "mano"
+chance = 0.04
+scenes = ["hospital_corridor", "exam_room"]
+weights = [2, 1]
+activity = "嗓子哑了被带去诊所，她在走廊的塑料椅上坐着等叫号，膝盖上放着台本"
+conditions = { season = "winter" }
+why = "她靠嗓子吃饭，冬天嗓子出问题是最合理的意外（推断）；医院走廊/诊察室是合并后新增的场景，不进日常池"
+
+[[events]]
+character = "mano"
+chance = 0.05
+scenes = ["izakaya", "bar"]
+weights = [2, 2]
+activity = "事务所的忘年会，她被带到居酒屋的二层，杯子里的ウーロン茶被前辈笑"
+conditions = { season = "winter", slot = ["evening", "night"] }
+why = "忘年会/二次会是行业惯例（推断）；她未成年，只喝ウーロン茶——所以这两处不进日常池，只在忘年会事件里出现"
+
+[[events]]
+character = "mano"
+chance = 0.03
+scene = "airport"
+activity = "夏天的远征，一早在机场集合，她抱着自己的行李箱站在值机柜台前"
+conditions = { season = "summer" }
+why = "档案：她喜欢远足、出远门会兴奋；机场是合并后新增的场景（值机/登机口/行李）——「哪天远征」是推断"
+
+[[events]]
+character = "mano"
+chance = 0.05
+scene = "shrine"
+activity = "路过神社，忍不住去抽了一签，抽到「末吉」，她折好放进钱包里，没跟任何人说"
+conditions = { season = ["spring", "autumn"] }
+why = "神社有白天/黄昏/夜/雪/秋多版（00063 00066 00067 00117 00267 00405 00548 00993）；她初詣会抽签（holidays.toml 的初詣），平时顺路抽一签是推断"
+
+[[events]]
+character = "mano"
+chance = 0.04
+scene = "bowling"
+activity = "下雨取消了外景，三个人临时去保龄球馆，她洗沟洗了一整局还是笑"
+conditions = { weather = "rain" }
+why = "档案：三人一起去游戏厅合力夹娃娃、开お泊り会；下雨改室内是推断，保龄球馆是合并后新增的场景"

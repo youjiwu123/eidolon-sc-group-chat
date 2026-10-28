@@ -1,0 +1,657 @@
+# 有栖川夏叶的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/natsuha.md、characters/schedules/natsuha.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/natsuha.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "morning"
+scene = "park"
+activity = "沿着公园步道慢跑，边跑边调整呼吸，偶尔停下来拉伸小腿"
+weight = 4
+why = "作息：先散步或跑步醒神；地点统计：公园3.3%"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "在电车上抓着吊环，利用通勤时间默记大学课程的要点"
+weight = 3
+why = "推断：通勤时段"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "在教室里边吃便当边翻看工作邮件，趁课间和同学讨论小组作业"
+weight = 4
+why = "作息：在大学边吃午饭边兼顾学业与工作安排"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "在事务所休息室泡了杯茶，摊开课本和日程本，边吃三明治边核对行程"
+weight = 3
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练舞步，停下来记笔记调整重心"
+weight = 4
+why = "作息：多在练习室；地点统计：练习室4.6%"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "afternoon"
+scene = "lecture_hall"
+activity = "在阶梯教室上大课，一边听讲一边在讲义上做标记"
+weight = 3
+why = "作息：大学课程（平日白天）"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "evening"
+scene = "car"
+activity = "坐在事务所的车后座，赶往下个工作现场，望着窗外默背台词"
+weight = 4
+why = "作息：傍晚常在工作现场或车里移动；地点统计：车里6.8%"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店靠窗的位置看书，偶尔做笔记，手边放着已经凉了的咖啡"
+weight = 3
+why = "地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在家泡完澡后做拉伸，对着镜子仔细护肤，顺便给卡缇蕾梳毛"
+weight = 4
+why = "作息：深夜做护肤、拉伸和泡澡；地点统计：公寓客厅5.0%"
+
+[[slots]]
+character = "natsuha"
+day = "mon"
+slot = "night"
+scene = "recording_studio"
+activity = "在录音棚里为节目做深夜录制，戴着耳机专注地念台词"
+weight = 2
+why = "作息：偶尔深夜练习或录制节目"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "morning"
+scene = "river"
+activity = "沿着河堤慢跑，晨风里偶尔停下来看河面，调整呼吸"
+weight = 4
+why = "作息：晨跑；推断：河堤适合跑步"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "在家先做简单的伸展醒神，然后给卡缇蕾准备早餐，自己烤了片吐司"
+weight = 3
+why = "排表红线：需留出醒神时间；需照顾爱犬"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "noon"
+scene = "office"
+activity = "在事务所办公室边吃午饭边整理课题资料，桌上摊着文件和便当盒"
+weight = 4
+why = "作息：在事务所处理课题；地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点了一份简餐，边吃边用平板看课程录像"
+weight = 3
+why = "地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "afternoon"
+scene = "gym"
+activity = "在健身房做力量训练，汗流浃背时对着镜子检查姿势"
+weight = 4
+why = "作息：偶尔去健身房锻炼"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍杂志照，趁着换布景的间隙和工作人员确认下一组动作"
+weight = 3
+why = "作息：外景工作"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在事务所休息室和成员一起看节目回放，边看边讨论改进点"
+weight = 4
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "evening"
+scene = "street_night"
+activity = "工作结束后走在夜晚的街道上，顺路去便利店买明天的早餐"
+weight = 3
+why = "推断：工作结束后回家路上"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在家做睡前拉伸，敷面膜，给卡缇蕾道晚安后关灯"
+weight = 4
+why = "作息：深夜做护肤、拉伸；需照顾爱犬"
+
+[[slots]]
+character = "natsuha"
+day = "tue"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室独自加练，对着镜子纠正动作，直到满意才停下"
+weight = 2
+why = "作息：偶尔深夜练习"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "morning"
+scene = "park"
+activity = "在公园散步醒神，顺便遛卡缇蕾，让它在小路上跑一跑"
+weight = 4
+why = "作息：散步醒神；需照顾爱犬"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，用手机确认今天的行程和课程安排"
+weight = 3
+why = "推断：通勤时段"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "在教室和同学一起吃饭，边吃边聊课题，偶尔看一眼手机上的工作消息"
+weight = 4
+why = "作息：在大学边吃午饭边兼顾学业与工作"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室热了便当，和经纪人确认下午的安排，匆匆吃完"
+weight = 3
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "afternoon"
+scene = "office"
+activity = "在事务所办公室赶课题报告，偶尔停下来揉揉肩膀"
+weight = 4
+why = "作息：在事务所处理课题"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起练舞，互相纠正动作，气氛认真"
+weight = 3
+why = "地点统计：练习室4.6%"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店看书，面前摊着专业书和笔记本，偶尔望向窗外放松眼睛"
+weight = 4
+why = "作息：有时去咖啡店看书锻炼；地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "evening"
+scene = "car"
+activity = "坐在车里赶去下一个工作地点，借着车内灯光补妆"
+weight = 3
+why = "作息：傍晚常在工作现场或车里移动；地点统计：车里6.8%"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在家泡澡后做拉伸，仔细护肤，顺便给卡缇蕾梳毛"
+weight = 4
+why = "作息：深夜做护肤、拉伸和泡澡"
+
+[[slots]]
+character = "natsuha"
+day = "wed"
+slot = "night"
+scene = "recording_studio"
+activity = "在录音棚录制深夜节目，专注地对着麦克风说话"
+weight = 2
+why = "作息：偶尔深夜练习或录制节目"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "morning"
+scene = "river"
+activity = "沿着河堤跑步，晨光照在水面上，跑完在长椅上做拉伸"
+weight = 4
+why = "作息：晨跑；推断：河堤适合跑步"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "在家慢慢醒来，先喝一杯水，然后做简单的瑜伽唤醒身体"
+weight = 3
+why = "排表红线：需留出醒神时间"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "noon"
+scene = "office"
+activity = "在事务所办公室边吃午饭边和经纪人讨论工作安排，桌上摊着日程表"
+weight = 4
+why = "作息：在事务所处理课题；地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "noon"
+scene = "lecture_hall"
+activity = "在阶梯教室上课，趁课间吃了个饭团，继续记笔记"
+weight = 3
+why = "作息：大学课程（平日白天）"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "afternoon"
+scene = "gym"
+activity = "在健身房做有氧运动，边跑边调整呼吸，汗湿了毛巾"
+weight = 4
+why = "作息：偶尔去健身房锻炼"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练舞，对着镜子反复确认动作角度，偶尔停下来喝水"
+weight = 3
+why = "地点统计：练习室4.6%"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员一起看节目录像，边看边讨论改进点"
+weight = 4
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "evening"
+scene = "street_night"
+activity = "工作结束后走在夜晚的街道上，顺路去便利店买明天的早餐"
+weight = 3
+why = "推断：工作结束后回家路上"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在家做睡前拉伸，敷面膜，给卡缇蕾道晚安后关灯"
+weight = 4
+why = "作息：深夜做护肤、拉伸；需照顾爱犬"
+
+[[slots]]
+character = "natsuha"
+day = "thu"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室独自加练，对着镜子纠正动作，直到满意才停下"
+weight = 2
+why = "作息：偶尔深夜练习"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "morning"
+scene = "park"
+activity = "在公园散步醒神，顺便遛卡缇蕾，让它在小路上跑一跑"
+weight = 4
+why = "作息：散步醒神；需照顾爱犬"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，用手机确认今天的行程和课程安排"
+weight = 3
+why = "推断：通勤时段"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "在教室和同学一起吃饭，边吃边聊课题，偶尔看一眼手机上的工作消息"
+weight = 4
+why = "作息：在大学边吃午饭边兼顾学业与工作"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室热了便当，和经纪人确认下午的安排，匆匆吃完"
+weight = 3
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "afternoon"
+scene = "office"
+activity = "在事务所办公室赶课题报告，偶尔停下来揉揉肩膀"
+weight = 4
+why = "作息：在事务所处理课题"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起练舞，互相纠正动作，气氛认真"
+weight = 3
+why = "地点统计：练习室4.6%"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店看书，面前摊着专业书和笔记本，偶尔望向窗外放松眼睛"
+weight = 4
+why = "作息：有时去咖啡店看书锻炼；地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "evening"
+scene = "car"
+activity = "坐在车里赶去下一个工作地点，借着车内灯光补妆"
+weight = 3
+why = "作息：傍晚常在工作现场或车里移动；地点统计：车里6.8%"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在家泡澡后做拉伸，仔细护肤，顺便给卡缇蕾梳毛"
+weight = 4
+why = "作息：深夜做护肤、拉伸和泡澡"
+
+[[slots]]
+character = "natsuha"
+day = "fri"
+slot = "night"
+scene = "recording_studio"
+activity = "在录音棚录制深夜节目，专注地对着麦克风说话"
+weight = 2
+why = "作息：偶尔深夜练习或录制节目"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "morning"
+scene = "park"
+activity = "在公园慢跑，顺便遛卡缇蕾，跑完在长椅上做拉伸"
+weight = 4
+why = "作息：晨跑；需照顾爱犬"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "在家慢慢醒来，先喝一杯水，然后做简单的瑜伽唤醒身体"
+weight = 3
+why = "排表红线：需留出醒神时间"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点了一份早午餐，边吃边看书，享受难得的悠闲"
+weight = 4
+why = "休息日：偶尔购物、遛狗或与成员聚会；地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起吃饭，聊着最近的趣事，气氛轻松"
+weight = 3
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "afternoon"
+scene = "gym"
+activity = "在健身房做力量训练，汗流浃背时对着镜子检查姿势"
+weight = 4
+why = "作息：偶尔去健身房锻炼"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场逛街，偶尔停下来看衣服，但更多是在看书店的橱窗"
+weight = 3
+why = "休息日：偶尔购物"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店看书，面前摊着专业书和笔记本，偶尔望向窗外放松眼睛"
+weight = 4
+why = "作息：有时去咖啡店看书锻炼；地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "evening"
+scene = "car"
+activity = "坐在车里赶去下一个工作地点，借着车内灯光补妆"
+weight = 3
+why = "作息：傍晚常在工作现场或车里移动；地点统计：车里6.8%"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在家泡澡后做拉伸，仔细护肤，顺便给卡缇蕾梳毛"
+weight = 4
+why = "作息：深夜做护肤、拉伸和泡澡"
+
+[[slots]]
+character = "natsuha"
+day = "sat"
+slot = "night"
+scene = "recording_studio"
+activity = "在录音棚录制深夜节目，专注地对着麦克风说话"
+weight = 2
+why = "作息：偶尔深夜练习或录制节目"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "morning"
+scene = "river"
+activity = "沿着河堤跑步，晨光照在水面上，跑完在长椅上做拉伸"
+weight = 4
+why = "作息：晨跑；推断：河堤适合跑步"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "在家慢慢醒来，先喝一杯水，然后做简单的瑜伽唤醒身体"
+weight = 3
+why = "排表红线：需留出醒神时间"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点了一份早午餐，边吃边看书，享受难得的悠闲"
+weight = 4
+why = "休息日：偶尔购物、遛狗或与成员聚会；地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起吃饭，聊着最近的趣事，气氛轻松"
+weight = 3
+why = "地点统计：事务所休息室22.6%"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "afternoon"
+scene = "gym"
+activity = "在健身房做有氧运动，边跑边调整呼吸，汗湿了毛巾"
+weight = 4
+why = "作息：偶尔去健身房锻炼"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场逛街，偶尔停下来看衣服，但更多是在看书店的橱窗"
+weight = 3
+why = "休息日：偶尔购物"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店看书，面前摊着专业书和笔记本，偶尔望向窗外放松眼睛"
+weight = 4
+why = "作息：有时去咖啡店看书锻炼；地点统计：咖啡店6.2%"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "evening"
+scene = "car"
+activity = "坐在车里赶去下一个工作地点，借着车内灯光补妆"
+weight = 3
+why = "作息：傍晚常在工作现场或车里移动；地点统计：车里6.8%"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在家泡澡后做拉伸，仔细护肤，顺便给卡缇蕾梳毛"
+weight = 4
+why = "作息：深夜做护肤、拉伸和泡澡"
+
+[[slots]]
+character = "natsuha"
+day = "sun"
+slot = "night"
+scene = "recording_studio"
+activity = "在录音棚录制深夜节目，专注地对着麦克风说话"
+weight = 2
+why = "作息：偶尔深夜练习或录制节目"
+

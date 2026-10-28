@@ -1,0 +1,485 @@
+# 日本日历（部署时区 Asia/Tokyo）：公休 + 会改她一天的季节行事。
+#
+# 这份文件只回答三件事：**哪天是什么日子**、**这天适合去哪**、**她会说什么**。
+# 「这天到底走不走节日支线」是排期文件的事（characters/schedules.mano.week.draft.toml 的
+# `[[holidays]]`），优先级、时段、概率都在那边；这里不做选择，只给日历和气氛。
+# 字段含义见 characters/schedules.model.md。
+#
+# 日期来源（2026-10-26 核对）：
+#   - 公休：内閣府「国民の祝日」CSV https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv
+#     2026 年 18 天、2027 年 17 天（都含振替休日 / 国民の休日）。
+#   - 春分の日 / 秋分の日：国立天文台「暦要項」 https://www.nao.ac.jp/news/topics/2025/20250203-rekiyoko.html
+#     2026 = 3/20・9/23，2027 = 3/21・9/23。
+#   - 振替休日 / 国民の休日 取 CSV 里标「休日」的那几天，理由写在各条 `note` 里。
+#
+# **一年一校**：内阁府每年 2 月公布次年祝日、国立天文台同期公布次年暦要項。
+# 部署跨到 2028 年之前（`[calendar].next_review`）要把两年份补进来；
+# 补完跑 `.scratch/schedule/simulate.py`，它会打印没被任何 `[[holidays]]` 覆盖的日期。
+#
+# `scenes` 里的 id 必须存在于 characters/scenes.toml（84 条，校验脚本会断言）。
+# `weights` 与 `scenes` 等长，省略时全为 1。
+# 季节行事的日期每年浮动（樱花、红叶、夏祭り），`note` 里写了这是推断，需要每年对一次实际开花/开催日。
+
+[calendar]
+timezone = "Asia/Tokyo"
+years = [2026, 2027]
+verified_on = "2026-10-26"
+next_review = "2027-02"
+sources = [
+  "https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv",
+  "https://www.nao.ac.jp/news/topics/2025/20250203-rekiyoko.html",
+]
+
+# ---------------------------------------------------------------------------
+# 一、公休（国民の祝日）—— 2026 / 2027
+# ---------------------------------------------------------------------------
+
+[[holidays]]
+id = "new_year"
+name = "元旦"
+name_ja = "元日"
+kind = "public"
+dates = ["2026-01-01", "2027-01-01"]
+scenes = ["shrine", "home_living", "home"]
+weights = [3, 2, 1]
+activities = [
+  "元旦的早上被妈妈叫起来，换好衣服去神社，把去年的御守还回去，再认认真真鞠一次躬。",
+  "回来的路上买了一袋热甘酒，捧在手心走到家门口，才想起来还没喝。",
+]
+
+[[holidays]]
+id = "coming_of_age"
+name = "成人节"
+name_ja = "成人の日"
+kind = "public"
+dates = ["2026-01-12", "2027-01-11"]
+scenes = ["shrine", "street"]
+weights = [3, 1]
+activities = [
+  "成人の日。神社前全是振袖，她站在边上看了很久，小声说「あと二年で、私も」。",
+  "回来的路上问妈妈，二十岁是不是很远，妈妈说很快的。",
+]
+
+[[holidays]]
+id = "national_foundation_day"
+name = "建国纪念日"
+name_ja = "建国記念の日"
+kind = "public"
+dates = ["2026-02-11", "2027-02-11"]
+scenes = ["park", "street", "home_living"]
+weights = [3, 2, 1]
+activities = [
+  "建国記念の日。课本上的日子落到日历上，她也不知道该做什么，就去了公园晒太阳。",
+  "二月的风还是硬的，她把手插在口袋里，走了一圈就回来了。",
+]
+
+[[holidays]]
+id = "emperors_birthday"
+name = "天皇诞生日"
+name_ja = "天皇誕生日"
+kind = "public"
+dates = ["2026-02-23", "2027-02-23"]
+scenes = ["park", "garden", "home_living"]
+weights = [3, 2, 1]
+activities = [
+  "天皇誕生日。公园的梅花开了一点点，她凑近闻，说「まだ、ちょっとだけ」。",
+  "风一吹又缩回围巾里，站了十分钟就回家了。",
+]
+
+[[holidays]]
+id = "vernal_equinox"
+name = "春分"
+name_ja = "春分の日"
+kind = "public"
+dates = ["2026-03-20", "2027-03-21"]
+scenes = ["temple", "cherry", "park"]
+weights = [3, 2, 1]
+activities = [
+  "春分の日，去扫墓。お彼岸的供花是她挑的，挑了很久才选中最便宜的那把。",
+  "回来的路上樱花开了一半，她在树下站了一会儿，什么也没说。",
+]
+
+[[holidays]]
+id = "showa_day"
+name = "昭和之日"
+name_ja = "昭和の日"
+kind = "public"
+dates = ["2026-04-29", "2027-04-29"]
+scenes = ["garden", "park", "home_living"]
+weights = [2, 2, 1]
+activities = [
+  "昭和の日。爷爷讲了一下午昭和的事，她其实只听懂一半，还是点头点得很认真。",
+  "花园里的玫瑰刚打花苞，她蹲下来看，被刺了一下「いたっ」。",
+]
+
+[[holidays]]
+id = "constitution_day"
+name = "宪法纪念日"
+name_ja = "憲法記念日"
+kind = "public"
+dates = ["2026-05-03", "2027-05-03"]
+scenes = ["shopstreet", "restaurant", "home_living"]
+weights = [2, 3, 1]
+activities = [
+  "憲法記念日。ゴールデンウィーク正中间，商店街人多到她走两步就要停一下。",
+  "在家庭餐厅排了四十分钟的队，坐下的时候已经不太饿了。",
+]
+
+[[holidays]]
+id = "greenery_day"
+name = "绿之日"
+name_ja = "みどりの日"
+kind = "public"
+dates = ["2026-05-04", "2027-05-04"]
+scenes = ["park", "garden", "lake"]
+weights = [3, 2, 1]
+activities = [
+  "みどりの日。新绿亮得晃眼，她在公园的长椅上坐着，看叶子看了一个小时。",
+  "湖面把树影晃碎，她看得出神，差点忘了时间。",
+]
+
+[[holidays]]
+id = "childrens_day"
+name = "儿童节"
+name_ja = "こどもの日"
+kind = "public"
+dates = ["2026-05-05", "2027-05-05"]
+scenes = ["park", "home_living", "supermarket"]
+weights = [3, 2, 1]
+activities = [
+  "こどもの日。超市门口挂着鲤鱼旗，她站着看了一会儿，买了两个柏饼回去。",
+  "回家的路上说「子どもの日、もう関係ないのかな」，说完自己笑了。",
+]
+
+[[holidays]]
+id = "marine_day"
+name = "海之日"
+name_ja = "海の日"
+kind = "public"
+dates = ["2026-07-20", "2027-07-19"]
+scenes = ["beach", "coast_road", "observatory"]
+weights = [3, 2, 1]
+activities = [
+  "海の日，跟着事务所去海边出外景。海风把头发吹得乱七八糟，她笑得停不下来。",
+  "脚伸进海水里凉得叫了一声「つめたっ」，又忍不住再伸一次。",
+]
+
+[[holidays]]
+id = "mountain_day"
+name = "山之日"
+name_ja = "山の日"
+kind = "public"
+dates = ["2026-08-11", "2027-08-11"]
+scenes = ["flower_field", "lake", "stone_path"]
+weights = [3, 2, 1]
+activities = [
+  "山の日。坐了很久的车去看山上的花田，回来的时候手里多了一袋车站买的土产。",
+  "山里的风比城里凉，她把外套的袖子拉下来盖住手。",
+]
+
+[[holidays]]
+id = "respect_for_the_aged_day"
+name = "敬老日"
+name_ja = "敬老の日"
+kind = "public"
+dates = ["2026-09-21", "2027-09-20"]
+scenes = ["washitsu", "home_living", "garden"]
+weights = [3, 2, 1]
+activities = [
+  "敬老の日，去奶奶家。和室的榻榻米有太阳的味道，她坐在坐垫上喝了两碗茶。",
+  "被塞了一整袋点心回去，她说「こんなに持てないよ」，还是老老实实抱走了。",
+]
+
+[[holidays]]
+id = "autumnal_equinox"
+name = "秋分"
+name_ja = "秋分の日"
+kind = "public"
+dates = ["2026-09-23", "2027-09-23"]
+scenes = ["ginkgo", "temple", "park"]
+weights = [3, 2, 1]
+activities = [
+  "秋分の日，扫完墓顺路去看银杏。叶子还没全黄，她说「また来ればいいね」。",
+  "お彼岸のおはぎ是妈妈做的，她负责把黄豆粉撒匀。",
+]
+
+[[holidays]]
+id = "sports_day"
+name = "体育日"
+name_ja = "スポーツの日"
+kind = "public"
+dates = ["2026-10-12", "2027-10-11"]
+scenes = ["park", "river", "observatory"]
+weights = [2, 3, 1]
+activities = [
+  "スポーツの日。跑是不行的，走倒是可以走很远，结果又走到了河堤尽头。",
+  "在河堤上遇到一只不怕人的鸽子，她蹲下来跟它说了很久的话。",
+]
+
+[[holidays]]
+id = "culture_day"
+name = "文化日"
+name_ja = "文化の日"
+kind = "public"
+dates = ["2026-11-03", "2027-11-03"]
+scenes = ["hall", "ginkgo", "garden"]
+weights = [3, 2, 1]
+activities = [
+  "文化の日，学校合唱祭。她在礼堂侧幕等着上场，手心全是汗，灯織在旁边小声数拍子。",
+  "散场后银杏落了一地，她踩着走，声音好听，就走得比平时更慢。",
+]
+
+[[holidays]]
+id = "labor_thanksgiving_day"
+name = "勤劳感谢日"
+name_ja = "勤労感謝の日"
+kind = "public"
+dates = ["2026-11-23", "2027-11-23"]
+scenes = ["ginkgo", "restaurant", "home_living"]
+weights = [2, 3, 1]
+activities = [
+  "勤労感謝の日。她给事务所的每个人写了小卡片，写给はづきさん的那张最长。",
+  "晚上一家人去餐厅吃饭，她抢着付钱，被爸爸按回去了。",
+]
+
+# ---------------------------------------------------------------------------
+# 二、振替休日 / 国民の休日（不是新的祝日，是日历上多出来的休日）
+# ---------------------------------------------------------------------------
+
+[[holidays]]
+id = "substitute_holiday"
+name = "补休日"
+name_ja = "振替休日"
+kind = "substitute"
+dates = ["2026-05-06", "2027-03-22"]
+scenes = ["shopstreet", "cafe", "park"]
+weights = [3, 2, 2]
+note = "2026-05-06 是 5/3 憲法記念日（周日）的振替；2027-03-22 是 3/21 春分の日（周日）的振替。"
+activities = [
+  "振替休日，日历上多出来的一天。她不知道该干什么，最后去商店街从头走到尾。",
+  "在咖啡店坐了两个小时，把没写完的作业写完了，觉得这一天很划算。",
+]
+
+[[holidays]]
+id = "citizens_holiday"
+name = "国民休息日"
+name_ja = "国民の休日"
+kind = "citizens"
+date = "2026-09-22"
+scenes = ["park", "river", "home_living"]
+weights = [3, 2, 1]
+note = "夹在 9/21 敬老の日 与 9/23 秋分の日 之间的那一天，2026 年才有；2027 年这两天之间隔了两天，不成立。"
+activities = [
+  "国民の休日，夹在两个祝日中间的那一天。她把它当成偷来的假日，在公园坐了一下午。",
+  "妈妈打电话问她在哪，她说「公園……たぶん、まだ帰らない」。",
+]
+
+# ---------------------------------------------------------------------------
+# 三、季节行事（不是公休，但会改她的一天）
+# ---------------------------------------------------------------------------
+
+[[holidays]]
+id = "hatsumode"
+name = "初诣"
+name_ja = "初詣"
+kind = "festival"
+ranges = [
+  { from = "2026-01-01", to = "2026-01-03" },
+  { from = "2027-01-01", to = "2027-01-03" },
+]
+scenes = ["shrine", "home_living"]
+weights = [3, 1]
+activities = [
+  "初詣。人比想象中多，她被挤得贴着灯織的背走，抽签抽到「小吉」，还是高兴地系在架子上。",
+  "她在绘马上写「今年もたくさん歌えますように」，写完自己先不好意思了。",
+]
+
+[[holidays]]
+id = "setsubun"
+name = "节分"
+name_ja = "節分"
+kind = "festival"
+dates = ["2026-02-03", "2027-02-03"]
+scenes = ["shrine", "home_living", "supermarket"]
+weights = [2, 3, 1]
+note = "節分是 2/3（2026、2027 都落在 2/3，2027 年立春也是 2/4，常规年份）；神社的豆まき和家里的豆まき是两种过法。"
+activities = [
+  "節分。她一边喊「鬼は外、福は内」一边往门口撒豆子，撒完蹲下去一颗一颗捡。",
+  "今年的恵方巻决定自己卷，结果吃到一半忍不住笑出来，方向也忘了。",
+]
+
+[[holidays]]
+id = "valentine"
+name = "情人节"
+name_ja = "バレンタイン"
+kind = "festival"
+dates = ["2026-02-14", "2027-02-14"]
+scenes = ["kitchen", "home", "cake_shop"]
+weights = [3, 2, 1]
+activities = [
+  "バレンタイン。厨房里摊着一堆失败的巧克力，最后能送人的只有三块。",
+  "给灯織和めぐる的卡片写好了，给プロデューサー的那张写了又撕、撕了又写。",
+]
+
+[[holidays]]
+id = "hinamatsuri"
+name = "女儿节"
+name_ja = "ひな祭り"
+kind = "festival"
+dates = ["2026-03-03", "2027-03-03"]
+scenes = ["washitsu", "home_living", "cake_shop"]
+weights = [3, 2, 1]
+activities = [
+  "ひな祭り。奶奶家的雏人形又摆出来了，她跪坐在旁边看，被说「大きくなったね」。",
+  "ちらし寿司里的金平糖她挑出来留着，说要给ピーちゃん看一眼。",
+]
+
+[[holidays]]
+id = "hanami"
+name = "赏花"
+name_ja = "花見"
+kind = "festival"
+ranges = [
+  { from = "2026-03-25", to = "2026-04-05" },
+  { from = "2027-03-26", to = "2027-04-06" },
+]
+scenes = ["cherry", "park", "river"]
+weights = [3, 2, 1]
+note = "开花日每年浮动，这里按东京历年满开区间（3 月最后一周到 4 月第一周）给窗口；部署期要按当年开花预报改。"
+activities = [
+  "花見。便当是自己做的，蛋卷有点歪，铺在樱树下倒也不难看。",
+  "风一吹花瓣落到便当盒里，她舍不得挑出来，就那么吃了。",
+]
+
+[[holidays]]
+id = "golden_week"
+name = "黄金周"
+name_ja = "ゴールデンウィーク"
+kind = "festival"
+ranges = [
+  { from = "2026-04-29", to = "2026-05-06" },
+  { from = "2027-04-29", to = "2027-05-05" },
+]
+scenes = ["street", "mall", "restaurant"]
+weights = [3, 2, 1]
+note = "窗口按祝日连休算，2026 到 5/6（含振替），2027 到 5/5。"
+activities = [
+  "ゴールデンウィーク，街上到处都是人。她被人流推着走，攥着灯織的袖子不敢松。",
+  "事务所只放两天假，她把这两天全用来睡觉和晒太阳了。",
+]
+
+[[holidays]]
+id = "tanabata"
+name = "七夕"
+name_ja = "七夕"
+kind = "festival"
+dates = ["2026-07-07", "2027-07-07"]
+scenes = ["shopstreet", "garden", "park_night"]
+weights = [3, 2, 2]
+activities = [
+  "七夕。商店街的竹枝上挂满短册，她写的那张写得最小，写完藏到最里面。",
+  "她写的是「みんなが元気でいられますように」，没写自己的愿望。",
+]
+
+[[holidays]]
+id = "natsumatsuri"
+name = "夏日祭・烟花大会"
+name_ja = "夏祭り・花火大会"
+kind = "festival"
+ranges = [
+  { from = "2026-07-15", to = "2026-08-31" },
+  { from = "2027-07-15", to = "2027-08-31" },
+]
+scenes = ["shrine", "river", "park_night"]
+weights = [2, 3, 2]
+note = "祭日和花火日每年不同，这里给夏天的窗口而不是具体某天；具体到「今天有祭」由排期文件的 chance 决定。"
+activities = [
+  "夏祭り。浴衣是妈妈帮忙穿的，木屐走两步就疼，她还是想多逛一会儿。",
+  "花火升起来的时候她没说话，仰着头，眼睛比花火还亮。",
+]
+
+[[holidays]]
+id = "obon"
+name = "盂兰盆节"
+name_ja = "お盆"
+kind = "festival"
+ranges = [
+  { from = "2026-08-13", to = "2026-08-16" },
+  { from = "2027-08-13", to = "2027-08-16" },
+]
+scenes = ["washitsu", "temple", "home_living"]
+weights = [3, 2, 2]
+activities = [
+  "お盆，回奶奶家。墓前的水要换新的，她做得很仔细，被夸了一句就低下头。",
+  "和室的障子开着，风穿堂而过，她躺着躺着就睡着了。",
+]
+
+[[holidays]]
+id = "halloween"
+name = "万圣节"
+name_ja = "ハロウィン"
+kind = "festival"
+dates = ["2026-10-31", "2027-10-31"]
+scenes = ["street_night", "shopstreet", "cafe"]
+weights = [3, 2, 1]
+activities = [
+  "ハロウィン。事务所搞了小小的变装，她被分到猫耳，戴着不敢出门，只在休息室转了一圈。",
+  "街上到处是扮装的人，她走得很小心，怕撞到谁的假翅膀。",
+]
+
+[[holidays]]
+id = "momijigari"
+name = "赏红叶"
+name_ja = "紅葉狩り"
+kind = "festival"
+ranges = [
+  { from = "2026-11-10", to = "2026-11-30" },
+  { from = "2027-11-10", to = "2027-11-30" },
+]
+scenes = ["ginkgo", "garden", "temple"]
+weights = [3, 2, 1]
+note = "黄叶/红叶的窗口每年浮动，按东京 11 月中到月底给；不在要求的 12 个行事里，是补银杏道（ginkgo）的日常落点。"
+activities = [
+  "紅葉狩り。银杏落了一地，她踩着走，声音很好听，就走得比平时更慢。",
+  "捡了一片最完整的夹进台本里，说要做书签。",
+]
+
+[[holidays]]
+id = "christmas_eve"
+name = "平安夜"
+name_ja = "クリスマスイブ"
+kind = "festival"
+dates = ["2026-12-24", "2027-12-24"]
+scenes = ["street_night", "restaurant", "home_living"]
+weights = [3, 2, 2]
+activities = [
+  "クリスマスイブ。街上的灯饰亮得晃眼，她买了小蛋糕，捧回家跟ピーちゃん分着吃。",
+  "在餐厅门口等位，手冻得插在袖子里，还是说「待つの、平気だよ」。",
+]
+
+[[holidays]]
+id = "christmas"
+name = "圣诞节"
+name_ja = "クリスマス"
+kind = "festival"
+dates = ["2026-12-25", "2027-12-25"]
+scenes = ["banquet", "home_living", "street_night"]
+weights = [2, 3, 2]
+activities = [
+  "クリスマス。收录结束后事务所在宴会厅开了小小的圣诞会，她在角落被塞了一块蛋糕。",
+  "回家路上街灯一闪一闪，她给妈妈发消息说「もうすぐ帰るね」。",
+]
+
+[[holidays]]
+id = "omisoka"
+name = "除夕"
+name_ja = "大晦日"
+kind = "festival"
+dates = ["2025-12-31", "2026-12-31", "2027-12-31"]
+scenes = ["temple", "home_living", "shrine"]
+weights = [3, 2, 2]
+note = "2025-12-31 是给跨零点那一通用的：1 月 1 日 00:30 的电话走的是前一天（12-31）的 night（schedules.model.md），日历里有这一天，大晦日的覆盖才接得上。"
+activities = [
+  "大晦日。陪妈妈做完年越しそば，又赶去神社排队，钟声一下一下，她跟着数。",
+  "跨年前五分钟才想起来今年的台本还没收，笑着说明年再收。",
+]

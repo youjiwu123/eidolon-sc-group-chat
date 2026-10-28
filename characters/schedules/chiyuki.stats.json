@@ -1,0 +1,2224 @@
+{
+ "character": "chiyuki",
+ "name": "桑山千雪",
+ "lines": 4485,
+ "episodes": 275,
+ "episodes_cast": 462,
+ "episodes_without_script": 180,
+ "episodes_misaligned": 7,
+ "places": [
+  {
+   "bg": "00001",
+   "place": "客厅（事务所休息室·CBC 挂画）",
+   "scene": "lounge",
+   "count": 868,
+   "pct": 19.4,
+   "tier": "prev"
+  },
+  {
+   "bg": "00300",
+   "place": "卧室（白墙简洁）",
+   "scene": "bedroom",
+   "count": 165,
+   "pct": 3.7,
+   "tier": "place"
+  },
+  {
+   "bg": "00014",
+   "place": "练习室",
+   "scene": "studio",
+   "count": 158,
+   "pct": 3.5,
+   "tier": "prev"
+  },
+  {
+   "bg": "00002",
+   "place": "客厅（事务所休息室·CBC 挂画）",
+   "scene": "lounge",
+   "count": 132,
+   "pct": 2.9,
+   "tier": "prev"
+  },
+  {
+   "bg": "00009",
+   "place": "咖啡店",
+   "scene": "cafe",
+   "count": 104,
+   "pct": 2.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00011",
+   "place": "咖啡店",
+   "scene": "cafe",
+   "count": 102,
+   "pct": 2.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00003",
+   "place": "街口/十字路口",
+   "scene": "crossroad",
+   "count": 92,
+   "pct": 2.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00034",
+   "place": "客厅（事务所休息室·CBC 挂画）",
+   "scene": "lounge",
+   "count": 84,
+   "pct": 1.9,
+   "tier": "prev"
+  },
+  {
+   "bg": "00048",
+   "place": "",
+   "scene": "other",
+   "count": 81,
+   "pct": 1.8,
+   "tier": "other"
+  },
+  {
+   "bg": "00000",
+   "place": "空白（无画面）",
+   "scene": "other",
+   "count": 79,
+   "pct": 1.8,
+   "tier": "other"
+  },
+  {
+   "bg": "00028",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 79,
+   "pct": 1.8,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00031",
+   "place": "室内走廊",
+   "scene": "other",
+   "count": 76,
+   "pct": 1.7,
+   "tier": "other"
+  },
+  {
+   "bg": "00305",
+   "place": "阶梯教室",
+   "scene": "lecture_hall",
+   "count": 74,
+   "pct": 1.6,
+   "tier": "place"
+  },
+  {
+   "bg": "00070",
+   "place": "客厅（事务所休息室·CBC 挂画）",
+   "scene": "lounge",
+   "count": 61,
+   "pct": 1.4,
+   "tier": "prev"
+  },
+  {
+   "bg": "00235",
+   "place": "列车餐车",
+   "scene": "other",
+   "count": 57,
+   "pct": 1.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00010",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 55,
+   "pct": 1.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00301",
+   "place": "卧室（白墙简洁）",
+   "scene": "bedroom",
+   "count": 49,
+   "pct": 1.1,
+   "tier": "place"
+  },
+  {
+   "bg": "99999",
+   "place": "白屏（无画面）",
+   "scene": "other",
+   "count": 47,
+   "pct": 1.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00007",
+   "place": "后台/舞台侧",
+   "scene": "backstage",
+   "count": 46,
+   "pct": 1.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00050",
+   "place": "祭典夜市",
+   "scene": "other",
+   "count": 45,
+   "pct": 1.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00140",
+   "place": "大桥",
+   "scene": "other",
+   "count": 44,
+   "pct": 1.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00055",
+   "place": "客厅（黄窗帘·餐区）",
+   "scene": "home_living",
+   "count": 43,
+   "pct": 1.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00486",
+   "place": "候诊室",
+   "scene": "other",
+   "count": 41,
+   "pct": 0.9,
+   "tier": "other"
+  },
+  {
+   "bg": "00277",
+   "place": "旅馆（大堂/外观）",
+   "scene": "other",
+   "count": 40,
+   "pct": 0.9,
+   "tier": "other"
+  },
+  {
+   "bg": "00087",
+   "place": "",
+   "scene": "sky",
+   "count": 40,
+   "pct": 0.9,
+   "tier": "prev"
+  },
+  {
+   "bg": "00196",
+   "place": "居酒屋",
+   "scene": "izakaya",
+   "count": 39,
+   "pct": 0.9,
+   "tier": "place"
+  },
+  {
+   "bg": "00012",
+   "place": "舞台（空/灯架/紫光）",
+   "scene": "stage",
+   "count": 39,
+   "pct": 0.9,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00061",
+   "place": "海滩",
+   "scene": "beach",
+   "count": 39,
+   "pct": 0.9,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00432",
+   "place": "",
+   "scene": "other",
+   "count": 37,
+   "pct": 0.8,
+   "tier": "other"
+  },
+  {
+   "bg": "00008",
+   "place": "后台/舞台侧",
+   "scene": "backstage",
+   "count": 37,
+   "pct": 0.8,
+   "tier": "place"
+  },
+  {
+   "bg": "00090",
+   "place": "和室（夜间）",
+   "scene": "washitsu",
+   "count": 36,
+   "pct": 0.8,
+   "tier": "place"
+  },
+  {
+   "bg": "00114",
+   "place": "住宅街",
+   "scene": "residential_street",
+   "count": 35,
+   "pct": 0.8,
+   "tier": "place"
+  },
+  {
+   "bg": "00022",
+   "place": "",
+   "scene": "other",
+   "count": 34,
+   "pct": 0.8,
+   "tier": "other"
+  },
+  {
+   "bg": "00045",
+   "place": "校舍外观",
+   "scene": "other",
+   "count": 31,
+   "pct": 0.7,
+   "tier": "other"
+  },
+  {
+   "bg": "00076",
+   "place": "大桥",
+   "scene": "other",
+   "count": 30,
+   "pct": 0.7,
+   "tier": "other"
+  },
+  {
+   "bg": "00106",
+   "place": "和风走廊",
+   "scene": "other",
+   "count": 29,
+   "pct": 0.6,
+   "tier": "other"
+  },
+  {
+   "bg": "00027",
+   "place": "商场中庭",
+   "scene": "mall",
+   "count": 29,
+   "pct": 0.6,
+   "tier": "place"
+  },
+  {
+   "bg": "00039",
+   "place": "教室",
+   "scene": "classroom",
+   "count": 27,
+   "pct": 0.6,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00203",
+   "place": "公园",
+   "scene": "park",
+   "count": 27,
+   "pct": 0.6,
+   "tier": "prev"
+  },
+  {
+   "bg": "00427",
+   "place": "玄关",
+   "scene": "home",
+   "count": 26,
+   "pct": 0.6,
+   "tier": "place"
+  },
+  {
+   "bg": "00123",
+   "place": "咖啡店",
+   "scene": "cafe",
+   "count": 25,
+   "pct": 0.6,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00029",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 23,
+   "pct": 0.5,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00098",
+   "place": "大桥",
+   "scene": "beach",
+   "count": 23,
+   "pct": 0.5,
+   "tier": "prev"
+  },
+  {
+   "bg": "00093",
+   "place": "",
+   "scene": "sky",
+   "count": 22,
+   "pct": 0.5,
+   "tier": "prev"
+  },
+  {
+   "bg": "00280",
+   "place": "超市",
+   "scene": "supermarket",
+   "count": 22,
+   "pct": 0.5,
+   "tier": "place"
+  },
+  {
+   "bg": "00104",
+   "place": "",
+   "scene": "other",
+   "count": 21,
+   "pct": 0.5,
+   "tier": "other"
+  },
+  {
+   "bg": "00023",
+   "place": "办公室",
+   "scene": "office",
+   "count": 20,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00073",
+   "place": "宠物店",
+   "scene": "petshop",
+   "count": 20,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00032",
+   "place": "录音棚",
+   "scene": "recording_studio",
+   "count": 20,
+   "pct": 0.4,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00523",
+   "place": "池塘/湖畔",
+   "scene": "lake",
+   "count": 20,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00236",
+   "place": "酒吧",
+   "scene": "bar",
+   "count": 18,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00224",
+   "place": "",
+   "scene": "other",
+   "count": 18,
+   "pct": 0.4,
+   "tier": "other"
+  },
+  {
+   "bg": "00142",
+   "place": "农田/花田",
+   "scene": "flower_field",
+   "count": 18,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00307",
+   "place": "住宅街",
+   "scene": "residential_street",
+   "count": 18,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00225",
+   "place": "",
+   "scene": "other",
+   "count": 17,
+   "pct": 0.4,
+   "tier": "other"
+  },
+  {
+   "bg": "00479",
+   "place": "",
+   "scene": "other",
+   "count": 17,
+   "pct": 0.4,
+   "tier": "other"
+  },
+  {
+   "bg": "00212",
+   "place": "和室（夜间）",
+   "scene": "washitsu",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00274",
+   "place": "雪山/滑雪场",
+   "scene": "other",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "other"
+  },
+  {
+   "bg": "00056",
+   "place": "住宅街",
+   "scene": "residential_street",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00163",
+   "place": "沿海公路",
+   "scene": "coast_road",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00405",
+   "place": "神社",
+   "scene": "shrine",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00111",
+   "place": "商场中庭",
+   "scene": "mall",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "place"
+  },
+  {
+   "bg": "00167",
+   "place": "花店",
+   "scene": "flowershop",
+   "count": 16,
+   "pct": 0.4,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00097",
+   "place": "教堂",
+   "scene": "other",
+   "count": 15,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00120",
+   "place": "",
+   "scene": "other",
+   "count": 15,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00013",
+   "place": "公园",
+   "scene": "park",
+   "count": 15,
+   "pct": 0.3,
+   "tier": "prev"
+  },
+  {
+   "bg": "00060",
+   "place": "客厅（事务所休息室·CBC 挂画）",
+   "scene": "lounge",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00296",
+   "place": "河堤",
+   "scene": "river",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00516",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00126",
+   "place": "电车（车厢）",
+   "scene": "train",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "prev"
+  },
+  {
+   "bg": "00623",
+   "place": "会议室",
+   "scene": "meeting_room",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00306",
+   "place": "",
+   "scene": "other",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00084",
+   "place": "城市夜景（眺望）",
+   "scene": "observatory",
+   "count": 14,
+   "pct": 0.3,
+   "tier": "place"
+  },
+  {
+   "bg": "00151",
+   "place": "",
+   "scene": "other",
+   "count": 13,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00344",
+   "place": "客厅（黄窗帘·餐区）",
+   "scene": "lounge",
+   "count": 13,
+   "pct": 0.3,
+   "tier": "prev"
+  },
+  {
+   "bg": "00049",
+   "place": "森林",
+   "scene": "other",
+   "count": 13,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00684",
+   "place": "",
+   "scene": "other",
+   "count": 13,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00004",
+   "place": "街口/十字路口",
+   "scene": "crossroad",
+   "count": 12,
+   "pct": 0.3,
+   "tier": "place"
+  },
+  {
+   "bg": "00037",
+   "place": "溪谷",
+   "scene": "other",
+   "count": 12,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00283",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 12,
+   "pct": 0.3,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00613",
+   "place": "室内走廊",
+   "scene": "other",
+   "count": 12,
+   "pct": 0.3,
+   "tier": "other"
+  },
+  {
+   "bg": "00285",
+   "place": "石板路/林荫道",
+   "scene": "stone_path",
+   "count": 12,
+   "pct": 0.3,
+   "tier": "place"
+  },
+  {
+   "bg": "00237",
+   "place": "",
+   "scene": "other",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00173",
+   "place": "大桥",
+   "scene": "other",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00074",
+   "place": "",
+   "scene": "other",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00133",
+   "place": "",
+   "scene": "sky",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "prev"
+  },
+  {
+   "bg": "00364",
+   "place": "和风餐厅（榻榻米）",
+   "scene": "other",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00561",
+   "place": "礼堂",
+   "scene": "hall",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00129",
+   "place": "车内",
+   "scene": "car",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00266",
+   "place": "车站大厅",
+   "scene": "station_hall",
+   "count": 11,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00150",
+   "place": "",
+   "scene": "other",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00099",
+   "place": "厨房",
+   "scene": "home",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "prev"
+  },
+  {
+   "bg": "00067",
+   "place": "神社",
+   "scene": "shrine",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00289",
+   "place": "宠物店",
+   "scene": "petshop",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00372",
+   "place": "超市",
+   "scene": "supermarket",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00992",
+   "place": "土产店",
+   "scene": "other",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00380",
+   "place": "咖啡店",
+   "scene": "cafe",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00765",
+   "place": "酒店休息室",
+   "scene": "other",
+   "count": 10,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00088",
+   "place": "",
+   "scene": "sky",
+   "count": 9,
+   "pct": 0.2,
+   "tier": "prev"
+  },
+  {
+   "bg": "00157",
+   "place": "",
+   "scene": "other",
+   "count": 9,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00428",
+   "place": "玄关",
+   "scene": "home",
+   "count": 9,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00035",
+   "place": "少女房间（粉色）",
+   "scene": "home",
+   "count": 9,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00573",
+   "place": "泳池（室内·水上乐园）",
+   "scene": "other",
+   "count": 9,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00115",
+   "place": "摄影棚",
+   "scene": "photo_studio",
+   "count": 9,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00517",
+   "place": "写字楼/大厦（玻璃）",
+   "scene": "other",
+   "count": 8,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00548",
+   "place": "神社",
+   "scene": "shrine",
+   "count": 8,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00326",
+   "place": "玫瑰拱门花园",
+   "scene": "garden",
+   "count": 8,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00682",
+   "place": "",
+   "scene": "other",
+   "count": 8,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00791",
+   "place": "街道",
+   "scene": "street",
+   "count": 8,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00458",
+   "place": "演唱会现场",
+   "scene": "stage",
+   "count": 7,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00130",
+   "place": "车内",
+   "scene": "car",
+   "count": 7,
+   "pct": 0.2,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00089",
+   "place": "和室",
+   "scene": "washitsu",
+   "count": 7,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00171",
+   "place": "演唱会现场",
+   "scene": "stage",
+   "count": 7,
+   "pct": 0.2,
+   "tier": "place"
+  },
+  {
+   "bg": "00138",
+   "place": "",
+   "scene": "other",
+   "count": 7,
+   "pct": 0.2,
+   "tier": "other"
+  },
+  {
+   "bg": "00103",
+   "place": "楼梯间",
+   "scene": "other",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00302",
+   "place": "",
+   "scene": "other",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00127",
+   "place": "住宅街",
+   "scene": "residential_street",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00514",
+   "place": "",
+   "scene": "other",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00454",
+   "place": "城市夜景（眺望）",
+   "scene": "observatory",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00015",
+   "place": "演唱会现场",
+   "scene": "stage",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00339",
+   "place": "客厅（开放式·带楼梯）",
+   "scene": "apartment_living",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00587",
+   "place": "",
+   "scene": "other",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00563",
+   "place": "",
+   "scene": "other",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00143",
+   "place": "街口/十字路口",
+   "scene": "crossroad",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00062",
+   "place": "海滩",
+   "scene": "beach",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "prev"
+  },
+  {
+   "bg": "00287",
+   "place": "甜品店",
+   "scene": "cake_shop",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00554",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00819",
+   "place": "食堂",
+   "scene": "restaurant",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "01048",
+   "place": "教室",
+   "scene": "classroom",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00737",
+   "place": "",
+   "scene": "other",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00683",
+   "place": "厨房（木屋/原木）",
+   "scene": "home",
+   "count": 6,
+   "pct": 0.1,
+   "tier": "prev"
+  },
+  {
+   "bg": "00439",
+   "place": "室内走廊",
+   "scene": "other",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00440",
+   "place": "",
+   "scene": "other",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00298",
+   "place": "",
+   "scene": "other",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00425",
+   "place": "",
+   "scene": "other",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "01109",
+   "place": "",
+   "scene": "other",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00466",
+   "place": "",
+   "scene": "other",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00488",
+   "place": "城市夜景（眺望）",
+   "scene": "observatory",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00343",
+   "place": "演唱会现场",
+   "scene": "stage",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00383",
+   "place": "农田/花田",
+   "scene": "flower_field",
+   "count": 5,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00102",
+   "place": "宠物店",
+   "scene": "petshop",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00213",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00214",
+   "place": "海",
+   "scene": "beach",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00109",
+   "place": "卧室（绿窗帘/书桌）",
+   "scene": "bedroom",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00110",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00152",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00390",
+   "place": "河堤",
+   "scene": "river",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00069",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00413",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00406",
+   "place": "街道",
+   "scene": "street",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00508",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00713",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00462",
+   "place": "天桥/步道桥",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00265",
+   "place": "河堤",
+   "scene": "river",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00351",
+   "place": "公寓外观",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00018",
+   "place": "写字楼/大厦（玻璃）",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00075",
+   "place": "",
+   "scene": "sky",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "prev"
+  },
+  {
+   "bg": "00146",
+   "place": "宴会厅",
+   "scene": "banquet",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00281",
+   "place": "便利店",
+   "scene": "convenience_store",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00857",
+   "place": "杂货店",
+   "scene": "general_store",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00670",
+   "place": "酒店房间",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00739",
+   "place": "",
+   "scene": "other",
+   "count": 4,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00205",
+   "place": "食堂",
+   "scene": "restaurant",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00086",
+   "place": "街口/十字路口",
+   "scene": "crossroad",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00141",
+   "place": "大桥",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00520",
+   "place": "",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00309",
+   "place": "",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00321",
+   "place": "事务所前台/接待",
+   "scene": "lounge",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "prev"
+  },
+  {
+   "bg": "00589",
+   "place": "电车（车厢）",
+   "scene": "train",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00418",
+   "place": "图书室",
+   "scene": "library",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00821",
+   "place": "",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00261",
+   "place": "",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00094",
+   "place": "泳池（户外·夜·灯饰）",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00604",
+   "place": "丘陵/草原",
+   "scene": "other",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "other"
+  },
+  {
+   "bg": "00210",
+   "place": "海",
+   "scene": "beach",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "place"
+  },
+  {
+   "bg": "00063",
+   "place": "神社",
+   "scene": "shrine",
+   "count": 3,
+   "pct": 0.1,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00310",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00512",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00483",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00522",
+   "place": "城市夜景（眺望）",
+   "scene": "observatory",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00484",
+   "place": "",
+   "scene": "sky",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "prev"
+  },
+  {
+   "bg": "00231",
+   "place": "食堂",
+   "scene": "restaurant",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00577",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00497",
+   "place": "剧场/影院",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "01010",
+   "place": "室内走廊",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "01092",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "01039",
+   "place": "事务所前台/接待",
+   "scene": "office_reception",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00116",
+   "place": "车站（站台）",
+   "scene": "station",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00465",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00544",
+   "place": "和室（庭院/缘侧）",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "01145",
+   "place": "露台（夜·海/城市）",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00241",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00583",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00388",
+   "place": "",
+   "scene": "other",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00681",
+   "place": "办公室",
+   "scene": "office",
+   "count": 2,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00017",
+   "place": "公园",
+   "scene": "park",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "prev"
+  },
+  {
+   "bg": "00276",
+   "place": "旅馆（大堂/外观）",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00327",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00521",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00020",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00219",
+   "place": "天台",
+   "scene": "roof",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00669",
+   "place": "夜间街道",
+   "scene": "street_night",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00215",
+   "place": "和风走廊",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00487",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00403",
+   "place": "图书室",
+   "scene": "library",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00402",
+   "place": "校门",
+   "scene": "school_gate",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00399",
+   "place": "教室（夜间）",
+   "scene": "classroom",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00457",
+   "place": "城市夜景（眺望）",
+   "scene": "observatory",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00208",
+   "place": "沿海公路",
+   "scene": "coast_road",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00436",
+   "place": "办公室",
+   "scene": "office",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00677",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00263",
+   "place": "商店街",
+   "scene": "shopstreet",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00409",
+   "place": "城市夜景（眺望）",
+   "scene": "observatory",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00612",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00334",
+   "place": "室内走廊",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00346",
+   "place": "",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00096",
+   "place": "楼梯间",
+   "scene": "other",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "other"
+  },
+  {
+   "bg": "00444",
+   "place": "事务所外观（283 白楼）",
+   "scene": "office_building",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00107",
+   "place": "厨房",
+   "scene": "kitchen",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "inventory"
+  },
+  {
+   "bg": "00160",
+   "place": "",
+   "scene": "sky",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "prev"
+  },
+  {
+   "bg": "00740",
+   "place": "酒吧",
+   "scene": "bar",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  },
+  {
+   "bg": "00690",
+   "place": "办公室",
+   "scene": "office",
+   "count": 1,
+   "pct": 0.0,
+   "tier": "place"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": "lounge",
+   "name": "事务所休息室",
+   "category": "工作",
+   "count": 1175,
+   "pct": 26.2
+  },
+  {
+   "scene": "cafe",
+   "name": "咖啡店",
+   "category": "街上",
+   "count": 241,
+   "pct": 5.4
+  },
+  {
+   "scene": "bedroom",
+   "name": "卧室",
+   "category": "家庭",
+   "count": 218,
+   "pct": 4.9
+  },
+  {
+   "scene": "shopstreet",
+   "name": "商店街",
+   "category": "街上",
+   "count": 194,
+   "pct": 4.3
+  },
+  {
+   "scene": "studio",
+   "name": "练习室",
+   "category": "工作",
+   "count": 158,
+   "pct": 3.5
+  },
+  {
+   "scene": "crossroad",
+   "name": "十字路口",
+   "category": "街上",
+   "count": 113,
+   "pct": 2.5
+  },
+  {
+   "scene": "sky",
+   "name": "说不准",
+   "category": "其他",
+   "count": 89,
+   "pct": 2.0
+  },
+  {
+   "scene": "backstage",
+   "name": "后台",
+   "category": "工作",
+   "count": 83,
+   "pct": 1.9
+  },
+  {
+   "scene": "beach",
+   "name": "海边",
+   "category": "街上",
+   "count": 75,
+   "pct": 1.7
+  },
+  {
+   "scene": "residential_street",
+   "name": "住宅街",
+   "category": "街上",
+   "count": 75,
+   "pct": 1.7
+  },
+  {
+   "scene": "lecture_hall",
+   "name": "阶梯教室",
+   "category": "学校",
+   "count": 74,
+   "pct": 1.6
+  },
+  {
+   "scene": "stage",
+   "name": "舞台",
+   "category": "工作",
+   "count": 64,
+   "pct": 1.4
+  },
+  {
+   "scene": "home",
+   "name": "她的家",
+   "category": "家庭",
+   "count": 60,
+   "pct": 1.3
+  },
+  {
+   "scene": "washitsu",
+   "name": "和室",
+   "category": "家庭",
+   "count": 59,
+   "pct": 1.3
+  },
+  {
+   "scene": "mall",
+   "name": "商场",
+   "category": "街上",
+   "count": 45,
+   "pct": 1.0
+  },
+  {
+   "scene": "park",
+   "name": "公园",
+   "category": "街上",
+   "count": 43,
+   "pct": 1.0
+  },
+  {
+   "scene": "home_living",
+   "name": "家里的客厅",
+   "category": "家庭",
+   "count": 43,
+   "pct": 1.0
+  },
+  {
+   "scene": "izakaya",
+   "name": "居酒屋",
+   "category": "工作",
+   "count": 39,
+   "pct": 0.9
+  },
+  {
+   "scene": "shrine",
+   "name": "神社",
+   "category": "街上",
+   "count": 37,
+   "pct": 0.8
+  },
+  {
+   "scene": "petshop",
+   "name": "宠物店",
+   "category": "街上",
+   "count": 34,
+   "pct": 0.8
+  },
+  {
+   "scene": "classroom",
+   "name": "教室",
+   "category": "学校",
+   "count": 34,
+   "pct": 0.8
+  },
+  {
+   "scene": "supermarket",
+   "name": "超市",
+   "category": "街上",
+   "count": 32,
+   "pct": 0.7
+  },
+  {
+   "scene": "observatory",
+   "name": "展望台",
+   "category": "街上",
+   "count": 29,
+   "pct": 0.6
+  },
+  {
+   "scene": "office",
+   "name": "事务所办公室",
+   "category": "工作",
+   "count": 24,
+   "pct": 0.5
+  },
+  {
+   "scene": "flower_field",
+   "name": "花田",
+   "category": "街上",
+   "count": 23,
+   "pct": 0.5
+  },
+  {
+   "scene": "river",
+   "name": "河堤",
+   "category": "街上",
+   "count": 22,
+   "pct": 0.5
+  },
+  {
+   "scene": "recording_studio",
+   "name": "录音棚",
+   "category": "工作",
+   "count": 20,
+   "pct": 0.4
+  },
+  {
+   "scene": "lake",
+   "name": "湖畔",
+   "category": "街上",
+   "count": 20,
+   "pct": 0.4
+  },
+  {
+   "scene": "bar",
+   "name": "酒吧",
+   "category": "工作",
+   "count": 19,
+   "pct": 0.4
+  },
+  {
+   "scene": "car",
+   "name": "车里",
+   "category": "街上",
+   "count": 18,
+   "pct": 0.4
+  },
+  {
+   "scene": "train",
+   "name": "电车上",
+   "category": "街上",
+   "count": 17,
+   "pct": 0.4
+  },
+  {
+   "scene": "coast_road",
+   "name": "沿海公路",
+   "category": "街上",
+   "count": 17,
+   "pct": 0.4
+  },
+  {
+   "scene": "flowershop",
+   "name": "花店",
+   "category": "街上",
+   "count": 16,
+   "pct": 0.4
+  },
+  {
+   "scene": "meeting_room",
+   "name": "会议室",
+   "category": "工作",
+   "count": 14,
+   "pct": 0.3
+  },
+  {
+   "scene": "street",
+   "name": "白天的街上",
+   "category": "街上",
+   "count": 12,
+   "pct": 0.3
+  },
+  {
+   "scene": "stone_path",
+   "name": "石板路",
+   "category": "街上",
+   "count": 12,
+   "pct": 0.3
+  },
+  {
+   "scene": "restaurant",
+   "name": "家庭餐厅",
+   "category": "街上",
+   "count": 11,
+   "pct": 0.2
+  },
+  {
+   "scene": "hall",
+   "name": "礼堂",
+   "category": "学校",
+   "count": 11,
+   "pct": 0.2
+  },
+  {
+   "scene": "station_hall",
+   "name": "车站大厅",
+   "category": "街上",
+   "count": 11,
+   "pct": 0.2
+  },
+  {
+   "scene": "photo_studio",
+   "name": "摄影棚",
+   "category": "工作",
+   "count": 9,
+   "pct": 0.2
+  },
+  {
+   "scene": "garden",
+   "name": "花园",
+   "category": "街上",
+   "count": 8,
+   "pct": 0.2
+  },
+  {
+   "scene": "apartment_living",
+   "name": "公寓客厅",
+   "category": "家庭",
+   "count": 6,
+   "pct": 0.1
+  },
+  {
+   "scene": "cake_shop",
+   "name": "甜品店",
+   "category": "街上",
+   "count": 6,
+   "pct": 0.1
+  },
+  {
+   "scene": "library",
+   "name": "图书室",
+   "category": "学校",
+   "count": 4,
+   "pct": 0.1
+  },
+  {
+   "scene": "banquet",
+   "name": "宴会厅",
+   "category": "工作",
+   "count": 4,
+   "pct": 0.1
+  },
+  {
+   "scene": "convenience_store",
+   "name": "便利店",
+   "category": "街上",
+   "count": 4,
+   "pct": 0.1
+  },
+  {
+   "scene": "general_store",
+   "name": "杂货店",
+   "category": "街上",
+   "count": 4,
+   "pct": 0.1
+  },
+  {
+   "scene": "office_reception",
+   "name": "事务所前台",
+   "category": "工作",
+   "count": 2,
+   "pct": 0.0
+  },
+  {
+   "scene": "station",
+   "name": "车站",
+   "category": "街上",
+   "count": 2,
+   "pct": 0.0
+  },
+  {
+   "scene": "roof",
+   "name": "天台",
+   "category": "学校",
+   "count": 1,
+   "pct": 0.0
+  },
+  {
+   "scene": "street_night",
+   "name": "夜晚的街道",
+   "category": "街上",
+   "count": 1,
+   "pct": 0.0
+  },
+  {
+   "scene": "school_gate",
+   "name": "校门",
+   "category": "学校",
+   "count": 1,
+   "pct": 0.0
+  },
+  {
+   "scene": "office_building",
+   "name": "事务所大楼",
+   "category": "工作",
+   "count": 1,
+   "pct": 0.0
+  },
+  {
+   "scene": "kitchen",
+   "name": "厨房",
+   "category": "家庭",
+   "count": 1,
+   "pct": 0.0
+  }
+ ],
+ "share": {
+  "家庭": 8.6,
+  "学校": 2.8,
+  "工作": 35.9,
+  "街上": 25.0,
+  "其他": 27.6
+ },
+ "share_sum": 99.9,
+ "signals": {
+  "window": 2,
+  "season": {
+   "hits": 1570,
+   "pct": 35.0
+  },
+  "work": {
+   "hits": 513,
+   "pct": 11.4
+  },
+  "school": {
+   "hits": 23,
+   "pct": 0.5
+  },
+  "commute": {
+   "hits": 102,
+   "pct": 2.3
+  },
+  "off": {
+   "hits": 80,
+   "pct": 1.8
+  },
+  "morning": {
+   "hits": 116,
+   "pct": 2.6
+  },
+  "meal": {
+   "hits": 228,
+   "pct": 5.1
+  },
+  "lesson": {
+   "hits": 115,
+   "pct": 2.6
+  },
+  "night": {
+   "hits": 169,
+   "pct": 3.8
+  },
+  "holiday": {
+   "hits": 33,
+   "pct": 0.7
+  },
+  "no_image": {
+   "hits": 126,
+   "pct": 2.8
+  }
+ },
+ "top_scene": "lounge",
+ "top_scene_pct": 26.2
+}

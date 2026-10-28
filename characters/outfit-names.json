@@ -1,0 +1,4184 @@
+{
+ "schema": 1,
+ "note": "SCSP 与我们的衣装只能按「角色 + 日文衣装名」对上，250/1502 张卡。SCSP 只有日文一份本地化（localizetext.bytes），没有中文名可搬，所以没有 zh_name。",
+ "source": {
+  "wardrobe": "D:\\SCSPDownloader\\SCSPDownloader\\wardrobe-data.json",
+  "index": "D:\\SCSPDownloader\\SCSPDownloader\\official-current-index.json",
+  "characters": "D:\\SCSPDownloader\\SCSPDownloader\\character-data.json",
+  "game_version": "2.19.0",
+  "resource_version": "20006200@jSEgjcBSZG9ol5Cvnq67X3Y=",
+  "game_version_index": "2.19.0",
+  "index_entries": 190388
+ },
+ "join": {
+  "character": "SCSP sets[].character == 零填充的 idolId（01..28）",
+  "costume": "dressName 的【…】与 sets[].name 的【…】都做 NFKC 并把空白全部去掉后完全相等",
+  "not_a_key": "enzaId 与 SCSP 的 record.id / set.id / resource / prefab 名（m_dress_0128_…）/ product_icon_<nn>_<7 位> 没有任何共同编号：enzaId 是 2D 手游的卡号（PPP III SSSS），SCSP 的编号是它自己的衣装商品号",
+  "zh_name": null
+ },
+ "counts": {
+  "cards": 1502,
+  "manifest_entries": 2192,
+  "matched_cards": 250,
+  "matched_manifest_entries": 255,
+  "matched_scsp_sets": 249,
+  "matched_costume_families": 15,
+  "matched_cards_with_icon": 222,
+  "matched_cards_without_icon": 28,
+  "scsp_sets": 3185,
+  "scsp_characters": 40
+ },
+ "outfits": {
+  "3000010030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】櫻木 真乃のジャージ",
+   "set_id": 701005,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 701005,
+    "hair": 601001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "櫻木 真乃のジャージ"
+  },
+  "3000010040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】櫻木 真乃",
+   "set_id": 1003,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 1003,
+    "hair": 1003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0001003.png",
+   "icon_size": 56803,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000010070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】櫻木 真乃",
+   "set_id": 201010,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 201010,
+    "hair": 201010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0201010.png",
+   "icon_size": 56494,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000010100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】櫻木 真乃",
+   "set_id": 1034,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 1034,
+    "hair": 1034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0001034.png",
+   "icon_size": 52760,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000010140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】櫻木 真乃",
+   "set_id": 201014,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 201014,
+    "hair": 201014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0201014.png",
+   "icon_size": 58782,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000010220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】櫻木 真乃",
+   "set_id": 201024,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 201024,
+    "hair": 201024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0201024.png",
+   "icon_size": 59734,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000010410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】櫻木 真乃",
+   "set_id": 1021,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 1021,
+    "hair": 1021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0001021.png",
+   "icon_size": 58371,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000010440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】櫻木 真乃",
+   "set_id": 1012,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 1012,
+    "hair": 1012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0001012.png",
+   "icon_size": 61532,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000010530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】櫻木 真乃",
+   "set_id": 1035,
+   "idol_id": 1,
+   "scsp_character": "01",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 1035,
+    "hair": 1035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0001035.png",
+   "icon_size": 58135,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000020030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】風野 灯織のジャージ",
+   "set_id": 702005,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 702005,
+    "hair": 602001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "風野 灯織のジャージ"
+  },
+  "3000020040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】風野 灯織",
+   "set_id": 2003,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 2003,
+    "hair": 2003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0002003.png",
+   "icon_size": 55311,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000020070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】風野 灯織",
+   "set_id": 202010,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 202010,
+    "hair": 202010,
+    "accessories": [
+     202010
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0202010.png",
+   "icon_size": 54939,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000020100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】風野 灯織",
+   "set_id": 2034,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 2034,
+    "hair": 2034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0002034.png",
+   "icon_size": 53984,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000020140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】風野 灯織",
+   "set_id": 202014,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 202014,
+    "hair": 202014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0202014.png",
+   "icon_size": 58597,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000020220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】風野 灯織",
+   "set_id": 202024,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 202024,
+    "hair": 202024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0202024.png",
+   "icon_size": 59767,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000020410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】風野 灯織",
+   "set_id": 2021,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 2021,
+    "hair": 2021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0002021.png",
+   "icon_size": 58253,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000020440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】風野 灯織",
+   "set_id": 2012,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 2012,
+    "hair": 2012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0002012.png",
+   "icon_size": 61718,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000020530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】風野 灯織",
+   "set_id": 2035,
+   "idol_id": 2,
+   "scsp_character": "02",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 2035,
+    "hair": 2035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0002035.png",
+   "icon_size": 58088,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000030030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】八宮 めぐるのジャージ",
+   "set_id": 703005,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 703005,
+    "hair": 703001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "八宮 めぐるのジャージ"
+  },
+  "3000030040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】八宮 めぐる",
+   "set_id": 3003,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 3003,
+    "hair": 3003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0003003.png",
+   "icon_size": 55414,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000030070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】八宮 めぐる",
+   "set_id": 203010,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 203010,
+    "hair": 203010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0203010.png",
+   "icon_size": 56466,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000030100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】八宮 めぐる",
+   "set_id": 3034,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 3034,
+    "hair": 3034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0003034.png",
+   "icon_size": 52307,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000030140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】八宮 めぐる",
+   "set_id": 203014,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 203014,
+    "hair": 203014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0203014.png",
+   "icon_size": 58679,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000030220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】八宮 めぐる",
+   "set_id": 203024,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 203024,
+    "hair": 203024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0203024.png",
+   "icon_size": 59599,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000030370": {
+   "ja_name": "エモーショナルユニフォーム",
+   "set_name": "【エモーショナルユニフォーム】八宮 めぐる",
+   "set_id": 3046,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 3046,
+    "hair": 3046,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0003046.png",
+   "icon_size": 52055,
+   "description": "八宮 めぐるが通っていた中学の制服\n百人百色っ"
+  },
+  "3000030410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】八宮 めぐる",
+   "set_id": 3021,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 3021,
+    "hair": 3021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0003021.png",
+   "icon_size": 58559,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000030440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】八宮 めぐる",
+   "set_id": 3012,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 3012,
+    "hair": 3012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0003012.png",
+   "icon_size": 61338,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000030530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】八宮 めぐる",
+   "set_id": 3035,
+   "idol_id": 3,
+   "scsp_character": "03",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 3035,
+    "hair": 3035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0003035.png",
+   "icon_size": 59154,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000040030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】月岡 恋鐘のジャージ",
+   "set_id": 704005,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 704005,
+    "hair": 704001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "月岡 恋鐘のジャージ"
+  },
+  "3000040040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】月岡 恋鐘",
+   "set_id": 4003,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 4003,
+    "hair": 4003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0004003.png",
+   "icon_size": 59766,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000040070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】月岡 恋鐘",
+   "set_id": 204009,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 204009,
+    "hair": 204009,
+    "accessories": [
+     204009
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0204009.png",
+   "icon_size": 58221,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000040100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】月岡 恋鐘",
+   "set_id": 4034,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 4034,
+    "hair": 4034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0004034.png",
+   "icon_size": 56297,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000040140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】月岡 恋鐘",
+   "set_id": 204013,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 204013,
+    "hair": 204013,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0204013.png",
+   "icon_size": 61129,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000040220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】月岡 恋鐘",
+   "set_id": 204023,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 204023,
+    "hair": 204023,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0204023.png",
+   "icon_size": 61568,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000040410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】月岡 恋鐘",
+   "set_id": 4021,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 4021,
+    "hair": 4021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0004021.png",
+   "icon_size": 60511,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000040440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】月岡 恋鐘",
+   "set_id": 4012,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 4012,
+    "hair": 4012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0004012.png",
+   "icon_size": 64130,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000040530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】月岡 恋鐘",
+   "set_id": 4035,
+   "idol_id": 4,
+   "scsp_character": "04",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 4035,
+    "hair": 4035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0004035.png",
+   "icon_size": 58400,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000050030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】田中 摩美々のジャージ",
+   "set_id": 705005,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 705005,
+    "hair": 605001,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "田中 摩美々のジャージ"
+  },
+  "3000050040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】田中 摩美々",
+   "set_id": 5003,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 5003,
+    "hair": 5003,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0005003.png",
+   "icon_size": 56440,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000050070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】田中 摩美々",
+   "set_id": 205009,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 205009,
+    "hair": 205009,
+    "accessories": [
+     205009
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0205009.png",
+   "icon_size": 55497,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000050100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】田中 摩美々",
+   "set_id": 5034,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 5034,
+    "hair": 5034,
+    "accessories": [
+     5034
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0005034.png",
+   "icon_size": 54465,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000050140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】田中 摩美々",
+   "set_id": 205013,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 205013,
+    "hair": 205013,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0205013.png",
+   "icon_size": 59327,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000050220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】田中 摩美々",
+   "set_id": 205024,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 205024,
+    "hair": 205024,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0205024.png",
+   "icon_size": 60185,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000050410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】田中 摩美々",
+   "set_id": 5021,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 5021,
+    "hair": 5021,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0005021.png",
+   "icon_size": 58791,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000050440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】田中 摩美々",
+   "set_id": 5012,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 5012,
+    "hair": 5012,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0005012.png",
+   "icon_size": 62039,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000050530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】田中 摩美々",
+   "set_id": 5035,
+   "idol_id": 5,
+   "scsp_character": "05",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 5035,
+    "hair": 5035,
+    "accessories": [
+     805004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0005035.png",
+   "icon_size": 58084,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000060030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】白瀬 咲耶のジャージ",
+   "set_id": 706005,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 706005,
+    "hair": 606001,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "白瀬 咲耶のジャージ"
+  },
+  "3000060040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】白瀬 咲耶",
+   "set_id": 6003,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 6003,
+    "hair": 6003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0006003.png",
+   "icon_size": 55415,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000060070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】白瀬 咲耶",
+   "set_id": 206009,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 206009,
+    "hair": 206009,
+    "accessories": [
+     206009
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0206009.png",
+   "icon_size": 56847,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000060100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】白瀬 咲耶",
+   "set_id": 6034,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 6034,
+    "hair": 6034,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0006034.png",
+   "icon_size": 52314,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000060140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】白瀬 咲耶",
+   "set_id": 206013,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 206013,
+    "hair": 206013,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0206013.png",
+   "icon_size": 58816,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000060220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】白瀬 咲耶",
+   "set_id": 206023,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 206023,
+    "hair": 206023,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0206023.png",
+   "icon_size": 59738,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000060410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】白瀬 咲耶",
+   "set_id": 6021,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 6021,
+    "hair": 6021,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0006021.png",
+   "icon_size": 58630,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000060440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】白瀬 咲耶",
+   "set_id": 6012,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 6012,
+    "hair": 6012,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0006012.png",
+   "icon_size": 61285,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000060530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】白瀬 咲耶",
+   "set_id": 6035,
+   "idol_id": 6,
+   "scsp_character": "06",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 6035,
+    "hair": 6035,
+    "accessories": [
+     806004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0006035.png",
+   "icon_size": 58342,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000070030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】三峰 結華のジャージ",
+   "set_id": 707005,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 707005,
+    "hair": 707005,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "三峰 結華のジャージ"
+  },
+  "3000070040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】三峰 結華",
+   "set_id": 7003,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 7003,
+    "hair": 7003,
+    "accessories": [
+     7003
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0007003.png",
+   "icon_size": 56515,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000070070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】三峰 結華",
+   "set_id": 207009,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 207009,
+    "hair": 207009,
+    "accessories": [
+     207009,
+     9207009
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0207009.png",
+   "icon_size": 57475,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000070100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】三峰 結華",
+   "set_id": 7034,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 7034,
+    "hair": 7034,
+    "accessories": [
+     7034
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0007034.png",
+   "icon_size": 53006,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000070140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】三峰 結華",
+   "set_id": 207013,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 207013,
+    "hair": 207013,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0207013.png",
+   "icon_size": 59313,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000070220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】三峰 結華",
+   "set_id": 207023,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 207023,
+    "hair": 207023,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0207023.png",
+   "icon_size": 60283,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000070410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】三峰 結華",
+   "set_id": 7021,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 7021,
+    "hair": 7021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0007021.png",
+   "icon_size": 58804,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000070440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】三峰 結華",
+   "set_id": 7012,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 7012,
+    "hair": 7012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0007012.png",
+   "icon_size": 61902,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000070530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】三峰 結華",
+   "set_id": 7035,
+   "idol_id": 7,
+   "scsp_character": "07",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 7035,
+    "hair": 7035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0007035.png",
+   "icon_size": 58107,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000080030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】幽谷 霧子のジャージ",
+   "set_id": 708005,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 708005,
+    "hair": 608001,
+    "accessories": [
+     808004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "幽谷 霧子のジャージ"
+  },
+  "3000080040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】幽谷 霧子",
+   "set_id": 8003,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 8003,
+    "hair": 8003,
+    "accessories": [
+     808004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0008003.png",
+   "icon_size": 60563,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000080070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】幽谷 霧子",
+   "set_id": 208009,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 208009,
+    "hair": 208009,
+    "accessories": [
+     208009
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0208009.png",
+   "icon_size": 60069,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000080100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】幽谷 霧子",
+   "set_id": 8034,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 8034,
+    "hair": 8034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0008034.png",
+   "icon_size": 55502,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000080140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】幽谷 霧子",
+   "set_id": 208013,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 208013,
+    "hair": 208013,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0208013.png",
+   "icon_size": 61940,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000080220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】幽谷 霧子",
+   "set_id": 208024,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 208024,
+    "hair": 208024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0208024.png",
+   "icon_size": 62411,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000080410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】幽谷 霧子",
+   "set_id": 8021,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 8021,
+    "hair": 8021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0008021.png",
+   "icon_size": 61026,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000080440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】幽谷 霧子",
+   "set_id": 8012,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 8012,
+    "hair": 8012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0008012.png",
+   "icon_size": 65116,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000080530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】幽谷 霧子",
+   "set_id": 8035,
+   "idol_id": 8,
+   "scsp_character": "08",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 8035,
+    "hair": 8035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0008035.png",
+   "icon_size": 58425,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000090030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】小宮 果穂のジャージ",
+   "set_id": 709005,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 709005,
+    "hair": 609001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "小宮 果穂のジャージ"
+  },
+  "3000090040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】小宮 果穂",
+   "set_id": 9003,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 9003,
+    "hair": 9003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0009003.png",
+   "icon_size": 55768,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000090050": {
+   "ja_name": "パジャマ・デ・カブカブ",
+   "set_name": "【パジャマ・デ・カブカブ】小宮 果穂",
+   "set_id": 9029,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 9029,
+    "hair": 9029,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0009029.png",
+   "icon_size": 49991,
+   "description": "小宮 果穂のステージ衣装\nがぶっ"
+  },
+  "3000090070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】小宮 果穂",
+   "set_id": 209010,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 209010,
+    "hair": 209010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0209010.png",
+   "icon_size": 55602,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000090100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】小宮 果穂",
+   "set_id": 9036,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 9036,
+    "hair": 9036,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0009036.png",
+   "icon_size": 53052,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000090140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】小宮 果穂",
+   "set_id": 209014,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 209014,
+    "hair": 209014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0209014.png",
+   "icon_size": 59032,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000090220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】小宮 果穂",
+   "set_id": 209025,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 209025,
+    "hair": 209025,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0209025.png",
+   "icon_size": 59998,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000090410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】小宮 果穂",
+   "set_id": 9021,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 9021,
+    "hair": 9021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0009021.png",
+   "icon_size": 58583,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000090440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】小宮 果穂",
+   "set_id": 9012,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 9012,
+    "hair": 9012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0009012.png",
+   "icon_size": 62048,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000090530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】小宮 果穂",
+   "set_id": 9037,
+   "idol_id": 9,
+   "scsp_character": "09",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 9037,
+    "hair": 9037,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0009037.png",
+   "icon_size": 59095,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000100030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】園田 智代子のジャージ",
+   "set_id": 710005,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 710005,
+    "hair": 610001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "園田 智代子のジャージ"
+  },
+  "3000100040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】園田 智代子",
+   "set_id": 10003,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 10003,
+    "hair": 10003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0010003.png",
+   "icon_size": 55433,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000100050": {
+   "ja_name": "パジャマ・デ・ハムハム",
+   "set_name": "【パジャマ・デ・ハムハム】園田 智代子",
+   "set_id": 10029,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 10029,
+    "hair": 10029,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0010029.png",
+   "icon_size": 51608,
+   "description": "園田 智代子のステージ衣装\nはむっ"
+  },
+  "3000100070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】園田 智代子",
+   "set_id": 210010,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 210010,
+    "hair": 210010,
+    "accessories": [
+     210010
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0210010.png",
+   "icon_size": 56430,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000100100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】園田 智代子",
+   "set_id": 10036,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 10036,
+    "hair": 10036,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0010036.png",
+   "icon_size": 52759,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000100140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】園田 智代子",
+   "set_id": 210014,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 210014,
+    "hair": 210014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0210014.png",
+   "icon_size": 58638,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000100220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】園田 智代子",
+   "set_id": 210024,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 210024,
+    "hair": 210024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0210024.png",
+   "icon_size": 59888,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000100410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】園田 智代子",
+   "set_id": 10021,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 10021,
+    "hair": 10021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0010021.png",
+   "icon_size": 58335,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000100440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】園田 智代子",
+   "set_id": 10012,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 10012,
+    "hair": 10012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0010012.png",
+   "icon_size": 61307,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000100530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】園田 智代子",
+   "set_id": 10037,
+   "idol_id": 10,
+   "scsp_character": "10",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 10037,
+    "hair": 10037,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0010037.png",
+   "icon_size": 58157,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000110030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】西城 樹里のジャージ",
+   "set_id": 711005,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 711005,
+    "hair": 611001,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "西城 樹里のジャージ"
+  },
+  "3000110040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】西城 樹里",
+   "set_id": 11003,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 11003,
+    "hair": 11003,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0011003.png",
+   "icon_size": 54087,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000110050": {
+   "ja_name": "パジャマ・デ・ガオガオ",
+   "set_name": "【パジャマ・デ・ガオガオ】西城 樹里",
+   "set_id": 11030,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 11030,
+    "hair": 611001,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0011030.png",
+   "icon_size": 51090,
+   "description": "西城 樹里のステージ衣装\nサバンナのひなたの匂い"
+  },
+  "3000110070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】西城 樹里",
+   "set_id": 211010,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 211010,
+    "hair": 211010,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0211010.png",
+   "icon_size": 53937,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000110100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】西城 樹里",
+   "set_id": 11037,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 11037,
+    "hair": 11037,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0011037.png",
+   "icon_size": 51207,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000110140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】西城 樹里",
+   "set_id": 211014,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 211014,
+    "hair": 211014,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0211014.png",
+   "icon_size": 57892,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000110220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】西城 樹里",
+   "set_id": 211025,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 211025,
+    "hair": 211025,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0211025.png",
+   "icon_size": 59280,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000110410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】西城 樹里",
+   "set_id": 11022,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 11022,
+    "hair": 11022,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0011022.png",
+   "icon_size": 57611,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000110440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】西城 樹里",
+   "set_id": 11013,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 11013,
+    "hair": 11013,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0011013.png",
+   "icon_size": 59983,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000110530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】西城 樹里",
+   "set_id": 11038,
+   "idol_id": 11,
+   "scsp_character": "11",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 11038,
+    "hair": 11038,
+    "accessories": [
+     811004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0011038.png",
+   "icon_size": 58198,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000120030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】杜野 凛世のジャージ",
+   "set_id": 712005,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 712005,
+    "hair": 612001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "杜野 凛世のジャージ"
+  },
+  "3000120040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】杜野 凛世",
+   "set_id": 12003,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 12003,
+    "hair": 12003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012003.png",
+   "icon_size": 54509,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000120050": {
+   "ja_name": "パジャマ・デ・ペンペン",
+   "set_name": "【パジャマ・デ・ペンペン】杜野 凛世",
+   "set_id": 12029,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 12029,
+    "hair": 12029,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012029.png",
+   "icon_size": 45296,
+   "description": "杜野 凛世のステージ衣装\n流線形でたどりつく"
+  },
+  "3000120070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】杜野 凛世",
+   "set_id": 212010,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 212010,
+    "hair": 212010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0212010.png",
+   "icon_size": 55799,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000120100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】杜野 凛世",
+   "set_id": 12036,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 12036,
+    "hair": 12036,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012036.png",
+   "icon_size": 51638,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000120140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】杜野 凛世",
+   "set_id": 212014,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 212014,
+    "hair": 212014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0212014.png",
+   "icon_size": 58159,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000120220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】杜野 凛世",
+   "set_id": 212025,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 212025,
+    "hair": 212025,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0212025.png",
+   "icon_size": 59505,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000120370": {
+   "ja_name": "エモーショナルユニフォーム",
+   "set_name": "【エモーショナルユニフォーム】杜野 凛世",
+   "set_id": 12047,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 12047,
+    "hair": 12047,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012047.png",
+   "icon_size": 46078,
+   "description": "杜野 凛世が通っていた中学の制服\n春まだき、風も知らずに"
+  },
+  "3000120410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】杜野 凛世",
+   "set_id": 12021,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 12021,
+    "hair": 12021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012021.png",
+   "icon_size": 57740,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000120440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】杜野 凛世",
+   "set_id": 12012,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 12012,
+    "hair": 12012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012012.png",
+   "icon_size": 60297,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000120530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】杜野 凛世",
+   "set_id": 12037,
+   "idol_id": 12,
+   "scsp_character": "12",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 12037,
+    "hair": 12037,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0012037.png",
+   "icon_size": 58189,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000130030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】有栖川 夏葉のジャージ",
+   "set_id": 713005,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 713005,
+    "hair": 613001,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "有栖川 夏葉のジャージ"
+  },
+  "3000130040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】有栖川 夏葉",
+   "set_id": 13003,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 13003,
+    "hair": 13003,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0013003.png",
+   "icon_size": 58323,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000130050": {
+   "ja_name": "パジャマ・デ・ワンワン",
+   "set_name": "【パジャマ・デ・ワンワン】有栖川 夏葉",
+   "set_id": 13030,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 13030,
+    "hair": 13030,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0013030.png",
+   "icon_size": 50064,
+   "description": "有栖川 夏葉のステージ衣装\nにくきゅうドリーム！"
+  },
+  "3000130070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】有栖川 夏葉",
+   "set_id": 213010,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 213010,
+    "hair": 213010,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0213010.png",
+   "icon_size": 58613,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000130100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】有栖川 夏葉",
+   "set_id": 13037,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 13037,
+    "hair": 13037,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0013037.png",
+   "icon_size": 54270,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000130140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】有栖川 夏葉",
+   "set_id": 213014,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 213014,
+    "hair": 213014,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0213014.png",
+   "icon_size": 60443,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000130220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】有栖川 夏葉",
+   "set_id": 213024,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 213024,
+    "hair": 213024,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0213024.png",
+   "icon_size": 60943,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000130410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】有栖川 夏葉",
+   "set_id": 13021,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 13021,
+    "hair": 13021,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0013021.png",
+   "icon_size": 59689,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000130440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】有栖川 夏葉",
+   "set_id": 13012,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 13012,
+    "hair": 13012,
+    "accessories": [
+     813004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0013012.png",
+   "icon_size": 62545,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000130530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】有栖川 夏葉",
+   "set_id": 13038,
+   "idol_id": 13,
+   "scsp_character": "13",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 13038,
+    "hair": 13038,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0013038.png",
+   "icon_size": 58205,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000140030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】大崎 甘奈のジャージ",
+   "set_id": 714005,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 714005,
+    "hair": 614001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "大崎 甘奈のジャージ"
+  },
+  "3000140040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】大崎 甘奈",
+   "set_id": 14003,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 14003,
+    "hair": 14003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0014003.png",
+   "icon_size": 57905,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000140070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】大崎 甘奈",
+   "set_id": 214009,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 214009,
+    "hair": 214009,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0214009.png",
+   "icon_size": 57887,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000140100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】大崎 甘奈",
+   "set_id": 14034,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 14034,
+    "hair": 14034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0014034.png",
+   "icon_size": 53531,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000140140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】大崎 甘奈",
+   "set_id": 214014,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 214014,
+    "hair": 214014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0214014.png",
+   "icon_size": 59884,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000140220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】大崎 甘奈",
+   "set_id": 214024,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 214024,
+    "hair": 214024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0214024.png",
+   "icon_size": 60744,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000140410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】大崎 甘奈",
+   "set_id": 14021,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 14021,
+    "hair": 14021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0014021.png",
+   "icon_size": 59567,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000140440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】大崎 甘奈",
+   "set_id": 14012,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 14012,
+    "hair": 14012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0014012.png",
+   "icon_size": 62053,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000140530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】大崎 甘奈",
+   "set_id": 14035,
+   "idol_id": 14,
+   "scsp_character": "14",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 14035,
+    "hair": 14035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0014035.png",
+   "icon_size": 58522,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000150030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】大崎 甜花のジャージ",
+   "set_id": 715005,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 715005,
+    "hair": 615001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "大崎 甜花のジャージ"
+  },
+  "3000150040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】大崎 甜花",
+   "set_id": 15003,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 15003,
+    "hair": 15003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0015003.png",
+   "icon_size": 58668,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000150070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】大崎 甜花",
+   "set_id": 215009,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 215009,
+    "hair": 215009,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0215009.png",
+   "icon_size": 58417,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000150100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】大崎 甜花",
+   "set_id": 15034,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 15034,
+    "hair": 15034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0015034.png",
+   "icon_size": 54158,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000150140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】大崎 甜花",
+   "set_id": 215014,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 215014,
+    "hair": 215014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0215014.png",
+   "icon_size": 60238,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000150220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】大崎 甜花",
+   "set_id": 215024,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 215024,
+    "hair": 215024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0215024.png",
+   "icon_size": 61078,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000150410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】大崎 甜花",
+   "set_id": 15021,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 15021,
+    "hair": 15021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0015021.png",
+   "icon_size": 59986,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000150440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】大崎 甜花",
+   "set_id": 15012,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 15012,
+    "hair": 15012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0015012.png",
+   "icon_size": 62454,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000150530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】大崎 甜花",
+   "set_id": 15035,
+   "idol_id": 15,
+   "scsp_character": "15",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 15035,
+    "hair": 15035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0015035.png",
+   "icon_size": 58519,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000160030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】桑山 千雪のジャージ",
+   "set_id": 716005,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 716005,
+    "hair": 716001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "桑山 千雪のジャージ"
+  },
+  "3000160040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】桑山 千雪",
+   "set_id": 16003,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 16003,
+    "hair": 16003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0016003.png",
+   "icon_size": 56911,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000160070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】桑山 千雪",
+   "set_id": 216009,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 216009,
+    "hair": 216009,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0216009.png",
+   "icon_size": 56614,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000160100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】桑山 千雪",
+   "set_id": 16034,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 16034,
+    "hair": 16034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0016034.png",
+   "icon_size": 52939,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000160140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】桑山 千雪",
+   "set_id": 216014,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 216014,
+    "hair": 216014,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0216014.png",
+   "icon_size": 58542,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000160220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】桑山 千雪",
+   "set_id": 216024,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 216024,
+    "hair": 216024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0216024.png",
+   "icon_size": 60062,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000160410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】桑山 千雪",
+   "set_id": 16021,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 16021,
+    "hair": 16021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0016021.png",
+   "icon_size": 58749,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000160440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】桑山 千雪",
+   "set_id": 16012,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 16012,
+    "hair": 16012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0016012.png",
+   "icon_size": 61527,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000160530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】桑山 千雪",
+   "set_id": 16035,
+   "idol_id": 16,
+   "scsp_character": "16",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 16035,
+    "hair": 16035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0016035.png",
+   "icon_size": 58153,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000170030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】芹沢 あさひのジャージ",
+   "set_id": 717005,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 717005,
+    "hair": 617001,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "芹沢 あさひのジャージ"
+  },
+  "3000170040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】芹沢 あさひ",
+   "set_id": 17003,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 17003,
+    "hair": 17003,
+    "accessories": [
+     17003
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0017003.png",
+   "icon_size": 55047,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000170070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】芹沢 あさひ",
+   "set_id": 217010,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 217010,
+    "hair": 217010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0217010.png",
+   "icon_size": 56088,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000170100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】芹沢 あさひ",
+   "set_id": 17034,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 17034,
+    "hair": 17034,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0017034.png",
+   "icon_size": 51990,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000170140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】芹沢 あさひ",
+   "set_id": 217015,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 217015,
+    "hair": 217015,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0217015.png",
+   "icon_size": 58383,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000170220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】芹沢 あさひ",
+   "set_id": 217024,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 217024,
+    "hair": 217024,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0217024.png",
+   "icon_size": 59774,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000170410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】芹沢 あさひ",
+   "set_id": 17021,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 17021,
+    "hair": 17021,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0017021.png",
+   "icon_size": 57954,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000170440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】芹沢 あさひ",
+   "set_id": 17012,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 17012,
+    "hair": 17012,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0017012.png",
+   "icon_size": 61323,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000170530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】芹沢 あさひ",
+   "set_id": 17035,
+   "idol_id": 17,
+   "scsp_character": "17",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 17035,
+    "hair": 17035,
+    "accessories": [
+     817004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0017035.png",
+   "icon_size": 58836,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000180030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】黛 冬優子のジャージ",
+   "set_id": 718005,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 718005,
+    "hair": 618001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "黛 冬優子のジャージ"
+  },
+  "3000180040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】黛 冬優子",
+   "set_id": 18003,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 18003,
+    "hair": 18003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0018003.png",
+   "icon_size": 55877,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000180070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】黛 冬優子",
+   "set_id": 218009,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 218009,
+    "hair": 218009,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0218009.png",
+   "icon_size": 56031,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000180100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】黛 冬優子",
+   "set_id": 18034,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 18034,
+    "hair": 18034,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0018034.png",
+   "icon_size": 52846,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000180140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】黛 冬優子",
+   "set_id": 218015,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 218015,
+    "hair": 218015,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0218015.png",
+   "icon_size": 59373,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000180220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】黛 冬優子",
+   "set_id": 218024,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 218024,
+    "hair": 218024,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0218024.png",
+   "icon_size": 60161,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000180410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】黛 冬優子",
+   "set_id": 18021,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 18021,
+    "hair": 18021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0018021.png",
+   "icon_size": 58860,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000180440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】黛 冬優子",
+   "set_id": 18012,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 18012,
+    "hair": 18012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0018012.png",
+   "icon_size": 61772,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000180530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】黛 冬優子",
+   "set_id": 18035,
+   "idol_id": 18,
+   "scsp_character": "18",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 18035,
+    "hair": 18035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0018035.png",
+   "icon_size": 58217,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000190030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】和泉 愛依のジャージ",
+   "set_id": 719005,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 719005,
+    "hair": 619001,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "和泉 愛依のジャージ"
+  },
+  "3000190040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】和泉 愛依",
+   "set_id": 19003,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 19003,
+    "hair": 19003,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0019003.png",
+   "icon_size": 56135,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000190070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】和泉 愛依",
+   "set_id": 219009,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 219009,
+    "hair": 219009,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0219009.png",
+   "icon_size": 56108,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000190100": {
+   "ja_name": "イノセントセーラー",
+   "set_name": "【イノセントセーラー】和泉 愛依",
+   "set_id": 19034,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 19034,
+    "hair": 19034,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0019034.png",
+   "icon_size": 53065,
+   "description": "283プロのアイドル達が着用している\nSUMMER PARTYのステージ衣装\n純真、空をあおぎゆく"
+  },
+  "3000190140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】和泉 愛依",
+   "set_id": 219015,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 219015,
+    "hair": 219015,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0219015.png",
+   "icon_size": 58948,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000190220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】和泉 愛依",
+   "set_id": 219024,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 219024,
+    "hair": 219024,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0219024.png",
+   "icon_size": 60037,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000190410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】和泉 愛依",
+   "set_id": 19021,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 19021,
+    "hair": 19021,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0019021.png",
+   "icon_size": 58466,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000190440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】和泉 愛依",
+   "set_id": 19012,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 19012,
+    "hair": 19012,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0019012.png",
+   "icon_size": 62372,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000190530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】和泉 愛依",
+   "set_id": 19035,
+   "idol_id": 19,
+   "scsp_character": "19",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 19035,
+    "hair": 19035,
+    "accessories": [
+     819004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0019035.png",
+   "icon_size": 58639,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000200030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】浅倉 透のジャージ",
+   "set_id": 720005,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 720005,
+    "hair": 620001,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "浅倉 透のジャージ"
+  },
+  "3000200040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】浅倉 透",
+   "set_id": 20003,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 20003,
+    "hair": 20003,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0020003.png",
+   "icon_size": 54387,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000200070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】浅倉 透",
+   "set_id": 220007,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 220007,
+    "hair": 220007,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0220007.png",
+   "icon_size": 54069,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000200140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】浅倉 透",
+   "set_id": 220013,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 220013,
+    "hair": 220013,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0220013.png",
+   "icon_size": 58137,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000200220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】浅倉 透",
+   "set_id": 220022,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 220022,
+    "hair": 220022,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0220022.png",
+   "icon_size": 59394,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000200410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】浅倉 透",
+   "set_id": 20021,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 20021,
+    "hair": 20021,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0020021.png",
+   "icon_size": 57656,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000200440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】浅倉 透",
+   "set_id": 20012,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 20012,
+    "hair": 20012,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0020012.png",
+   "icon_size": 60229,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000200530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】浅倉 透",
+   "set_id": 20036,
+   "idol_id": 20,
+   "scsp_character": "20",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 20036,
+    "hair": 20036,
+    "accessories": [
+     820004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0020036.png",
+   "icon_size": 60205,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000210030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】樋口 円香のジャージ",
+   "set_id": 721005,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 721005,
+    "hair": 721001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "樋口 円香のジャージ"
+  },
+  "3000210040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】樋口 円香",
+   "set_id": 21003,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 21003,
+    "hair": 21003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0021003.png",
+   "icon_size": 55017,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000210070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】樋口 円香",
+   "set_id": 221007,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 221007,
+    "hair": 221007,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0221007.png",
+   "icon_size": 54222,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000210140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】樋口 円香",
+   "set_id": 221013,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 221013,
+    "hair": 221013,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0221013.png",
+   "icon_size": 58358,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000210220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】樋口 円香",
+   "set_id": 221022,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 221022,
+    "hair": 221022,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0221022.png",
+   "icon_size": 59512,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000210410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】樋口 円香",
+   "set_id": 21021,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 21021,
+    "hair": 21021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0021021.png",
+   "icon_size": 57950,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000210440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】樋口 円香",
+   "set_id": 21012,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 21012,
+    "hair": 21012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0021012.png",
+   "icon_size": 60677,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000210530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】樋口 円香",
+   "set_id": 21035,
+   "idol_id": 21,
+   "scsp_character": "21",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 21035,
+    "hair": 21035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0021035.png",
+   "icon_size": 58881,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000220030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】福丸 小糸のジャージ",
+   "set_id": 722005,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 722005,
+    "hair": 722001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "福丸 小糸のジャージ"
+  },
+  "3000220040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】福丸 小糸",
+   "set_id": 22003,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 22003,
+    "hair": 22003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0022003.png",
+   "icon_size": 56101,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000220070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】福丸 小糸",
+   "set_id": 222007,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 222007,
+    "hair": 222007,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0222007.png",
+   "icon_size": 57026,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000220140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】福丸 小糸",
+   "set_id": 222013,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 222013,
+    "hair": 222013,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0222013.png",
+   "icon_size": 59088,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000220220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】福丸 小糸",
+   "set_id": 222022,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 222022,
+    "hair": 222022,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0222022.png",
+   "icon_size": 60055,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000220410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】福丸 小糸",
+   "set_id": 22021,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 22021,
+    "hair": 22021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0022021.png",
+   "icon_size": 58573,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000220440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】福丸 小糸",
+   "set_id": 22012,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 22012,
+    "hair": 22012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0022012.png",
+   "icon_size": 62182,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000220530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】福丸 小糸",
+   "set_id": 22035,
+   "idol_id": 22,
+   "scsp_character": "22",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 22035,
+    "hair": 22035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0022035.png",
+   "icon_size": 58442,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000230030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】市川 雛菜のジャージ",
+   "set_id": 723005,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 723005,
+    "hair": 723001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "市川 雛菜のジャージ"
+  },
+  "3000230040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】市川 雛菜",
+   "set_id": 23003,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 23003,
+    "hair": 23003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0023003.png",
+   "icon_size": 57482,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000230070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】市川 雛菜",
+   "set_id": 223007,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 223007,
+    "hair": 223007,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0223007.png",
+   "icon_size": 57162,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000230140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】市川 雛菜",
+   "set_id": 223013,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 223013,
+    "hair": 223013,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0223013.png",
+   "icon_size": 59331,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000230220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】市川 雛菜",
+   "set_id": 223022,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 223022,
+    "hair": 223022,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0223022.png",
+   "icon_size": 60062,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000230410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】市川 雛菜",
+   "set_id": 23023,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 23023,
+    "hair": 23023,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0023023.png",
+   "icon_size": 58764,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000230440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】市川 雛菜",
+   "set_id": 23012,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 23012,
+    "hair": 23012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0023012.png",
+   "icon_size": 62365,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000230530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】市川 雛菜",
+   "set_id": 23037,
+   "idol_id": 23,
+   "scsp_character": "23",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 23037,
+    "hair": 23037,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0023037.png",
+   "icon_size": 58558,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000240030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】七草 にちかのジャージ",
+   "set_id": 724005,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 724005,
+    "hair": 624001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "七草 にちかのジャージ"
+  },
+  "3000240040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】七草 にちか",
+   "set_id": 24003,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 24003,
+    "hair": 24003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0024003.png",
+   "icon_size": 54285,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000240070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】七草 にちか",
+   "set_id": 224006,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 224006,
+    "hair": 224006,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0224006.png",
+   "icon_size": 55687,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000240140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】七草 にちか",
+   "set_id": 224012,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 224012,
+    "hair": 224012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0224012.png",
+   "icon_size": 58104,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000240220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】七草 にちか",
+   "set_id": 224023,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 224023,
+    "hair": 224023,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0224023.png",
+   "icon_size": 59461,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000240410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】七草 にちか",
+   "set_id": 24025,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 24025,
+    "hair": 24025,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0024025.png",
+   "icon_size": 57842,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000240440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】七草 にちか",
+   "set_id": 24012,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 24012,
+    "hair": 24012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0024012.png",
+   "icon_size": 60348,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000240530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】七草 にちか",
+   "set_id": 24039,
+   "idol_id": 24,
+   "scsp_character": "24",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 24039,
+    "hair": 24039,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0024039.png",
+   "icon_size": 58912,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000250030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】緋田 美琴のジャージ",
+   "set_id": 725005,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 725005,
+    "hair": 625001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "緋田 美琴のジャージ"
+  },
+  "3000250040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】緋田 美琴",
+   "set_id": 25003,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 25003,
+    "hair": 25003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0025003.png",
+   "icon_size": 56246,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000250070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】緋田 美琴",
+   "set_id": 225006,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 225006,
+    "hair": 225006,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0225006.png",
+   "icon_size": 55821,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000250140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】緋田 美琴",
+   "set_id": 225012,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 225012,
+    "hair": 225012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0225012.png",
+   "icon_size": 58410,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000250220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】緋田 美琴",
+   "set_id": 225023,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 225023,
+    "hair": 225023,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0225023.png",
+   "icon_size": 59781,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000250410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】緋田 美琴",
+   "set_id": 25021,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 25021,
+    "hair": 25021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0025021.png",
+   "icon_size": 58459,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000250440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】緋田 美琴",
+   "set_id": 25012,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 25012,
+    "hair": 25012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0025012.png",
+   "icon_size": 60974,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000250530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】緋田 美琴",
+   "set_id": 25035,
+   "idol_id": 25,
+   "scsp_character": "25",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 25035,
+    "hair": 25035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0025035.png",
+   "icon_size": 59081,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000260030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】斑鳩 ルカのジャージ",
+   "set_id": 726005,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 726005,
+    "hair": 626001,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "斑鳩 ルカのジャージ"
+  },
+  "3000260040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】斑鳩 ルカ",
+   "set_id": 26003,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 26003,
+    "hair": 26003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0026003.png",
+   "icon_size": 55095,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000260070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】斑鳩 ルカ",
+   "set_id": 226005,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 226005,
+    "hair": 226005,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0226005.png",
+   "icon_size": 54805,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000260140": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】斑鳩 ルカ",
+   "set_id": 26021,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 26021,
+    "hair": 26021,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0026021.png",
+   "icon_size": 58473,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000260220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】斑鳩 ルカ",
+   "set_id": 226022,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 226022,
+    "hair": 226022,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0226022.png",
+   "icon_size": 59893,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000260410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】斑鳩 ルカ",
+   "set_id": 26021,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Anniversary",
+   "parts": {
+    "dress": 26021,
+    "hair": 26021,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0026021.png",
+   "icon_size": 58473,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000260440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】斑鳩 ルカ",
+   "set_id": 26012,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 26012,
+    "hair": 26012,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0026012.png",
+   "icon_size": 61442,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000260530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】斑鳩 ルカ",
+   "set_id": 26035,
+   "idol_id": 26,
+   "scsp_character": "26",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 26035,
+    "hair": 26035,
+    "accessories": [
+     826004
+    ]
+   },
+   "icon": "root/assetbundles/product_icon_24_0026035.png",
+   "icon_size": 59044,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000270030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】鈴木 羽那のジャージ",
+   "set_id": 727005,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 727005,
+    "hair": 627001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "鈴木 羽那のジャージ"
+  },
+  "3000270040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】鈴木 羽那",
+   "set_id": 27003,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 27003,
+    "hair": 27003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0027003.png",
+   "icon_size": 56385,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000270070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】鈴木 羽那",
+   "set_id": 227005,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 227005,
+    "hair": 227005,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0227005.png",
+   "icon_size": 56228,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000270140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】鈴木 羽那",
+   "set_id": 227010,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 227010,
+    "hair": 227010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0227010.png",
+   "icon_size": 58628,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000270220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】鈴木 羽那",
+   "set_id": 227022,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 227022,
+    "hair": 227022,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0227022.png",
+   "icon_size": 59797,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000270410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】鈴木 羽那",
+   "set_id": 27021,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 27021,
+    "hair": 27021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0027021.png",
+   "icon_size": 58315,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000270440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】鈴木 羽那",
+   "set_id": 27012,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 27012,
+    "hair": 27012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0027012.png",
+   "icon_size": 61248,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000270530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】鈴木 羽那",
+   "set_id": 27035,
+   "idol_id": 27,
+   "scsp_character": "27",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 27035,
+    "hair": 27035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0027035.png",
+   "icon_size": 58158,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  },
+  "3000280030": {
+   "ja_name": "ジャージ",
+   "set_name": "【ジャージ】郁田 はるきのジャージ",
+   "set_id": 728005,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 728005,
+    "hair": 728001,
+    "accessories": []
+   },
+   "icon": null,
+   "icon_size": null,
+   "description": "郁田 はるきのジャージ"
+  },
+  "3000280040": {
+   "ja_name": "ホーリーナイトケープ",
+   "set_name": "【ホーリーナイトケープ】郁田 はるき",
+   "set_id": 28003,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 28003,
+    "hair": 28003,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0028003.png",
+   "icon_size": 54617,
+   "description": "283プロのアイドル達が着用している\nクリスマスステージ衣装\n星たちが踊る 夜が始まる"
+  },
+  "3000280070": {
+   "ja_name": "オーバーキャストモノクローム",
+   "set_name": "【オーバーキャストモノクローム】郁田 はるき",
+   "set_id": 228005,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 228005,
+    "hair": 228005,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0228005.png",
+   "icon_size": 55706,
+   "description": "シャイニーカラーズの楽曲\n「Ambitious Eve」のステージ衣装\n曇り空でも、羽ばたけるから"
+  },
+  "3000280140": {
+   "ja_name": "サンセットスカイパッセージ",
+   "set_name": "【サンセットスカイパッセージ】郁田 はるき",
+   "set_id": 228010,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 228010,
+    "hair": 228010,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0228010.png",
+   "icon_size": 58111,
+   "description": "シャイニーカラーズの楽曲\n「シャイノグラフィ」のステージ衣装\n無限の余白たち"
+  },
+  "3000280220": {
+   "ja_name": "ユナイトバースプラネタリ",
+   "set_name": "【ユナイトバースプラネタリ】郁田 はるき",
+   "set_id": 228022,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 228022,
+    "hair": 228022,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0228022.png",
+   "icon_size": 59724,
+   "description": "シャイニーカラーズの楽曲\n「Resonance⁺」のステージ衣装\n決して交わることのない　空と空があったとして"
+  },
+  "3000280410": {
+   "ja_name": "フローウィングベル",
+   "set_name": "【フローウィングベル】郁田 はるき",
+   "set_id": 28021,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 28021,
+    "hair": 28021,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0028021.png",
+   "icon_size": 58108,
+   "description": "シャイニーカラーズの楽曲\n「Shiny Stories」のステージ衣装\n白紙の空に綴る私たちの物語"
+  },
+  "3000280440": {
+   "ja_name": "リフレジェントプルマージュ",
+   "set_name": "【リフレジェントプルマージュ】郁田 はるき",
+   "set_id": 28012,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 28012,
+    "hair": 28012,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0028012.png",
+   "icon_size": 60780,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ6th記念のステージ衣装\n夜空に燦めく夢の花ばな"
+  },
+  "3000280530": {
+   "ja_name": "レジスタンスオーダー・ネオス",
+   "set_name": "【レジスタンスオーダー・ネオス】郁田 はるき",
+   "set_id": 28035,
+   "idol_id": 28,
+   "scsp_character": "28",
+   "dress_type": "Special",
+   "parts": {
+    "dress": 28035,
+    "hair": 28035,
+    "accessories": []
+   },
+   "icon": "root/assetbundles/product_icon_24_0028035.png",
+   "icon_size": 59033,
+   "description": "283プロのアイドル達が着用している\nシャイニーカラーズ7th記念のステージ衣装\n未来はいつだって、無謀の先に"
+  }
+ }
+}

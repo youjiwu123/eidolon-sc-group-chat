@@ -1,0 +1,657 @@
+# 铃木羽那的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/hana.md、characters/schedules/hana.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/hana.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "morning"
+scene = "studio"
+activity = "在练习室对着镜子练发声，反复调整口型，偶尔停下来记笔记"
+weight = 4
+why = "工作日早晨去事务所或练习室训练"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "起床后在家做简单的拉伸，边听音乐边准备早餐"
+weight = 2
+why = "推断：偶尔早晨在家放松"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起吃饭，聊着上午练习的成果，笑声不断"
+weight = 5
+why = "中午常在休息室和成员或制作人一起吃饭"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点了一份三明治，边吃边看手机上的工作安排"
+weight = 3
+why = "中午也常去附近咖啡店"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄杂志封面，按照摄影师指示调整姿势，表情专注"
+weight = 4
+why = "下午常进行拍摄等偶像工作"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间补妆，准备接下来的采访，对着镜子练习微笑"
+weight = 3
+why = "下午有采访等工作，化妆间是准备场所"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "evening"
+scene = "street"
+activity = "工作结束后在街上散步，顺便看看商店橱窗，放松心情"
+weight = 4
+why = "工作结束后常在街上散步或购物"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "evening"
+scene = "restaurant"
+activity = "和制作人一起在家庭餐厅吃饭，讨论接下来的工作安排"
+weight = 3
+why = "偶尔和制作人一起吃饭"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "回公寓后做睡前拉伸，然后躺在床上看手机消息"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "mon"
+slot = "night"
+scene = "convenience_store"
+activity = "深夜饿了，去便利店买了个面包和饮料，匆匆回家"
+weight = 2
+why = "深夜容易饿，有深夜买面包情节"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "morning"
+scene = "studio_small"
+activity = "在小练习室独自练舞，反复练习新曲的编舞，汗流浃背"
+weight = 4
+why = "上午处理工作或自主练习"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "morning"
+scene = "office_corridor"
+activity = "在事务所走廊遇到工作人员，打招呼后去会议室拿资料"
+weight = 2
+why = "推断：上午在事务所处理工作"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "noon"
+scene = "cafe"
+activity = "和成员在咖啡店吃午餐，边吃边聊最近流行的甜点"
+weight = 4
+why = "中午常和成员在咖啡店吃饭"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，顺便看了一遍下午的工作流程"
+weight = 3
+why = "中午在休息室吃饭"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录制新歌，戴着耳机专注地唱，反复调整细节"
+weight = 4
+why = "下午常进行收录等偶像工作"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "afternoon"
+scene = "backstage"
+activity = "在后台等待上场，检查服装和麦克风，有点紧张"
+weight = 3
+why = "下午有演出或收录，后台是准备场所"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街闲逛，看看新开的店铺，偶尔停下来试吃"
+weight = 4
+why = "工作结束后常在街上散步或购物"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "evening"
+scene = "park"
+activity = "在公园长椅上休息，看着夕阳，享受片刻宁静"
+weight = 2
+why = "推断：偶尔在公园放松"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在家做睡前拉伸，然后看手机上的粉丝留言，笑着回复"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "tue"
+slot = "night"
+scene = "apartment_living"
+activity = "在公寓客厅看电视，放松一下，不知不觉睡着了"
+weight = 2
+why = "推断：偶尔在客厅放松"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "morning"
+scene = "studio"
+activity = "在练习室和舞蹈老师一起训练，反复纠正动作"
+weight = 4
+why = "上午进行发声和舞蹈训练"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "在家慢慢吃早餐，看了一会儿电视，然后准备出门"
+weight = 2
+why = "推断：偶尔早晨在家悠闲"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和制作人讨论工作，边吃午饭边确认日程"
+weight = 5
+why = "中午常在休息室和制作人一起吃饭"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "noon"
+scene = "fastfood"
+activity = "在快餐店快速解决午餐，因为下午工作很满"
+weight = 2
+why = "推断：偶尔因忙碌选择快餐"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室接受采访，认真回答记者的问题，偶尔露出笑容"
+weight = 3
+why = "下午有采访工作"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄宣传照，尝试不同的风格，表情自信"
+weight = 4
+why = "下午常进行拍摄工作"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "evening"
+scene = "mall"
+activity = "在商场逛街，试穿了几件衣服，犹豫要不要买"
+weight = 3
+why = "工作结束后常在街上购物"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "evening"
+scene = "street"
+activity = "在街上散步，顺便去书店翻了翻杂志"
+weight = 4
+why = "工作结束后常在街上散步"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "回公寓后做睡前拉伸，然后看手机消息，准备睡觉"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室整理明天要带的东西，然后关灯休息"
+weight = 3
+why = "深夜回公寓休息"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "morning"
+scene = "studio_small"
+activity = "在小练习室自主练习，对着镜子调整表情和动作"
+weight = 4
+why = "上午自主练习"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "在电车上前往事务所，戴着耳机听音乐，看着窗外"
+weight = 3
+why = "通勤路上"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店和成员一起吃午饭，聊着最近看的电影"
+weight = 4
+why = "中午常和成员在咖啡店吃饭"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，顺便看了下午的台本"
+weight = 3
+why = "中午在休息室吃饭"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "afternoon"
+scene = "backstage"
+activity = "在后台准备演出，检查服装和道具，深呼吸放松"
+weight = 4
+why = "下午有演出工作"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "afternoon"
+scene = "stage"
+activity = "在舞台上彩排，确认站位和灯光，和工作人员沟通"
+weight = 3
+why = "下午有舞台彩排"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街散步，买了一些小吃，边走边吃"
+weight = 4
+why = "工作结束后常在街上散步"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "evening"
+scene = "restaurant"
+activity = "和制作人一起在家庭餐厅吃饭，讨论未来的计划"
+weight = 3
+why = "偶尔和制作人一起吃饭"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在家做睡前拉伸，然后看手机上的消息，回复了几条"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "thu"
+slot = "night"
+scene = "convenience_store"
+activity = "晚上饿了，去便利店买了点零食，快速回家"
+weight = 2
+why = "深夜容易饿"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "morning"
+scene = "studio"
+activity = "在练习室进行发声训练，反复练习高音部分"
+weight = 4
+why = "上午进行发声训练"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "morning"
+scene = "office_corridor"
+activity = "在事务所走廊和工作人员打招呼，然后去办公室拿资料"
+weight = 2
+why = "推断：上午在事务所处理工作"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起吃午饭，聊着周末的计划"
+weight = 5
+why = "中午常在休息室和成员一起吃饭"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点了一杯咖啡和三明治，独自享受午餐"
+weight = 3
+why = "中午也常去咖啡店"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录制广播节目，和主持人聊天，笑声不断"
+weight = 4
+why = "下午有收录工作"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间准备拍摄，和化妆师聊天，放松心情"
+weight = 3
+why = "下午有拍摄工作"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "evening"
+scene = "street"
+activity = "工作结束后在街上散步，顺便去书店看看新书"
+weight = 4
+why = "工作结束后常在街上散步"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "evening"
+scene = "mall"
+activity = "在商场逛街，买了一些生活用品，然后回家"
+weight = 3
+why = "工作结束后常在街上购物"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "回公寓后做睡前拉伸，然后看手机消息，准备睡觉"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "fri"
+slot = "night"
+scene = "apartment_living"
+activity = "在公寓客厅看电视，放松一下，然后去睡觉"
+weight = 2
+why = "推断：偶尔在客厅放松"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "休息日早上慢慢起床，做了一些简单的拉伸，然后准备早餐"
+weight = 4
+why = "休息日喜欢散步，早上可能在家"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "morning"
+scene = "park"
+activity = "早上在公园散步，呼吸新鲜空气，心情很好"
+weight = 3
+why = "休息日喜欢到处散步"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃早午餐，看着窗外的行人，享受悠闲时光"
+weight = 4
+why = "休息日喜欢探索街道和商店街"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "noon"
+scene = "restaurant"
+activity = "和朋友在家庭餐厅吃饭，聊着最近的生活"
+weight = 3
+why = "偶尔和朋友逛街购物"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街探索新开的店铺，买了一些小饰品"
+weight = 4
+why = "休息日喜欢探索街道和商店街"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "和朋友在商场逛街，试穿衣服，互相给建议"
+weight = 3
+why = "偶尔和朋友逛街购物"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "evening"
+scene = "street"
+activity = "傍晚在街上散步，看着夕阳，心情平静"
+weight = 4
+why = "休息日喜欢散步"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "evening"
+scene = "river"
+activity = "在河堤散步，吹着晚风，放松心情"
+weight = 3
+why = "推断：休息日散步可能去河堤"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在家做睡前拉伸，然后看手机消息，准备睡觉"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室看书，放松一下，然后关灯休息"
+weight = 3
+why = "深夜回公寓休息"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "休息日早上睡到自然醒，然后做早餐，慢慢享受"
+weight = 4
+why = "休息日可能晚起"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "morning"
+scene = "shrine"
+activity = "早上参拜神社，祈求工作顺利，然后散步回家"
+weight = 2
+why = "推断：休息日可能去神社"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃午餐，看了一会儿书，享受独处时光"
+weight = 4
+why = "休息日喜欢探索街道"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "noon"
+scene = "restaurant"
+activity = "和制作人一起在家庭餐厅吃饭，讨论工作之外的话题"
+weight = 3
+why = "偶尔和制作人一起吃饭"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街散步，发现了一家有趣的老店，进去逛了逛"
+weight = 4
+why = "休息日喜欢探索街道和商店街"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园长椅上休息，看着孩子们玩耍，心情放松"
+weight = 3
+why = "休息日喜欢散步"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "evening"
+scene = "street"
+activity = "傍晚在街上散步，顺便去便利店买了点东西"
+weight = 4
+why = "休息日喜欢散步"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "evening"
+scene = "river"
+activity = "在河堤看日落，享受宁静的时光"
+weight = 3
+why = "推断：休息日散步可能去河堤"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在家做睡前拉伸，然后看手机消息，准备迎接新的一周"
+weight = 5
+why = "每晚睡前拉伸，看手机消息"
+
+[[slots]]
+character = "hana"
+day = "sun"
+slot = "night"
+scene = "apartment_living"
+activity = "在公寓客厅看电视，放松一下，然后去睡觉"
+weight = 2
+why = "推断：偶尔在客厅放松"
+

@@ -19,10 +19,10 @@ BACKEND_URL=http://localhost:8000 EIDOLON_STAND_ASSETS_URL=<同 .env> npm run st
 
 ## 登录
 
-用开发登录按名字登录。本地库里 `Sallyn` 是管理者。请求要带 `Origin`，后端会检查：
+用开发登录按名字登录。本地 `.env` 的 `EIDOLON_ADMINS` 里写 `github:<同一个名字>`（逗号分隔可以写多个），那个名字登录进来就是管理者：开发者登录会给账号记一条同名的 GitHub 身份，没有 OAuth 的本地部署也只有这样认得出管理员（ADR-0013）。原来的 `github:local-admin` 是曾经那份假 GitHub 登录的身份，留着不影响。请求要带 `Origin`，后端会检查：
 
 ```ts
-await context.request.post(`${origin}/api/auth/dev-login`, { data: { name: "Sallyn" }, headers: { origin } });
+await context.request.post(`${origin}/api/auth/dev-login`, { data: { name: "有机物" }, headers: { origin } });
 ```
 
 `frontend/scripts/screenshots.mts` 的 `signIn` 也是这么写的。

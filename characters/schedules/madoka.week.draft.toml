@@ -1,0 +1,657 @@
+# 樋口圆香的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/madoka.md、characters/schedules/madoka.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/madoka.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "morning"
+scene = "residential_street"
+activity = "和透约在街角汇合，两人并肩走在住宅街去学校，圆香边走边抱怨透走太慢"
+weight = 4
+why = "作息：morning 在家或透家附近与透汇合，一起上学"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "因为上午有工作提前出门，在电车上抓着吊环，看着窗外发呆"
+weight = 2
+why = "作息：有工作时提前去事务所"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休时坐在自己座位上吃便当，偶尔被同学搭话，回答得有点冷淡"
+weight = 4
+why = "作息：noon 在学校上课，午休可能与同学相处"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "noon"
+scene = "library"
+activity = "去图书室还上周借的书，顺便在书架间找下一本要借的"
+weight = 2
+why = "作息：午休可能去图书馆还书"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "放学后直接去练习室，和透一起对着镜子练舞，纠正透的动作"
+weight = 4
+why = "作息：放学后参加noctchill练习或工作"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "afternoon"
+scene = "school_gate"
+activity = "没工作，和透一起走出校门，在门口稍微聊几句后各自回家"
+weight = 2
+why = "作息：没工作时直接回家；固定日程：与透一起回家"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，两人坐在餐桌前，圆香边吃边吐槽透的吃相"
+weight = 3
+why = "作息：工作结束后去透家吃晚饭"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在事务所休息室休息，喝着茶看手机等透收拾东西"
+weight = 3
+why = "台词地点统计：事务所休息室出现频率最高"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间的书桌前写作业，写累了就趴在桌上发呆"
+weight = 4
+why = "作息：night 在家休息、学习；台词地点统计：卧室占6.8%"
+
+[[slots]]
+character = "madoka"
+day = "mon"
+slot = "night"
+scene = "apartment_living"
+activity = "在透家的公寓客厅和透一起看电影，两人窝在沙发里，屏幕的光映在脸上"
+weight = 2
+why = "作息：与透看电影到深夜"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "morning"
+scene = "residential_street"
+activity = "在住宅街等透一起上学，靠着围墙，看到透跑过来时轻轻叹了口气"
+weight = 4
+why = "作息：morning 在家或透家附近与透汇合，一起上学"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "起得比平时早，在家慢慢吃早餐，顺便检查书包里有没有忘带的东西"
+weight = 2
+why = "推断：有时会提前准备"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学在教室里聊天，话题转到偶像，她含糊地应付过去"
+weight = 4
+why = "作息：noon 在学校上课，午休与同学相处"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时去走廊的自动贩卖机买饮料，靠在墙边喝完再回教室"
+weight = 2
+why = "推断：课间常去走廊"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室和透一起练习，两人对着镜子调整动作，偶尔停下来讨论"
+weight = 4
+why = "作息：放学后参加noctchill练习"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "afternoon"
+scene = "street"
+activity = "没工作，和透一起走回家，经过商店街时在橱窗前停了一下"
+weight = 2
+why = "作息：没工作时直接回家；固定日程：与透一起回家"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，帮忙摆碗筷，两人边吃边看电视里的综艺节目"
+weight = 3
+why = "作息：工作结束后去透家吃晚饭"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在事务所休息室等透练习结束，坐在沙发上翻杂志，偶尔抬头看时间"
+weight = 3
+why = "台词地点统计：事务所休息室占9.3%"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间复习功课，桌上摊着参考书，手机放在一旁亮着透发来的消息"
+weight = 4
+why = "作息：night 在家休息、学习"
+
+[[slots]]
+character = "madoka"
+day = "tue"
+slot = "night"
+scene = "car"
+activity = "工作到很晚，制作人开车送她回家，她坐在后座看着窗外闪过的路灯"
+weight = 2
+why = "作息：偶尔被制作人送回家；台词地点统计：车里占3.5%"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "morning"
+scene = "residential_street"
+activity = "和透一起走在上学路上，透说了什么好笑的事，她忍不住笑了一下又立刻板起脸"
+weight = 4
+why = "作息：morning 与透汇合一起上学"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "因为下午有工作，提前坐电车去事务所，在车上确认今天的行程"
+weight = 2
+why = "作息：有工作时提前去事务所"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休时一个人趴在桌上休息，同学叫她也没怎么回应"
+weight = 4
+why = "作息：noon 在学校上课，午休与同学相处"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "noon"
+scene = "library"
+activity = "在图书室安静地看书，偶尔抬头看看窗外的操场"
+weight = 2
+why = "作息：午休可能去图书馆"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍杂志照片，按照摄影师指示摆姿势，休息时检查拍出来的效果"
+weight = 3
+why = "作息：放学后参加noctchill练习或工作"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和透一起练舞，两人反复练习同一个段落直到满意"
+weight = 3
+why = "作息：放学后参加noctchill练习"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，饭后帮忙洗碗，和透在厨房聊今天学校的事"
+weight = 3
+why = "作息：工作结束后去透家吃晚饭"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在休息室休息，和工作人员简单聊了几句，等透一起回家"
+weight = 3
+why = "台词地点统计：事务所休息室占9.3%"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间听音乐，戴着耳机靠在床边，手里拿着歌词本"
+weight = 4
+why = "作息：night 在家休息"
+
+[[slots]]
+character = "madoka"
+day = "wed"
+slot = "night"
+scene = "apartment_living"
+activity = "在透家看电影到深夜，两人裹着毯子坐在沙发上，电影结束后讨论剧情"
+weight = 2
+why = "作息：与透看电影到深夜"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "morning"
+scene = "residential_street"
+activity = "在住宅街和透汇合，两人边走边聊今天的安排，圆香提醒透别忘带东西"
+weight = 4
+why = "作息：morning 与透汇合一起上学"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "在家准备上学，对着镜子整理头发，确认制服没有问题"
+weight = 2
+why = "推断：早晨在家准备"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学一起吃饭，听大家聊周末的计划，自己偶尔插一两句"
+weight = 4
+why = "作息：noon 在学校上课，午休与同学相处"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时去走廊尽头的洗手间，回来时在布告栏前看了一会儿社团招新海报"
+weight = 2
+why = "推断：课间活动"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "放学后在练习室和透一起练习，两人对着镜子纠正动作，圆香帮透数拍子"
+weight = 4
+why = "作息：放学后参加noctchill练习"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "afternoon"
+scene = "street"
+activity = "没工作，和透一起回家，经过公园时在长椅上坐了一会儿"
+weight = 2
+why = "作息：没工作时直接回家；固定日程：与透一起回家"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，两人一起做饭，圆香负责切菜，透负责炒"
+weight = 3
+why = "作息：工作结束后去透家吃晚饭"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在事务所休息室等透，坐在沙发上玩手机，偶尔抬头看看门口"
+weight = 3
+why = "台词地点统计：事务所休息室占9.3%"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间写作业，写到一半停下来看透发来的消息，回复后又继续写"
+weight = 4
+why = "作息：night 在家休息、学习"
+
+[[slots]]
+character = "madoka"
+day = "thu"
+slot = "night"
+scene = "apartment_living"
+activity = "在透家看电影，看到一半两人都困了，圆香靠在沙发上打瞌睡"
+weight = 2
+why = "作息：与透看电影到深夜"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "morning"
+scene = "residential_street"
+activity = "和透一起上学，路上透说了什么，圆香笑着推了透一把"
+weight = 4
+why = "作息：morning 与透汇合一起上学"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "因为上午有工作提前去事务所，在电车上看着窗外，耳机里放着练习曲"
+weight = 2
+why = "作息：有工作时提前去事务所"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学在教室里聊天，被问到周末的安排，含糊地说还没定"
+weight = 4
+why = "作息：noon 在学校上课，午休与同学相处"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "noon"
+scene = "library"
+activity = "去图书室还书，顺便在角落的座位上翻了一会儿杂志"
+weight = 2
+why = "作息：午休可能去图书馆还书"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "放学后在练习室和透一起练习，两人反复练一个动作，圆香有点不耐烦但还是陪着"
+weight = 4
+why = "作息：放学后参加noctchill练习"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "afternoon"
+scene = "street"
+activity = "没工作，和透一起回家，经过商店街时在甜品店门口停下来看橱窗"
+weight = 2
+why = "作息：没工作时直接回家；固定日程：与透一起回家"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，两人边吃边聊周末的安排，圆香说想在家休息"
+weight = 3
+why = "作息：工作结束后去透家吃晚饭"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在休息室休息，和制作人简单聊了几句下周的安排"
+weight = 3
+why = "台词地点统计：事务所休息室占9.3%"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间放松，躺在床上看手机，和透聊到很晚"
+weight = 4
+why = "作息：night 在家休息"
+
+[[slots]]
+character = "madoka"
+day = "fri"
+slot = "night"
+scene = "apartment_living"
+activity = "在透家看电影，两人并排坐着，电影结束后圆香说今晚不想回去"
+weight = 2
+why = "作息：与透看电影到深夜"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日睡到自然醒，躺在床上看手机，看到透发来的消息后翻了个身"
+weight = 4
+why = "作息：休息日空闲时在家"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "morning"
+scene = "photo_studio"
+activity = "休息日有拍摄，在摄影棚化妆准备，一边看台本一边等开拍"
+weight = 2
+why = "作息：休息日可能安排拍摄"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "noon"
+scene = "home_living"
+activity = "在家吃午饭，和父母一起，聊了些学校的事"
+weight = 3
+why = "推断：休息日在家吃饭"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "和透约在咖啡店见面，两人坐在靠窗的位置，圆香点了蛋糕"
+weight = 3
+why = "作息：空闲时偶尔一起逛街；台词地点统计：咖啡店占2.9%"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "afternoon"
+scene = "studio"
+activity = "休息日有练习，在练习室和透一起练舞，两人练得比平时更认真"
+weight = 3
+why = "作息：休息日可能安排练习"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "和透一起逛街，在商场里随便看看，圆香在服装店前停了一会儿"
+weight = 3
+why = "作息：空闲时偶尔一起逛街"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，两人一起做饭，饭后在客厅看电视"
+weight = 3
+why = "作息：空闲时去透家"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和透在家庭餐厅吃饭，两人坐在卡座里，圆香看着菜单犹豫不决"
+weight = 3
+why = "作息：空闲时偶尔一起逛街吃饭"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间看书，看到一半困了，关灯准备睡觉"
+weight = 4
+why = "作息：night 在家休息"
+
+[[slots]]
+character = "madoka"
+day = "sat"
+slot = "night"
+scene = "apartment_living"
+activity = "在透家看电影到深夜，两人裹着毯子，电影结束后圆香直接睡着了"
+weight = 2
+why = "作息：与透看电影到深夜"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日早上赖床，被透的电话叫醒，迷迷糊糊地接起来"
+weight = 4
+why = "作息：休息日空闲时在家"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "morning"
+scene = "studio"
+activity = "休息日有练习，早早到练习室，一个人先热身"
+weight = 2
+why = "作息：休息日可能安排练习"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "在家吃午饭，饭后帮母亲收拾碗筷，聊了些家常"
+weight = 3
+why = "推断：休息日在家"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "和透在咖啡店见面，两人坐在角落，圆香一边喝饮料一边看手机"
+weight = 3
+why = "作息：空闲时偶尔一起逛街；台词地点统计：咖啡店占2.9%"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "和透在公园散步，两人坐在长椅上，看着来往的人发呆"
+weight = 3
+why = "作息：空闲时偶尔一起逛街"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "afternoon"
+scene = "studio"
+activity = "休息日有练习，在练习室和透一起练舞，两人练到傍晚才结束"
+weight = 3
+why = "作息：休息日可能安排练习"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "在透家吃晚饭，两人一起做饭，饭后在客厅看电视聊天"
+weight = 3
+why = "作息：空闲时去透家"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在休息室休息，和透一起等制作人确认下周的安排"
+weight = 3
+why = "台词地点统计：事务所休息室占9.3%"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "在自己房间准备明天上学的东西，整理书包和制服"
+weight = 4
+why = "作息：night 在家休息"
+
+[[slots]]
+character = "madoka"
+day = "sun"
+slot = "night"
+scene = "apartment_living"
+activity = "在透家看电影，看到一半两人都困了，圆香靠在透肩上睡着了"
+weight = 2
+why = "作息：与透看电影到深夜"
+

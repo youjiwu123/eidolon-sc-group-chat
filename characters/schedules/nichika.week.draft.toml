@@ -1,0 +1,657 @@
+# 七草日花的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/nichika.md、characters/schedules/nichika.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/nichika.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "趴在课桌上补觉，昨晚看DVD到两点，老师点名时被同桌推醒，迷迷糊糊翻开课本"
+weight = 4
+why = "作息：常因熬夜在课上补觉"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "morning"
+scene = "school_corridor"
+activity = "第一节小测前在走廊抱着笔记本临时抱佛脚，边翻边小声抱怨昨晚没复习完"
+weight = 2
+why = "作息：第一节有小测时抱怨"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休在座位上赶没写完的作业，便当只吃了一半，笔还夹在手指间打瞌睡"
+weight = 4
+why = "作息：午休在学校吃饭，有时赶作业"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "noon"
+scene = "home_living"
+activity = "回家吃饭，饭后靠在沙发上眯十分钟，闹钟一响就抓起书包往外跑"
+weight = 2
+why = "作息：午休有时回家吃饭，饭后可能小睡"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "放学后到练习室对着镜子反复练同一段舞步，脚踝有点发酸还是咬牙数着拍子"
+weight = 4
+why = "固定日程：放学后去事务所练习；台词地点统计练习室7.6%"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "afternoon"
+scene = "supermarket"
+activity = "推着购物车在生鲜区蹲点，等特价标签贴上去，手里攥着写好的清单"
+weight = 2
+why = "固定日程：超市抢特价"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上摊开作业本，一边等练习安排一边和工作人员闲聊两句"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%最高"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "evening"
+scene = "kitchen"
+activity = "站在灶台前做晚饭，顺手把姐姐明天的便当也装好，锅里还咕嘟着汤"
+weight = 3
+why = "固定日程：做晚饭和便当"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在自己房间戴耳机看偶像DVD，看到喜欢的段落就暂停记笔记，作业摊在一边没动"
+weight = 4
+why = "作息：深夜在家看偶像DVD、听CD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "趴在床上准备试镜的自我介绍，念到一半困得把稿子盖在脸上，灯还亮着"
+weight = 3
+why = "作息：深夜准备试镜，常熬夜"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "morning"
+scene = "classroom"
+activity = "撑着下巴听数学课，笔记只抄了标题，眼皮一直往下掉，被窗外阳光晃得更困"
+weight = 4
+why = "作息：常因熬夜在课上补觉"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "上学路上踩着石板坡慢慢走，耳机里放着要练的歌，嘴里跟着小声哼"
+weight = 2
+why = "推断：通学路；作息：听CD"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "和同学拼桌吃便当，边吃边吐槽昨天的测验，饭后又趴了一会儿"
+weight = 3
+why = "作息：午休在学校吃饭"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "noon"
+scene = "library"
+activity = "午休躲进图书室补作业，安静得差点睡着，笔尖在纸上划出歪歪扭扭的字"
+weight = 2
+why = "推断：赶作业；作息：有时赶作业"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室等练习开始，抱着台本和经纪人确认今天的安排，时不时看表"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "afternoon"
+scene = "supermarket"
+activity = "放学顺路冲进超市，抢到限时特价的鸡蛋和蔬菜，袋子拎得满满当当"
+weight = 2
+why = "固定日程：超市抢特价"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "evening"
+scene = "studio"
+activity = "傍晚在练习室加练，镜子里的动作一遍遍纠正，汗顺着下巴滴到地板上"
+weight = 4
+why = "固定日程：事务所练习；台词地点统计练习室7.6%"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "evening"
+scene = "kitchen"
+activity = "系着围裙做晚饭，把便当盒摆好，想着明天给姐姐多放一点她爱吃的菜"
+weight = 3
+why = "固定日程：做晚饭和便当；家人相关"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "深夜在房间听CD，把喜欢的编曲反复倒回去听，笔记本上画满箭头"
+weight = 4
+why = "作息：深夜听CD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "tue"
+slot = "night"
+scene = "home_living"
+activity = "在客厅写作业写到一半，电视开着偶像节目当背景音，笔停着看入神"
+weight = 3
+why = "作息：深夜做作业；休息日看偶像节目"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "第一节有小测，考前还在翻书，嘴里嘟囔着抱怨，铃响时一脸没睡醒"
+weight = 4
+why = "作息：第一节有小测时抱怨，常补觉"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "morning"
+scene = "school_gate"
+activity = "踩着点冲进校门，头发还没梳顺，书包带子歪着，边跑边喊借过"
+weight = 2
+why = "推断：熬夜导致早上赶时间"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "noon"
+scene = "home_living"
+activity = "回家吃午饭，饭后靠在沙发上眯一会儿，闹钟设了两次才起得来"
+weight = 3
+why = "作息：午休有时回家吃饭，饭后可能小睡"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休在教室赶作业，同学在旁边聊天，她头也不抬地写着，偶尔插一句嘴"
+weight = 3
+why = "作息：午休有时赶作业"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "放学后在练习室练舞，脚踝隐隐作痛，停下来揉两下又继续跟拍子"
+weight = 4
+why = "固定日程：练习；排表红线：脚伤等身体问题"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前买热饮，靠着墙歇一会儿再去练习室"
+weight = 2
+why = "台词地点统计：事务所相关场景占比高；推断：练习间隙"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "evening"
+scene = "kitchen"
+activity = "在厨房做晚饭和便当，锅铲翻着菜，嘴里哼着要练的曲子"
+weight = 3
+why = "固定日程：做晚饭和便当"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员对台本，遇到不懂的地方认真记下来，偶尔笑出声"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "深夜看偶像DVD，看到舞台上的灯光就停下来记笔记，眼睛却越来越睁不开"
+weight = 4
+why = "作息：深夜看偶像DVD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "在床上做作业，写到一半困得趴下，笔还握在手里，台灯亮到很晚"
+weight = 3
+why = "作息：深夜做作业，常熬夜"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "上课时努力睁着眼，笔记写得歪歪扭扭，老师一转身就偷偷打哈欠"
+weight = 4
+why = "作息：常因熬夜在课上补觉"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "在电车上抓着吊环站着，耳机里放着练习曲，眼睛半闭着晃到学校"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休和同学分零食，边吃边聊周末的安排，饭后又趴在桌上补觉"
+weight = 3
+why = "作息：午休在学校吃饭，饭后可能小睡"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休在走廊上靠着窗台赶作业，风把纸吹得哗哗响，她用手压住"
+weight = 2
+why = "作息：午休有时赶作业"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子抠动作细节，音箱放着曲子，反复练到满意为止"
+weight = 3
+why = "固定日程：练习；台词地点统计练习室7.6%"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "afternoon"
+scene = "supermarket"
+activity = "放学后直奔超市，盯着特价时段抢购，购物车里塞满打折的食材"
+weight = 2
+why = "固定日程：超市抢特价"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "evening"
+scene = "kitchen"
+activity = "在厨房做饭，把便当装好放进冰箱，顺手尝了一口汤觉得有点淡"
+weight = 3
+why = "固定日程：做晚饭和便当"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上摊开作业，边等安排边写，遇到难题就咬着笔杆发呆"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "深夜在房间听CD，把喜欢的段落反复听，笔记本上写满感想"
+weight = 4
+why = "作息：深夜听CD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "thu"
+slot = "night"
+scene = "home_living"
+activity = "在客厅准备试镜的稿子，念出声来又改，电视开着当背景音"
+weight = 3
+why = "作息：深夜准备试镜"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "第一节小测，考前还在翻书，嘴里抱怨着昨晚没睡好，铃响时一脸苦相"
+weight = 4
+why = "作息：第一节有小测时抱怨，常补觉"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "morning"
+scene = "school_corridor"
+activity = "课间靠在走廊窗边吹风，想让自己清醒一点，手里还攥着下一节的课本"
+weight = 2
+why = "推断：熬夜导致上课犯困"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休在教室吃便当，和同学聊起周末的安排，饭后又趴了一会儿"
+weight = 3
+why = "作息：午休在学校吃饭"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "noon"
+scene = "home_living"
+activity = "回家吃饭，饭后在沙发上眯十分钟，闹钟响了两遍才爬起来"
+weight = 2
+why = "作息：午休有时回家吃饭，饭后可能小睡"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "放学后在练习室练舞，脚踝有点痛还是坚持跟完一遍，结束后蹲下来揉脚"
+weight = 4
+why = "固定日程：练习；排表红线：脚伤等身体问题"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "放学后穿过商店街，在唱片店门口停下来看新碟的海报，犹豫要不要进去"
+weight = 2
+why = "固定日程：唱片店打工；台词地点统计商店街2.6%"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "evening"
+scene = "kitchen"
+activity = "在厨房做晚饭和便当，锅里的菜翻着，嘴里哼着歌，心情不错"
+weight = 3
+why = "固定日程：做晚饭和便当"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员聊下周的安排，边记笔记边点头，偶尔笑出声"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "深夜看偶像DVD，看到喜欢的舞台就暂停记笔记，眼睛却越来越困"
+weight = 4
+why = "作息：深夜看偶像DVD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "在床上做作业，写到一半困得趴下，笔还握在手里，台灯亮到很晚"
+weight = 3
+why = "作息：深夜做作业，常熬夜"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "难得的休息日，睡到闹钟响了两遍才爬起来，头发乱糟糟地坐在床边发呆"
+weight = 3
+why = "作息：常熬夜，休息日补觉（推断）"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "morning"
+scene = "home_living"
+activity = "早起在客厅做家务，把洗好的衣服叠好，电视开着偶像节目当背景音"
+weight = 3
+why = "休息日：在家做家务和看偶像节目"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "noon"
+scene = "kitchen"
+activity = "在厨房做午饭，顺便把便当盒洗好，想着下午要不要去练习"
+weight = 3
+why = "固定日程：做便当；休息日也常去练习"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "noon"
+scene = "supermarket"
+activity = "中午去超市，推着购物车在特价区转，盘算着买什么划算"
+weight = 2
+why = "休息日：偶尔去超市抢特价"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "afternoon"
+scene = "studio"
+activity = "下午在练习室练舞，对着镜子一遍遍纠正动作，汗湿了额前的头发"
+weight = 4
+why = "休息日：也常去练习；台词地点统计练习室7.6%"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "afternoon"
+scene = "supermarket"
+activity = "在超市抢特价，购物车里塞满打折食材，结账时一脸满足"
+weight = 2
+why = "休息日：偶尔去超市抢特价"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "evening"
+scene = "kitchen"
+activity = "傍晚在厨房做晚饭，把便当装好，想着明天给姐姐带什么菜"
+weight = 3
+why = "固定日程：做晚饭和便当；家人相关"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员对台本，遇到不懂的地方认真记下来，偶尔笑出声"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "深夜在房间看偶像DVD，看到喜欢的段落就暂停记笔记，越看越精神"
+weight = 4
+why = "作息：深夜看偶像DVD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "在客厅准备试镜的稿子，念出声来又改，电视开着当背景音"
+weight = 3
+why = "作息：深夜准备试镜"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日睡到自然醒，赖在床上不想起，抱着枕头翻了个身"
+weight = 3
+why = "作息：常熬夜，休息日补觉（推断）"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "morning"
+scene = "home_living"
+activity = "早起在客厅做家务，把房间收拾干净，电视开着偶像节目当背景音"
+weight = 3
+why = "休息日：在家做家务和看偶像节目"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "noon"
+scene = "kitchen"
+activity = "在厨房做午饭，把便当盒洗好，想着下午要不要去练习"
+weight = 3
+why = "固定日程：做便当；休息日也常去练习"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "noon"
+scene = "supermarket"
+activity = "中午去超市，推着购物车在特价区转，盘算着买什么划算"
+weight = 2
+why = "休息日：偶尔去超市抢特价"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "afternoon"
+scene = "studio"
+activity = "下午在练习室练舞，对着镜子一遍遍纠正动作，脚踝有点酸还是坚持"
+weight = 4
+why = "休息日：也常去练习；排表红线：脚伤等身体问题"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街闲逛，路过唱片店时停下来看新碟，犹豫要不要进去"
+weight = 2
+why = "固定日程：唱片店打工；台词地点统计商店街2.6%"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "evening"
+scene = "kitchen"
+activity = "傍晚在厨房做晚饭，把便当装好，想着明天给姐姐带什么菜"
+weight = 3
+why = "固定日程：做晚饭和便当；家人相关"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员聊下周的安排，边记笔记边点头，偶尔笑出声"
+weight = 3
+why = "台词地点统计：事务所休息室11.8%"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "深夜在房间看偶像DVD，看到喜欢的舞台就暂停记笔记，越看越精神"
+weight = 4
+why = "作息：深夜看偶像DVD，常熬夜"
+
+[[slots]]
+character = "nichika"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "在床上做作业，写到一半困得趴下，笔还握在手里，台灯亮到很晚"
+weight = 3
+why = "作息：深夜做作业，常熬夜"
+

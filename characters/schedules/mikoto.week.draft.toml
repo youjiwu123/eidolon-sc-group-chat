@@ -1,0 +1,657 @@
+# 绯田美琴的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/mikoto.md、characters/schedules/mikoto.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/mikoto.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "morning"
+scene = "studio"
+activity = "清晨借钥匙进练习室，对着镜子单独过一遍新舞的走位，汗还没干就记笔记"
+weight = 4
+why = "作息：morning 在事务所或练习室清晨借钥匙自主练习"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "morning"
+scene = "lounge"
+activity = "在休息室沙发上摊开台本，边喝温水边核对今天的工作流程，偶尔抬头看钟"
+weight = 2
+why = "地点统计：事务所休息室(工作) 20.3%"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "noon"
+scene = "studio"
+activity = "午饭时间还在练习室重复同一段转身，被提醒才想起没吃饭，接过饭团站着吃"
+weight = 4
+why = "作息：noon 在练习室继续练习，常忘记吃饭"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "noon"
+scene = "studio_small"
+activity = "在小练习室对着音箱放伴奏，一遍遍卡节拍，长凳上放着没动过的水壶"
+weight = 3
+why = "作息：几乎全天练习；红线：练习到忘记吃饭喝水"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚隔着玻璃唱同一句，向调音师打手势要求再来一遍，神情专注"
+weight = 3
+why = "作息：afternoon 进行录音等偶像工作"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "白色背景布前按指示调整姿势，拍摄间隙低头看监视器确认自己的表情"
+weight = 2
+why = "作息：afternoon 拍摄等偶像工作"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "evening"
+scene = "studio"
+activity = "傍晚继续在练习室练舞，把外套脱了搭在把杆上，动作一遍比一遍用力"
+weight = 4
+why = "作息：evening 在练习室继续练习，常练到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员对明天的行程，边听边在笔记本上写要点，肩膀有点僵"
+weight = 2
+why = "地点统计：事务所休息室(工作) 20.3%"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "night"
+scene = "studio"
+activity = "深夜练习室只剩她一人，音乐循环到天亮，镜子里映出反复纠正的手臂角度"
+weight = 5
+why = "作息：night 在练习室练到深夜甚至天亮"
+
+[[slots]]
+character = "mikoto"
+day = "mon"
+slot = "night"
+scene = "street_night"
+activity = "练完走出事务所，夜里街道很静，她把外套拉紧慢慢走向车站，脚步有点飘"
+weight = 2
+why = "推断：深夜结束自主练习后的归途"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "morning"
+scene = "studio"
+activity = "一早就在练习室压腿热身，边数拍子边看镜中的重心，呼吸很稳"
+weight = 4
+why = "作息：morning 清晨借钥匙自主练习"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "morning"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前买水，靠着墙喝完才回练习室"
+weight = 2
+why = "地点统计：事务所休息室(工作) 20.3%；推断：走廊往返"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "noon"
+scene = "studio_small"
+activity = "午间在小练习室独自练，忘了时间，直到肚子响才停下来找吃的"
+weight = 4
+why = "作息：noon 常忘记吃饭，偶尔被提醒才吃"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "noon"
+scene = "cafe"
+activity = "被工作人员拉去咖啡店，坐在拱形窗边勉强吃三明治，眼睛还看着舞步笔记"
+weight = 2
+why = "地点统计：咖啡店(街上) 1.9%；红线：需定时提醒吃饭"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "afternoon"
+scene = "studio"
+activity = "下午在练习室和编舞师对动作，被指出细节后立刻重来，不喊累"
+weight = 4
+why = "作息：afternoon 在练习室进行舞蹈等偶像工作"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "afternoon"
+scene = "stage"
+activity = "在舞台侧幕等彩排，抱着手臂看灯光架，轮到自己就走上台定位"
+weight = 2
+why = "地点统计：舞台(工作) 2.1%"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "evening"
+scene = "studio"
+activity = "傍晚练习室灯全开，她对着镜子把整套动作连跳三遍，中间只停下来喝水"
+weight = 4
+why = "作息：evening 继续练习，常练到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "evening"
+scene = "dressing_room"
+activity = "在化妆间卸掉拍摄的妆，桌上点心没动，只拿水瓶喝了两口"
+weight = 2
+why = "推断：工作后整理；红线：需定时提醒喝水"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "night"
+scene = "studio"
+activity = "夜里独自练到很晚，动作错了就从头再来，练习室只剩音乐和脚步声"
+weight = 5
+why = "作息：night 练到深夜甚至天亮"
+
+[[slots]]
+character = "mikoto"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "凌晨回到家，简单冲个澡就坐在床边写练习笔记，写着写着天快亮了"
+weight = 2
+why = "作息：深夜到天亮就寝；红线：深夜练习影响睡眠"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "morning"
+scene = "studio"
+activity = "清晨在练习室先做基础训练，把杆上搭着毛巾，动作一丝不苟"
+weight = 4
+why = "作息：morning 清晨借钥匙自主练习"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "坐电车去工作现场，靠着车门闭眼默记歌词，手里攥着折叠的行程表"
+weight = 2
+why = "地点统计：车里(街上) 2.9%；推断：通勤"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "noon"
+scene = "studio"
+activity = "中午还在练习室，工作人员递来便当，她坐在镜前边吃边看回放"
+weight = 4
+why = "作息：noon 常忘记吃饭，偶尔被提醒才吃"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "noon"
+scene = "convenience_store"
+activity = "在便利店匆匆买饭团和饮料，站在货架前犹豫两秒才挑了一个"
+weight = 2
+why = "推断：练习间隙解决吃饭"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "下午在录音棚反复试唱，摘下耳机和制作人讨论语气，认真到皱眉"
+weight = 3
+why = "作息：afternoon 录音等偶像工作"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子修正手势角度，一遍遍重复，直到自己点头为止"
+weight = 4
+why = "作息：afternoon 在练习室进行舞蹈工作"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和同伴简单聊几句，笑着听，手里还在转记舞步的笔"
+weight = 2
+why = "地点统计：事务所休息室(工作) 20.3%"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "evening"
+scene = "studio"
+activity = "晚上继续练，把音乐调快一档挑战自己，汗顺着下巴滴到地板上"
+weight = 4
+why = "作息：evening 继续练习，常练到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "night"
+scene = "studio_small"
+activity = "深夜在小练习室独自练到很晚，长凳上放着凉掉的水，她几乎没碰"
+weight = 5
+why = "作息：night 练到深夜；红线：需定时提醒喝水"
+
+[[slots]]
+character = "mikoto"
+day = "wed"
+slot = "night"
+scene = "vending_machine"
+activity = "凌晨在路边自动贩卖机买热饮，站在灯下缓一口气，再慢慢走回去"
+weight = 2
+why = "推断：深夜练习后的短暂休息"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "morning"
+scene = "studio"
+activity = "清早在练习室活动身体，动作很轻，怕吵到别人，镜子里表情很平静"
+weight = 4
+why = "作息：morning 清晨借钥匙自主练习"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "morning"
+scene = "office"
+activity = "在事务所办公室整理资料，把工作安排抄进自己的本子，字迹很工整"
+weight = 2
+why = "作息：morning 处理工作准备"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "noon"
+scene = "studio"
+activity = "午间继续练习，忘了吃饭，被经纪人提醒后才停下，接过饭团慢慢吃"
+weight = 4
+why = "作息：noon 常忘记吃饭，偶尔被提醒才吃"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "noon"
+scene = "restaurant"
+activity = "被带去家庭餐厅，坐在卡座里对着菜单发呆，最后点了和上次一样的"
+weight = 2
+why = "推断：被提醒吃饭；红线：需定时提醒"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "下午拍摄，在柔光伞下按摄影师要求换姿势，间隙自己检查衣摆"
+weight = 3
+why = "作息：afternoon 拍摄等偶像工作"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "拍摄结束后回练习室补练，把上午没顺的动作反复过，直到呼吸平稳"
+weight = 4
+why = "作息：几乎全天练习"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "evening"
+scene = "studio"
+activity = "傍晚练习室音乐不停，她对着镜子练表情，连眨眼都在控制"
+weight = 4
+why = "作息：evening 继续练习，常练到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "evening"
+scene = "backstage"
+activity = "在后台器材箱旁坐着，看舞台方向，等工作人员叫她上场"
+weight = 2
+why = "地点统计：后台(工作) 3.4%"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "night"
+scene = "studio"
+activity = "深夜还在练习室，练到腿发软才靠墙坐下，闭眼调整呼吸又站起来"
+weight = 5
+why = "作息：night 练到深夜甚至天亮；红线：身体过度训练风险"
+
+[[slots]]
+character = "mikoto"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "凌晨回家，在厨房烧水泡了杯东西，坐在小桌边发呆，很安静"
+weight = 2
+why = "推断：深夜归家后短暂休息"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "morning"
+scene = "studio"
+activity = "清晨借钥匙进练习室，先对着镜子确认昨天的动作有没有记住"
+weight = 4
+why = "作息：morning 清晨借钥匙自主练习"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "morning"
+scene = "car"
+activity = "坐在车里赶工作现场，靠着后座看窗外，手里还捏着歌词纸"
+weight = 2
+why = "地点统计：车里(街上) 2.9%"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "noon"
+scene = "studio_small"
+activity = "中午在小练习室独自练，音箱放着伴奏，她一遍遍数拍子"
+weight = 4
+why = "作息：noon 在练习室继续练习"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室被塞了点心，坐在沙发上小口吃，听同伴说话时偶尔点头"
+weight = 2
+why = "地点统计：事务所休息室(工作) 20.3%"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "下午在练习室和编舞师确认队形，走位错一步就主动要求重来"
+weight = 4
+why = "作息：afternoon 在练习室进行舞蹈工作"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室看白板上的日程，认真记下每个时间点，偶尔提问"
+weight = 2
+why = "推断：工作安排会议"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "evening"
+scene = "studio"
+activity = "傍晚练习室灯亮着，她一个人把整首歌的舞跳完，喘着气看镜子"
+weight = 4
+why = "作息：evening 继续练习，常练到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员收尾今天的工作，靠在沙发上短暂闭眼"
+weight = 2
+why = "地点统计：事务所休息室(工作) 20.3%"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "night"
+scene = "studio"
+activity = "夜里练到很晚，动作越来越狠，直到自己满意才关掉音乐"
+weight = 5
+why = "作息：night 练到深夜甚至天亮"
+
+[[slots]]
+character = "mikoto"
+day = "fri"
+slot = "night"
+scene = "street_night"
+activity = "凌晨走在回家路上，夜风里把外套裹紧，脚步比平时慢"
+weight = 2
+why = "推断：深夜练习后的归途"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "morning"
+scene = "studio"
+activity = "休息日也借钥匙进练习室，说练习时最安心，先安静地做基础训练"
+weight = 5
+why = "作息：休息日也借练习室钥匙练习，认为练习时最安心"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "难得早上在家，坐在床边慢慢整理换洗的衣服，动作不紧不慢"
+weight = 2
+why = "作息：休息日偶尔在家休息"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "noon"
+scene = "studio"
+activity = "中午还在练习室，忘了时间，水壶放在镜子边一直没打开"
+weight = 4
+why = "作息：休息日也练习；红线：需定时提醒喝水"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "被约到咖啡店，坐在窗边勉强放松，手指还在桌下轻轻打拍子"
+weight = 2
+why = "地点统计：咖啡店(街上) 1.9%"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "afternoon"
+scene = "studio"
+activity = "下午独自练舞，把整段动作拆开反复磨，镜子里全是她的影子"
+weight = 5
+why = "作息：自主练习常从午后到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在朋友的地下录音室试作曲的旋律，戴着耳机反复听同一段"
+weight = 2
+why = "作息：作曲不定期，在朋友的地下录音室"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "evening"
+scene = "studio"
+activity = "傍晚练到忘记时间，直到肚子叫才想起没吃晚饭，站着啃了两口面包"
+weight = 4
+why = "作息：常练到深夜；红线：练习到忘记吃饭"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室处理积压的工作邮件，靠着沙发一个个回复，表情认真"
+weight = 2
+why = "作息：休息日偶尔处理工作"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "night"
+scene = "studio"
+activity = "深夜练习室音乐循环，她练到天亮也不肯停，动作却越来越稳"
+weight = 5
+why = "作息：night 练到深夜甚至天亮"
+
+[[slots]]
+character = "mikoto"
+day = "sat"
+slot = "night"
+scene = "park_night"
+activity = "凌晨走出练习室，在夜晚的公园长椅上坐一会儿，抬头看星星"
+weight = 2
+why = "推断：深夜练习后的短暂休息"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "morning"
+scene = "studio"
+activity = "清晨在练习室对着镜子练，休息日也照常，说这样最安心"
+weight = 5
+why = "作息：休息日也借练习室钥匙练习"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "难得睡到早上，醒来坐在床边发了一会儿呆，才慢慢起身"
+weight = 2
+why = "作息：偶尔在家休息；红线：需保证休息"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "noon"
+scene = "studio_small"
+activity = "午间在小练习室练，音箱声音不大，她一遍遍确认脚步落点"
+weight = 4
+why = "作息：休息日也练习"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "noon"
+scene = "supermarket"
+activity = "被提醒去超市买点吃的，推着购物车在货架间慢慢走，挑得很随意"
+weight = 2
+why = "推断：生活极简，需定时提醒吃饭"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "afternoon"
+scene = "studio"
+activity = "下午继续自主练习，把新曲的舞从头顺到尾，累了就靠把杆喘气"
+weight = 5
+why = "作息：自主练习常从午后到深夜"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "afternoon"
+scene = "home"
+activity = "在家坐在客厅沙发上，难得什么也不做，只是看着窗外发呆"
+weight = 2
+why = "作息：休息日偶尔在家休息"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "evening"
+scene = "studio"
+activity = "傍晚练习室灯亮着，她一个人练到忘记吃饭，被提醒才停下来"
+weight = 4
+why = "作息：常练到深夜；红线：练习到忘记吃饭"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "在家客厅给老家打电话，话说得不多，但听得很认真"
+weight = 2
+why = "红线：家人联络少，需提醒与老家联系"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "night"
+scene = "studio"
+activity = "深夜还在练习室，练到天亮也不停，音乐声在空房间里回响"
+weight = 5
+why = "作息：night 练到深夜甚至天亮"
+
+[[slots]]
+character = "mikoto"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "凌晨回到家，坐在床边写练习记录，写完才关灯躺下"
+weight = 2
+why = "作息：深夜到天亮就寝；红线：需保证休息"
+

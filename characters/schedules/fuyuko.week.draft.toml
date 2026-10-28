@@ -1,0 +1,657 @@
+# 黛冬优子的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/fuyuko.md、characters/schedules/fuyuko.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/fuyuko.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "坐在电车上靠窗的位置，一手扶着吊环一手刷手机看今天的行程，偶尔抬头确认到站"
+weight = 4
+why = "作息：从茨城老家通学或通勤，家远需早出门"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "在专门学校的教室里记笔记，课间和邻座的同学小声聊周末做了什么"
+weight = 3
+why = "固定日程：专门学校上课（平日白天）"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "在学校附近的咖啡店点了一份三明治，边吃边翻工作群的消息，偶尔回一句"
+weight = 3
+why = "作息：在学校或工作现场简单解决午餐；地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "noon"
+scene = "fastfood"
+activity = "在快餐店随便吃点，把托盘端到角落，边吃边看下午拍摄的台本"
+weight = 2
+why = "推断：午餐时段赶时间"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "在事务所休息室的沙发上核对台本，和路过的制作人聊了两句拍摄流程"
+weight = 5
+why = "地点统计：事务所休息室 19.3%"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚里按摄影师的要求调整姿势，休息时凑到监视器前看刚才的照片"
+weight = 3
+why = "作息：下午在街上进行拍摄"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "evening"
+scene = "car"
+activity = "坐在事务所的车后座，赶去下一个工作地点，看着窗外发呆，偶尔和经纪人确认时间"
+weight = 4
+why = "地点统计：车里 4.3%；作息：傍晚到晚上继续工作或移动"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的拍摄现场，趁着布景调整的空档，在附近店铺门口张望"
+weight = 3
+why = "地点统计：商店街 3.8%"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "night"
+scene = "train"
+activity = "末班电车上人很少，她靠着车门，把包抱在胸前，有点困地闭着眼"
+weight = 4
+why = "作息：深夜才回到较远的家"
+
+[[slots]]
+character = "fuyuko"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "回到家先卸妆，然后坐在床上给妈妈回消息，说今天工作结束了"
+weight = 3
+why = "作息：与家人简单交流"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，一手拉着吊环，另一只手拿着小本子默背今天要用的台词"
+weight = 4
+why = "作息：从茨城老家通学或通勤"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "morning"
+scene = "school_gate"
+activity = "在校门口遇到同学，一起走进教学楼，聊着下周的课题"
+weight = 2
+why = "推断：通学路线"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊的自动贩卖机买了罐咖啡，和同学靠在窗边喝，聊着下午的安排"
+weight = 3
+why = "推断：午休时间在学校"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "noon"
+scene = "cafe"
+activity = "一个人坐在咖啡店的窗边，用叉子慢慢吃沙拉，顺便看手机上的行程表"
+weight = 2
+why = "地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练舞步，跳错时停下来自己数拍子重来"
+weight = 4
+why = "作息：下午在练习室练习；地点统计：练习室 3.9%"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和别的偶像一起看杂志，指着上面的穿搭小声讨论"
+weight = 3
+why = "地点统计：事务所休息室 19.3%"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "evening"
+scene = "street"
+activity = "傍晚的街上，她站在十字路口等红灯，手里提着刚买的便利店袋子"
+weight = 3
+why = "作息：傍晚到晚上继续工作或移动"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店角落的座位写工作日记，写到一半停下来看窗外的行人"
+weight = 3
+why = "地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在厨房帮妈妈收拾碗筷，听她讲今天家里发生的事，偶尔应一声"
+weight = 3
+why = "作息：与家人简单交流；家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "tue"
+slot = "night"
+scene = "train"
+activity = "加班到很晚，在空荡荡的电车上靠着座椅打瞌睡，差点坐过站"
+weight = 3
+why = "作息：深夜才回到较远的家；有熬夜记录"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "在电车上用手机看昨天拍摄的反馈，边看边在备忘录里记下要注意的地方"
+weight = 4
+why = "作息：通勤耗时较长"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "上课时有点犯困，强撑着记笔记，课间趴在桌上休息了一会儿"
+weight = 3
+why = "作息：熬夜后隔天容易睡过头或迟到"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "noon"
+scene = "cooking_room"
+activity = "在家政教室和同学一起做简单的料理，尝味道时被烫到舌头"
+weight = 2
+why = "推断：学校课程"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅和同学吃午饭，边吃边听同学聊最近看的电影"
+weight = 3
+why = "推断：午餐与朋友闲聊"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和经纪人开会，确认接下来一周的行程，用笔在台本上做标记"
+weight = 4
+why = "地点统计：事务所休息室 19.3%"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚里录新曲，唱完一段后隔着玻璃和制作人讨论语气"
+weight = 3
+why = "推断：偶像工作内容"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的拍摄现场，趁着休息在附近的面包店买了个面包垫肚子"
+weight = 3
+why = "地点统计：商店街 3.8%"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "evening"
+scene = "car"
+activity = "在车里和经纪人复盘今天的拍摄，说到一半困得打了个哈欠"
+weight = 3
+why = "地点统计：车里 4.3%"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "回到家已经很晚，轻手轻脚地洗漱，怕吵醒家人"
+weight = 3
+why = "作息：深夜归宅"
+
+[[slots]]
+character = "fuyuko"
+day = "wed"
+slot = "night"
+scene = "lounge"
+activity = "在事务所熬夜看台本，困了就去茶水间泡杯茶，回来继续"
+weight = 2
+why = "作息：有时在事务所熬夜到凌晨"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，耳机里放着要练的歌，手指在包带上轻轻打拍子"
+weight = 4
+why = "作息：通勤"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "morning"
+scene = "stone_path"
+activity = "走在通往学校的石板坡道上，遇到同学就一起走，聊着今天的课"
+weight = 2
+why = "推断：通学路线"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点了一杯红茶和一块蛋糕，慢慢吃，顺便看手机上的新闻"
+weight = 3
+why = "地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊和同学分着吃便利店买的饭团，靠在窗边聊最近看的剧"
+weight = 2
+why = "推断：午休"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子练表情，把同一句台词换了好几种语气说"
+weight = 3
+why = "推断：练习室练习"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前买饮料，遇到工作人员就点头打招呼"
+weight = 3
+why = "推断：事务所内移动"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "evening"
+scene = "street_night"
+activity = "晚上在街上等车，路灯亮着，她把外套裹紧了一点"
+weight = 3
+why = "作息：傍晚到晚上继续工作或移动"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "evening"
+scene = "park"
+activity = "在公园的长椅上坐着休息，看附近的小孩玩球，偶尔笑一下"
+weight = 2
+why = "地点统计：公园 2.5%"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "night"
+scene = "train"
+activity = "在末班电车上靠着车门，看着窗外闪过的灯光，有点走神"
+weight = 4
+why = "作息：深夜归宅"
+
+[[slots]]
+character = "fuyuko"
+day = "thu"
+slot = "night"
+scene = "home_living"
+activity = "在客厅和爸爸一起看电视，听他评论节目里的美食，偶尔搭话"
+weight = 2
+why = "作息：与家人简单交流；家庭时间需留出"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上用手机看工作邮件，看到经理提醒她注意休息，轻轻叹了口气"
+weight = 4
+why = "作息：通勤；经理曾劝休周末"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "上课时认真记笔记，课间和同学确认下周的课题分工"
+weight = 3
+why = "固定日程：专门学校上课"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅和同学吃午饭，聊到周末计划时说自己可能要补觉"
+weight = 3
+why = "推断：午餐与朋友闲聊"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店快速吃完午餐，用纸巾擦了擦嘴就起身赶去下午的工作"
+weight = 3
+why = "地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和制作人讨论新工作的方向，认真地说出自己的想法"
+weight = 4
+why = "地点统计：事务所休息室 19.3%"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "afternoon"
+scene = "backstage"
+activity = "在后台的器材箱旁边等待出场，手里攥着台本，深呼吸"
+weight = 3
+why = "地点统计：后台 3.8%"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "evening"
+scene = "car"
+activity = "工作结束后坐在车里，靠着车窗看夜景，和经纪人聊周末的安排"
+weight = 3
+why = "地点统计：车里 4.3%"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的店里挑了点小东西，打算周末带回家"
+weight = 2
+why = "地点统计：商店街 3.8%"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "回到家后坐在床上做手部护理，仔细地涂护手霜"
+weight = 3
+why = "休息日会做手部护理（推断：周五晚也可能）"
+
+[[slots]]
+character = "fuyuko"
+day = "fri"
+slot = "night"
+scene = "train"
+activity = "在电车上困得不行，头一点一点的，快到站时才惊醒"
+weight = 3
+why = "作息：熬夜后容易睡过头"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "睡到快中午才醒，躺在床上看手机，不想马上起来"
+weight = 4
+why = "休息日：补觉"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "morning"
+scene = "home_living"
+activity = "被妈妈叫起来吃早饭，穿着睡衣坐在餐桌前，还有点迷糊"
+weight = 3
+why = "家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在红茶店一个人坐着，慢慢喝红茶，看窗外的人来人往"
+weight = 3
+why = "休息日：去红茶店独处"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "noon"
+scene = "restaurant"
+activity = "和家人一起在家庭餐厅吃午饭，听妈妈讲亲戚的近况"
+weight = 3
+why = "家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "和朋友在商场逛街，试了几件衣服，最后只买了一件"
+weight = 3
+why = "休息日：偶尔与朋友逛街"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "afternoon"
+scene = "home"
+activity = "在自己的房间对着镜子练习化妆，试了新的眼影颜色"
+weight = 3
+why = "休息日：做手部护理和化妆"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "evening"
+scene = "cafe"
+activity = "傍晚在咖啡店写日记，回顾这一周的工作，写到一半停下来发呆"
+weight = 2
+why = "地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "在客厅和妈妈一起看电视，帮她叠衣服，听她唠叨"
+weight = 3
+why = "家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在房间里敷面膜，靠在床头看漫画，享受难得的悠闲"
+weight = 3
+why = "推断：休息日晚间放松"
+
+[[slots]]
+character = "fuyuko"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "早早躺在床上，却翻来覆去睡不着，想着下周的工作"
+weight = 2
+why = "推断：熬夜习惯"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "睡到自然醒，阳光照进房间，她伸了个懒腰才慢慢坐起来"
+weight = 4
+why = "休息日：补觉"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "morning"
+scene = "home_living"
+activity = "在客厅吃早午饭，和爸爸聊电视里的新闻，偶尔被妈妈插话"
+weight = 3
+why = "家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在红茶店点了一壶茶，慢慢翻着书，享受一个人的时间"
+weight = 3
+why = "休息日：去红茶店独处"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "noon"
+scene = "supermarket"
+activity = "和妈妈一起在超市买菜，推着购物车听她比较价格"
+weight = 2
+why = "家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园散步，看到长椅就坐下来休息，晒晒太阳"
+weight = 3
+why = "地点统计：公园 2.5%"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "afternoon"
+scene = "home"
+activity = "在房间里做手部护理，仔细地修剪指甲，涂上护甲油"
+weight = 3
+why = "休息日：做手部护理"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，听妈妈讲今天超市的特价，爸爸在旁边笑"
+weight = 3
+why = "家庭时间需留出"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "evening"
+scene = "cafe"
+activity = "傍晚在咖啡店整理下周的行程，用笔在笔记本上写写画画"
+weight = 2
+why = "地点统计：咖啡店 7.6%"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在房间里准备明天上课要带的东西，把台本和课本放进包里"
+weight = 3
+why = "推断：为工作日做准备"
+
+[[slots]]
+character = "fuyuko"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "躺在床上看手机，看到经理发来的消息，想了想回了个“我会注意休息的”"
+weight = 2
+why = "经理曾劝休周末；本人也反省是否工作过度"
+

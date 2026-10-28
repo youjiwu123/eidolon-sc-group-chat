@@ -1,0 +1,657 @@
+# 大崎甜花的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/tenka.md、characters/schedules/tenka.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/tenka.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "morning"
+scene = "bedroom"
+activity = "被甘奈摇醒，迷迷糊糊坐起来，头发乱糟糟地发呆，等甘奈帮她梳头。"
+weight = 5
+why = "作息：早上赖床被妹妹叫醒、梳头。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房匆忙吃早饭，甘奈把面包塞到她手里，她边吃边打哈欠。"
+weight = 3
+why = "作息：匆忙吃早饭去学校；地点统计：厨房（家庭）推断。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "和甘奈在教室并桌吃便当，甘奈看到她不及格的试卷，她心虚地低头扒饭。"
+weight = 5
+why = "固定日程：和甘奈一起吃午饭；剧情：考试不及格。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时被甘奈拉着去小卖部买饮料，她靠在墙边等，手里还攥着便当盒。"
+weight = 2
+why = "推断：学校午休可能去小卖部。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午上课，她努力睁大眼睛听讲，笔记抄到一半就开始走神。"
+weight = 4
+why = "作息：下午在学校上课。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室和甘奈一起练舞，她动作慢半拍，被甘奈笑着纠正。"
+weight = 3
+why = "固定日程：工作日下午去事务所练习。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在事务所休息室沙发上瘫着，看甘奈和千雪聊天，偶尔插一句。"
+weight = 5
+why = "地点统计：事务所休息室占22%。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "evening"
+scene = "car"
+activity = "工作结束后坐车回家，靠在车窗上打瞌睡，甘奈在旁边叫她别睡过站。"
+weight = 3
+why = "地点统计：车里占2.5%；作息：结束后回家。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "night"
+scene = "home_living"
+activity = "在家客厅看电视，抱着靠垫窝在沙发里，和甘奈一起看综艺。"
+weight = 4
+why = "作息：晚上在家看电视；地点统计：家里的客厅占8.2%。"
+
+[[slots]]
+character = "tenka"
+day = "mon"
+slot = "night"
+scene = "esports_room"
+activity = "在电竞房打游戏，戴着耳机盯着屏幕，输了就小声嘟囔。"
+weight = 3
+why = "作息：晚上打游戏；场景：电竞房。"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "morning"
+scene = "bedroom"
+activity = "闹钟响了三次她都没醒，甘奈进来掀被子，她才不情愿地坐起来。"
+weight = 5
+why = "作息：早上起不来，靠甘奈叫醒。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "morning"
+scene = "washitsu"
+activity = "在榻榻米房间梳头，甘奈帮她扎头发，她对着矮桌的小镜子打哈欠。"
+weight = 2
+why = "推断：梳头可能在和室。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "和甘奈一起吃便当，她夹走甘奈的煎蛋，被甘奈轻轻敲了筷子。"
+weight = 5
+why = "固定日程：和甘奈一起吃午饭。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "noon"
+scene = "library"
+activity = "午休时被甘奈拉去图书室补作业，她趴在桌上小声抱怨。"
+weight = 2
+why = "剧情：考试不及格需补考，需留学习时间。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午上课，她偷偷在课本边缘画小游戏角色，被老师点名时慌慌张张站起来。"
+weight = 4
+why = "作息：下午在学校上课。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录歌，她戴着耳机认真唱，唱完一段就紧张地看工作人员的反应。"
+weight = 3
+why = "固定日程：工作日下午去事务所工作。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和甘奈分吃一包薯片，边吃边聊今天学校的事。"
+weight = 5
+why = "地点统计：事务所休息室占22%。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "evening"
+scene = "dressing_room"
+activity = "在化妆间卸妆，对着镜子揉眼睛，甘奈在旁边帮她整理头发。"
+weight = 3
+why = "推断：工作结束后在化妆间卸妆。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "night"
+scene = "home_living"
+activity = "在家客厅和甘奈一起看动画，她抱着膝盖笑得前仰后合。"
+weight = 4
+why = "作息：晚上看动画；地点统计：家里的客厅。"
+
+[[slots]]
+character = "tenka"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "早早洗完澡趴在床上玩手机，刷着刷着就困了，手机砸在枕头上。"
+weight = 3
+why = "作息：有时早睡。"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "morning"
+scene = "bedroom"
+activity = "被甘奈叫醒后还裹着被子不肯起，甘奈把窗帘拉开她才眯着眼坐起来。"
+weight = 5
+why = "作息：早上赖床被妹妹叫醒。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房站着吃吐司，甘奈帮她整理领结，她嘴里塞满面包含糊道谢。"
+weight = 3
+why = "作息：匆忙吃早饭；推断：厨房。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "和甘奈一起吃便当，她把自己不爱吃的胡萝卜偷偷夹给甘奈。"
+weight = 5
+why = "固定日程：和甘奈一起吃午饭。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休时被甘奈拉到操场边晒太阳，她坐在长椅上眯着眼打盹。"
+weight = 2
+why = "推断：天气好时去操场。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午上课，她撑着下巴看窗外，被老师叫到名字时吓了一跳。"
+weight = 4
+why = "作息：下午在学校上课。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练舞，她对着镜子努力跟上节奏，跳完一段就喘着气蹲下。"
+weight = 3
+why = "固定日程：工作日下午去事务所练习。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上和千雪聊天，听千雪说话时她一直点头。"
+weight = 5
+why = "地点统计：事务所休息室占22%。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "evening"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机买果汁，抱着瓶子慢慢走回休息室。"
+weight = 3
+why = "地点统计：事务所走廊；推断：休息时买饮料。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "night"
+scene = "esports_room"
+activity = "在电竞房打游戏，和网友联机，赢了就小声欢呼，输了就趴键盘。"
+weight = 4
+why = "作息：晚上打游戏。"
+
+[[slots]]
+character = "tenka"
+day = "wed"
+slot = "night"
+scene = "home_living"
+activity = "在客厅看电视，看着看着就歪在沙发上睡着了，甘奈给她盖毯子。"
+weight = 3
+why = "作息：晚上看电视；推断：可能睡着。"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "morning"
+scene = "bedroom"
+activity = "甘奈叫了好几遍她才醒，头发翘着坐在床上发呆，等甘奈拿梳子来。"
+weight = 5
+why = "作息：早上起不来，靠甘奈叫醒、梳头。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "morning"
+scene = "home_living"
+activity = "在客厅沙发上闭着眼让甘奈梳头，手里还抱着没吃完的饭团。"
+weight = 3
+why = "推断：梳头可能在客厅。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "和甘奈一起吃便当，她看到甘奈的便当里有自己爱吃的菜，眼睛一亮。"
+weight = 5
+why = "固定日程：和甘奈一起吃午饭。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时在走廊被同学叫住问作业，她支支吾吾答不上来。"
+weight = 2
+why = "推断：课间在走廊。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午上课，她努力记笔记，字写得歪歪扭扭但很认真。"
+weight = 4
+why = "作息：下午在学校上课。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍宣传照，她按摄影师指示摆姿势，笑得有点僵硬。"
+weight = 3
+why = "固定日程：工作日下午去事务所工作。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和甘奈一起看工作录像，她看到自己的表现不好意思地捂脸。"
+weight = 5
+why = "地点统计：事务所休息室占22%。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "evening"
+scene = "backstage"
+activity = "在后台等上场，她紧张地攥着甘奈的手，深呼吸。"
+weight = 3
+why = "地点统计：后台占2.6%；推断：演出前。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "night"
+scene = "home_living"
+activity = "在家客厅和甘奈一起看电视，她抱着抱枕打瞌睡，头一点一点的。"
+weight = 4
+why = "作息：晚上看电视。"
+
+[[slots]]
+character = "tenka"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "早早钻进被窝，和甘奈隔着房间喊晚安，然后缩成一团睡着。"
+weight = 3
+why = "作息：有时早睡。"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "morning"
+scene = "bedroom"
+activity = "被甘奈从被窝里拉起来，她闭着眼穿校服，扣子都扣错了。"
+weight = 5
+why = "作息：早上赖床被妹妹叫醒。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房喝甘奈递来的牛奶，边喝边看时钟，发现要迟到了慌起来。"
+weight = 3
+why = "作息：匆忙吃早饭。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "和甘奈一起吃便当，她兴奋地讲昨晚游戏里的事，甘奈笑着听。"
+weight = 5
+why = "固定日程：和甘奈一起吃午饭。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "noon"
+scene = "roof"
+activity = "午休时和甘奈偷偷上天台，她靠着铁丝网吹风，说想睡觉。"
+weight = 2
+why = "推断：天气好时去天台。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午上课，她困得直点头，被甘奈从旁边轻轻戳醒。"
+weight = 4
+why = "作息：下午在学校上课。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室参加碰头会，她认真听制作人说话，偶尔在笔记本上画圈。"
+weight = 3
+why = "固定日程：工作日下午去事务所工作。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和甘奈、千雪一起喝茶，听她们聊天，她捧着杯子小口喝。"
+weight = 5
+why = "地点统计：事务所休息室占22%；剧情：常和甘奈、千雪一起。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "evening"
+scene = "car"
+activity = "工作结束后坐车回家，她在后座靠着甘奈的肩膀睡着。"
+weight = 3
+why = "地点统计：车里占2.5%。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "night"
+scene = "esports_room"
+activity = "在电竞房打游戏，和网友约好联机，她戴着耳机小声指挥。"
+weight = 4
+why = "作息：晚上打游戏。"
+
+[[slots]]
+character = "tenka"
+day = "fri"
+slot = "night"
+scene = "home_living"
+activity = "在客厅边吃零食边看电视，甘奈催她去洗澡，她嘴上答应却不动。"
+weight = 3
+why = "作息：晚上看电视。"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日睡到自然醒，她抱着被子赖在床上，阳光照进来才慢慢睁眼。"
+weight = 5
+why = "作息：休息日常在家午睡、赖床。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "morning"
+scene = "home_living"
+activity = "被甘奈叫起来吃早午饭，她披着毯子坐在沙发上发呆。"
+weight = 3
+why = "推断：休息日早餐在客厅。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "和甘奈、千雪去咖啡店，她点了蛋糕套餐，开心地拍照。"
+weight = 4
+why = "休息日：偶尔和甘奈、千雪去咖啡店；地点统计：咖啡店占6.6%。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "noon"
+scene = "home_living"
+activity = "在家客厅吃午饭，她边吃边看动画，笑得差点喷饭。"
+weight = 3
+why = "作息：休息日在家看动画。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "afternoon"
+scene = "arcade"
+activity = "和甘奈去游戏厅，她在抓娃娃机前认真操作，抓到后高兴地举给甘奈看。"
+weight = 4
+why = "休息日：偶尔和甘奈去游戏厅。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "afternoon"
+scene = "home_living"
+activity = "在家客厅午睡，她蜷在沙发上，电视还开着。"
+weight = 4
+why = "作息：休息日常在家午睡。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "evening"
+scene = "shopstreet"
+activity = "和甘奈在商店街闲逛，她看到小吃摊就停下脚步。"
+weight = 3
+why = "地点统计：商店街占4.8%；休息日外出。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "在家客厅和甘奈一起准备晚饭，她负责洗菜，动作慢吞吞的。"
+weight = 4
+why = "推断：休息日在家做饭。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "night"
+scene = "esports_room"
+activity = "在电竞房打游戏，和网友联机到很晚，甘奈来催她睡觉。"
+weight = 4
+why = "作息：晚上打游戏可能熬夜。"
+
+[[slots]]
+character = "tenka"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "在客厅看动画，抱着零食袋，看到感动处眼眶红红的。"
+weight = 3
+why = "作息：晚上看动画。"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "睡到快中午才醒，她躺在床上看手机，看到甘奈发来的消息才慢悠悠起床。"
+weight = 5
+why = "作息：休息日赖床。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房找吃的，甘奈给她留了早餐，她站在灶台边吃。"
+weight = 3
+why = "推断：休息日早餐。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "和甘奈去咖啡店吃午餐，她点了意面，和甘奈分着吃甜点。"
+weight = 4
+why = "休息日：偶尔和甘奈去咖啡店。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "在家客厅吃午饭，她边吃边和甘奈讨论下午做什么。"
+weight = 3
+why = "推断：休息日在家吃饭。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "afternoon"
+scene = "home_living"
+activity = "在家客厅午睡，甘奈给她盖了毯子，她睡得很沉。"
+weight = 4
+why = "作息：休息日常在家午睡。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "afternoon"
+scene = "arcade"
+activity = "和甘奈去游戏厅玩太鼓，她敲得手忙脚乱，甘奈在旁边笑。"
+weight = 3
+why = "休息日：偶尔和甘奈去游戏厅。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "在家客厅和甘奈一起看电视，她靠在甘奈肩上，懒洋洋的。"
+weight = 4
+why = "作息：晚上在家看电视。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "evening"
+scene = "supermarket"
+activity = "和甘奈去超市买菜，她推着购物车，看到零食就走不动路。"
+weight = 3
+why = "推断：休息日傍晚购物。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "早早洗漱完躺在床上，和甘奈聊明天上学的事，聊着聊着就睡着了。"
+weight = 4
+why = "作息：有时早睡。"
+
+[[slots]]
+character = "tenka"
+day = "sun"
+slot = "night"
+scene = "esports_room"
+activity = "在电竞房打游戏，想着明天要上学，玩了一会儿就关掉电脑去睡了。"
+weight = 3
+why = "作息：晚上打游戏，但可能早睡。"
+

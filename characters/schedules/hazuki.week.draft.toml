@@ -1,0 +1,630 @@
+# 七草叶月的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/hazuki.md、characters/schedules/hazuki.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/hazuki.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "morning"
+scene = "office"
+activity = "在办公桌前处理邮件，检查偶像日程，准备晨会资料，偶尔打哈欠"
+weight = 5
+why = "作息：工作日9:30-11:00出社并处理邮件与日程"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "morning"
+scene = "lounge"
+activity = "在休息室泡咖啡，和早到的偶像闲聊，提醒他们今天的安排"
+weight = 3
+why = "推断：休息室是事务所内可能有人来往的场所"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "noon"
+scene = "dorm"
+activity = "在宿舍查看情况，确认偶像们的生活状态，顺便整理公共区域"
+weight = 5
+why = "作息：午间先去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "noon"
+scene = "street"
+activity = "从宿舍赶往银行，走在白天的街上，手里拿着要办理的文件"
+weight = 3
+why = "作息：午间跑银行和邮局"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "afternoon"
+scene = "office"
+activity = "在事务所制作文件，处理考勤和票务，桌上堆着各种表格"
+weight = 5
+why = "作息：下午在事务所制作文件、处理考勤和票务"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "陪偶像在练习室训练，坐在角落记录要点，偶尔给出建议"
+weight = 3
+why = "作息：之后陪偶像训练或跑步"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "evening"
+scene = "office"
+activity = "处理快递杂事，写日报，整理明天要用的文件，准备锁门"
+weight = 5
+why = "作息：傍晚写日报并锁门"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊巡视，检查各房间的电源和门窗，确认无人后锁门"
+weight = 3
+why = "作息：巡视后锁门离开"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "和妹妹轮流做饭，今天轮到自己，简单做点家常菜，边吃边聊"
+weight = 5
+why = "作息：在家和妹妹轮流做饭"
+
+[[slots]]
+character = "hazuki"
+day = "mon"
+slot = "night"
+scene = "hospital_corridor"
+activity = "去医院看母亲，在走廊和护士打招呼，进病房陪母亲说话"
+weight = 3
+why = "作息：或去医院看母亲"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "morning"
+scene = "office"
+activity = "开晨会，确认偶像日程，检查备品，在笔记本上记下要点"
+weight = 5
+why = "作息：工作日早上开晨会并检查备品"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "morning"
+scene = "office_corridor"
+activity = "在走廊的自动贩卖机买罐装咖啡，边走边喝，准备开始工作"
+weight = 3
+why = "推断：走廊有自动贩卖机，早上可能买饮料"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "noon"
+scene = "dorm"
+activity = "在宿舍查看，帮偶像整理房间，提醒他们注意身体"
+weight = 5
+why = "作息：午间先去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "noon"
+scene = "street"
+activity = "跑完银行和邮局，在街上匆匆往回赶，手里提着便利店买的午饭"
+weight = 3
+why = "作息：午间跑银行和邮局，回事务所吃迟到的午饭"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "afternoon"
+scene = "office"
+activity = "制作文件，处理票务，接听电话，偶尔揉揉眼睛提神"
+weight = 5
+why = "作息：下午在事务所制作文件、处理考勤和票务"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "afternoon"
+scene = "park"
+activity = "陪偶像在公园跑步，坐在长椅上看着，偶尔喊几句鼓励的话"
+weight = 3
+why = "作息：之后陪偶像训练或跑步"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "evening"
+scene = "office"
+activity = "写日报，处理快递，整理桌面，准备锁门离开"
+weight = 5
+why = "作息：傍晚写日报并锁门"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "evening"
+scene = "office_reception"
+activity = "在前台接待来访的客人，端茶倒水，处理简单的接待事务"
+weight = 3
+why = "推断：前台是接待客人的场所"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "和妹妹一起做饭，今天妹妹主厨，自己在旁边打下手，聊着家常"
+weight = 5
+why = "作息：和妹妹轮流做饭"
+
+[[slots]]
+character = "hazuki"
+day = "tue"
+slot = "night"
+scene = "home_living"
+activity = "在客厅和妹妹看电视，不知不觉在沙发上睡着了，妹妹给盖了条毯子"
+weight = 3
+why = "推断：容易犯困，会随处睡着；家庭时间"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "morning"
+scene = "office"
+activity = "处理邮件，检查偶像日程，开晨会，确认备品是否充足"
+weight = 5
+why = "作息：工作日早上处理邮件、检查日程并开晨会"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "morning"
+scene = "meeting_room"
+activity = "在会议室准备资料，白板上写着日程安排，和制作人讨论工作"
+weight = 3
+why = "推断：会议室用于讨论工作"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "noon"
+scene = "dorm"
+activity = "在宿舍查看，帮偶像收快递，顺便检查冰箱里的食材"
+weight = 5
+why = "作息：午间先去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "afternoon"
+scene = "office"
+activity = "在办公桌前制作文件，处理考勤，接电话，偶尔打个哈欠"
+weight = 5
+why = "作息：下午在事务所制作文件、处理考勤和票务"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "afternoon"
+scene = "studio_small"
+activity = "陪偶像在小练习室训练，坐在长凳上记笔记，偶尔给出建议"
+weight = 3
+why = "作息：之后陪偶像训练或跑步"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "evening"
+scene = "office"
+activity = "处理快递杂事，写日报，整理文件，准备锁门"
+weight = 5
+why = "作息：傍晚写日报并锁门"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊巡视，检查各房间，确认无人后锁门离开"
+weight = 3
+why = "作息：巡视后锁门离开"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "和妹妹轮流做饭，今天简单做点，吃完后准备次日事务"
+weight = 5
+why = "作息：在家和妹妹轮流做饭，之后准备次日事务"
+
+[[slots]]
+character = "hazuki"
+day = "wed"
+slot = "night"
+scene = "hospital_corridor"
+activity = "去医院看母亲，在走廊和医生交谈，了解母亲的病情"
+weight = 3
+why = "作息：或去医院看母亲"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "morning"
+scene = "office"
+activity = "开晨会，确认偶像日程，检查备品，在笔记本上记下要点"
+weight = 5
+why = "作息：工作日早上开晨会并检查备品"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "morning"
+scene = "lounge"
+activity = "在休息室泡茶，和偶像们聊几句，提醒他们今天的安排"
+weight = 3
+why = "推断：休息室是事务所内可能有人来往的场所"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "noon"
+scene = "dorm"
+activity = "在宿舍查看，帮偶像整理公共区域，提醒他们注意卫生"
+weight = 5
+why = "作息：午间先去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "afternoon"
+scene = "office"
+activity = "制作文件，处理票务，接听电话，偶尔揉揉眼睛提神"
+weight = 5
+why = "作息：下午在事务所制作文件、处理考勤和票务"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "afternoon"
+scene = "park"
+activity = "陪偶像在公园跑步，坐在长椅上看着，偶尔喊几句鼓励的话"
+weight = 3
+why = "作息：之后陪偶像训练或跑步"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "evening"
+scene = "office"
+activity = "写日报，处理快递，整理桌面，准备锁门离开"
+weight = 5
+why = "作息：傍晚写日报并锁门"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "evening"
+scene = "office_reception"
+activity = "在前台接待来访的客人，端茶倒水，处理简单的接待事务"
+weight = 3
+why = "推断：前台是接待客人的场所"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "和妹妹一起做饭，今天轮到自己，做点简单的家常菜，边吃边聊"
+weight = 5
+why = "作息：和妹妹轮流做饭"
+
+[[slots]]
+character = "hazuki"
+day = "thu"
+slot = "night"
+scene = "home_living"
+activity = "在客厅和妹妹看电视，不知不觉在沙发上睡着了，妹妹给盖了条毯子"
+weight = 3
+why = "推断：容易犯困，会随处睡着；家庭时间"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "morning"
+scene = "office"
+activity = "处理邮件，检查偶像日程，开晨会，确认备品是否充足"
+weight = 5
+why = "作息：工作日早上处理邮件、检查日程并开晨会"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "morning"
+scene = "meeting_room"
+activity = "在会议室准备资料，白板上写着日程安排，和制作人讨论工作"
+weight = 3
+why = "推断：会议室用于讨论工作"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "noon"
+scene = "dorm"
+activity = "在宿舍查看，帮偶像收快递，顺便检查冰箱里的食材"
+weight = 5
+why = "作息：午间先去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "afternoon"
+scene = "office"
+activity = "在办公桌前制作文件，处理考勤，接电话，偶尔打个哈欠"
+weight = 5
+why = "作息：下午在事务所制作文件、处理考勤和票务"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "陪偶像在练习室训练，坐在角落记录要点，偶尔给出建议"
+weight = 3
+why = "作息：之后陪偶像训练或跑步"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "evening"
+scene = "office"
+activity = "处理快递杂事，写日报，整理文件，准备锁门"
+weight = 5
+why = "作息：傍晚写日报并锁门"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊巡视，检查各房间，确认无人后锁门离开"
+weight = 3
+why = "作息：巡视后锁门离开"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "和妹妹轮流做饭，今天简单做点，吃完后准备次日事务"
+weight = 5
+why = "作息：在家和妹妹轮流做饭，之后准备次日事务"
+
+[[slots]]
+character = "hazuki"
+day = "fri"
+slot = "night"
+scene = "hospital_corridor"
+activity = "去医院看母亲，在走廊和护士打招呼，进病房陪母亲说话"
+weight = 3
+why = "作息：或去医院看母亲"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "休息日稍微晚起，在家做早饭，和妹妹一起吃，聊聊近况"
+weight = 4
+why = "休息日：在家则做饭、采购、照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "morning"
+scene = "office"
+activity = "休息日仍去事务所处理杂务，整理文件，检查备品"
+weight = 3
+why = "休息日：仍可能处理事务所杂务"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "noon"
+scene = "supermarket"
+activity = "在超市采购食材，推着购物车，比较价格，买些日用品"
+weight = 4
+why = "休息日：在家则做饭、采购、照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "noon"
+scene = "dorm"
+activity = "去宿舍查看，帮偶像整理房间，提醒他们注意身体"
+weight = 3
+why = "推断：休息日也可能去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "afternoon"
+scene = "home"
+activity = "在家打扫卫生，洗衣服，整理房间，偶尔坐下休息"
+weight = 4
+why = "休息日：在家则做饭、采购、照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "去医院陪母亲，在走廊和医生交谈，了解病情"
+weight = 3
+why = "休息日：照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "evening"
+scene = "home"
+activity = "和妹妹一起做饭，今天做点丰盛的，边吃边看电视"
+weight = 4
+why = "休息日：在家则做饭"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "evening"
+scene = "street_night"
+activity = "陪偶像外景拍摄，在夜晚的街道上帮忙拿东西，偶尔给出建议"
+weight = 3
+why = "休息日：仍可能陪偶像外景"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在家准备次日事务，整理文件，确认日程，偶尔打个哈欠"
+weight = 4
+why = "作息：之后准备次日事务"
+
+[[slots]]
+character = "hazuki"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "在客厅和妹妹聊天，不知不觉在沙发上睡着了"
+weight = 3
+why = "推断：容易犯困，会随处睡着；家庭时间"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "休息日稍微晚起，在家做早饭，和妹妹一起吃，聊聊近况"
+weight = 4
+why = "休息日：在家则做饭、采购、照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "morning"
+scene = "office"
+activity = "休息日仍去事务所处理杂务，整理文件，检查备品"
+weight = 3
+why = "休息日：仍可能处理事务所杂务"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "noon"
+scene = "supermarket"
+activity = "在超市采购食材，推着购物车，比较价格，买些日用品"
+weight = 4
+why = "休息日：在家则做饭、采购、照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "noon"
+scene = "dorm"
+activity = "去宿舍查看，帮偶像整理房间，提醒他们注意身体"
+weight = 3
+why = "推断：休息日也可能去宿舍查看"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "afternoon"
+scene = "home"
+activity = "在家打扫卫生，洗衣服，整理房间，偶尔坐下休息"
+weight = 4
+why = "休息日：在家则做饭、采购、照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "去医院陪母亲，在走廊和医生交谈，了解病情"
+weight = 3
+why = "休息日：照顾母亲"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "evening"
+scene = "home"
+activity = "和妹妹一起做饭，今天做点丰盛的，边吃边看电视"
+weight = 4
+why = "休息日：在家则做饭"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "evening"
+scene = "street_night"
+activity = "陪偶像外景拍摄，在夜晚的街道上帮忙拿东西，偶尔给出建议"
+weight = 3
+why = "休息日：仍可能陪偶像外景"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在家准备次日事务，整理文件，确认日程，偶尔打个哈欠"
+weight = 4
+why = "作息：之后准备次日事务"
+
+[[slots]]
+character = "hazuki"
+day = "sun"
+slot = "night"
+scene = "home_living"
+activity = "在客厅和妹妹聊天，不知不觉在沙发上睡着了"
+weight = 3
+why = "推断：容易犯困，会随处睡着；家庭时间"
+

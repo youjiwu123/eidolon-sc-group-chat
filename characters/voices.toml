@@ -1,0 +1,3935 @@
+# 剧情原声台词库：characters/voices.toml
+#
+# 每条 [[line]] 是一条从 SCSP 剧情语音包里切出来的角色台词。
+#   character  本仓库的角色标识（characters.toml 的 id）
+#   story      SCSP 剧本包 id，对应 root/raw/<story>.acb
+#   line       剧本行号（4 位，来自剧本 JSON 的 key 后缀，与 cue 名的 4 位数字一致）
+#   text       日文剧本原文（换行写成字面 \n）
+#   subtitle   民间汉化的中文台词（取自 SCSP 汉化库），没有对应文件时为空串
+#   audio      相对 characters/ 的音频路径（mp3, 单声道）
+#   seconds    音频时长（秒，ffprobe 量出来的）
+#   kind       quote = 口癖/名台词；birthday = 制作人生日祝贺
+#
+# 由 backend/scripts/build_voices.py 生成（流水线说明见 docs/voices.md）；
+# 392 条（quote 100 / birthday 292），subtitle 287 条非空，音频合计 23.2 MiB。
+# 切片按 cue 名的 stream name 定位，不能用资源库的 cue_index（两者不相等）。
+
+[[line]]
+character = "mano"
+story = "s02_01010000_01"
+line = "0140"
+text = "私、頑張りますねっ\nむんっ"
+subtitle = "我会加油的！\n嗯！"
+audio = "voices/mano/s02_01010000_01_0140.mp3"
+seconds = 3.46
+kind = "quote"
+
+[[line]]
+character = "mano"
+story = "s20_10100100_01"
+line = "0030"
+text = "う、ううんっ\n……えっと、あのね……"
+subtitle = "没、没有啦\n……那个，嗯……"
+audio = "voices/mano/s20_10100100_01_0030.mp3"
+seconds = 4.90
+kind = "quote"
+
+[[line]]
+character = "mano"
+story = "s43_01010000_03"
+line = "0100"
+text = "わ、私……ですか……"
+subtitle = "我、我吗……？"
+audio = "voices/mano/s43_01010000_03_0100.mp3"
+seconds = 3.19
+kind = "quote"
+
+[[line]]
+character = "mano"
+story = "s61_10101001_00"
+line = "0010"
+text = "……プロデューサーさん……っ\nお誕生日、おめでとうございます……っ"
+subtitle = "……制作人……\n生日快乐……！"
+audio = "voices/mano/s61_10101001_00_0010.mp3"
+seconds = 4.15
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101001_00"
+line = "0030"
+text = "いえ……"
+subtitle = "不……"
+audio = "voices/mano/s61_10101001_00_0030.mp3"
+seconds = 0.58
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101001_00"
+line = "0040"
+text = "……今日からのプロデューサーさんの一年が、\n幸せでいっぱいな、あたたかい日々になりますように"
+subtitle = "……希望制作人从今天开始的一年，\n是充满幸福、温暖的日子"
+audio = "voices/mano/s61_10101001_00_0040.mp3"
+seconds = 7.61
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101001_00"
+line = "0050"
+text = "……な、何かできることがあったら、私も頑張りますっ\n──むんっ"
+subtitle = "……如、如果有什么我能做的，我也会努力的！\n──嗯！"
+audio = "voices/mano/s61_10101001_00_0050.mp3"
+seconds = 5.88
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101002_00"
+line = "0010"
+text = "プロデューサーさん……っ\nお誕生日、おめでとうございま────っ"
+subtitle = "制作人……！\n生日快乐────"
+audio = "voices/mano/s61_10101002_00_0010.mp3"
+seconds = 4.27
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101002_00"
+line = "0020"
+text = "わ……っ／うわ……！"
+subtitle = "哇……！／哇……！"
+audio = "voices/mano/s61_10101002_00_0020.mp3"
+seconds = 0.53
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101002_00"
+line = "0040"
+text = "は、はい……っ\nびっくりしました……"
+subtitle = "是，是的……\n吓了我一跳……"
+audio = "voices/mano/s61_10101002_00_0040.mp3"
+seconds = 3.94
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101002_00"
+line = "0060"
+text = "ふふ……そうかもしれません\nお誕生日、おめでとうございます……っ"
+subtitle = "呵呵……也许吧\n生日快乐……！"
+audio = "voices/mano/s61_10101002_00_0060.mp3"
+seconds = 7.90
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101003_00"
+line = "0010"
+text = "……プロデューサーさん\nお誕生日おめでとうございます……"
+subtitle = ""
+audio = "voices/mano/s61_10101003_00_0010.mp3"
+seconds = 3.89
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101003_00"
+line = "0020"
+text = "……あの\nこれ……ほんの気持ちなんですけれど……"
+subtitle = ""
+audio = "voices/mano/s61_10101003_00_0020.mp3"
+seconds = 5.21
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101003_00"
+line = "0040"
+text = "い、いえ……その、何がいいかなって……\n迷いはしたんですけれど……"
+subtitle = ""
+audio = "voices/mano/s61_10101003_00_0040.mp3"
+seconds = 6.48
+kind = "birthday"
+
+[[line]]
+character = "mano"
+story = "s61_10101003_00"
+line = "0050"
+text = "……プレゼントを選ぶ時間も……\nとっても楽しかったです……"
+subtitle = ""
+audio = "voices/mano/s61_10101003_00_0050.mp3"
+seconds = 4.03
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s01_01020000_04"
+line = "0080"
+text = "────だから助けられなくて……\n…………ごめん、真乃……"
+subtitle = "────所以才没能救到你……\n…………对不起，真乃……"
+audio = "voices/hiori/s01_01020000_04_0080.mp3"
+seconds = 4.51
+kind = "quote"
+
+[[line]]
+character = "hiori"
+story = "s02_01020000_01"
+line = "0040"
+text = "……正直わかりません\nふたりと何を話せばいいのかも"
+subtitle = "……说实话不清楚\n连该和她们俩聊什么都不知道"
+audio = "voices/hiori/s02_01020000_01_0040.mp3"
+seconds = 7.01
+kind = "quote"
+
+[[line]]
+character = "hiori"
+story = "s06_02070000_01"
+line = "0010"
+text = "ネットで情報を集めていました\n今週のCM撮影の、参考になるかと思って"
+subtitle = "我在网上收集了信息\n觉得对这周的CM拍摄会有参考"
+audio = "voices/hiori/s06_02070000_01_0010.mp3"
+seconds = 7.01
+kind = "quote"
+
+[[line]]
+character = "hiori"
+story = "s61_10102001_00"
+line = "0010"
+text = "お誕生日おめでとうございます、プロデューサー"
+subtitle = "生日快乐，制作人"
+audio = "voices/hiori/s61_10102001_00_0010.mp3"
+seconds = 4.10
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102001_00"
+line = "0030"
+text = "ふふ……\nメッセを送ることも考えたのですが……"
+subtitle = "呵呵……\n我也想过用消息发给你……"
+audio = "voices/hiori/s61_10102001_00_0030.mp3"
+seconds = 4.39
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102001_00"
+line = "0040"
+text = "やはりこういうものは直接がいいかなと思いまして……\n今日会えてよかったです"
+subtitle = "但果然这种事还是当面说比较好……\n今天能见到你真是太好了"
+audio = "voices/hiori/s61_10102001_00_0040.mp3"
+seconds = 8.59
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102001_00"
+line = "0050"
+text = "その……\nプロデューサーにとって、いい年になりますように……"
+subtitle = "那个……\n希望制作人度过美好的一年……"
+audio = "voices/hiori/s61_10102001_00_0050.mp3"
+seconds = 6.43
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102002_00"
+line = "0010"
+text = "お誕生日おめでとうございます\nプロデューサー"
+subtitle = "生日快乐\n制作人"
+audio = "voices/hiori/s61_10102002_00_0010.mp3"
+seconds = 3.22
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102002_00"
+line = "0030"
+text = "はい、もちろんです\n大事な日ですから"
+subtitle = "是的，当然\n因为是重要的日子"
+audio = "voices/hiori/s61_10102002_00_0030.mp3"
+seconds = 4.20
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102002_00"
+line = "0050"
+text = "…………"
+subtitle = "…………"
+audio = "voices/hiori/s61_10102002_00_0050.mp3"
+seconds = 1.39
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102002_00"
+line = "0060"
+text = "それでも、私にとっては大事な日なんです\nちゃんとお祝いさせてください"
+subtitle = "即便如此，对我来说也是非常重要的日子\n请让我好好为您庆祝"
+audio = "voices/hiori/s61_10102002_00_0060.mp3"
+seconds = 8.95
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102003_00"
+line = "0020"
+text = "プロデューサー\n今日がなんの日か忘れていませんか？"
+subtitle = ""
+audio = "voices/hiori/s61_10102003_00_0020.mp3"
+seconds = 4.10
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102003_00"
+line = "0040"
+text = "そうです\nプロデューサーの誕生日……"
+subtitle = ""
+audio = "voices/hiori/s61_10102003_00_0040.mp3"
+seconds = 3.53
+kind = "birthday"
+
+[[line]]
+character = "hiori"
+story = "s61_10102003_00"
+line = "0050"
+text = "最近よく事務所でスマホを探されていたので……\nこれ、よかったら使ってください……"
+subtitle = ""
+audio = "voices/hiori/s61_10102003_00_0050.mp3"
+seconds = 6.98
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s06_03040000_01"
+line = "0010"
+text = "今週のラジオ、わたしも出たいな！\nみんなともっとお話ししたいんだー"
+subtitle = "这周的广播，我也想上！\n想和大家多说说话嘛～"
+audio = "voices/meguru/s06_03040000_01_0010.mp3"
+seconds = 6.48
+kind = "quote"
+
+[[line]]
+character = "meguru"
+story = "s20_10200100_01"
+line = "0020"
+text = "うーんと、わたしはね\nこう……ばって感じでやってるかなー"
+subtitle = "嗯——我呢\n就这样……“啪”地一下的感觉吧—"
+audio = "voices/meguru/s20_10200100_01_0020.mp3"
+seconds = 6.62
+kind = "quote"
+
+[[line]]
+character = "meguru"
+story = "s43_02010000_00"
+line = "0070"
+text = "あっ！　ねぇねぇ、ふたりってこの後時間ある？\nよかったらお茶とかどうかな？"
+subtitle = "啊！对了对了，你们俩待会有空吗？\n要不要一起去喝杯茶什么的？"
+audio = "voices/meguru/s43_02010000_00_0070.mp3"
+seconds = 5.88
+kind = "quote"
+
+[[line]]
+character = "meguru"
+story = "s44_01030101_00"
+line = "0150"
+text = "……っ\nえへへ……ありがとう"
+subtitle = ""
+audio = "voices/meguru/s44_01030101_00_0150.mp3"
+seconds = 4.39
+kind = "quote"
+
+[[line]]
+character = "meguru"
+story = "s61_10103001_00"
+line = "0010"
+text = "プッロデューサー！"
+subtitle = "制作人！"
+audio = "voices/meguru/s61_10103001_00_0010.mp3"
+seconds = 2.98
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103001_00"
+line = "0030"
+text = "うん、めぐるだよー！\nんふふ……"
+subtitle = "嗯，是巡哦—！\n嘿嘿……"
+audio = "voices/meguru/s61_10103001_00_0030.mp3"
+seconds = 3.10
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103001_00"
+line = "0050"
+text = "あった！　プロデューサーのお誕生日！\n──プロデューサー、お誕生日おめでとう！"
+subtitle = "有！是制作人的生日！\n——制作人，生日快乐！"
+audio = "voices/meguru/s61_10103001_00_0050.mp3"
+seconds = 9.89
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103002_00"
+line = "0010"
+text = "────プロデューサー！　お誕生日…………"
+subtitle = "——制作人！生日快乐…………"
+audio = "voices/meguru/s61_10103002_00_0010.mp3"
+seconds = 2.59
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103002_00"
+line = "0020"
+text = "…………あれ？"
+subtitle = "…………咦？"
+audio = "voices/meguru/s61_10103002_00_0020.mp3"
+seconds = 0.79
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103002_00"
+line = "0040"
+text = "寝てる……\nプロデューサー、お疲れだ……"
+subtitle = "睡着了……\n制作人，累坏了呢……"
+audio = "voices/meguru/s61_10103002_00_0040.mp3"
+seconds = 5.74
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103002_00"
+line = "0050"
+text = "確か、ブランケットはここに……"
+subtitle = "记得毛毯是在这里……"
+audio = "voices/meguru/s61_10103002_00_0050.mp3"
+seconds = 4.22
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103002_00"
+line = "0060"
+text = "いつもありがとう……\n大好き"
+subtitle = "一直以来谢谢你……\n最喜欢你了"
+audio = "voices/meguru/s61_10103002_00_0060.mp3"
+seconds = 5.02
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103003_00"
+line = "0010"
+text = "プロデューサー、誕生日おめでとう！\nいつもいつもありがとう！"
+subtitle = ""
+audio = "voices/meguru/s61_10103003_00_0010.mp3"
+seconds = 5.90
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103003_00"
+line = "0020"
+text = "ねえねえ、中身はなんだと思う？\n当ててみてほしいなー！"
+subtitle = ""
+audio = "voices/meguru/s61_10103003_00_0020.mp3"
+seconds = 5.02
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103003_00"
+line = "0040"
+text = "えっとね！　いつもお仕事頑張ってるから、\nいつ休んでもいいように────"
+subtitle = ""
+audio = "voices/meguru/s61_10103003_00_0040.mp3"
+seconds = 5.21
+kind = "birthday"
+
+[[line]]
+character = "meguru"
+story = "s61_10103003_00"
+line = "0050"
+text = "────……っ\nえへへっ、答え言いそうになっちゃった……"
+subtitle = ""
+audio = "voices/meguru/s61_10103003_00_0050.mp3"
+seconds = 5.64
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s01_02020000_05"
+line = "0190"
+text = "プロデューサーにはうちが連絡するけん！"
+subtitle = "制作人那边我来联系！"
+audio = "voices/kogane/s01_02020000_05_0190.mp3"
+seconds = 2.71
+kind = "quote"
+
+[[line]]
+character = "kogane"
+story = "s02_03040000_02"
+line = "0010"
+text = "んふふ～……"
+subtitle = "嗯呵呵~……"
+audio = "voices/kogane/s02_03040000_02_0010.mp3"
+seconds = 1.49
+kind = "quote"
+
+[[line]]
+character = "kogane"
+story = "s09_03020400_02"
+line = "0060"
+text = "ふぇ……？"
+subtitle = "诶……？"
+audio = "voices/kogane/s09_03020400_02_0060.mp3"
+seconds = 0.50
+kind = "quote"
+
+[[line]]
+character = "kogane"
+story = "s10_10400100_01"
+line = "0080"
+text = "そいやったらうちも行く～～！"
+subtitle = "那我也一起去～～！"
+audio = "voices/kogane/s10_10400100_01_0080.mp3"
+seconds = 2.33
+kind = "quote"
+
+[[line]]
+character = "kogane"
+story = "s43_02030000_99"
+line = "0340"
+text = "ありがと\n見ていてくれて"
+subtitle = ""
+audio = "voices/kogane/s43_02030000_99_0340.mp3"
+seconds = 2.74
+kind = "quote"
+
+[[line]]
+character = "kogane"
+story = "s44_01040101_00"
+line = "0460"
+text = "うちはアイドルになるために生まれてきたけん\nオーディションに落ちたくらい、なんてことなか！"
+subtitle = ""
+audio = "voices/kogane/s44_01040101_00_0460.mp3"
+seconds = 7.25
+kind = "quote"
+
+[[line]]
+character = "kogane"
+story = "s61_10104001_00"
+line = "0010"
+text = "プロデューサー！\n誕生日やろ？　おめでとう～～～！！！"
+subtitle = "制作人！\n今天是生日对吧？恭喜～～～！！！"
+audio = "voices/kogane/s61_10104001_00_0010.mp3"
+seconds = 4.92
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104001_00"
+line = "0020"
+text = "んふふ～\n今日はうちにも、ばりよか日ばい～！"
+subtitle = "嘿嘿～\n今天对我来说，也是超棒的一天～！"
+audio = "voices/kogane/s61_10104001_00_0020.mp3"
+seconds = 4.58
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104001_00"
+line = "0040"
+text = "うん～！"
+subtitle = "嗯～！"
+audio = "voices/kogane/s61_10104001_00_0040.mp3"
+seconds = 0.72
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104001_00"
+line = "0050"
+text = "プロデューサーの生まれてきてくれたおかげで、\nうち、ばり楽しかやし、幸せやけんね……！"
+subtitle = "因为制作人来到了这个世界上，\n我才能这么开心、这么幸福啊……！"
+audio = "voices/kogane/s61_10104001_00_0050.mp3"
+seconds = 7.80
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104002_00"
+line = "0010"
+text = "んふふ、プロデューサー！\n今日、時間ある～？"
+subtitle = "嘿嘿，制作人！\n今天有时间吗～？"
+audio = "voices/kogane/s61_10104002_00_0010.mp3"
+seconds = 4.54
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104002_00"
+line = "0040"
+text = "よかばい～、そいじゃあご馳走作って待っとるけん！\n寮に集合で～～"
+subtitle = "好呀～，那我做好大餐等你！\n宿舍集合～～"
+audio = "voices/kogane/s61_10104002_00_0040.mp3"
+seconds = 6.41
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104002_00"
+line = "0060"
+text = "た、誕生日！！\nプロデューサーの大事な日ばい～～～～～！？"
+subtitle = "生、生日！！\n是制作人重要的日子啊～～～～～！？"
+audio = "voices/kogane/s61_10104002_00_0060.mp3"
+seconds = 4.82
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104003_00"
+line = "0010"
+text = "プロデューサー！\n誕生日おめでとう～！！"
+subtitle = ""
+audio = "voices/kogane/s61_10104003_00_0010.mp3"
+seconds = 3.07
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104003_00"
+line = "0030"
+text = "もちろんそうばい！\n夢も気持ちも……どがんもんでも大きか方がよかやろ？"
+subtitle = ""
+audio = "voices/kogane/s61_10104003_00_0030.mp3"
+seconds = 6.89
+kind = "birthday"
+
+[[line]]
+character = "kogane"
+story = "s61_10104003_00"
+line = "0050"
+text = "うちのお手製、おかずの詰め合わせばい！\nこい食べて、明日も明後日もその次も、一緒に頑張ろ～！"
+subtitle = ""
+audio = "voices/kogane/s61_10104003_00_0050.mp3"
+seconds = 9.00
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s01_02010000_05"
+line = "0180"
+text = "んー\n……じゃ、やりますかぁ"
+subtitle = "嗯——\n……那，继续吧"
+audio = "voices/mamimi/s01_02010000_05_0180.mp3"
+seconds = 5.23
+kind = "quote"
+
+[[line]]
+character = "mamimi"
+story = "s02_01050000_04"
+line = "0070"
+text = "そんなプロデューサーとだから\nここまで頑張れました"
+subtitle = "正因为是和这样的Producer一起\n我才能努力到现在"
+audio = "voices/mamimi/s02_01050000_04_0070.mp3"
+seconds = 5.11
+kind = "quote"
+
+[[line]]
+character = "mamimi"
+story = "s09_03010500_03"
+line = "0050"
+text = "プロデューサー、私の演技のこと\n高く評価してくれてますよねー"
+subtitle = "制作人，对我的演技\n评价很高对吧——"
+audio = "voices/mamimi/s09_03010500_03_0050.mp3"
+seconds = 6.29
+kind = "quote"
+
+[[line]]
+character = "mamimi"
+story = "s10_10500100_01"
+line = "0100"
+text = "食べる前に言ってほしいんですケドー……"
+subtitle = "就不能在人家吃之前说吗——"
+audio = "voices/mamimi/s10_10500100_01_0100.mp3"
+seconds = 3.62
+kind = "quote"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105001_00"
+line = "0010"
+text = "プロデューサー、おめでとうございますー"
+subtitle = "制作人，恭喜您～"
+audio = "voices/mamimi/s61_10105001_00_0010.mp3"
+seconds = 4.03
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105001_00"
+line = "0030"
+text = "えー？　誕生日なんて言ってないですケドー\nもしかして、期待してたんですかぁ？"
+subtitle = "诶—？我可没说生日什么的哦—\n难道说，您在期待吗？"
+audio = "voices/mamimi/s61_10105001_00_0030.mp3"
+seconds = 10.70
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105001_00"
+line = "0050"
+text = "ふふー……冗談ですー\n誕生日おめでとうございまぁす"
+subtitle = "呵呵——……开玩笑的—\n生日快乐～"
+audio = "voices/mamimi/s61_10105001_00_0050.mp3"
+seconds = 7.73
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105002_00"
+line = "0010"
+text = "プロデューサー\n解けましたかぁ、昨日渡したクロスワードパズルー"
+subtitle = "制作人\n昨天给您的填字游戏，解出来了吗—"
+audio = "voices/mamimi/s61_10105002_00_0010.mp3"
+seconds = 6.89
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105002_00"
+line = "0040"
+text = "……それで正解ですー"
+subtitle = "……那就是正确答案哦—"
+audio = "voices/mamimi/s61_10105002_00_0040.mp3"
+seconds = 2.18
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105002_00"
+line = "0060"
+text = "うとでめおびーじょんたぁ"
+subtitle = "乌托德梅奥比炯塔啊"
+audio = "voices/mamimi/s61_10105002_00_0060.mp3"
+seconds = 2.26
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105003_00"
+line = "0020"
+text = "絶対起きられる最強目覚ましらしいですー"
+subtitle = ""
+audio = "voices/mamimi/s61_10105003_00_0020.mp3"
+seconds = 4.87
+kind = "birthday"
+
+[[line]]
+character = "mamimi"
+story = "s61_10105003_00"
+line = "0040"
+text = "や、私を起こすプロデューサーが\n寝坊したら困るじゃないですかぁ"
+subtitle = ""
+audio = "voices/mamimi/s61_10105003_00_0040.mp3"
+seconds = 7.30
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s01_02020000_06"
+line = "0190"
+text = "すまない、みんな……今回はみんなに\n迷惑をかけて──……いや……ううん……──"
+subtitle = "对不起，大家……这次给大家\n添麻烦了──……不……不是……──"
+audio = "voices/sakuya/s01_02020000_06_0190.mp3"
+seconds = 14.35
+kind = "quote"
+
+[[line]]
+character = "sakuya"
+story = "s07_06000000_07"
+line = "0010"
+text = "紅茶でも淹れようと思うんだが……\nよければ、一緒にどうだい？"
+subtitle = "正想泡杯红茶……\n不介意的话，一起喝一杯如何？"
+audio = "voices/sakuya/s07_06000000_07_0010.mp3"
+seconds = 4.92
+kind = "quote"
+
+[[line]]
+character = "sakuya"
+story = "s10_10600100_01"
+line = "0090"
+text = "私は……\n皆が望むアイドルになれているだろうか"
+subtitle = "我……\n有没有成为大家所期望的偶像呢"
+audio = "voices/sakuya/s10_10600100_01_0090.mp3"
+seconds = 4.63
+kind = "quote"
+
+[[line]]
+character = "sakuya"
+story = "s10_30600300_01"
+line = "0050"
+text = "フフ……\n踏ん切りがつかないなら、私がさらってしまおうか？"
+subtitle = "呵呵……\n若是无法下定决心，不如让我把你掳走吧？"
+audio = "voices/sakuya/s10_30600300_01_0050.mp3"
+seconds = 7.22
+kind = "quote"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106001_00"
+line = "0010"
+text = "ハッピーバースデー、プロデューサー"
+subtitle = "生日快乐，制作人"
+audio = "voices/sakuya/s61_10106001_00_0010.mp3"
+seconds = 2.09
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106001_00"
+line = "0030"
+text = "フフッ、いや──\nお礼を言うのは私の方さ"
+subtitle = "呵呵，不——\n该道谢的人是我才对"
+audio = "voices/sakuya/s61_10106001_00_0030.mp3"
+seconds = 5.23
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106001_00"
+line = "0040"
+text = "アナタと出会い、アナタを祝う幸せを\n与えてもらっているのだからね"
+subtitle = "因为与你相遇，我才得以拥有\n为你庆生的这份幸福"
+audio = "voices/sakuya/s61_10106001_00_0040.mp3"
+seconds = 4.97
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106001_00"
+line = "0050"
+text = "この先もずっと……\nこうして伝えられるといいのだけれど"
+subtitle = "希望往后的岁月里……\n也能一直这样传达给你"
+audio = "voices/sakuya/s61_10106001_00_0050.mp3"
+seconds = 4.90
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106002_00"
+line = "0010"
+text = "────ありふれた一日でしかなかったんだ"
+subtitle = "——那原本只是平凡无奇的一天"
+audio = "voices/sakuya/s61_10106002_00_0010.mp3"
+seconds = 2.54
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106002_00"
+line = "0020"
+text = "でも、とある人と出会ったから、\n今日という日が特別になった……"
+subtitle = "但因为与某个人相遇，\n今天这个日子变得特别了……"
+audio = "voices/sakuya/s61_10106002_00_0020.mp3"
+seconds = 6.74
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106002_00"
+line = "0030"
+text = "この喜びがアナタにもわかるかい？"
+subtitle = "这份喜悦，你能明白吗？"
+audio = "voices/sakuya/s61_10106002_00_0030.mp3"
+seconds = 3.05
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106002_00"
+line = "0050"
+text = "フフ、回りくどい方がお好みかな\n言葉を尽くせというなら喜んで"
+subtitle = "呵呵，你更喜欢委婉一点的说法吗\n若要我尽情倾诉，我乐意之至"
+audio = "voices/sakuya/s61_10106002_00_0050.mp3"
+seconds = 8.06
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106002_00"
+line = "0060"
+text = "……ハッピーバースデー\nアナタが生まれてきてくれたことを、何よりも嬉しく思うよ"
+subtitle = "……生日快乐\n你来到这个世界上这件事，比什么都让我感到高兴"
+audio = "voices/sakuya/s61_10106002_00_0060.mp3"
+seconds = 10.18
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106003_00"
+line = "0020"
+text = "フフ、喜んでもらえたなら嬉しいよ\nそれじゃあ、その星をつかまえてみようか"
+subtitle = ""
+audio = "voices/sakuya/s61_10106003_00_0020.mp3"
+seconds = 9.53
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106003_00"
+line = "0030"
+text = "こうして、グラスを夜空にかざすと──"
+subtitle = ""
+audio = "voices/sakuya/s61_10106003_00_0030.mp3"
+seconds = 3.50
+kind = "birthday"
+
+[[line]]
+character = "sakuya"
+story = "s61_10106003_00"
+line = "0050"
+text = "いつかプロデューサーに\nこんな星を届けられたらいいね────"
+subtitle = ""
+audio = "voices/sakuya/s61_10106003_00_0050.mp3"
+seconds = 4.44
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s02_02070000_03"
+line = "0130"
+text = "……あーあ、傲慢……"
+subtitle = "……啊—啊，真是傲慢……"
+audio = "voices/yuika/s02_02070000_03_0130.mp3"
+seconds = 3.26
+kind = "quote"
+
+[[line]]
+character = "yuika"
+story = "s09_02010700_02"
+line = "0030"
+text = "ありゃ、お忙しいんだ"
+subtitle = "哎呀，大忙人呢"
+audio = "voices/yuika/s09_02010700_02_0030.mp3"
+seconds = 2.40
+kind = "quote"
+
+[[line]]
+character = "yuika"
+story = "s10_20700200_03"
+line = "0100"
+text = "はいはーい、問題ないよー\nどしたの？"
+subtitle = "好好好，没问题哦\n怎么了？"
+audio = "voices/yuika/s10_20700200_03_0100.mp3"
+seconds = 2.95
+kind = "quote"
+
+[[line]]
+character = "yuika"
+story = "s61_10107001_00"
+line = "0010"
+text = "さってプロデューサー！\n三峰が今言いたいことはなんでしょうか！"
+subtitle = "那么制作人！\n三峰现在最想说的是什么呢！"
+audio = "voices/yuika/s61_10107001_00_0010.mp3"
+seconds = 4.61
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107001_00"
+line = "0020"
+text = "きっとわかってくれるんだろうなぁ\nたったひとりのプロデューサーだもんなぁ"
+subtitle = "您一定知道的吧\n毕竟是我独一无二的制作人呢"
+audio = "voices/yuika/s61_10107001_00_0020.mp3"
+seconds = 5.69
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107001_00"
+line = "0030"
+text = "今日がどういう特別な日か──\nもしわかってもらえなかったら、三峰泣いちゃうかもなぁ"
+subtitle = "今天是什么样的特别日子——\n如果您猜不出来的话，三峰可能会哭哦"
+audio = "voices/yuika/s61_10107001_00_0030.mp3"
+seconds = 8.16
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107001_00"
+line = "0050"
+text = "んっふふ、反応含めて大正解！\nお誕生日おめでとう、だね！　プロデューサー！"
+subtitle = "嗯呵呵，连同反应一起完全正确！\n生日快乐！制作人！"
+audio = "voices/yuika/s61_10107001_00_0050.mp3"
+seconds = 7.63
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107002_00"
+line = "0010"
+text = "無事、お誕生日を迎えたプロデューサー！\nよければ感想を一言！"
+subtitle = "顺利迎来生日的制作人！\n方便的话请说一句感想！"
+audio = "voices/yuika/s61_10107002_00_0010.mp3"
+seconds = 5.78
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107002_00"
+line = "0060"
+text = "ええー、何それ\n……ずるーい"
+subtitle = "诶—，什么啊那是\n……好狡猾—"
+audio = "voices/yuika/s61_10107002_00_0060.mp3"
+seconds = 4.27
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107003_00"
+line = "0020"
+text = "そ、そう……？　本当は他にもいろいろあったんだけど\n迷って迷って、結局普通のものに……"
+subtitle = ""
+audio = "voices/yuika/s61_10107003_00_0020.mp3"
+seconds = 8.95
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107003_00"
+line = "0040"
+text = "ふふ、それなら、よかった……"
+subtitle = ""
+audio = "voices/yuika/s61_10107003_00_0040.mp3"
+seconds = 3.43
+kind = "birthday"
+
+[[line]]
+character = "yuika"
+story = "s61_10107003_00"
+line = "0050"
+text = "そんなに喜んでくれるなら、今だけ同じものをもう一枚！\nなんちゃって"
+subtitle = ""
+audio = "voices/yuika/s61_10107003_00_0050.mp3"
+seconds = 6.17
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s02_03080000_04"
+line = "0020"
+text = "ありがとう……ございます……"
+subtitle = "谢谢……你……"
+audio = "voices/kiriko/s02_03080000_04_0020.mp3"
+seconds = 2.81
+kind = "quote"
+
+[[line]]
+character = "kiriko"
+story = "s07_08000000_07"
+line = "0010"
+text = "疲れていませんか……？\nリラックスして……深呼吸……♪"
+subtitle = "是不是累了……？\n放松一下……深呼吸……♪"
+audio = "voices/kiriko/s07_08000000_07_0010.mp3"
+seconds = 6.38
+kind = "quote"
+
+[[line]]
+character = "kiriko"
+story = "s10_20800200_02"
+line = "0070"
+text = "あの……はい……"
+subtitle = "那个……好的……"
+audio = "voices/kiriko/s10_20800200_02_0070.mp3"
+seconds = 3.00
+kind = "quote"
+
+[[line]]
+character = "kiriko"
+story = "s44_01080101_00"
+line = "0340"
+text = "い、いえ……"
+subtitle = ""
+audio = "voices/kiriko/s44_01080101_00_0340.mp3"
+seconds = 1.66
+kind = "quote"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108001_00"
+line = "0010"
+text = "プロデューサーさん……\n今日は……"
+subtitle = "制作人……\n今天是……"
+audio = "voices/kiriko/s61_10108001_00_0010.mp3"
+seconds = 3.34
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108001_00"
+line = "0030"
+text = "歌いましょう……\nお祝いの歌……"
+subtitle = "来唱歌吧……\n庆祝的歌……"
+audio = "voices/kiriko/s61_10108001_00_0030.mp3"
+seconds = 3.79
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108001_00"
+line = "0040"
+text = "来てくれて……\nありがとうって……それから……"
+subtitle = "谢谢你……\n能来到这里……然后……"
+audio = "voices/kiriko/s61_10108001_00_0040.mp3"
+seconds = 6.46
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108001_00"
+line = "0050"
+text = "この日が……\nまたここに……来られますようにって……"
+subtitle = "希望这一天……\n还能再次……来到这里……"
+audio = "voices/kiriko/s61_10108001_00_0050.mp3"
+seconds = 6.91
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108002_00"
+line = "0020"
+text = "そのまま……\n目を……閉じたままで……"
+subtitle = "就这样……\n把眼睛……闭上……"
+audio = "voices/kiriko/s61_10108002_00_0020.mp3"
+seconds = 5.45
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108002_00"
+line = "0030"
+text = "一緒に……ゆっくり……\n休みましょう……"
+subtitle = "一起……慢慢地……\n休息吧……"
+audio = "voices/kiriko/s61_10108002_00_0030.mp3"
+seconds = 7.15
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108002_00"
+line = "0050"
+text = "いつか……\n光が起こしに来たら……言いますね……"
+subtitle = "总有一天……\n当光来唤醒我们的时候……我会说的……"
+audio = "voices/kiriko/s61_10108002_00_0050.mp3"
+seconds = 6.58
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108002_00"
+line = "0060"
+text = "おかえり……おはよう……\n……おめでとう……って……"
+subtitle = "欢迎回来……早安……\n……生日快乐……这样……"
+audio = "voices/kiriko/s61_10108002_00_0060.mp3"
+seconds = 8.04
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108003_00"
+line = "0020"
+text = "はい……\n重なって……きらきらって……"
+subtitle = "是的……\n重叠起来……闪闪发亮……"
+audio = "voices/kiriko/s61_10108003_00_0020.mp3"
+seconds = 6.48
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108003_00"
+line = "0030"
+text = "いつも……たくさん……\n光を……もらっているので……"
+subtitle = "因为平时……总是……\n从您那里……得到很多……\n光……"
+audio = "voices/kiriko/s61_10108003_00_0030.mp3"
+seconds = 7.44
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108003_00"
+line = "0040"
+text = "だから……プロデューサーさんにも……\n届きますように……"
+subtitle = "所以……希望也能……\n传达给制作人……"
+audio = "voices/kiriko/s61_10108003_00_0040.mp3"
+seconds = 6.84
+kind = "birthday"
+
+[[line]]
+character = "kiriko"
+story = "s61_10108003_00"
+line = "0050"
+text = "たくさんの光……"
+subtitle = "很多的光……"
+audio = "voices/kiriko/s61_10108003_00_0050.mp3"
+seconds = 1.58
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s01_06020000_02"
+line = "0030"
+text = "んー"
+subtitle = "嗯——"
+audio = "voices/toru/s01_06020000_02_0030.mp3"
+seconds = 2.21
+kind = "quote"
+
+[[line]]
+character = "toru"
+story = "s44_01200199_00"
+line = "0380"
+text = "ふふっ。プロデューサーがしつこいから"
+subtitle = ""
+audio = "voices/toru/s44_01200199_00_0380.mp3"
+seconds = 4.34
+kind = "quote"
+
+[[line]]
+character = "toru"
+story = "s61_10120001_00"
+line = "0010"
+text = "ねー"
+subtitle = "我说——"
+audio = "voices/toru/s61_10120001_00_0010.mp3"
+seconds = 0.82
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120001_00"
+line = "0030"
+text = "ん、じゃなくて"
+subtitle = "嗯，不对"
+audio = "voices/toru/s61_10120001_00_0030.mp3"
+seconds = 1.54
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120001_00"
+line = "0050"
+text = "え、じゃなくて\n────言わなくていい？　おめでとうとか"
+subtitle = "诶，也不对\n——不说也可以吧？　像是恭喜之类的话"
+audio = "voices/toru/s61_10120001_00_0050.mp3"
+seconds = 5.71
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120002_00"
+line = "0010"
+text = "『人生で大事な日はふたつある』"
+subtitle = "『人生中重要的日子有两个』"
+audio = "voices/toru/s61_10120002_00_0010.mp3"
+seconds = 2.45
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120002_00"
+line = "0020"
+text = "『生まれた日と、なぜ生まれたのかわかった日だ』"
+subtitle = "『出生的那天，以及明白自己为何而生的那天』"
+audio = "voices/toru/s61_10120002_00_0020.mp3"
+seconds = 3.82
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120002_00"
+line = "0040"
+text = "プロデューサーはわかった？\nなぜ生まれたか"
+subtitle = "制作人明白了吗？\n自己为何而生"
+audio = "voices/toru/s61_10120002_00_0040.mp3"
+seconds = 4.08
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120002_00"
+line = "0060"
+text = "うん\n知りたい、私も"
+subtitle = "嗯\n我也想知道"
+audio = "voices/toru/s61_10120002_00_0060.mp3"
+seconds = 3.55
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120003_00"
+line = "0020"
+text = "靴が欲しいって言ってたから\nとりあえず"
+subtitle = ""
+audio = "voices/toru/s61_10120003_00_0020.mp3"
+seconds = 3.67
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120003_00"
+line = "0040"
+text = "うん\n靴は待ってて、もう少し"
+subtitle = ""
+audio = "voices/toru/s61_10120003_00_0040.mp3"
+seconds = 4.18
+kind = "birthday"
+
+[[line]]
+character = "toru"
+story = "s61_10120003_00"
+line = "0050"
+text = "お金、貯めてるから"
+subtitle = ""
+audio = "voices/toru/s61_10120003_00_0050.mp3"
+seconds = 2.30
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s09_01012100_01"
+line = "0020"
+text = "……別に、何も"
+subtitle = "……没什么"
+audio = "voices/madoka/s09_01012100_01_0020.mp3"
+seconds = 2.18
+kind = "quote"
+
+[[line]]
+character = "madoka"
+story = "s09_02012100_03"
+line = "0020"
+text = "ありがとうございます"
+subtitle = "非常感谢"
+audio = "voices/madoka/s09_02012100_03_0020.mp3"
+seconds = 1.08
+kind = "quote"
+
+[[line]]
+character = "madoka"
+story = "s42_01060100_02"
+line = "0030"
+text = "…………はぁ"
+subtitle = "…………唉"
+audio = "voices/madoka/s42_01060100_02_0030.mp3"
+seconds = 1.03
+kind = "quote"
+
+[[line]]
+character = "madoka"
+story = "s44_01210102_00"
+line = "0280"
+text = "ですからどうぞ\nあなたの熱意は、他のアイドルに注いでください"
+subtitle = ""
+audio = "voices/madoka/s44_01210102_00_0280.mp3"
+seconds = 5.50
+kind = "quote"
+
+[[line]]
+character = "madoka"
+story = "s44_01210103_00"
+line = "0150"
+text = "ええ、嫌というほど伝わってきます"
+subtitle = ""
+audio = "voices/madoka/s44_01210103_00_0150.mp3"
+seconds = 2.98
+kind = "quote"
+
+[[line]]
+character = "madoka"
+story = "s44_01210104_00"
+line = "0100"
+text = "失敗した、悔しい、情けないって\nまだ結果も出ていないのに"
+subtitle = ""
+audio = "voices/madoka/s44_01210104_00_0100.mp3"
+seconds = 7.99
+kind = "quote"
+
+[[line]]
+character = "madoka"
+story = "s61_10121001_00"
+line = "0010"
+text = "…………\n今日って、なんの日でしたっけ"
+subtitle = "…………\n今天，是什么日子来着"
+audio = "voices/madoka/s61_10121001_00_0010.mp3"
+seconds = 4.73
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121001_00"
+line = "0030"
+text = "…………"
+subtitle = "…………"
+audio = "voices/madoka/s61_10121001_00_0030.mp3"
+seconds = 0.94
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121001_00"
+line = "0040"
+text = "……いえ、やっぱり結構です\n失礼します"
+subtitle = "……不，还是算了\n告辞了"
+audio = "voices/madoka/s61_10121001_00_0040.mp3"
+seconds = 3.48
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121002_00"
+line = "0010"
+text = "誕生日って……\n何歳になったんです？"
+subtitle = "生日……\n你今年几岁了？"
+audio = "voices/madoka/s61_10121002_00_0010.mp3"
+seconds = 3.29
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121002_00"
+line = "0030"
+text = "ああ……\n問い方を変えますね"
+subtitle = "啊……\n那我换个问法"
+audio = "voices/madoka/s61_10121002_00_0030.mp3"
+seconds = 2.74
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121002_00"
+line = "0040"
+text = "──まだ『お兄さん』という年齢なんですか？"
+subtitle = "——还是说，已经到该叫『大叔』的年纪了？"
+audio = "voices/madoka/s61_10121002_00_0040.mp3"
+seconds = 3.48
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121003_00"
+line = "0030"
+text = "実用的なものがいいかと\nいつもお世話になっているので"
+subtitle = ""
+audio = "voices/madoka/s61_10121003_00_0030.mp3"
+seconds = 4.34
+kind = "birthday"
+
+[[line]]
+character = "madoka"
+story = "s61_10121003_00"
+line = "0050"
+text = "──……\nご想像にお任せします"
+subtitle = ""
+audio = "voices/madoka/s61_10121003_00_0050.mp3"
+seconds = 4.03
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s02_02220000_03"
+line = "0070"
+text = "ダンス…………褒めてくれて……！"
+subtitle = "舞蹈…………夸我了……！"
+audio = "voices/koito/s02_02220000_03_0070.mp3"
+seconds = 2.62
+kind = "quote"
+
+[[line]]
+character = "koito"
+story = "s09_02022200_01"
+line = "0070"
+text = "ぴゃ……！"
+subtitle = "噼呀……！"
+audio = "voices/koito/s09_02022200_01_0070.mp3"
+seconds = 0.53
+kind = "quote"
+
+[[line]]
+character = "koito"
+story = "s42_01060100_00"
+line = "0100"
+text = "……で、でも\nえっと……行けるかな……"
+subtitle = "……但、但是\n那个……我能去吗……"
+audio = "voices/koito/s42_01060100_00_0100.mp3"
+seconds = 5.52
+kind = "quote"
+
+[[line]]
+character = "koito"
+story = "s44_01220100_00"
+line = "0350"
+text = "ね、ねぇ、透ちゃん……"
+subtitle = ""
+audio = "voices/koito/s44_01220100_00_0350.mp3"
+seconds = 2.86
+kind = "quote"
+
+[[line]]
+character = "koito"
+story = "s44_01220102_00"
+line = "0190"
+text = "あ、は、はい……！　まだまだやれますよ！\nこのくらい、よゆーですから！"
+subtitle = ""
+audio = "voices/koito/s44_01220102_00_0190.mp3"
+seconds = 6.79
+kind = "quote"
+
+[[line]]
+character = "koito"
+story = "s61_10122001_00"
+line = "0010"
+text = "ぷ、プロデューサーさん……\nあの、お誕生日おめでとうございます……！"
+subtitle = "噗、制作人……\n那个，生日快乐……！"
+audio = "voices/koito/s61_10122001_00_0010.mp3"
+seconds = 6.50
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122001_00"
+line = "0030"
+text = "な、なんてお祝いしようか考えてて……\nでも、なかなか思い浮かばなくて"
+subtitle = "我、我一直在想该怎么给你庆祝……\n但是，怎么都想不出来"
+audio = "voices/koito/s61_10122001_00_0030.mp3"
+seconds = 8.62
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122001_00"
+line = "0040"
+text = "その、結局普通になっちゃったんですけど\nおめでとうございますの気持ちは変わらないので……"
+subtitle = "那个，结果还是变成了普通的祝福\n但恭喜的心情是不会变的，所以……"
+audio = "voices/koito/s61_10122001_00_0040.mp3"
+seconds = 8.16
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122001_00"
+line = "0050"
+text = "……ほ、本当におめでとうございます\nあと………こ、これからも、よろしくお願いします！"
+subtitle = "……真、真的恭喜你\n还有………今、今后也请多多关照！"
+audio = "voices/koito/s61_10122001_00_0050.mp3"
+seconds = 9.67
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122002_00"
+line = "0010"
+text = "は、ハッピーバースデー\nプロデューサーさんの瞳に、か、乾杯"
+subtitle = "生、生日快乐\n为制作人的双眸，干、干杯"
+audio = "voices/koito/s61_10122002_00_0010.mp3"
+seconds = 7.08
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122002_00"
+line = "0030"
+text = "そ、その……\n白瀬さんみたいにお祝いしたら喜んでもらえるって"
+subtitle = "那、那个……\n白濑小姐说，像这样给你庆祝的话你会高兴的"
+audio = "voices/koito/s61_10122002_00_0030.mp3"
+seconds = 7.15
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122002_00"
+line = "0050"
+text = "ま、円香ちゃんが教えてくれたので……！\nあの、どうでしたか……！"
+subtitle = "是、是圆香酱教我的……！\n那个，你觉得怎么样……！"
+audio = "voices/koito/s61_10122002_00_0050.mp3"
+seconds = 6.07
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122003_00"
+line = "0010"
+text = "プロデューサーさん、今日、お誕生日ですよね……？\nこ、これ……プレゼントですっ"
+subtitle = ""
+audio = "voices/koito/s61_10122003_00_0010.mp3"
+seconds = 9.48
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122003_00"
+line = "0040"
+text = "い、いろんな味が入ってるので、\nどれかはプロデューサーさんの好みに合うかなって……"
+subtitle = ""
+audio = "voices/koito/s61_10122003_00_0040.mp3"
+seconds = 7.99
+kind = "birthday"
+
+[[line]]
+character = "koito"
+story = "s61_10122003_00"
+line = "0050"
+text = "このメーカーのやつ、結構評判で……\nわ、わたしも、美味しく飲めましたし……！"
+subtitle = ""
+audio = "voices/koito/s61_10122003_00_0050.mp3"
+seconds = 7.27
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s02_01230000_03"
+line = "0040"
+text = "へ～？"
+subtitle = "诶～？"
+audio = "voices/hinana/s02_01230000_03_0040.mp3"
+seconds = 1.06
+kind = "quote"
+
+[[line]]
+character = "hinana"
+story = "s20_12000100_01"
+line = "0060"
+text = "へ～……？"
+subtitle = "诶～……？"
+audio = "voices/hinana/s20_12000100_01_0060.mp3"
+seconds = 1.10
+kind = "quote"
+
+[[line]]
+character = "hinana"
+story = "s44_01230101_00"
+line = "0290"
+text = "だって雛菜のしあわせ～なとこ見てたら\nみんなもしあわせ～って気持ちになるでしょ～？"
+subtitle = ""
+audio = "voices/hinana/s44_01230101_00_0290.mp3"
+seconds = 7.30
+kind = "quote"
+
+[[line]]
+character = "hinana"
+story = "s61_10123003_00"
+line = "0010"
+text = "プロデューサー、お誕生日おめでと～～～\nこれ、プレゼント～"
+subtitle = ""
+audio = "voices/hinana/s61_10123003_00_0010.mp3"
+seconds = 5.78
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123001_00"
+line = "0010"
+text = "あは～、今日はプロデューサーの\n誕生日でしょ～？"
+subtitle = "啊哈～今天是制作人的\n生日对吧～？"
+audio = "voices/hinana/s61_10123001_00_0010.mp3"
+seconds = 4.73
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123001_00"
+line = "0030"
+text = "そうだよ～\nお祝いしたいなって思ってたから～！"
+subtitle = "对呀～\n我一直想着要给你庆祝呢～！"
+audio = "voices/hinana/s61_10123001_00_0030.mp3"
+seconds = 4.42
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123001_00"
+line = "0040"
+text = "ね、一緒にケーキ食べに行こ～？"
+subtitle = "呐，一起去吃蛋糕吧～？"
+audio = "voices/hinana/s61_10123001_00_0040.mp3"
+seconds = 3.05
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123001_00"
+line = "0050"
+text = "美味しいケーキ食べたら、\n雛菜もプロデューサーもしあわせになれるでしょ～？"
+subtitle = "吃到好吃的蛋糕的话，\n雏菜和制作人都会变得幸福对吧～？"
+audio = "voices/hinana/s61_10123001_00_0050.mp3"
+seconds = 6.70
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123002_00"
+line = "0010"
+text = "プロデューサーは、\n誕生日お祝いされたらうれしい～？"
+subtitle = "制作人，\n被人庆祝生日会开心～？"
+audio = "voices/hinana/s61_10123002_00_0010.mp3"
+seconds = 4.13
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123002_00"
+line = "0030"
+text = "そっか～\nじゃあ、いっぱいお祝いするね～"
+subtitle = "这样啊～\n那我就要好好给你庆祝一番啦～"
+audio = "voices/hinana/s61_10123002_00_0030.mp3"
+seconds = 4.66
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123002_00"
+line = "0050"
+text = "うん～\n雛菜も一緒に楽しむから～！"
+subtitle = "嗯～\n雏菜也会一起享受的～！"
+audio = "voices/hinana/s61_10123002_00_0050.mp3"
+seconds = 3.58
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123002_00"
+line = "0060"
+text = "プロデューサーは何が食べたい～？\n雛菜はね～、ケーキでしょ、オードブルでしょ、あとは──"
+subtitle = "制作人想吃什么～？\n雏菜嘛～，蛋糕肯定要的，还有冷盘，然后——"
+audio = "voices/hinana/s61_10123002_00_0060.mp3"
+seconds = 9.14
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123003_00"
+line = "0040"
+text = "ネイルオイルだよ～\nこの間、ささくれできてたでしょ～"
+subtitle = ""
+audio = "voices/hinana/s61_10123003_00_0040.mp3"
+seconds = 5.16
+kind = "birthday"
+
+[[line]]
+character = "hinana"
+story = "s61_10123003_00"
+line = "0050"
+text = "こうやって、爪の生え際に塗るの～\nささくれもできなくなるし、爪が綺麗になるよ～"
+subtitle = ""
+audio = "voices/hinana/s61_10123003_00_0050.mp3"
+seconds = 9.38
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s20_32400400_01"
+line = "0100"
+text = "……！\nは、はい……よかったです……！"
+subtitle = "……！\n是、是的……太好了……！"
+audio = "voices/nichika/s20_32400400_01_0100.mp3"
+seconds = 3.84
+kind = "quote"
+
+[[line]]
+character = "nichika"
+story = "s43_02010000_00"
+line = "0350"
+text = "はは……全員とか────\nまぁ、やりますけど"
+subtitle = "哈哈……全员什么的────\n嘛，我会做的就是了"
+audio = "voices/nichika/s43_02010000_00_0350.mp3"
+seconds = 6.19
+kind = "quote"
+
+[[line]]
+character = "nichika"
+story = "s61_10124001_00"
+line = "0010"
+text = "……七草さんに聞いたんですけどー\n今日って、プロデューサーさんの……"
+subtitle = "……听七草小姐说的，今天好像是制作人的……"
+audio = "voices/nichika/s61_10124001_00_0010.mp3"
+seconds = 6.12
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124001_00"
+line = "0030"
+text = "へー、そうなんですねー……\n別にどうでもいいですけどー"
+subtitle = "哦——是这样啊——\n……不过跟我没什么关系就是了"
+audio = "voices/nichika/s61_10124001_00_0030.mp3"
+seconds = 5.16
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124001_00"
+line = "0050"
+text = "……まぁ、いつもお世話になってますし\nお菓子ぐらいなら買ってあげますねー、100円以内で！"
+subtitle = "……嘛，平时承蒙你照顾了\n买点小零食给你还是可以的哦——，一百日元以内的！"
+audio = "voices/nichika/s61_10124001_00_0050.mp3"
+seconds = 7.73
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124002_00"
+line = "0010"
+text = "あのー、ケーキどこですかー？\n食べに来たんですけどー"
+subtitle = "那个——蛋糕在哪里啊——？\n我是来吃的哦——"
+audio = "voices/nichika/s61_10124002_00_0010.mp3"
+seconds = 4.73
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124002_00"
+line = "0030"
+text = "えーっ！\n今日ってプロデューサーさんの誕生日じゃないんですか！？"
+subtitle = "诶——！\n今天不是制作人的生日吗！？"
+audio = "voices/nichika/s61_10124002_00_0030.mp3"
+seconds = 4.54
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124002_00"
+line = "0050"
+text = "はっ！？　やば、誰も祝ってくれないとか\nちょっと反応に困るっていうか実際困るんですけど！"
+subtitle = "哈！？　糟了，没人给你庆祝什么的\n这也太让人不知道怎么反应了吧，说实话我很为难诶！"
+audio = "voices/nichika/s61_10124002_00_0050.mp3"
+seconds = 9.00
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124002_00"
+line = "0060"
+text = "私、楽しみにしてたんで！\n早くお祝いの準備してくださいー！"
+subtitle = "我可是很期待的好吗！\n赶紧去准备庆祝的东西啦——！"
+audio = "voices/nichika/s61_10124002_00_0060.mp3"
+seconds = 4.99
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124003_00"
+line = "0020"
+text = "一応、誕生日プレゼントなんですけど\n助かるって感想はどうなんですかねー"
+subtitle = ""
+audio = "voices/nichika/s61_10124003_00_0020.mp3"
+seconds = 8.59
+kind = "birthday"
+
+[[line]]
+character = "nichika"
+story = "s61_10124003_00"
+line = "0040"
+text = "この前、穴の開きそうな靴下履いてましたし\nちゃんとしたの履いていてもらわないと困るので"
+subtitle = ""
+audio = "voices/nichika/s61_10124003_00_0040.mp3"
+seconds = 7.10
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s02_03250000_02"
+line = "0040"
+text = "うん、なんの問題もなかったと思う"
+subtitle = "嗯，我觉得没什么问题"
+audio = "voices/mikoto/s02_03250000_02_0040.mp3"
+seconds = 2.69
+kind = "quote"
+
+[[line]]
+character = "mikoto"
+story = "s10_22501100_03"
+line = "0040"
+text = "……そうなんだ"
+subtitle = "……这样啊"
+audio = "voices/mikoto/s10_22501100_03_0040.mp3"
+seconds = 1.18
+kind = "quote"
+
+[[line]]
+character = "mikoto"
+story = "s44_01250102_00"
+line = "0500"
+text = "……前のユニットのこと？"
+subtitle = ""
+audio = "voices/mikoto/s44_01250102_00_0500.mp3"
+seconds = 1.42
+kind = "quote"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125001_00"
+line = "0010"
+text = "誕生日おめでとう\nプロデューサー"
+subtitle = "生日快乐\n制作人"
+audio = "voices/mikoto/s61_10125001_00_0010.mp3"
+seconds = 2.45
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125001_00"
+line = "0030"
+text = "うん……いつも支えてくれているから\nお祝いはちゃんとしたくて"
+subtitle = "嗯……因为你一直在支持着我\n所以我想好好给你庆祝一下"
+audio = "voices/mikoto/s61_10125001_00_0030.mp3"
+seconds = 5.45
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125001_00"
+line = "0040"
+text = "……こちらこそ、ありがとう"
+subtitle = "……我才要谢谢你"
+audio = "voices/mikoto/s61_10125001_00_0040.mp3"
+seconds = 2.42
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125002_00"
+line = "0030"
+text = "うん\nどこかで少しだけ時間をちょうだい"
+subtitle = "嗯\n给我留一点时间，不用太长"
+audio = "voices/mikoto/s61_10125002_00_0030.mp3"
+seconds = 4.25
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125002_00"
+line = "0040"
+text = "今日だよね、プロデューサーの誕生日\nお祝いしなくちゃ"
+subtitle = "今天是制作人的生日对吧\n我得给你庆祝才行"
+audio = "voices/mikoto/s61_10125002_00_0040.mp3"
+seconds = 4.70
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125002_00"
+line = "0050"
+text = "……その予定も入れておいて"
+subtitle = "……把这项也排进日程里吧"
+audio = "voices/mikoto/s61_10125002_00_0050.mp3"
+seconds = 2.33
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125003_00"
+line = "0020"
+text = "普段お世話になっているから\n何がいいか迷ったけど"
+subtitle = ""
+audio = "voices/mikoto/s61_10125003_00_0020.mp3"
+seconds = 4.18
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125003_00"
+line = "0040"
+text = "うん、汗もよく吸ってくれて\nすごく使いやすいの"
+subtitle = ""
+audio = "voices/mikoto/s61_10125003_00_0040.mp3"
+seconds = 4.63
+kind = "birthday"
+
+[[line]]
+character = "mikoto"
+story = "s61_10125003_00"
+line = "0050"
+text = "だから、プロデューサーにも\nよかったら"
+subtitle = ""
+audio = "voices/mikoto/s61_10125003_00_0050.mp3"
+seconds = 2.93
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s01_05010000_05"
+line = "0060"
+text = "それじゃ、愛依ちゃんじゃないっすよ\n嘘になっちゃうっす"
+subtitle = "那样就不是爱依了哦\n会变成说谎的"
+audio = "voices/asahi/s01_05010000_05_0060.mp3"
+seconds = 4.10
+kind = "quote"
+
+[[line]]
+character = "asahi"
+story = "s20_11700100_01"
+line = "0020"
+text = "大丈夫っす！　スタッフさんに懐中電灯も借りたっすよ！\nこの先の清流にいるらしいっす"
+subtitle = "没问题！我已经跟工作人员借了手电筒了！\n据说就在前面的清流里"
+audio = "voices/asahi/s20_11700100_01_0020.mp3"
+seconds = 7.34
+kind = "quote"
+
+[[line]]
+character = "asahi"
+story = "s61_10117001_00"
+line = "0010"
+text = "プロデューサーさん\n紙コップとか、ラップの芯とか輪ゴムとかないっすか"
+subtitle = "制作人\n有纸杯、保鲜膜芯和橡皮筋吗"
+audio = "voices/asahi/s61_10117001_00_0010.mp3"
+seconds = 5.45
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117001_00"
+line = "0030"
+text = "ほんとっすか？\nいっぱい作りたいから助かるっす"
+subtitle = "真的吗？\n我想做很多，帮大忙了"
+audio = "voices/asahi/s61_10117001_00_0030.mp3"
+seconds = 3.38
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117001_00"
+line = "0050"
+text = "クラッカーっす！\n今日はいっぱい鳴らす日っすよね！"
+subtitle = "拉炮！\n今天是要拉很多响炮的日子对吧！"
+audio = "voices/asahi/s61_10117001_00_0050.mp3"
+seconds = 3.24
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117002_00"
+line = "0010"
+text = "ハッピーバースデーって、\n何がハッピーなんすか？"
+subtitle = "生日快乐什么的，\n到底哪里快乐了？"
+audio = "voices/asahi/s61_10117002_00_0010.mp3"
+seconds = 3.91
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117002_00"
+line = "0030"
+text = "ふーん…………"
+subtitle = "嗯——…………"
+audio = "voices/asahi/s61_10117002_00_0030.mp3"
+seconds = 1.13
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117002_00"
+line = "0040"
+text = "プロデューサーさんは、\n生まれてきて嬉しいっすか？"
+subtitle = "制作人，\n你觉得来到这个世界上高兴吗？"
+audio = "voices/asahi/s61_10117002_00_0040.mp3"
+seconds = 3.22
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117002_00"
+line = "0060"
+text = "それ、ハッピーってことっすか？\nあはは……！"
+subtitle = "那就是快乐的意思吗？\n啊哈哈……！"
+audio = "voices/asahi/s61_10117002_00_0060.mp3"
+seconds = 4.34
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117003_00"
+line = "0010"
+text = "プロデューサーさん！\nちょっとついてきてほしいっす！"
+subtitle = ""
+audio = "voices/asahi/s61_10117003_00_0010.mp3"
+seconds = 3.10
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117003_00"
+line = "0020"
+text = "早く早くー！\nちょうど今、よく見えるとこっすよ！"
+subtitle = ""
+audio = "voices/asahi/s61_10117003_00_0020.mp3"
+seconds = 4.44
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117003_00"
+line = "0040"
+text = "そうっす！　月って買えるらしいんす！"
+subtitle = ""
+audio = "voices/asahi/s61_10117003_00_0040.mp3"
+seconds = 3.34
+kind = "birthday"
+
+[[line]]
+character = "asahi"
+story = "s61_10117003_00"
+line = "0050"
+text = "いつかわたしが、\nプロデューサーさんにプレゼントするっすよ！"
+subtitle = ""
+audio = "voices/asahi/s61_10117003_00_0050.mp3"
+seconds = 3.60
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s01_05020000_04"
+line = "0050"
+text = "あんなの、絶対勝てるわけないじゃない\nあんなの…………やってらんないわよ"
+subtitle = "那种东西，绝对不可能赢得了吧\n那种东西…………真是干不下去啊"
+audio = "voices/fuyuko/s01_05020000_04_0050.mp3"
+seconds = 9.19
+kind = "quote"
+
+[[line]]
+character = "fuyuko"
+story = "s01_05020000_05"
+line = "0150"
+text = "──なら教えて、あさひ\nあんたはなんで、アイドルやってるの"
+subtitle = "──那就告诉我，朝日\n你为什么要当偶像"
+audio = "voices/fuyuko/s01_05020000_05_0150.mp3"
+seconds = 7.27
+kind = "quote"
+
+[[line]]
+character = "fuyuko"
+story = "s02_01180000_01"
+line = "0070"
+text = "はっ、やめてってば\nふゆ、あの子と仲良しこよしするつもりなんかないんだから"
+subtitle = "哈，算了吧\n冬优可没打算跟那孩子要好"
+audio = "voices/fuyuko/s02_01180000_01_0070.mp3"
+seconds = 7.82
+kind = "quote"
+
+[[line]]
+character = "fuyuko"
+story = "s09_02011800_02"
+line = "0070"
+text = "ふふ、ありがとう\nそれじゃ、またね"
+subtitle = "呵呵，谢谢\n那就，再见啦"
+audio = "voices/fuyuko/s09_02011800_02_0070.mp3"
+seconds = 4.15
+kind = "quote"
+
+[[line]]
+character = "fuyuko"
+story = "s10_21800300_01"
+line = "0090"
+text = "あんたこそ、人のことばかり心配してないで\n自分の体調も労わりなさいよ"
+subtitle = "倒是你，别光顾着担心别人\n也好好照顾一下自己的身体"
+audio = "voices/fuyuko/s10_21800300_01_0090.mp3"
+seconds = 6.91
+kind = "quote"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118001_00"
+line = "0010"
+text = "あんた\n今日が何の日か、ちゃんとわかってる？"
+subtitle = "你\n知道今天是什么日子吧？"
+audio = "voices/fuyuko/s61_10118001_00_0010.mp3"
+seconds = 3.94
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118001_00"
+line = "0030"
+text = "ばーか\nあんたの誕生日でしょ"
+subtitle = "笨——蛋\n是你的生日啦"
+audio = "voices/fuyuko/s61_10118001_00_0030.mp3"
+seconds = 3.53
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118001_00"
+line = "0050"
+text = "大事な日なんだから\n忘れるんじゃないわよ"
+subtitle = "这么重要的日子\n可别忘掉啊"
+audio = "voices/fuyuko/s61_10118001_00_0050.mp3"
+seconds = 3.67
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118002_00"
+line = "0010"
+text = "お誕生日おめでとうございます\nプロデューサーさん♡"
+subtitle = "生日快乐\n制作人♡"
+audio = "voices/fuyuko/s61_10118002_00_0010.mp3"
+seconds = 3.29
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118002_00"
+line = "0020"
+text = "いつも迷惑ばかりかけてごめんなさい\nふゆと一緒にいるの、大変な時もありますよね……"
+subtitle = "总是给你添麻烦，真的很抱歉\n和冬优子在一起，有时候也会很辛苦吧……"
+audio = "voices/fuyuko/s61_10118002_00_0020.mp3"
+seconds = 9.10
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118002_00"
+line = "0030"
+text = "だけど、それでも、\nプロデューサーさんがそばにいてくれるから──"
+subtitle = "但是，即便如此，\n因为制作人愿意陪在我身边——"
+audio = "voices/fuyuko/s61_10118002_00_0030.mp3"
+seconds = 5.30
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118002_00"
+line = "0040"
+text = "ふゆは『アイドルのふゆ』でいられます\nありがとう……そしてこれからもよろしくお願いします"
+subtitle = "冬优子才能做『偶像的冬优子』\n谢谢你……今后也请多多关照"
+audio = "voices/fuyuko/s61_10118002_00_0040.mp3"
+seconds = 8.88
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118002_00"
+line = "0060"
+text = "ストップ\n悪いけど、これに返事をするのは無粋ってものよ"
+subtitle = "打住\n不好意思，对这种话做出回应可就太不解风情了"
+audio = "voices/fuyuko/s61_10118002_00_0060.mp3"
+seconds = 6.05
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118003_00"
+line = "0020"
+text = "あんた、いっつもデスクにへばりついてるでしょ\n肩、カッチカチなんじゃないかと思って"
+subtitle = ""
+audio = "voices/fuyuko/s61_10118003_00_0020.mp3"
+seconds = 7.92
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118003_00"
+line = "0040"
+text = "助かると思ってあげたんだから\nトーゼンでしょ"
+subtitle = ""
+audio = "voices/fuyuko/s61_10118003_00_0040.mp3"
+seconds = 3.41
+kind = "birthday"
+
+[[line]]
+character = "fuyuko"
+story = "s61_10118003_00"
+line = "0050"
+text = "……その分、ふゆのために\nもーっと働いてもらわなきゃね？"
+subtitle = ""
+audio = "voices/fuyuko/s61_10118003_00_0050.mp3"
+seconds = 5.14
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s01_05010000_02"
+line = "0200"
+text = "お客さん、全然いないんですけど～～～～！？！？"
+subtitle = "结果完全没有客人来啊～～～～！？！？"
+audio = "voices/mei/s01_05010000_02_0200.mp3"
+seconds = 3.79
+kind = "quote"
+
+[[line]]
+character = "mei"
+story = "s02_02190000_03"
+line = "0150"
+text = "うちらのレベルが上がれば\nそっちもいいカンジになるっしょ！"
+subtitle = "我们的水平上去了的话\n那边也会变得更好吧！"
+audio = "voices/mei/s02_02190000_03_0150.mp3"
+seconds = 4.20
+kind = "quote"
+
+[[line]]
+character = "mei"
+story = "s02_03190000_01"
+line = "0060"
+text = "…………"
+subtitle = "…………"
+audio = "voices/mei/s02_03190000_01_0060.mp3"
+seconds = 1.39
+kind = "quote"
+
+[[line]]
+character = "mei"
+story = "s20_11700100_01"
+line = "0010"
+text = "幽霊……見に行くの……？\n止めない……？　暗いし……"
+subtitle = "幽灵……要去看吗……？\n不拦我吗……？天很暗的……"
+audio = "voices/mei/s20_11700100_01_0010.mp3"
+seconds = 6.96
+kind = "quote"
+
+[[line]]
+character = "mei"
+story = "s43_02010000_05"
+line = "0290"
+text = "……！\nよっしゃ！"
+subtitle = "……！\n太好了！"
+audio = "voices/mei/s43_02010000_05_0290.mp3"
+seconds = 2.38
+kind = "quote"
+
+[[line]]
+character = "mei"
+story = "s61_10119001_00"
+line = "0010"
+text = "プロデューサー！\nおっめでとう～♪"
+subtitle = "制作人！\n生日快乐～♪"
+audio = "voices/mei/s61_10119001_00_0010.mp3"
+seconds = 3.07
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119001_00"
+line = "0020"
+text = "イェーイ！\nほらほら、プロデューサーも一緒に～"
+subtitle = "耶——！\n来来来，制作人也一起～"
+audio = "voices/mei/s61_10119001_00_0020.mp3"
+seconds = 4.46
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119001_00"
+line = "0030"
+text = "イェーイ！"
+subtitle = "耶——！"
+audio = "voices/mei/s61_10119001_00_0030.mp3"
+seconds = 1.73
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119001_00"
+line = "0050"
+text = "マジで！？　じゃ、さっそくツーショの自撮りしよ～！\nプロデューサー誕生日記念のやつ～♪"
+subtitle = "真的假的！？　那，赶紧来拍张双人自拍吧～！\n制作人诞生日纪念版～♪"
+audio = "voices/mei/s61_10119001_00_0050.mp3"
+seconds = 7.58
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119002_00"
+line = "0010"
+text = "プロデューサー\n誕生日、おめでとう"
+subtitle = "制作人\n生日快乐"
+audio = "voices/mei/s61_10119002_00_0010.mp3"
+seconds = 3.38
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119002_00"
+line = "0030"
+text = "いつも『最初のファン』って言ってくれるでしょ？\nだから、こうやってお祝いするのもいいかなって……どう？"
+subtitle = "你不是总说我是『第一位粉丝』吗？\n所以我想，这样来给你庆祝也不错……怎么样？"
+audio = "voices/mei/s61_10119002_00_0030.mp3"
+seconds = 9.70
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119002_00"
+line = "0050"
+text = "よかった\nそれじゃ──……"
+subtitle = "太好了\n那么——……"
+audio = "voices/mei/s61_10119002_00_0050.mp3"
+seconds = 3.00
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119002_00"
+line = "0060"
+text = "誕生日記念のツーショ、撮ろう\nイェーイ"
+subtitle = "来拍张生日纪念的双人照吧\n耶——"
+audio = "voices/mei/s61_10119002_00_0060.mp3"
+seconds = 5.06
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119003_00"
+line = "0010"
+text = "プロデューサー！\n開けて開けて！"
+subtitle = ""
+audio = "voices/mei/s61_10119003_00_0010.mp3"
+seconds = 2.62
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119003_00"
+line = "0030"
+text = "うん、いろいろ温泉の素が入ってて、\nとにかくいっぱい楽しめるカンジのやつ！"
+subtitle = ""
+audio = "voices/mei/s61_10119003_00_0030.mp3"
+seconds = 6.43
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119003_00"
+line = "0040"
+text = "プロデューサー、いっつも遅くまで頑張ってんじゃん？\nこれで疲れ取ってほしいなって！"
+subtitle = ""
+audio = "voices/mei/s61_10119003_00_0040.mp3"
+seconds = 6.77
+kind = "birthday"
+
+[[line]]
+character = "mei"
+story = "s61_10119003_00"
+line = "0050"
+text = "ホントはあんまり無理してほしくないんだけど……\nいつもありがとう、プロデューサー！"
+subtitle = ""
+audio = "voices/mei/s61_10119003_00_0050.mp3"
+seconds = 8.09
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s01_03010000_00"
+line = "0050"
+text = "新しい必殺技を覚えるために、合宿でがんばってたんです！\nみんなそれぞれ強くなって、カッコよくなってました！"
+subtitle = "为了学会新的必杀技，他们在合宿中拼命努力！\n大家都变强了，变得超帅的！"
+audio = "voices/kaho/s01_03010000_00_0050.mp3"
+seconds = 9.62
+kind = "quote"
+
+[[line]]
+character = "kaho"
+story = "s44_01090100_00"
+line = "0310"
+text = "……"
+subtitle = ""
+audio = "voices/kaho/s44_01090100_00_0310.mp3"
+seconds = 0.98
+kind = "quote"
+
+[[line]]
+character = "kaho"
+story = "s44_01090101_00"
+line = "0430"
+text = "ちょっと、ついてきてくれませんか！？"
+subtitle = ""
+audio = "voices/kaho/s44_01090101_00_0430.mp3"
+seconds = 2.09
+kind = "quote"
+
+[[line]]
+character = "kaho"
+story = "s61_10109001_00"
+line = "0010"
+text = "プロデューサーさんプロデューサーさん\nプロデューサーさーん！"
+subtitle = "制作人制作人\n制作人先—生！"
+audio = "voices/kaho/s61_10109001_00_0010.mp3"
+seconds = 3.96
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109001_00"
+line = "0020"
+text = "お誕生日！　おめでとうございます！！"
+subtitle = "生日快乐！！"
+audio = "voices/kaho/s61_10109001_00_0020.mp3"
+seconds = 3.05
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109001_00"
+line = "0040"
+text = "プロデューサーさん、\nパワーアップして強くなったんですよね……っ"
+subtitle = "制作人，\n升级之后变得更强了对吧……！"
+audio = "voices/kaho/s61_10109001_00_0040.mp3"
+seconds = 6.70
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109001_00"
+line = "0050"
+text = "今日からのあたしたちは\nスッゴくスッゴくスーッゴく強いってことですね……！"
+subtitle = "也就是说从今天起的我们\n会变得超超超——级强对吧……！"
+audio = "voices/kaho/s61_10109001_00_0050.mp3"
+seconds = 7.27
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109002_00"
+line = "0010"
+text = "プロデューサーさん、\nお誕生日おめでとうございます！！"
+subtitle = "制作人，\n生日快乐！！"
+audio = "voices/kaho/s61_10109002_00_0010.mp3"
+seconds = 4.99
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109002_00"
+line = "0020"
+text = "昨日よりもっと『大人』になったんですね！\n強くて、カッコよくて、スゴいです！"
+subtitle = "比昨天更加『成熟』了呢！\n又强大，又帅气，好厉害！"
+audio = "voices/kaho/s61_10109002_00_0020.mp3"
+seconds = 7.90
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109002_00"
+line = "0060"
+text = "…………？\nえへへ、あたしのおかげですか……？"
+subtitle = "…………？\n嘿嘿，是因为我吗……？"
+audio = "voices/kaho/s61_10109002_00_0060.mp3"
+seconds = 6.48
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109003_00"
+line = "0010"
+text = "プロデューサーさん、お誕生日おめでとうございます！"
+subtitle = ""
+audio = "voices/kaho/s61_10109003_00_0010.mp3"
+seconds = 4.30
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109003_00"
+line = "0020"
+text = "これ、プレゼントです！\n受け取ってください！"
+subtitle = ""
+audio = "voices/kaho/s61_10109003_00_0020.mp3"
+seconds = 3.77
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109003_00"
+line = "0040"
+text = "はい！\nお父さんとお母さんの意見も聞いて、選びました！"
+subtitle = ""
+audio = "voices/kaho/s61_10109003_00_0040.mp3"
+seconds = 4.87
+kind = "birthday"
+
+[[line]]
+character = "kaho"
+story = "s61_10109003_00"
+line = "0050"
+text = "カッコよくて、色がオトナっぽくて、\nあたしがもらったらうれしいものです！！"
+subtitle = ""
+audio = "voices/kaho/s61_10109003_00_0050.mp3"
+seconds = 6.26
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s07_10000000_01"
+line = "0010"
+text = "よかったらチョコなどいかかでしょうか……！\n今月のベストワンのやつ！　です！"
+subtitle = "如果不嫌弃的话，来点巧克力怎么样……！\n是这个月最佳的那款！呢！"
+audio = "voices/chiyoko/s07_10000000_01_0010.mp3"
+seconds = 6.24
+kind = "quote"
+
+[[line]]
+character = "chiyoko"
+story = "s44_01100103_00"
+line = "0300"
+text = "は、はい！　どうかしましたか？"
+subtitle = ""
+audio = "voices/chiyoko/s44_01100103_00_0300.mp3"
+seconds = 3.38
+kind = "quote"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110001_00"
+line = "0010"
+text = "お誕生日おめでとうございます、プロデューサーさん！\n何かご希望、ありませんか？"
+subtitle = "生日快乐，制作人！\n有什么愿望吗？"
+audio = "voices/chiyoko/s61_10110001_00_0010.mp3"
+seconds = 5.90
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110001_00"
+line = "0030"
+text = "はい！　お誕生日なので！\n不肖・園田智代子、お願いごとなどを叶えたいと思います！"
+subtitle = "是的！因为是您的生日！\n不才园田智代子，想要为您实现心愿！"
+audio = "voices/chiyoko/s61_10110001_00_0030.mp3"
+seconds = 6.48
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110001_00"
+line = "0040"
+text = "……とはいえ、ちょっとしたことしか\nできないかもなんですけどね……！"
+subtitle = "……话虽如此，可能也只能做到一些小事就是了……！"
+audio = "voices/chiyoko/s61_10110001_00_0040.mp3"
+seconds = 4.94
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110002_00"
+line = "0010"
+text = "お誕生日おめでとうございます！\n今日は『プロデューサーさんの日』、ですね！"
+subtitle = "生日快乐！\n今天是『制作人日』呢！"
+audio = "voices/chiyoko/s61_10110002_00_0010.mp3"
+seconds = 6.05
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110002_00"
+line = "0030"
+text = "もちろんです！　２月にチョコアイドルの日があるように、\nプロデューサーさんの日も必要なんです！"
+subtitle = "当然啦！就像二月有巧克力偶像日一样，\n制作人日也是必需的！"
+audio = "voices/chiyoko/s61_10110002_00_0030.mp3"
+seconds = 6.84
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110002_00"
+line = "0050"
+text = "感謝の気持ちはこちらこそです！\nたくさんお祝いさせてくださいね……！"
+subtitle = "该说感谢的是我才对！\n请让我好好为您庆祝吧……！"
+audio = "voices/chiyoko/s61_10110002_00_0050.mp3"
+seconds = 5.28
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110003_00"
+line = "0010"
+text = "プロデューサーさん、\nお誕生日おめでとうございます！"
+subtitle = ""
+audio = "voices/chiyoko/s61_10110003_00_0010.mp3"
+seconds = 3.79
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110003_00"
+line = "0020"
+text = "今日という日のお祝いに\nとっておきのチョコをご用意しましたっ！"
+subtitle = ""
+audio = "voices/chiyoko/s61_10110003_00_0020.mp3"
+seconds = 4.73
+kind = "birthday"
+
+[[line]]
+character = "chiyoko"
+story = "s61_10110003_00"
+line = "0030"
+text = "濃厚クリーミー、くちどけも軽やかなチョコで\n日頃の疲れも取っていただけたらと思います……！"
+subtitle = ""
+audio = "voices/chiyoko/s61_10110003_00_0030.mp3"
+seconds = 7.01
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s09_02011100_02"
+line = "0100"
+text = "サンキュ、プロデューサー"
+subtitle = "谢啦，制作人"
+audio = "voices/juri/s09_02011100_02_0100.mp3"
+seconds = 1.85
+kind = "quote"
+
+[[line]]
+character = "juri"
+story = "s61_10111001_00"
+line = "0010"
+text = "プロデューサー、今日、誕生日なんだってな？\nおめでとう……！"
+subtitle = "制作人，听说今天是你的生日？\n恭喜……！"
+audio = "voices/juri/s61_10111001_00_0010.mp3"
+seconds = 4.90
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111001_00"
+line = "0030"
+text = "年を重ねて、なんか新しい目標とか\n心構えとかあったりするか？"
+subtitle = "又长了一岁，有没有什么新的目标\n或者想法之类的？"
+audio = "voices/juri/s61_10111001_00_0030.mp3"
+seconds = 6.07
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111001_00"
+line = "0050"
+text = "アタシも、それの力になりたいからさ\nなんかあったら教えてくれよ"
+subtitle = "我也想帮你实现那些目标\n有什么的话就跟我说"
+audio = "voices/juri/s61_10111001_00_0050.mp3"
+seconds = 5.64
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111002_00"
+line = "0010"
+text = "悪い、今ちょっといいか？\n耳だけ貸してくれたら"
+subtitle = "抱歉，现在方便吗？\n只要借我一下耳朵就好"
+audio = "voices/juri/s61_10111002_00_0010.mp3"
+seconds = 4.82
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111002_00"
+line = "0030"
+text = "ん……\n誕生日おめでとうって言いたくてさ"
+subtitle = "嗯……\n想跟你说声生日快乐"
+audio = "voices/juri/s61_10111002_00_0030.mp3"
+seconds = 5.62
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111002_00"
+line = "0040"
+text = "プロデューサーには感謝してる\n……多分、アンタが思う以上に感謝してる"
+subtitle = "我很感谢制作人\n……大概，比你想象的还要感谢"
+audio = "voices/juri/s61_10111002_00_0040.mp3"
+seconds = 6.60
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111002_00"
+line = "0050"
+text = "アタシが大人になった時、\nアンタみたいになれたらいいなって、そう思ってるんだ"
+subtitle = "等我长大成人了，\n希望能成为像你一样的人，我是这么想的"
+audio = "voices/juri/s61_10111002_00_0050.mp3"
+seconds = 7.20
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111002_00"
+line = "0060"
+text = "────それだけ！\nごめんな、時間取らせて……じゃ！"
+subtitle = "——就这些！\n抱歉，耽误你时间了……那我走了！"
+audio = "voices/juri/s61_10111002_00_0060.mp3"
+seconds = 4.22
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111003_00"
+line = "0010"
+text = "プロデューサー、今日だよな、誕生日\nいつも世話になってるから、これ……受け取ってくれ"
+subtitle = ""
+audio = "voices/juri/s61_10111003_00_0010.mp3"
+seconds = 11.04
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111003_00"
+line = "0030"
+text = "こないだ目頭揉んでただろ？\n目が疲れてんのかなって思ってて"
+subtitle = ""
+audio = "voices/juri/s61_10111003_00_0030.mp3"
+seconds = 5.90
+kind = "birthday"
+
+[[line]]
+character = "juri"
+story = "s61_10111003_00"
+line = "0040"
+text = "ドラッグストアで、何度も使えるホットアイマスクっての\n見かけて、これだ！　って……"
+subtitle = ""
+audio = "voices/juri/s61_10111003_00_0040.mp3"
+seconds = 6.22
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112001_00"
+line = "0010"
+text = "プロデューサーさま……\nお誕生日……おめでとうございます……"
+subtitle = "制作人大人……\n生日快乐……"
+audio = "voices/rinze/s61_10112001_00_0010.mp3"
+seconds = 6.67
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112001_00"
+line = "0030"
+text = "ふふ……"
+subtitle = "呵呵……"
+audio = "voices/rinze/s61_10112001_00_0030.mp3"
+seconds = 0.38
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112001_00"
+line = "0040"
+text = "プロデューサーさまを……\nお祝いする日……"
+subtitle = "为制作人大人……\n庆祝的日子……"
+audio = "voices/rinze/s61_10112001_00_0040.mp3"
+seconds = 3.86
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112001_00"
+line = "0050"
+text = "凛世が……忘れるなど……"
+subtitle = "凛世……怎会忘记……"
+audio = "voices/rinze/s61_10112001_00_0050.mp3"
+seconds = 3.17
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112002_00"
+line = "0010"
+text = "プロデューサーさま……\nお誕生日、おめでとうございます……"
+subtitle = "制作人大人……\n生日快乐……"
+audio = "voices/rinze/s61_10112002_00_0010.mp3"
+seconds = 6.50
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112002_00"
+line = "0030"
+text = "はい……"
+subtitle = "嗯……"
+audio = "voices/rinze/s61_10112002_00_0030.mp3"
+seconds = 0.67
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112002_00"
+line = "0040"
+text = "……………………"
+subtitle = "……………………"
+audio = "voices/rinze/s61_10112002_00_0040.mp3"
+seconds = 5.50
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112002_00"
+line = "0050"
+text = "凛世を……\nこれから先も……ずっとおそばに……"
+subtitle = "请让凛世……\n从今往后……也一直陪伴在您身边……"
+audio = "voices/rinze/s61_10112002_00_0050.mp3"
+seconds = 5.81
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112002_00"
+line = "0060"
+text = "一番近くに……\n置いてくださいませ……"
+subtitle = "放在……\n最近的地方……"
+audio = "voices/rinze/s61_10112002_00_0060.mp3"
+seconds = 4.75
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112003_00"
+line = "0030"
+text = "……\n素敵な花を……見つけ……"
+subtitle = ""
+audio = "voices/rinze/s61_10112003_00_0030.mp3"
+seconds = 5.33
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112003_00"
+line = "0040"
+text = "花言葉は……\n変わらぬあ──"
+subtitle = ""
+audio = "voices/rinze/s61_10112003_00_0040.mp3"
+seconds = 3.50
+kind = "birthday"
+
+[[line]]
+character = "rinze"
+story = "s61_10112003_00"
+line = "0050"
+text = "変わらぬ……関係……\nこれからも……凛世は……プロデューサーさまと共に……"
+subtitle = ""
+audio = "voices/rinze/s61_10112003_00_0050.mp3"
+seconds = 11.88
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s01_03020000_02"
+line = "0040"
+text = "──よし、完璧よ！"
+subtitle = "——好，完美！"
+audio = "voices/natsuha/s01_03020000_02_0040.mp3"
+seconds = 1.94
+kind = "quote"
+
+[[line]]
+character = "natsuha"
+story = "s02_01130000_04"
+line = "0100"
+text = "いえ、こちらこそよ、プロデューサー"
+subtitle = "哪里，我才要谢谢你呢，Producer"
+audio = "voices/natsuha/s02_01130000_04_0100.mp3"
+seconds = 3.34
+kind = "quote"
+
+[[line]]
+character = "natsuha"
+story = "s09_03020400_02"
+line = "0130"
+text = "ええ、今日はまだできていない\nトレーニングのメニューがあるのよ"
+subtitle = "嗯，今天还有没做完的\n训练项目呢。"
+audio = "voices/natsuha/s09_03020400_02_0130.mp3"
+seconds = 4.56
+kind = "quote"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113001_00"
+line = "0010"
+text = "アナタ、今日が誕生日よね？"
+subtitle = "你，今天是生日对吧？"
+audio = "voices/natsuha/s61_10113001_00_0010.mp3"
+seconds = 2.50
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113001_00"
+line = "0030"
+text = "あら、もしかして忘れていたの？"
+subtitle = "哎呀，难道你忘了吗？"
+audio = "voices/natsuha/s61_10113001_00_0030.mp3"
+seconds = 2.47
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113001_00"
+line = "0040"
+text = "それならサプライズもできたかしら？\nなんてね……うふふっ！"
+subtitle = "那样的话是不是还能搞个惊喜呢？\n开玩笑的……呵呵！"
+audio = "voices/natsuha/s61_10113001_00_0040.mp3"
+seconds = 6.55
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113001_00"
+line = "0050"
+text = "あらためて……おめでとうプロデューサー！\n一緒に最高の年にしましょうね！"
+subtitle = "正式地说一次……生日快乐，制作人！\n一起创造最棒的一年吧！"
+audio = "voices/natsuha/s61_10113001_00_0050.mp3"
+seconds = 6.26
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113002_00"
+line = "0010"
+text = "プロデューサー\n素晴らしい一年を始める準備はできた？"
+subtitle = "制作人\n准备好开启精彩的一年了吗？"
+audio = "voices/natsuha/s61_10113002_00_0010.mp3"
+seconds = 4.15
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113002_00"
+line = "0030"
+text = "あら、今日が誕生日でしょう？\nとぼけた顔しないで"
+subtitle = "哎呀，今天是你生日对吧？\n别装糊涂"
+audio = "voices/natsuha/s61_10113002_00_0030.mp3"
+seconds = 4.39
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113002_00"
+line = "0040"
+text = "素敵な一年にするのは最初が肝心よ！\n叶えたい夢、希望……たくさん考えておかなくちゃ"
+subtitle = "要度过美好的一年，开头最重要！\n想实现的梦想、希望……得好好想清楚才行"
+audio = "voices/natsuha/s61_10113002_00_0040.mp3"
+seconds = 8.38
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113002_00"
+line = "0060"
+text = "ええ！　よければ私も手伝うわ\nアナタの夢は、私の夢でもあるんだから……！"
+subtitle = "嗯！如果你愿意的话，我也来帮忙\n你的梦想，也是我的梦想啊……！"
+audio = "voices/natsuha/s61_10113002_00_0060.mp3"
+seconds = 7.20
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113003_00"
+line = "0040"
+text = "アナタが笑われるなんて\n我慢できないんだもの"
+subtitle = ""
+audio = "voices/natsuha/s61_10113003_00_0040.mp3"
+seconds = 3.36
+kind = "birthday"
+
+[[line]]
+character = "natsuha"
+story = "s61_10113003_00"
+line = "0050"
+text = "いつも頑張ってくれて、ありがとう────"
+subtitle = ""
+audio = "voices/natsuha/s61_10113003_00_0050.mp3"
+seconds = 2.95
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s10_11400100_01"
+line = "0060"
+text = "特等席だねっ！"
+subtitle = "是特等席呢！"
+audio = "voices/amana/s10_11400100_01_0060.mp3"
+seconds = 1.58
+kind = "quote"
+
+[[line]]
+character = "amana"
+story = "s20_11400100_01"
+line = "0030"
+text = "少しずつできるようになってるよ\nキレだってはじめより、めっちゃ良くなってるもん！"
+subtitle = "你在一点点进步哦\n动作的流畅度也比一开始好太多了！"
+audio = "voices/amana/s20_11400100_01_0030.mp3"
+seconds = 6.31
+kind = "quote"
+
+[[line]]
+character = "amana"
+story = "s44_01140103_00"
+line = "0090"
+text = "この日は甜花ちゃんが作戦考えてくれて、\n初めてふたりで勝つことができたんだ～！"
+subtitle = ""
+audio = "voices/amana/s44_01140103_00_0090.mp3"
+seconds = 6.58
+kind = "quote"
+
+[[line]]
+character = "amana"
+story = "s61_10114001_00"
+line = "0010"
+text = "プロデューサーさん！\nお誕生日おめでと！"
+subtitle = "制作人！\n生日快乐！"
+audio = "voices/amana/s61_10114001_00_0010.mp3"
+seconds = 3.65
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114001_00"
+line = "0030"
+text = "えへへ……その……\n何かしてほしいこと……ある……？"
+subtitle = "嘿嘿……那个……\n有什么……想让我做的事……吗……？"
+audio = "voices/amana/s61_10114001_00_0030.mp3"
+seconds = 6.98
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114001_00"
+line = "0040"
+text = "な、なんでもはできない……けど……\n甘奈にできることなら……頑張り……ます……！"
+subtitle = "虽、虽然不是什么都能做到……但是……\n只要是甘奈能做到的事……我会努力……的……！"
+audio = "voices/amana/s61_10114001_00_0040.mp3"
+seconds = 9.26
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114002_00"
+line = "0020"
+text = "きゅ、急にごめんね！　プロデューサーさん、\n今日は何時でも大丈夫って言ってたから────"
+subtitle = "突、突然打扰不好意思！制作人，\n你说今天什么时候都可以，所以————"
+audio = "voices/amana/s61_10114002_00_0020.mp3"
+seconds = 7.13
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114002_00"
+line = "0030"
+text = "……あのね、お誕生日おめでとう\n甘奈、誰よりも早く言いたかったの"
+subtitle = "……那个，生日快乐\n甘奈想成为第一个跟你说的人"
+audio = "voices/amana/s61_10114002_00_0030.mp3"
+seconds = 7.08
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114002_00"
+line = "0040"
+text = "いつも甘奈のために頑張ってくれてるの知ってるよ\n本当にありがとう……それから……えっと────"
+subtitle = "我知道你一直在为甘奈努力哦\n真的谢谢你……然后……那个————"
+audio = "voices/amana/s61_10114002_00_0040.mp3"
+seconds = 10.78
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114002_00"
+line = "0050"
+text = "う、ううん、それだけ……！\n……素敵な一日になりますように……！"
+subtitle = "没、没事，就这些……！\n……希望您度过美好的一天……！"
+audio = "voices/amana/s61_10114002_00_0050.mp3"
+seconds = 7.90
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114003_00"
+line = "0040"
+text = "プロデューサーさん、お誕生日おめでとう☆\nこれ、プレゼント！"
+subtitle = ""
+audio = "voices/amana/s61_10114003_00_0040.mp3"
+seconds = 5.88
+kind = "birthday"
+
+[[line]]
+character = "amana"
+story = "s61_10114003_00"
+line = "0050"
+text = "えへへー、プロデューサーさんが好きって言ってたもの、\n気がついたらね、いっぱい覚えちゃってたんだー！"
+subtitle = ""
+audio = "voices/amana/s61_10114003_00_0050.mp3"
+seconds = 8.16
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s42_01040100_00"
+line = "0120"
+text = "は、はい……"
+subtitle = "是、是的……"
+audio = "voices/tenka/s42_01040100_00_0120.mp3"
+seconds = 2.04
+kind = "quote"
+
+[[line]]
+character = "tenka"
+story = "s61_10115001_00"
+line = "0010"
+text = "プロデューサーさん……\nお誕生日、おめでと……！"
+subtitle = "制作人……\n生日快乐……！"
+audio = "voices/tenka/s61_10115001_00_0010.mp3"
+seconds = 4.18
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115001_00"
+line = "0030"
+text = "今日は、甜花が……\nプロデューサーさんのこと、すごい、祝うよ……！"
+subtitle = "今天，甜花会……\n好好给制作人，庆祝的……！"
+audio = "voices/tenka/s61_10115001_00_0030.mp3"
+seconds = 6.34
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115001_00"
+line = "0040"
+text = "……できる範囲で……！！"
+subtitle = "……在力所能及的范围内……！！"
+audio = "voices/tenka/s61_10115001_00_0040.mp3"
+seconds = 1.97
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115002_00"
+line = "0010"
+text = "えと……これ、ファンレター\nプロデューサーさんに……！"
+subtitle = "那个……这个，粉丝信\n给制作人……！"
+audio = "voices/tenka/s61_10115002_00_0010.mp3"
+seconds = 6.74
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115002_00"
+line = "0030"
+text = "し、知らない人から……"
+subtitle = "不、不认识的人……"
+audio = "voices/tenka/s61_10115002_00_0030.mp3"
+seconds = 3.07
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115002_00"
+line = "0050"
+text = "……！　あ、あとで……\nひとりで読んでねって、言ってた……かも"
+subtitle = "……！　啊、待会儿……\n一个人看，她说的……大概"
+audio = "voices/tenka/s61_10115002_00_0050.mp3"
+seconds = 7.80
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115002_00"
+line = "0070"
+text = "にへへ……！\nお誕生日、おめでと……！"
+subtitle = "嘿嘿……！\n生日快乐……！"
+audio = "voices/tenka/s61_10115002_00_0070.mp3"
+seconds = 4.85
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115003_00"
+line = "0010"
+text = "プロデューサーさん……今日、誕生日だよね……？\nこれ……プレゼント……"
+subtitle = ""
+audio = "voices/tenka/s61_10115003_00_0010.mp3"
+seconds = 7.85
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115003_00"
+line = "0040"
+text = "にへへ……アルストアクスタガシャ……\nさっき引いたの、けっこう、かぶったから……"
+subtitle = ""
+audio = "voices/tenka/s61_10115003_00_0040.mp3"
+seconds = 9.05
+kind = "birthday"
+
+[[line]]
+character = "tenka"
+story = "s61_10115003_00"
+line = "0050"
+text = "甜花のアクスタ、誰かにあげたくて……\nだったらやっぱり、プロデューサーさんにって……"
+subtitle = ""
+audio = "voices/tenka/s61_10115003_00_0050.mp3"
+seconds = 9.67
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s01_04020000_04"
+line = "0020"
+text = "そう、絵本は『ハッピーエンド』で終わるけど、\n現実は続いていくから"
+subtitle = "是啊，绘本在“大团圆结局”就结束了，\n但现实还会继续下去"
+audio = "voices/chiyuki/s01_04020000_04_0020.mp3"
+seconds = 7.01
+kind = "quote"
+
+[[line]]
+character = "chiyuki"
+story = "s20_11600100_01"
+line = "0010"
+text = "で、でも……"
+subtitle = "可，可是……"
+audio = "voices/chiyuki/s20_11600100_01_0010.mp3"
+seconds = 1.92
+kind = "quote"
+
+[[line]]
+character = "chiyuki"
+story = "s44_01160100_00"
+line = "0480"
+text = "……ありがたいお言葉ですけど……\nその……少し、お返事を待ってもらえるでしょうか"
+subtitle = ""
+audio = "voices/chiyuki/s44_01160100_00_0480.mp3"
+seconds = 7.85
+kind = "quote"
+
+[[line]]
+character = "chiyuki"
+story = "s44_01160103_00"
+line = "0050"
+text = "子どもたちが楽しめるように、\n私も楽しんできますね"
+subtitle = ""
+audio = "voices/chiyuki/s44_01160103_00_0050.mp3"
+seconds = 4.78
+kind = "quote"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116001_00"
+line = "0010"
+text = "お誕生日おめでとうございます、\nプロデューサーさん！"
+subtitle = "生日快乐，\n制作人！"
+audio = "voices/chiyuki/s61_10116001_00_0010.mp3"
+seconds = 3.70
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116001_00"
+line = "0030"
+text = "ふふっ、そうですね……\nいいことありました、プロデューサーさん"
+subtitle = "呵呵，是啊……\n有好事呢，制作人"
+audio = "voices/chiyuki/s61_10116001_00_0030.mp3"
+seconds = 6.29
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116001_00"
+line = "0040"
+text = "どんなお祝いをしたら喜んでくださるかなって\n色々考えてたら、楽しくなっちゃって……"
+subtitle = "想着要怎样庆祝您才会开心呢，\n想了好多好多，就忍不住高兴起来了……"
+audio = "voices/chiyuki/s61_10116001_00_0040.mp3"
+seconds = 7.92
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116002_00"
+line = "0010"
+text = "プロデューサーさん\nお誕生日おめでとうございます♪"
+subtitle = "制作人\n生日快乐♪"
+audio = "voices/chiyuki/s61_10116002_00_0010.mp3"
+seconds = 4.25
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116002_00"
+line = "0040"
+text = "その気持ちもわかる気がしますけど……\n大丈夫です、代わりに私が覚えておきますから"
+subtitle = "那种心情我也能理解……\n不过没关系，我会替您记住的"
+audio = "voices/chiyuki/s61_10116002_00_0040.mp3"
+seconds = 10.44
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116002_00"
+line = "0060"
+text = "ふふ……！\nプロデューサーさんの記憶にお邪魔しちゃっていいんです？"
+subtitle = "呵呵……！\n可以让我住进制作人的记忆里吗？"
+audio = "voices/chiyuki/s61_10116002_00_0060.mp3"
+seconds = 6.70
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116003_00"
+line = "0030"
+text = "プロデューサーさん、お疲れ様です\nお誕生日なのに精が出ますね"
+subtitle = ""
+audio = "voices/chiyuki/s61_10116003_00_0030.mp3"
+seconds = 6.24
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116003_00"
+line = "0040"
+text = "よければこれ、試してみてくださいね\nそのままなめても、紅茶に入れても喉に効きます"
+subtitle = ""
+audio = "voices/chiyuki/s61_10116003_00_0040.mp3"
+seconds = 8.02
+kind = "birthday"
+
+[[line]]
+character = "chiyuki"
+story = "s61_10116003_00"
+line = "0050"
+text = "それに、甘いものをとると……\nちょっと、疲れが和らぐような気がしません？"
+subtitle = ""
+audio = "voices/chiyuki/s61_10116003_00_0050.mp3"
+seconds = 7.94
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s06_26040000_01"
+line = "0010"
+text = "今週、ラジオ収録？　\nふん……別にいいんじゃねぇの？"
+subtitle = "这周有广播录音？\n哼……也无所谓吧？"
+audio = "voices/luca/s06_26040000_01_0010.mp3"
+seconds = 6.29
+kind = "quote"
+
+[[line]]
+character = "luca"
+story = "s09_02012600_02"
+line = "0090"
+text = "ほっとけよ────"
+subtitle = "别管我————"
+audio = "voices/luca/s09_02012600_02_0090.mp3"
+seconds = 1.01
+kind = "quote"
+
+[[line]]
+character = "luca"
+story = "s44_01260101_00"
+line = "0210"
+text = "初めて、他のアイドルがまぶしく見えた"
+subtitle = ""
+audio = "voices/luca/s44_01260101_00_0210.mp3"
+seconds = 4.63
+kind = "quote"
+
+[[line]]
+character = "luca"
+story = "s44_01260101_00"
+line = "0450"
+text = "！\nありがとう……！"
+subtitle = ""
+audio = "voices/luca/s44_01260101_00_0450.mp3"
+seconds = 2.93
+kind = "quote"
+
+[[line]]
+character = "luca"
+story = "s61_10126001_00"
+line = "0010"
+text = "…………"
+subtitle = "…………"
+audio = "voices/luca/s61_10126001_00_0010.mp3"
+seconds = 1.25
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126001_00"
+line = "0020"
+text = "なんだよそれ────"
+subtitle = "你这算什么啊————"
+audio = "voices/luca/s61_10126001_00_0020.mp3"
+seconds = 1.92
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126001_00"
+line = "0040"
+text = "…………"
+subtitle = "…………"
+audio = "voices/luca/s61_10126001_00_0040.mp3"
+seconds = 1.15
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126001_00"
+line = "0050"
+text = "ふーん"
+subtitle = "哼——"
+audio = "voices/luca/s61_10126001_00_0050.mp3"
+seconds = 1.51
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126002_00"
+line = "0020"
+text = "あ？　なんでオメェなんかと"
+subtitle = "哈？　凭什么要跟你去"
+audio = "voices/luca/s61_10126002_00_0020.mp3"
+seconds = 3.19
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126002_00"
+line = "0040"
+text = "……図々しい"
+subtitle = "……脸皮真厚"
+audio = "voices/luca/s61_10126002_00_0040.mp3"
+seconds = 2.66
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126002_00"
+line = "0060"
+text = "冗談\nパイ投げ会場の間違いだろ"
+subtitle = "开玩笑\n你走错地方了吧，那边是扔派大会的会场"
+audio = "voices/luca/s61_10126002_00_0060.mp3"
+seconds = 3.26
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126003_00"
+line = "0010"
+text = "いつもありがとう、これ……プレゼント……\n喜んでくれるかわかんないけど────"
+subtitle = ""
+audio = "voices/luca/s61_10126003_00_0010.mp3"
+seconds = 8.64
+kind = "birthday"
+
+[[line]]
+character = "luca"
+story = "s61_10126003_00"
+line = "0040"
+text = "こんなもん落ちてたら危ねェだろ……"
+subtitle = ""
+audio = "voices/luca/s61_10126003_00_0040.mp3"
+seconds = 2.86
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s02_03270000_02"
+line = "0120"
+text = "あたしは……\nできれば、レッスンも行きたいかな"
+subtitle = "我嘛……\n如果可以的话，还是想去训练"
+audio = "voices/hana/s02_03270000_02_0120.mp3"
+seconds = 5.35
+kind = "quote"
+
+[[line]]
+character = "hana"
+story = "s20_12600100_01"
+line = "0100"
+text = "はるきちゃん、\nルカちゃんの広告と一緒に写真撮ろーっ"
+subtitle = "阳希，跟路加的广告牌一起拍张照吧！"
+audio = "voices/hana/s20_12600100_01_0100.mp3"
+seconds = 3.24
+kind = "quote"
+
+[[line]]
+character = "hana"
+story = "s42_01250100_04"
+line = "0020"
+text = "ふふ、美味しそうっ"
+subtitle = ""
+audio = "voices/hana/s42_01250100_04_0020.mp3"
+seconds = 2.23
+kind = "quote"
+
+[[line]]
+character = "hana"
+story = "s61_10127001_00"
+line = "0010"
+text = "プロデューサー、今日は特別な日だね"
+subtitle = "制作人，今天是特别的日子呢"
+audio = "voices/hana/s61_10127001_00_0010.mp3"
+seconds = 4.32
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127001_00"
+line = "0030"
+text = "もーっ、プロデューサーの誕生日でしょ？\nあたし、すっごく楽しみにしてたんだよ"
+subtitle = "真是的——，是制作人的生日吧？\n我可是一直超级期待的呢"
+audio = "voices/hana/s61_10127001_00_0030.mp3"
+seconds = 7.01
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127001_00"
+line = "0040"
+text = "プロデューサーが、今までで一番思い出に残る\n誕生日にできたらいいなーって思ってるの、ふふっ"
+subtitle = "我想让今天成为制作人\n有生以来最难忘的一个生日，呵呵"
+audio = "voices/hana/s61_10127001_00_0040.mp3"
+seconds = 6.77
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127002_00"
+line = "0010"
+text = "あ、プロデューサーやっと来たーっ\nあたし、会いたくて待ってたんだよ？"
+subtitle = "啊，制作人你终于来了——\n我一直在等着见你呢？"
+audio = "voices/hana/s61_10127002_00_0010.mp3"
+seconds = 6.65
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127002_00"
+line = "0030"
+text = "ふふっ──！\nううん、大丈夫"
+subtitle = "呵呵——！\n没事没事"
+audio = "voices/hana/s61_10127002_00_0030.mp3"
+seconds = 2.71
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127002_00"
+line = "0040"
+text = "誕生日おめでとうっ\n一緒にいい日にしようね？"
+subtitle = "生日快乐\n一起度过美好的一天吧？"
+audio = "voices/hana/s61_10127002_00_0040.mp3"
+seconds = 3.94
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127003_00"
+line = "0020"
+text = "プロデューサーが\n楽しそうって言ってたなーって思って"
+subtitle = ""
+audio = "voices/hana/s61_10127003_00_0020.mp3"
+seconds = 3.98
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127003_00"
+line = "0040"
+text = "あはっ\n喜んでもらえてよかったー"
+subtitle = ""
+audio = "voices/hana/s61_10127003_00_0040.mp3"
+seconds = 3.58
+kind = "birthday"
+
+[[line]]
+character = "hana"
+story = "s61_10127003_00"
+line = "0050"
+text = "思い出\n一緒に作りに行こうねっ──！"
+subtitle = ""
+audio = "voices/hana/s61_10127003_00_0050.mp3"
+seconds = 3.48
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s09_01012800_01"
+line = "0090"
+text = "なので、まずはプロデューサーさんと\n相談してからと思いまして……！"
+subtitle = "所以，我想先跟制作人商量一下……！"
+audio = "voices/haruki/s09_01012800_01_0090.mp3"
+seconds = 6.02
+kind = "quote"
+
+[[line]]
+character = "haruki"
+story = "s20_12600100_01"
+line = "0090"
+text = "わぁ……！　すっごくおっきいねぇ……！\nかっこいい～！"
+subtitle = "哇……！好大好气派啊……！\n好帅～！"
+audio = "voices/haruki/s20_12600100_01_0090.mp3"
+seconds = 6.94
+kind = "quote"
+
+[[line]]
+character = "haruki"
+story = "s42_01080100_01"
+line = "0100"
+text = "ふふ、そうだねぇ"
+subtitle = "呵呵，好呀。"
+audio = "voices/haruki/s42_01080100_01_0100.mp3"
+seconds = 3.62
+kind = "quote"
+
+[[line]]
+character = "haruki"
+story = "s44_01280101_00"
+line = "0390"
+text = "すごく、すごく勇気をもらいました！\nそれに……ふふ、ありがとうございます────では"
+subtitle = ""
+audio = "voices/haruki/s44_01280101_00_0390.mp3"
+seconds = 11.18
+kind = "quote"
+
+[[line]]
+character = "haruki"
+story = "s61_10128002_00"
+line = "0030"
+text = "ふふ～、もちろんですよ……！\n何日も前からそわそわしてました……！"
+subtitle = "呵呵～，那当然啦……！\n我好几天前就开始坐立不安了呢……！"
+audio = "voices/haruki/s61_10128002_00_0030.mp3"
+seconds = 7.20
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128001_00"
+line = "0010"
+text = "プロデューサーさん……！\n今日、会いたかったです……！"
+subtitle = "制作人……！\n今天，我一直想见到您……！"
+audio = "voices/haruki/s61_10128001_00_0010.mp3"
+seconds = 4.22
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128001_00"
+line = "0030"
+text = "えへへ、だって今日はプロデューサーさんの\nお誕生日ですから……！　おめでとうございます！"
+subtitle = "嘿嘿，因为今天是制作人的\n生日嘛……！　生日快乐！"
+audio = "voices/haruki/s61_10128001_00_0030.mp3"
+seconds = 9.91
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128001_00"
+line = "0040"
+text = "今日はとっても偉大な日ですねぇ\n世界中を祝日にしてもいいと思います……！"
+subtitle = "今天可是非常伟大的日子呢\n我觉得就算把全世界都定为节假日也不为过……！"
+audio = "voices/haruki/s61_10128001_00_0040.mp3"
+seconds = 9.96
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128002_00"
+line = "0010"
+text = "プロデューサーさん、今日はお誕生日ですよね……！\nおめでとうございます"
+subtitle = "制作人，今天是您的生日对吧……！\n生日快乐"
+audio = "voices/haruki/s61_10128002_00_0010.mp3"
+seconds = 7.15
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128002_00"
+line = "0040"
+text = "これからいろんなことがあると思いますけど、わたしは\nいつも、プロデューサーさんの力になりたいって思います"
+subtitle = "今后可能会有各种各样的事情，但我\n一直都想成为制作人的力量"
+audio = "voices/haruki/s61_10128002_00_0040.mp3"
+seconds = 9.62
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128002_00"
+line = "0050"
+text = "それだけは、\n心のどこか片隅に置いておいてほしいです……！"
+subtitle = "这一点，\n希望您能放在心里的某个角落……！"
+audio = "voices/haruki/s61_10128002_00_0050.mp3"
+seconds = 5.52
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128003_00"
+line = "0020"
+text = "はい……！"
+subtitle = ""
+audio = "voices/haruki/s61_10128003_00_0020.mp3"
+seconds = 0.74
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128003_00"
+line = "0030"
+text = "プロデューサーさん、\nいつもお忙しくされているので──"
+subtitle = ""
+audio = "voices/haruki/s61_10128003_00_0030.mp3"
+seconds = 4.22
+kind = "birthday"
+
+[[line]]
+character = "haruki"
+story = "s61_10128003_00"
+line = "0040"
+text = "──たまにはゆっくりコーヒーや紅茶を飲んで\n休憩してもらいたいなぁって思いまして"
+subtitle = ""
+audio = "voices/haruki/s61_10128003_00_0040.mp3"
+seconds = 6.84
+kind = "birthday"
+
+[[line]]
+character = "hazuki"
+story = "s07_90000000_03"
+line = "0010"
+text = "ごめんなさい\n今日はおやつ、無いんです～……"
+subtitle = "对不起\n今天没有点心～……"
+audio = "voices/hazuki/s07_90000000_03_0010.mp3"
+seconds = 4.94
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s07_90000000_07"
+line = "0010"
+text = "交通費と経費の申請、\n忘れずにお願いしますね～？"
+subtitle = "交通费和经费的申请，\n请别忘了哦～？"
+audio = "voices/hazuki/s07_90000000_07_0010.mp3"
+seconds = 5.23
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s20_29000100_01"
+line = "0020"
+text = "頼まれていた資料です♪"
+subtitle = "您要的资料♪"
+audio = "voices/hazuki/s20_29000100_01_0020.mp3"
+seconds = 1.75
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s20_29000100_01"
+line = "0100"
+text = "ふふっ\nそれはお互い様ですよ～"
+subtitle = "呵呵\n彼此彼此啦～"
+audio = "voices/hazuki/s20_29000100_01_0100.mp3"
+seconds = 5.35
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s42_01010300_06"
+line = "0120"
+text = "というわけで、お誘いお待ちしていますね～\nなんて～……"
+subtitle = "那么，我就等着您的邀请了～\n开玩笑的～……"
+audio = "voices/hazuki/s42_01010300_06_0120.mp3"
+seconds = 9.38
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s43_04010000_01"
+line = "0010"
+text = "プロデューサーさん\nおかえりなさい～"
+subtitle = "制作人\n欢迎回来～"
+audio = "voices/hazuki/s43_04010000_01_0010.mp3"
+seconds = 3.29
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s44_01260101_00"
+line = "0030"
+text = "大丈夫でしょうか……\n大規模なオーディションイベントですし……"
+subtitle = ""
+audio = "voices/hazuki/s44_01260101_00_0030.mp3"
+seconds = 5.76
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s80_01020000_00"
+line = "0100"
+text = "ふふっ\nライブ、大成功でしたね……！"
+subtitle = "呵呵\n演唱会，大成功呢……！"
+audio = "voices/hazuki/s80_01020000_00_0100.mp3"
+seconds = 5.11
+kind = "quote"
+
+[[line]]
+character = "hazuki"
+story = "s61_10290001_00"
+line = "0020"
+text = "あ、そういえば……\nそうだったかもしれません～"
+subtitle = "啊，说起来……\n好像确实是呢～"
+audio = "voices/hazuki/s61_10290001_00_0020.mp3"
+seconds = 5.66
+kind = "birthday"
+
+[[line]]
+character = "hazuki"
+story = "s61_10290001_00"
+line = "0030"
+text = "ふふ、覚えていてくださってありがとうございます\nプロデューサーさん……♪"
+subtitle = "呵呵，谢谢您记得\n制作人……♪"
+audio = "voices/hazuki/s61_10290001_00_0030.mp3"
+seconds = 7.13
+kind = "birthday"
+
+[[line]]
+character = "hazuki"
+story = "s61_10290002_00"
+line = "0020"
+text = "ふふ、ありがとうございます♪\nじゃあ、素敵な一年にできるように……"
+subtitle = "呵呵，谢谢您♪\n那么，为了能度过美好的一年……"
+audio = "voices/hazuki/s61_10290002_00_0020.mp3"
+seconds = 8.86
+kind = "birthday"
+
+[[line]]
+character = "hazuki"
+story = "s61_10290002_00"
+line = "0030"
+text = "領収書の提出、早めにお願いしますね～"
+subtitle = "收据的提交，请尽早哦～"
+audio = "voices/hazuki/s61_10290002_00_0030.mp3"
+seconds = 5.11
+kind = "birthday"
+
+[[line]]
+character = "hazuki"
+story = "s61_10290003_00"
+line = "0010"
+text = "社長、失礼します～\nご用事ってなんでしょうか～"
+subtitle = ""
+audio = "voices/hazuki/s61_10290003_00_0010.mp3"
+seconds = 7.13
+kind = "birthday"
+
+[[line]]
+character = "hazuki"
+story = "s61_10290003_00"
+line = "0060"
+text = "ありがとうございます……\nふふっ、覚えていてくださったんですね"
+subtitle = ""
+audio = "voices/hazuki/s61_10290003_00_0060.mp3"
+seconds = 10.34
+kind = "birthday"

@@ -1,0 +1,657 @@
+# 斑鸠路加的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/luca.md、characters/schedules/luca.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/luca.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "morning"
+scene = "studio"
+activity = "在练习室对着镜子练发声，反复调整口型，偶尔停下来记笔记"
+weight = 4
+why = "作息：morning 在事务所或练习室进行发声和舞蹈基础练习"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "morning"
+scene = "park"
+activity = "沿着公园步道晨跑，戴着耳机，跑完在长椅上拉伸"
+weight = 2
+why = "作息：偶尔晨跑"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室沙发上吃简单的便当，边吃边看台本，没怎么说话"
+weight = 4
+why = "地点统计：事务所休息室(工作) 13.1%；作息：在事务所休息室简单用餐"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店角落打盹，面前放着喝了一半的咖啡，避开人多的地方"
+weight = 2
+why = "休息日：有时在咖啡店打盹；地点统计：咖啡店(街上) 3.2%"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "afternoon"
+scene = "stage"
+activity = "在舞台上进行演出排练，确认走位和灯光，反复练习同一段"
+weight = 4
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄宣传照，按摄影师指示摆姿势，表情略显僵硬"
+weight = 3
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "evening"
+scene = "backstage"
+activity = "在后台收拾东西，和成员简短交流几句，然后独自离开"
+weight = 3
+why = "作息：傍晚在后台或街上，结束工作后可能独自加练或与成员短暂交流"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "evening"
+scene = "street"
+activity = "走在傍晚的街上，戴着口罩，低头快步走向练习室"
+weight = 3
+why = "作息：傍晚在后台或街上；地点统计：白天的街上(街上) 2.3%"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室独自练舞，对着镜子纠正动作，汗水浸湿了T恤"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在家对着电脑看练习录像，做笔记，偶尔揉揉眼睛"
+weight = 2
+why = "推断：深夜也可能在家分析练习；红线：眼睛不好需注意休息"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "morning"
+scene = "studio"
+activity = "在练习室做发声练习，反复唱同一段旋律，调整呼吸"
+weight = 4
+why = "作息：morning 在事务所或练习室进行发声和舞蹈基础练习"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "morning"
+scene = "river"
+activity = "沿着河堤慢跑，呼吸均匀，偶尔停下来看河面"
+weight = 2
+why = "作息：偶尔晨跑；推断：河堤适合晨跑"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "noon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机买饮料，靠在墙边喝，避开人群"
+weight = 3
+why = "地点统计：事务所休息室(工作) 13.1%；推断：走廊是休息室延伸"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "noon"
+scene = "car"
+activity = "在移动的车里吃三明治，看着窗外，准备下一个工作"
+weight = 3
+why = "地点统计：车里(街上) 3.0%；作息：外出工作"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录制歌曲，戴着耳机，专注地调整麦克风距离"
+weight = 4
+why = "作息：下午进行演出、拍摄或节目录制；推断：录音也是工作之一"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "afternoon"
+scene = "stage"
+activity = "在舞台上进行节目录制，按照导演指示走位，表情认真"
+weight = 4
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "evening"
+scene = "backstage"
+activity = "在后台整理服装，确认明天的日程，独自坐在器材箱上"
+weight = 3
+why = "作息：傍晚在后台或街上"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街匆匆走过，买了便当和眼药水，没有多逛"
+weight = 3
+why = "地点统计：商店街(街上) 3.8%；红线：眼睛不好需注意"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "night"
+scene = "studio"
+activity = "在练习室独自练舞到深夜，反复练习同一段编舞，直到满意"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "tue"
+slot = "night"
+scene = "convenience_store"
+activity = "在便利店买夜宵和眼药水，站在货架前犹豫了一会儿"
+weight = 2
+why = "推断：深夜练习后可能去便利店；红线：眼睛不好"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "morning"
+scene = "studio_small"
+activity = "在小练习室做基础训练，压腿、开肩，偶尔对着镜子皱眉"
+weight = 4
+why = "作息：morning 在事务所或练习室进行发声和舞蹈基础练习"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "morning"
+scene = "park_night"
+activity = "在清晨的公园长椅上坐着，看晨练的人，自己并没有加入"
+weight = 2
+why = "推断：偶尔晨跑后休息；性格孤僻"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃午饭，一边看手机上的工作邮件，表情平淡"
+weight = 4
+why = "地点统计：事务所休息室(工作) 13.1%"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "noon"
+scene = "fastfood"
+activity = "在快餐店快速解决午餐，坐在角落，吃完立刻离开"
+weight = 2
+why = "推断：工作间隙简单用餐；地点统计：街上"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄杂志照片，按照要求换了几套衣服，表情专业"
+weight = 4
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "afternoon"
+scene = "stage"
+activity = "在舞台上进行演出，灯光很亮，她专注地唱歌跳舞"
+weight = 4
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "evening"
+scene = "backstage"
+activity = "在后台卸妆，对着镜子仔细清洁，动作很轻"
+weight = 3
+why = "作息：傍晚在后台或街上"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "evening"
+scene = "street_night"
+activity = "走在夜晚的街道上，路灯刚亮，她拉高衣领，独自前行"
+weight = 3
+why = "作息：傍晚在街上；地点统计：夜晚的街道"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室独自练习，反复纠正一个舞蹈动作，直到深夜"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在家泡澡，缓解肌肉酸痛，差点在浴缸里睡着"
+weight = 2
+why = "推断：深夜练习后需要放松；红线：身体脆弱"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "morning"
+scene = "studio"
+activity = "在练习室进行发声训练，唱音阶，偶尔咳嗽一下"
+weight = 4
+why = "作息：morning 在事务所或练习室进行发声和舞蹈基础练习"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "morning"
+scene = "residential_street"
+activity = "在住宅街慢跑，经过安静的街道，偶尔和早起的邻居点头"
+weight = 2
+why = "作息：偶尔晨跑；推断：住宅街适合跑步"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室沙发上小憩，用外套盖着脸，避开光线"
+weight = 4
+why = "地点统计：事务所休息室(工作) 13.1%；红线：睡眠不足"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "noon"
+scene = "office_corridor"
+activity = "在走廊上站着吃饭团，看着窗外，没有和任何人说话"
+weight = 3
+why = "推断：工作间隙简单用餐；地点统计：事务所走廊"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "afternoon"
+scene = "stage"
+activity = "在舞台上进行彩排，确认灯光和音响，反复练习走位"
+weight = 4
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室开会讨论新曲方向，她安静地听，偶尔记笔记"
+weight = 3
+why = "推断：工作相关会议；地点统计：事务所"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "evening"
+scene = "backstage"
+activity = "在后台收拾器材，和工作人员简单道别，然后独自离开"
+weight = 3
+why = "作息：傍晚在后台或街上"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的药店买眼药水和喉糖，匆匆离开"
+weight = 3
+why = "地点统计：商店街(街上) 3.8%；红线：眼睛不好"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "night"
+scene = "studio"
+activity = "在练习室独自练习到深夜，对着镜子反复调整表情"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "thu"
+slot = "night"
+scene = "vending_machine"
+activity = "在路边的自动贩卖机买热饮，站在机器旁暖手"
+weight = 2
+why = "推断：深夜练习间隙；地点统计：自动贩卖机"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "morning"
+scene = "studio_small"
+activity = "在小练习室做拉伸，身体有些沉重，但还是坚持练习"
+weight = 4
+why = "作息：morning 在事务所或练习室进行发声和舞蹈基础练习"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "morning"
+scene = "park"
+activity = "在公园慢跑，跑得很慢，看起来有点疲惫"
+weight = 2
+why = "作息：偶尔晨跑；红线：身体脆弱易发烧"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，边吃边看台本，偶尔揉揉眼睛"
+weight = 4
+why = "地点统计：事务所休息室(工作) 13.1%；红线：眼睛不好"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店喝咖啡，稍微放松一下，看着窗外发呆"
+weight = 2
+why = "休息日：有时在咖啡店打盹；地点统计：咖啡店(街上) 3.2%"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录制新曲，反复调整细节，和制作人讨论"
+weight = 4
+why = "推断：工作录音；地点统计：录音棚"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄宣传照，按照要求摆出各种姿势，表情专业"
+weight = 3
+why = "作息：下午在舞台或摄影棚进行演出、拍摄或节目录制"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "evening"
+scene = "backstage"
+activity = "在后台整理服装，准备离开，和成员简单点头示意"
+weight = 3
+why = "作息：傍晚在后台或街上"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "evening"
+scene = "street_night"
+activity = "走在夜晚的街道上，戴着耳机，步伐很快"
+weight = 3
+why = "作息：傍晚在街上；地点统计：夜晚的街道"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室独自练习，反复练习一段高难度舞蹈，直到深夜"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在家做简单的肌肉放松，用泡沫轴滚腿，表情有点痛苦"
+weight = 2
+why = "推断：深夜练习后放松；红线：身体脆弱"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "morning"
+scene = "studio"
+activity = "在练习室进行发声练习，唱了很久，声音有点哑"
+weight = 4
+why = "休息日：休息日也常去练习室加练"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "在家睡到很晚才起床，慢慢整理，准备去练习室"
+weight = 2
+why = "作息：作息不规律；红线：睡眠不足"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室处理工作联络，回复邮件，表情认真"
+weight = 4
+why = "休息日：处理工作联络；地点统计：事务所休息室(工作) 13.1%"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店打盹，面前放着冷掉的咖啡，店里人不多"
+weight = 3
+why = "休息日：有时在咖啡店打盹；地点统计：咖啡店(街上) 3.2%"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室加练舞蹈，反复练习，汗水滴在地板上"
+weight = 4
+why = "休息日：休息日也常去练习室加练"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "afternoon"
+scene = "office"
+activity = "在事务所办公室整理资料，确认下周日程，独自工作"
+weight = 3
+why = "休息日：处理工作联络；地点统计：事务所"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "evening"
+scene = "street"
+activity = "在傍晚的街上散步，看着橱窗，偶尔停下来看灯饰"
+weight = 3
+why = "休息日：夜晚散步；地点统计：白天的街上(街上) 2.3%"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "evening"
+scene = "backstage"
+activity = "在后台准备小型演出，检查器材，表情专注"
+weight = 3
+why = "推断：周末可能有演出；地点统计：后台(工作) 4.2%"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "night"
+scene = "studio"
+activity = "在练习室独自练习到深夜，反复练习同一段，直到满意"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "sat"
+slot = "night"
+scene = "park_night"
+activity = "在夜晚的公园长椅上坐着，看着星空，什么也不做"
+weight = 2
+why = "休息日：夜晚散步；地点统计：夜晚的公园"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "在家睡懒觉，窗帘拉着，手机静音，难得放松"
+weight = 3
+why = "推断：休息日可能补觉；红线：睡眠不足"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "morning"
+scene = "studio_small"
+activity = "在小练习室做轻度的拉伸和发声，身体状态不太好"
+weight = 3
+why = "休息日：休息日也常去练习室加练；红线：身体脆弱"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃简餐，看着窗外，偶尔打哈欠"
+weight = 3
+why = "休息日：有时在咖啡店打盹；地点统计：咖啡店(街上) 3.2%"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室处理工作邮件，回复了几封，然后发呆"
+weight = 3
+why = "休息日：处理工作联络；地点统计：事务所休息室(工作) 13.1%"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室加练，反复练习舞蹈，表情认真"
+weight = 4
+why = "休息日：休息日也常去练习室加练"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街买东西，买了便当和日用品，匆匆离开"
+weight = 2
+why = "地点统计：商店街(街上) 3.8%；推断：休息日购物"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "evening"
+scene = "street_night"
+activity = "在夜晚的街道上散步，看着灯饰，想起制作人的邀请，但没去"
+weight = 3
+why = "休息日：偶尔被制作人约看灯饰但多拒绝；夜晚散步"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "evening"
+scene = "backstage"
+activity = "在后台整理下周的日程，确认工作安排，独自工作"
+weight = 3
+why = "推断：周末准备下周工作；地点统计：后台(工作) 4.2%"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室独自练习到深夜，反复练习，直到累得坐在地上"
+weight = 5
+why = "固定日程：深夜独自练习(几乎每晚，深夜时段)"
+
+[[slots]]
+character = "luca"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在家泡澡，差点睡着，然后挣扎着起来吹头发"
+weight = 2
+why = "推断：深夜练习后放松；红线：身体脆弱"
+

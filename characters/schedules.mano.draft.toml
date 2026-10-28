@@ -1,0 +1,241 @@
+# 真乃的作息草案（从剧情挖出来的），先别接进代码。
+#
+# 这不是产品文件，是给你过目的草稿。字段含义先按下面这套理解，定稿要接进代码时再改：
+#   - weight：同一时段内的相对权重（越大越常发生），不是概率；一个时段内按 weight 归一化。
+#   - 时段：morning(6-10) / noon(10-14) / afternoon(14-18) / evening(18-22) / night(22-2)
+#   - scene 只能用 scenes.toml 里的 7 个 id：lounge / studio / park / beach / home / train / sky
+#     （sky = 「说不准」，外景兜底）
+#
+# 证据从哪来（按可信度从高到低）：
+#   1. 剧情台词归因：她的 7,299 句台词，按逐步骤继承的 bg 归到场景，数出占比。
+#      详见 .scratch/schedule/bg_table.md（bg → 台词数 → 场景）。
+#   2. 同一批台词里的时间词：对她每句台词的 ±2 句上下文搜 朝/おはよう/夜/レッスン 等，
+#      看「哪个场景的话里集中出现哪个时段」。
+#   3. 人设与档案（characters/sheets/mano.md、facts/mano.md）：习惯、喜好、家人、ピーちゃん。
+#   4. corpus/small-talk/mano/lines.json：77 句，但这个文件的 period 字段 77 句全是 "all"，
+#      没有时段信息，只能用内容（只有 2 句おはよう）。
+#
+# 重要：下面的 weight 不是直接把台词占比抄下来。台词占比量的是「剧情在哪发生」，
+# 不是「她一天怎么过时间」——事务所是剧情枢纽，所以休息室占 18.3%，这不代表她一天有
+# 18% 的时间待在休息室。weight 是我拿「台词占比 + 时间词 + 人设」三样调的判断，
+# 更偏日常时间预算，不是统计值。
+#
+# 另外：学校（体育馆 00248、操场 00648，合计 0.9%）和商店街/餐厅/舞台/神社/河边这些
+# 都没有对应 scene id，下面 weekday 上学的时间段用 sky（说不准）占位，别硬塞进别的场景。
+
+# ---------------------------------------------------------------------------
+# 工作日
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "morning"
+scene = "home"
+activity = "起床，给阳台的花浇一遍水，蹲在笼子边跟ピーちゃん说会儿话再出门"
+weight = 3
+evidence = "她的房间（00804/00807/00808）的台词里 6.0% 带早间词，仅次于电车；00804 里她对ピーちゃん说「おはよう……ピーちゃん」；档案：她每天给花浇水"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "morning"
+scene = "train"
+activity = "坐公交/电车去学校或事务所，车上人一多就有点透不过气"
+weight = 2
+evidence = "电车场景的台词，早上 10.4% 带早间词、夜里 16.9%——两头都是通勤；档案：她坐公交车去事务所，车太挤时很辛苦"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "noon"
+scene = "sky"
+activity = "在学校上课。学校不在场景表里，这段时间接通电话就按「说不准」的外景兜底"
+weight = 3
+evidence = "她是高一学生，学校相关台词 32 句（「水曜日は学校の用事が」「今日は学校と打ち合わせだけで」）；学校 bg 只有 0.9%，且没有教室，只能用 sky"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "noon"
+scene = "lounge"
+activity = "学校早放或者请了半天假的时候，在休息室吃自己做的便当，跟はづきさん打个招呼"
+weight = 1
+evidence = "休息室 18.3% 是全部场景里最高的；休息室台词 12% 带工作词；小台词里有「お腹、ぺこぺこかも」和带便当的句子"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "afternoon"
+scene = "studio"
+activity = "放学直接去练习室，把今天没做好的动作一个人反复练到能过，练到有人来赶"
+weight = 3
+evidence = "练习室台词里 24.2% 带レッスン/練習，是全部场景最高；「できないことが多いから、たくさん練習しなきゃ」「今日はずっとここを使う予定で」；scenes.habits.draft 里她那条也是「趁没人多练一会儿」"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "afternoon"
+scene = "lounge"
+activity = "跟制作人对台本、确认行程，被夸一句就「ほわ」地低下头"
+weight = 2
+evidence = "休息室台词 12% 带仕事/収録/打ち合わせ 这类词（全部场景最高）；P 卡剧情里她 22% 的台词都发生在这间"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "evening"
+scene = "lounge"
+activity = "收工后跟灯織、めぐる在休息室磨蹭一会儿，聊今天谁被夸了"
+weight = 2
+evidence = "三人同框最多的场景就是这间；活动剧情里大量「お疲れさま」「ぱんぱんぱーん」的收尾都在这"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "evening"
+scene = "train"
+activity = "坐车回家，靠着窗不知不觉就睡着了，快到站才惊醒"
+weight = 2
+evidence = "电车台词夜里 16.9% 带时间词（最高）；00126 里有「私、寝ちゃってたんだね……」，00125 里有「おやすみなさい、プロデューサーさん」"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "night"
+scene = "home"
+activity = "到家，洗澡，写作业，把今天的事一件件讲给ピーちゃん听"
+weight = 3
+evidence = "深夜通话的默认场景就是家；家里场景台词 6.0% 带早间词说明家=起居的私空间；ピーちゃん是「私の大切な家族」"
+
+[[slots]]
+character = "mano"
+day = "weekday"
+slot = "night"
+scene = "home"
+activity = "嘴上说着「该睡了」，结果躺下还在想明天的练习，拖到很晚"
+weight = 1
+evidence = "她自己有句「寝なきゃいけないのもわかってるんですけど……」（知道不能不睡）——知道但做不到"
+
+# ---------------------------------------------------------------------------
+# 周末
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "morning"
+scene = "park"
+activity = "一早去事务所旁边的公园晒太阳、喂鸽子，坐着坐着就小声唱起来"
+weight = 3
+evidence = "公园台词 7.1%；00203 里她对灯織说「おはよう」「朝ごはん、食べた？」——公园是会面的早间地点；档案：兴趣是「公園で日向ぼっこ」，常在公园唱歌"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "morning"
+scene = "home"
+activity = "慢慢吃早饭，把花浇完、笼子打扫干净再出门"
+weight = 2
+evidence = "同上，家里的早间台词占比 6.0%；档案：她每天给花浇水"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "afternoon"
+scene = "park"
+activity = "拎着面包屑带ピーちゃん去公园，坐在长椅上晒太阳"
+weight = 3
+evidence = "公园+高台合计 7.1%，白天为主；档案：「鳩さんとお話するの好き」，她带ピーちゃん去公园、它飞回来还会回到她身边"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "afternoon"
+scene = "studio"
+activity = "周末也去练习室补练，一个人对着镜子把转身磨到满意"
+weight = 2
+evidence = "练习室台词里 24.2% 带练习词，且「今日はずっとここを使う予定で」；不排除周末也来"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "evening"
+scene = "home"
+activity = "和爸妈一起吃晚饭，帮忙收拾，饭后再去看一眼ピーちゃん"
+weight = 2
+evidence = "家和父母同住、妈妈性格开朗；家里有厨房类 bg，但她在家多是起居/待着，不是做饭主场景"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "evening"
+scene = "train"
+activity = "和灯織、めぐる逛了一天，坐车回家，手里拎着鸟图案的小东西"
+weight = 2
+evidence = "电车通勤两端都有时间词；档案：她逛店逛得慢，めぐる会常约她一起；三人买过带猫头鹰图案的同款小物"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "night"
+scene = "home"
+activity = "泡澡，整理鸟图案的小物，给ピーちゃん盖上布，比平时早一点睡"
+weight = 3
+evidence = "家里的夜间是私空间；档案：她喜欢「お日様の香り」、喜欢鸟主题小物；周末第二天要早起去公园"
+
+[[slots]]
+character = "mano"
+day = "weekend"
+slot = "night"
+scene = "home"
+activity = "躺在床上听明天的曲子，听着听着就睡着了"
+weight = 1
+evidence = "她心情好会不知不觉哼歌；在公园、电车上都有「不知不觉睡着」的先例"
+
+# ---------------------------------------------------------------------------
+# 突发 / 少见事件（chance 是每次抽这个时段的概率，不是占比）
+# ---------------------------------------------------------------------------
+
+# 睡眠相关的两次「睡着」在剧情里都有出处，所以给得比其他高一点
+[[events]]
+character = "mano"
+chance = 0.12
+scene = "park"
+activity = "在公园晒太阳晒着晒着睡着了，醒来天已经黑了，慌张地道歉"
+# 出处：00017（公园黄昏）「す、すみません……いつのまにか寝ちゃってて……」
+
+[[events]]
+character = "mano"
+chance = 0.10
+scene = "studio"
+activity = "被临时叫去加练，一练就是两个小时，出来的时候腿都在抖"
+# 出处：「ほわっ？臨時レッスン？　私、なんにも聞いてなくて……」
+
+[[events]]
+character = "mano"
+chance = 0.08
+scene = "lounge"
+activity = "临时来了收录/拍摄，被叫去事务所，妆还没化完就被推上台"
+# 出处：她的台词里 収録/撮影/仕事 一类词不少，休息室是她被打包带走的地方
+
+[[events]]
+character = "mano"
+chance = 0.08
+scene = "home"
+activity = "有点感冒，今天窝在家里没出门，ピーちゃん在旁边陪着"
+# 依据：这是常见的突发设定；剧情里她身体相关的台词很少，属于推断不是证据
+
+[[events]]
+character = "mano"
+chance = 0.06
+scene = "train"
+activity = "在电车上睡过站，慌慌张张地又坐回来"
+# 出处：00126「私、寝ちゃってたんだね……」、00125 里在车上睡着
+
+[[events]]
+character = "mano"
+chance = 0.05
+scene = "beach"
+activity = "跟着事务所去海边出外景，一整天不在东京，晒黑了一点"
+# 出处：海边台词 1.5%，「私、海も楽しみなんだっ」；档案：她喜欢散步和远足，出远门会兴奋

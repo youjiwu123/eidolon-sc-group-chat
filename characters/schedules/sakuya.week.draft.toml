@@ -1,0 +1,657 @@
+# 白濑咲耶的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/sakuya.md、characters/schedules/sakuya.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/sakuya.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "六点半起床，在厨房煎蛋做便当，顺手多装一份打算带给朋友"
+weight = 4
+why = "作息：在家吃早餐后去学校，偶尔为朋友做便当"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "坐在电车上靠窗位置，把便当袋放在膝上，望着窗外发呆"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "在教室吃便当，被同学围着问周末的事，笑着含糊带过"
+weight = 4
+why = "作息：在学校午休，与同学聊天"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "noon"
+scene = "library"
+activity = "一个人坐在图书室角落翻小说，书签夹在昨天停下的那页"
+weight = 2
+why = "作息：午休偶尔独自看书"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复纠正舞步，汗顺着下巴滴到地板上"
+weight = 4
+why = "作息：放学后前往事务所练习"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚戴着耳机试唱，隔着玻璃向调音师比手势确认"
+weight = 3
+why = "作息：下午进行收录；地点统计含工作场景"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "evening"
+scene = "dorm"
+activity = "回宿舍和室友一起做饭，一边切菜一边聊今天练习的进展"
+weight = 4
+why = "作息：工作结束后回宿舍，与室友一起做饭"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "evening"
+scene = "restaurant"
+activity = "和室友去家庭餐厅，点了套餐，靠在卡座里放松地笑"
+weight = 2
+why = "作息：傍晚与朋友外出用餐"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在自己房间裹着毯子看电影，看到一半困得眯起眼"
+weight = 3
+why = "作息：深夜在宿舍休息、看电影"
+
+[[slots]]
+character = "sakuya"
+day = "mon"
+slot = "night"
+scene = "apartment_living"
+activity = "在公寓客厅和朋友通电话，聊到深夜也没舍得挂"
+weight = 2
+why = "作息：偶尔熬夜到深夜；地点统计含她的家"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "早起把制服熨平，在厨房热了牛奶，慢慢喝完才出门"
+weight = 3
+why = "作息：在家吃早餐后去学校"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "沿着石板坡道走向学校，晨光从树影间落下来"
+weight = 2
+why = "推断：上学路线"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学围在桌边聊天，被逗得笑出声"
+weight = 4
+why = "作息：在学校午休，与同学聊天"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间在走廊靠着窗，和路过的朋友随口聊几句"
+weight = 2
+why = "推断：学校课间"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在事务所休息室沙发上摊开台本，用笔标出要改的语气"
+weight = 4
+why = "地点统计：事务所休息室占比最高"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚白色背景前调整姿势，听摄影师指示换角度"
+weight = 3
+why = "作息：下午进行收录或采访"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "evening"
+scene = "dorm"
+activity = "回宿舍把换下的衣服叠好，坐在床边和室友闲聊今天的事"
+weight = 3
+why = "作息：工作结束后回宿舍"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "evening"
+scene = "supermarket"
+activity = "和室友在超市挑食材，拎着购物篮认真比较价格"
+weight = 2
+why = "推断：做饭前的采买"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "深夜趴在书桌前写日记，写到一半停下来想措辞"
+weight = 3
+why = "作息：深夜在宿舍休息；地点统计含她的家"
+
+[[slots]]
+character = "sakuya"
+day = "tue"
+slot = "night"
+scene = "park_night"
+activity = "睡不着出门散步，在夜晚公园的长椅上坐了一会儿"
+weight = 1
+why = "推断：偶尔熬夜；红线提示深夜外出安全"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "在厨房多做了一份便当装好，想着今天要递给谁"
+weight = 3
+why = "作息：偶尔为朋友做便当"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "在电车上扶着吊环，脑子里过今天要练的舞步"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休时把便当分给朋友，自己吃着剩下的那半"
+weight = 4
+why = "作息：在学校午休，与同学聊天"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "noon"
+scene = "roof"
+activity = "一个人上天台吹风，靠着铁丝网安静地吃完午饭"
+weight = 2
+why = "推断：午休独自待着"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和同伴对动作，数着拍子一遍遍重来"
+weight = 4
+why = "作息：放学后前往事务所练习"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊等收录开始，靠着自动贩卖机喝罐装咖啡"
+weight = 2
+why = "地点统计：后台等工作场景；推断：收录前等待"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "evening"
+scene = "restaurant"
+activity = "工作结束后和朋友去家庭餐厅，边吃边聊得很起劲"
+weight = 3
+why = "作息：傍晚与朋友外出用餐"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "evening"
+scene = "dorm"
+activity = "回宿舍和室友一起收拾厨房，顺手把碗擦干放好"
+weight = 3
+why = "作息：回宿舍与室友一起做饭"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在自己房间看电影，看到感人的地方悄悄红了眼眶"
+weight = 3
+why = "作息：深夜在宿舍休息、看电影"
+
+[[slots]]
+character = "sakuya"
+day = "wed"
+slot = "night"
+scene = "apartment_living"
+activity = "在客厅沙发上和朋友视频聊天，聊到深夜才道晚安"
+weight = 2
+why = "作息：偶尔熬夜到深夜"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "起床后先开窗透气，再慢慢准备早餐和上学的东西"
+weight = 3
+why = "作息：在家吃早餐后去学校"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "morning"
+scene = "station"
+activity = "在站台等车，手里捏着便当袋，看发车显示屏"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学聊周末的安排，被问到时笑着打岔"
+weight = 4
+why = "作息：在学校午休，与同学聊天"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "noon"
+scene = "library"
+activity = "在图书室安静翻书，偶尔抬头看看窗外的操场"
+weight = 2
+why = "作息：午休偶尔独自看书"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚反复录同一句，摘下耳机听调音师的意见"
+weight = 3
+why = "作息：下午进行收录"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室听工作人员说明下次演出的安排，认真记笔记"
+weight = 2
+why = "推断：工作相关会议"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "evening"
+scene = "dorm"
+activity = "回宿舍和室友一起做饭，聊着聊着笑到差点拿不稳锅铲"
+weight = 4
+why = "作息：回宿舍与室友一起做饭"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "傍晚在商店街闲逛，在店门口停下看新出的点心"
+weight = 2
+why = "地点统计：商店街占比靠前"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "深夜在房间和朋友通电话，靠在椅背上放松地聊"
+weight = 3
+why = "作息：深夜在宿舍休息、与朋友聊天"
+
+[[slots]]
+character = "sakuya"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "困得趴在床上，手机还亮着，没聊完就睡着了"
+weight = 2
+why = "作息：偶尔熬夜；红线提示身体疲劳"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "在厨房做早餐，顺手把便当装好，动作已经很熟练"
+weight = 3
+why = "作息：偶尔为朋友做便当"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上靠着门边，望着窗外掠过的街景"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学围坐聊天，被夸便当好吃时有点得意"
+weight = 4
+why = "作息：在学校午休，与同学聊天"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊和同学站着说话，铃响了才匆匆回教室"
+weight = 2
+why = "推断：学校课间"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练到额头冒汗，对着镜子确认最后一个转身"
+weight = 4
+why = "作息：放学后前往事务所练习"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间对着镜子整理头发，等工作人员来叫"
+weight = 2
+why = "推断：工作前的准备"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在休息室沙发上松口气，和同伴聊今天的收获"
+weight = 3
+why = "地点统计：事务所休息室占比最高"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "evening"
+scene = "restaurant"
+activity = "和朋友去家庭餐厅吃饭，聊到兴起忘了时间"
+weight = 3
+why = "作息：傍晚与朋友外出用餐"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "深夜在房间看电影，抱着靠垫看得入神"
+weight = 3
+why = "作息：深夜在宿舍休息、看电影"
+
+[[slots]]
+character = "sakuya"
+day = "fri"
+slot = "night"
+scene = "apartment_living"
+activity = "在客厅和朋友聊天，说着说着就过了该睡的时间"
+weight = 2
+why = "作息：偶尔熬夜到深夜"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "morning"
+scene = "train"
+activity = "坐早班电车回老家，抱着给祖父母带的点心"
+weight = 3
+why = "作息：休息日回老家看望祖父母"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "休息日睡到自然醒，慢吞吞地准备早餐"
+weight = 2
+why = "推断：休息日早晨"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "noon"
+scene = "washitsu"
+activity = "在老家和室里和祖父母一起吃午饭，听他们讲旧事"
+weight = 4
+why = "作息：回老家看望祖父母"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "noon"
+scene = "home_living"
+activity = "在老家客厅和黄窗帘下的沙发上陪祖父母看电视"
+weight = 3
+why = "作息：回老家；场景提示为家里一起吃饭看电视的地方"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "afternoon"
+scene = "temple"
+activity = "去扫墓，站在墓前轻声报告近况，说工作还算顺利"
+weight = 4
+why = "作息：去扫墓报告近况"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "afternoon"
+scene = "shrine"
+activity = "回程顺路去神社，在石阶下合掌拜了拜"
+weight = 2
+why = "推断：老家附近的神社"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "在老家客厅和祖父母一起吃晚饭，帮忙收拾碗筷"
+weight = 3
+why = "作息：休息日回老家"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "evening"
+scene = "train"
+activity = "傍晚坐电车回宿舍，靠着窗回想今天和祖父母说的话"
+weight = 2
+why = "推断：回程路上"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "回到自己房间，把今天拍的照片翻出来看了一遍"
+weight = 3
+why = "作息：深夜在宿舍休息"
+
+[[slots]]
+character = "sakuya"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "早早躺下却睡不着，望着天花板想明天的事"
+weight = 2
+why = "推断：休息日夜晚"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "休息日慢慢起床，在厨房给自己做一顿像样的早餐"
+weight = 3
+why = "推断：休息日早晨"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "morning"
+scene = "cafe"
+activity = "和朋友约在咖啡店，坐在拱形大窗边喝早咖啡"
+weight = 2
+why = "地点统计：咖啡店占比靠前"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "noon"
+scene = "mall"
+activity = "和朋友在商场逛街，在扶梯上聊着要去看哪家店"
+weight = 3
+why = "作息：休息日与朋友出游、购物"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "noon"
+scene = "shopstreet"
+activity = "在商店街边走边看，被店头的小玩意吸引停下脚步"
+weight = 2
+why = "地点统计：商店街占比靠前"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "afternoon"
+scene = "cafe"
+activity = "在咖啡店靠窗的位子坐下，和朋友聊到忘了时间"
+weight = 3
+why = "地点统计：咖啡店占比靠前"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园长椅上休息，看孩子们在草地上跑"
+weight = 2
+why = "推断：休息日外出"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "evening"
+scene = "dorm"
+activity = "回宿舍和室友一起做晚饭，把买回来的东西分好"
+weight = 3
+why = "作息：傍晚回宿舍，与室友一起做饭"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "evening"
+scene = "restaurant"
+activity = "和朋友在家庭餐厅吃晚饭，聊着下周的安排"
+weight = 2
+why = "作息：傍晚与朋友外出用餐"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在房间整理下周的日程，把要带的东西提前放好"
+weight = 3
+why = "作息：深夜在宿舍休息"
+
+[[slots]]
+character = "sakuya"
+day = "sun"
+slot = "night"
+scene = "apartment_living"
+activity = "在客厅和朋友通电话，聊着聊着声音渐渐低下去"
+weight = 2
+why = "作息：偶尔熬夜到深夜"
+

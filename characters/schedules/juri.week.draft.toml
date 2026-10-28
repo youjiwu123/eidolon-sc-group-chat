@@ -1,0 +1,921 @@
+# 西城樹里的一周作息 × 地点草案（pilot 批次，先别接进代码）。
+#
+# 证据 vs 推断（口径同 schedules.mano.week.draft.toml）：
+#   - 证据：characters/schedules/juri.stats.json、characters/facts/juri.md、characters/sheets/juri.md。
+#     例：休息室 14.7%（680 句）、商店街 5.9%、公园 5.2%、咖啡店 4.9%、家庭餐厅 4.5%、
+#     练习室 4.3%、十字路口 2.9%、神社 2.7%（相对偏好 ×4.8）、录音棚 2.2%（×5.2）、
+#     事务所办公室 2.2%；结构是**街上 40.0%（27 人里最高）**、工作 29.4%、其他 22.4%、
+#     家 6.1%、学校 2.1%。语境信号：工作 10.1% / 季节 6.8% / 通勤 3.8% / 吃饭 3.5%。
+#   - 推断：原作没有时钟也没有星期几。她是高二、住事务所附近的宿舍，骑自行车上学（档案），
+#     每天在宿舍附近晨跑；周一周三周五上学 + 练习、周二收录（她有周播电台）、周四休息、
+#     周六工作、周日和朋友——这套排法是照「高中生 + 宿舍生活」补的，`why` 里写「推断」。
+#   - 「街上 40%」是这份数据里最强的一条，所以她的固定槽位以商店街、公园、家庭餐厅、
+#     咖啡店、神社、展望台、沿海公路为主；垫底的是学校（2.1%）——学校只排到「够用」。
+#   - 2026-10 追加：`[[pools]]` 把不在固定槽位里的 43 个日常场景接进来（chance 0.18），
+#     `[[holidays]]` 只覆盖与共享日历/真乃 不同的 12 个节日（其余回落到 characters/holidays.toml），
+#     `[[events]]` 13 条。一次通话的顺序：节日覆盖 > 事件 > 固定槽位 > 随机池。
+
+# ---------------------------------------------------------------------------
+# 周一：晨跑 → 学校 → 练习 → 商店街
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "morning"
+scene = "residential_street"
+activity = "六点出门晨跑，跑到坡下再跑回来，汗擦在袖子上，遇上邻居就「おー」地点个头"
+weight = 3
+why = "住宅街 1.5%；档案：她每天在宿舍附近晨跑、和夏葉比跑步；这一带坡多（「坂ばっか」）"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "morning"
+scene = "dorm"
+activity = "回宿舍冲个澡，把昨天洗的衣服收了，顺手把凛世那份也叠了"
+weight = 2
+why = "宿舍：她住事务所附近的宿舍，同楼有凛世、千雪、咲耶、恋鐘（档案）；家务自己做（档案）"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，现代文让她头疼，数学倒是做得很快，被同桌说「意外と頭いいよな」"
+weight = 2
+why = "教室 0.9%；档案：数学好（夏葉说「意外と頭がいい」）、现代文头疼；课堂细节是推断"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间在走廊被老师叫住问头发，她「……あー、はい」地应过去，回教室才嘟囔一句「ったく」"
+weight = 2
+why = "学校走廊 0.9%；档案：金发在学校常被说、刚当偶像前有老师拦住她问「その髪の色はなんだ？」"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "放学直接去练习室，把周末没顺的动作自己加练，练到有人说「もう上がっていいぞ」"
+weight = 3
+why = "练习室 4.3%、练习信号 3.2%；档案：刚组成时她一个人在练习室加练，智代子来陪她"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "afternoon"
+scene = "gym"
+activity = "体育馆有篮球部在练，她站在门口看了一会儿，没进去，转身去了练习室"
+weight = 2
+why = "体育馆 0.2%；档案：她离开了篮球（「女子は中学まで」），但钥匙上挂着篮球饰物、还是喜欢那个声音"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "evening"
+scene = "shopstreet"
+activity = "绕去商店街，肉铺的おっちゃん塞给她一个可乐饼，她「サンキュ」地接了，边走边吃"
+weight = 3
+why = "商店街 5.9%（她第二高）；档案：肉铺的可乐饼是她的最爱、商店街的人都认识她、叫「おっちゃん」"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "回事务所，在休息室跟はづきさん对下周的电台日程，顺手把果穂的水杯挪远一点怕碰倒"
+weight = 3
+why = "休息室 14.7%；她在放クラ里是「常識人・ツッコミ」、照顾最小的果穂（人设）；电台她有周播节目（档案）"
+
+[[slots]]
+character = "juri"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "回自己房间写作业，写到一半去敲凛世的门问汉字，回来接着写"
+weight = 3
+why = "卧室：宿舍里她自己的房间（dorm 是合住/食堂那层，卧室是床和书桌那间）；和凛世一起写作业（档案）"
+
+# ---------------------------------------------------------------------------
+# 周二：收录（电台）+ 办公室 + 咖啡店
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "morning"
+scene = "dorm"
+activity = "早上在宿舍食堂吃早饭，咖喱配汉堡，吃完把盘子端到回收口"
+weight = 2
+why = "宿舍有食堂（档案：「おう。ご飯美味いぞー」）；她爱吃咖喱和汉堡（档案）"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "骑自行车下坡去学校，刹车捏得死紧——她说过这条坡「荷物持って来た時、すげー大変だった」"
+weight = 2
+why = "石板路 0.5%；档案：坡道和台阶很多、她每天骑车上学；下坡小心是推断"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "noon"
+scene = "recording_studio"
+activity = "进录音棚录电台的旁白，一次过，制作人说「早いね」，她说「慣れたからな」"
+weight = 2
+why = "录音棚 2.2%（相对偏好 ×5.2，她最高的相对偏好）；档案：她有周播电台、办过一周年公开录音"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，被智代子塞了一块巧克力，她说「また太るだろ」还是吃了"
+weight = 3
+why = "休息室 14.7%；和智代子的相处（档案：常吐槽她的甜食还是照吃）"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室开收录前的会，她坐得笔直，听到不懂的词就记下来，散会才问"
+weight = 1
+why = "会议室 1.1%；认真、做什么都要准备好（人设）；不懂的词事后问是推断"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "afternoon"
+scene = "office"
+activity = "在办公室把电台的来信读完，有一封她读了两遍，折好放进包里"
+weight = 2
+why = "事务所办公室 2.2%；档案：粉丝来信、她在电台最终回说「みんなも、元気で、幸せでいてくれないと」"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "evening"
+scene = "cafe"
+activity = "收工后被智代子拉去咖啡店，她对着菜单看了半天，最后点了和智代子一样的"
+weight = 2
+why = "咖啡店 4.9%；档案：时髦咖啡店的菜单让她头大、和智代子一起吃过巧克力挞"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "evening"
+scene = "shopstreet"
+activity = "出来天已经黑了，商店街的招牌一排排亮着，她走得比白天慢"
+weight = 2
+why = "商店街 5.9%；档案：她说过「ここでよかったなって思うよ／すげーいい人ばっかりだし」"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "回房间洗完澡，把明天的衣服搭在椅背上，然后躺下刷手机——刷两下就放弃了，去问凛世"
+weight = 2
+why = "档案：手机和网上的事她得靠凛世（「や、凛世がいねーと」）；宿舍生活是档案里的日常"
+
+[[slots]]
+character = "juri"
+day = "tue"
+slot = "night"
+scene = "convenience_store"
+activity = "想起来牙膏没了，穿着拖鞋去便利店，回来路上被自动门的声音吓了一跳"
+weight = 1
+why = "便利店 0.3%；档案：她怕黑、怕鬼；超市阿姨会问她「もう歯磨き粉切らした？」——日用品是她的日常（推断）"
+
+# ---------------------------------------------------------------------------
+# 周三：学校（天台吃便当）+ 练习 + 家庭餐厅
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "morning"
+scene = "residential_street"
+activity = "跟夏葉约了晨跑，两个人跑到不认识的地方，最后靠手机地图走回来"
+weight = 2
+why = "住宅街 1.5%；档案：和夏葉比跑步跑到迷路、一起看了夕阳；「靠地图走回来」是原文的形状"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "morning"
+scene = "dorm"
+activity = "跑回来在宿舍门口碰上凛世，被说「おはようございます、樹里さん」，她回「おー、おはよ」"
+weight = 2
+why = "宿舍：和凛世同楼（档案）；凛世叫她「樹里さん」是原文"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，她把领带松了，被提醒又系回去，系到最上面一颗扣子就「窮屈だな」"
+weight = 2
+why = "教室 0.9%；档案：她不爱系领带（「一番上までボタンしめると、窮屈だからな」）"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "noon"
+scene = "roof"
+activity = "午休一个人在天台吃便当，风大，她把便当盒按住，吃得很快"
+weight = 2
+why = "天台 0.0%（1 句）；档案：午饭常在学校屋顶一个人吃便当——这条是原文，但语料里几乎没有"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室，她带着果穂练新舞，把动作拆成三步教，教到果穂跳对为止"
+weight = 2
+why = "练习室 4.3%；档案：她像姐姐一样带果穂（教颠球、当鬼コーチ）；教舞是推断"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "afternoon"
+scene = "schoolyard"
+activity = "放学后在操场陪果穂踢球，当鬼コーチ，一脚把球踢到围墙外，自己去捡"
+weight = 2
+why = "学校操场 0.0%；档案：她当果穂的足球「鬼コーチ」、教她颠球射门——场地是照这个推断的"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "evening"
+scene = "park"
+activity = "傍晚在公园的长椅上坐着，看小孩子在篮球架下投篮，看了很久"
+weight = 2
+why = "公园 5.2%；档案：她在街头篮球场和男生们打过球、后来离开了篮球；看别人打是推断"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "evening"
+scene = "restaurant"
+activity = "晚上跟夏葉去家庭餐厅，教她在饮料吧怎么按，自己喝了三杯"
+weight = 2
+why = "家庭餐厅 4.5%（相对偏好 ×4.7）；档案：夏葉没去过家庭餐厅的饮料吧，是她带着去的——原文"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "回房间把作业写完，凛世在旁边看书，两个人一句话不说也不觉得别扭"
+weight = 2
+why = "卧室（她自己的房间）+ 凛世（档案：一起回去、一起吃饭洗碗、一起写作业）"
+
+[[slots]]
+character = "juri"
+day = "wed"
+slot = "night"
+scene = "supermarket"
+activity = "发现宿舍的洗衣液没了，跑去超市，顺手买了明天早上要喝的蔬菜汁"
+weight = 1
+why = "超市 1.0%；档案：打扫、倒垃圾、洗衣这些家务她自己做；运动后爱喝蔬菜汁（档案）"
+
+# ---------------------------------------------------------------------------
+# 周四：休息日（她的休息日全在街上）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "morning"
+scene = "dorm"
+activity = "没有工作，睡到八点就醒了，赖在床上听楼下食堂的声音"
+weight = 2
+why = "宿舍；作息规律是她的习惯（推断）；「睡到八点就醒」是运动员作息（推断）"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "morning"
+scene = "supermarket"
+activity = "去超市买菜，站在生鲜区比对价格，最后买了打折的肉和一大把青菜"
+weight = 2
+why = "超市 1.0%；她管宿舍的家务和饭（档案）；比价是「常識人」的一面（推断）"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "noon"
+scene = "shopstreet"
+activity = "中午在商店街从这头走到那头，跟每家店的人都打招呼，被塞了两颗章鱼烧"
+weight = 2
+why = "商店街 5.9%；档案：她从坡下小店一路认识到写真馆老板；「被塞东西」是这条街的相处方式（推断）"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅坐了一个下午，把电台的听众来信摊在桌上回，写到一半点了续杯"
+weight = 2
+why = "家庭餐厅 4.5%；档案：电台来信、她在意「返せてない」；在家庭餐厅待很久是推断"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "afternoon"
+scene = "park"
+activity = "下午在公园陪果穂玩英雄游戏，她演魔王「ジュリー」，被果穂打败三次"
+weight = 2
+why = "公园 5.2%；档案：樹里陪果穂在公园玩英雄游戏、演魔王「ジュリー」——原文事件"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "afternoon"
+scene = "petshop"
+activity = "路过宠物店，在玻璃门前蹲下来看兔子，看了很久，被店员看见就站起来走了"
+weight = 2
+why = "宠物店 0.7%；档案：她看动物视频说「モルモットとかウサギって、悪魔的な可愛さがあるよな」、想摸狗却嘴硬"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "evening"
+scene = "shrine"
+activity = "傍晚去附近的神社参拜，投了五块钱，鞠一躬，说「感謝の気持ちみたいなの、忘れちゃいけないと思って」"
+weight = 2
+why = "神社 2.7%（相对偏好 ×4.8）；档案原话：「事務所も寮もある場所だから……感謝の気持ちみたいなの」"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "night"
+scene = "dorm"
+activity = "晚上在宿舍厨房试着做年菜，说「アンタに食わすもん作ってるんだから、真剣になるのは当たり前だろ」"
+weight = 2
+why = "厨房 0.6%；档案：正月特番要穿和服做年菜，她在事务所练习——改成宿舍厨房是推断"
+
+[[slots]]
+character = "juri"
+day = "thu"
+slot = "night"
+scene = "convenience_store"
+activity = "做完发现缺一味调料，又跑了一趟便利店，回来路上哼着个人曲"
+weight = 1
+why = "便利店 0.3%；「缺调料跑一趟」是做饭的日常（推断）；她有自己的个人曲（档案）"
+
+# ---------------------------------------------------------------------------
+# 周五：学校 + 练习 + 夏葉家
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "morning"
+scene = "residential_street"
+activity = "晨跑回来在路口碰到去上班的邻居，被说「樹里ちゃん、頑張ってるね」，她「ばっ……ありがとな」"
+weight = 2
+why = "住宅街 1.5%；被夸会慌（人设：「ばっ……！」）；街区的人认识她（档案）"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "morning"
+scene = "stone_path"
+activity = "推着自行车上坡，推到一半停下来喘，心想「なんでこんな坂ばっかなんだよ」"
+weight = 2
+why = "石板路 0.5%；档案原话：「なんでこんな坂ばっかなんだよって、あの時は思ったけど」"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "周五的课，她在课本边上写电台的段子，被老师点名，站起来答对了"
+weight = 2
+why = "教室 0.9%；电台是她的固定工作（档案）；写段子是推断"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "走廊上被同学问「樹里ってアイドルなの？」，她说「や、そういうわけじゃねーけど……やってる」"
+weight = 2
+why = "学校走廊 0.9%；档案：同学问过她篮球的事、也问过偶像的事；这种含糊的答法是她的说话方式"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室，把新曲的舞整段过一遍，过完自己加了十遍副歌，汗把刘海黏在额头上"
+weight = 3
+why = "练习室 4.3%；「準備は全部やる」是她的性格（人设）"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "录音棚里被指出一个音的发音，她重录了六遍，出来说「……まだ納得してねーけどな」"
+weight = 2
+why = "录音棚 2.2%（×5.2）；认真、不自满（人设）"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "收工前在休息室跟放クラ五个人分一盒土产，她把最大的一块留给了果穂"
+weight = 3
+why = "休息室 14.7%；档案：蛋糕只剩一块时想让给果穂、给组合买土产——原文"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "evening"
+scene = "apartment_living"
+activity = "晚上去夏葉家，第一次坐她家的沙发，说「……ここ、寮の部屋より広いな」"
+weight = 2
+why = "公寓客厅 1.9%（挑高客厅/大沙发）；档案：她在夏葉家留宿过、做了早饭、夏葉开车送她回宿舍"
+
+[[slots]]
+character = "juri"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "回房间已经过了十二点，她轻手轻脚地开门，怕吵醒隔壁的凛世"
+weight = 3
+why = "卧室（她自己的房间）；档案：她给凛世留门、早上有时是凛世叫她起床——互相照顾是原文"
+
+# ---------------------------------------------------------------------------
+# 周六：工作（摄影、舞台、打ち上げ）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "morning"
+scene = "office"
+activity = "周六一早到事务所，把今天的流程在脑子里过一遍，比制作人还早到"
+weight = 2
+why = "事务所办公室 2.2%；「做什么都要准备好」是她的性格（人设）"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "morning"
+scene = "photo_studio"
+activity = "拍杂志的别册，最后一套是荷叶边的可爱衣服，她照镜子说「アタシには、似合わないだろ……」"
+weight = 2
+why = "摄影棚 1.1%；档案：别册写真最后一套就是荷叶边的可爱衣服，原话「アタシには、似合わないだろ……」"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "noon"
+scene = "backstage"
+activity = "后台换演出服，果穂的鞋带开了，她蹲下去给系上，被说「樹里ちゃん、ありがとうございますっ」"
+weight = 2
+why = "后台 1.3%；她照顾果穂（档案：雨天让果穂走里侧等）；系鞋带是推断"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "noon"
+scene = "stage"
+activity = "彩排，灯光一打，她先找台下有没有人，找到空位才松一口气"
+weight = 2
+why = "舞台 0.6%；档案：她在舞台上又听见了为自己喊的声音——上台前会先确认观众（推断）"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "afternoon"
+scene = "stage"
+activity = "正式演出，唱到第二首的时候看见前排有个小孩在挥手，她笑了一下，忘了下一个动作"
+weight = 3
+why = "舞台 0.6%；档案：她会被台下的声援打动、也说「アタシのまま、アイドルになっていいんだ」"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "演出结束回休息室，把高跟鞋踢掉，坐在地板上喝水，说「足、終わった」"
+weight = 2
+why = "休息室 14.7%；收工落点（推断）"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "晚上放クラ五个人去家庭餐厅庆祝，她抢着付钱，被夏葉按回去"
+weight = 2
+why = "家庭餐厅 4.5%；档案：她常请客（「ここはアタシのおごりってことで！」）、和夏葉较劲"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "evening"
+scene = "shopstreet"
+activity = "散场后陪凛世走回宿舍，路上买了两串章鱼烧，一人一串"
+weight = 1
+why = "商店街 5.9%；和凛世一起回去（档案）；章鱼烧是她的喜好（档案）"
+
+[[slots]]
+character = "juri"
+day = "sat"
+slot = "night"
+scene = "dorm"
+activity = "洗完澡在宿舍走廊上晾毛巾，碰见千雪さん，被说「樹里ちゃん、顔が疲れてるよ」"
+weight = 2
+why = "宿舍；千雪也住同一栋楼（档案）；被年长的成员关心是推断"
+
+# ---------------------------------------------------------------------------
+# 周日：街上的一天（公园、商店街、海边公路）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "周日睡到自然醒，起来先把房间里的垃圾拿下去分类，回来才吃早饭"
+weight = 2
+why = "卧室（她自己的房间）；她做打扫、倒垃圾这些家务（档案）"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "morning"
+scene = "residential_street"
+activity = "吃完早饭出去跑了一圈，跑到商店街口就停下来买可乐饼"
+weight = 2
+why = "住宅街 1.5%；晨跑 + 肉铺可乐饼（档案）；两个地点连在一起是这条街的样子（推断）"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "中午跟智代子、凛世在咖啡店，三个人分一份甜点，她嘴上说太甜还是吃完了"
+weight = 2
+why = "咖啡店 4.9%；和智代子、凛世一起（档案：常和她们一起行动）"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "noon"
+scene = "shopstreet"
+activity = "下午在商店街帮おばちゃん看了一会儿店，被塞了一袋卖剩的橘子"
+weight = 2
+why = "商店街 5.9%；档案：商店街的人都认识她、会长请她发传单；帮忙看店是推断"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "下午在公园的篮球架下投了几个球，投进的时候站着听了一会儿那个声音"
+weight = 2
+why = "公园 5.2%；档案：「踏み込み、膝から肘……それから手首／それらが全部かみ合った時の／この音が好きだ」"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "afternoon"
+scene = "observatory"
+activity = "骑车到高台上，把车停在栏杆边，看城市看到太阳下去"
+weight = 2
+why = "展望台 0.7%；档案：「頑張った先に見える景色が好きかな」；和夏葉跑到高处看夕阳是原文"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "evening"
+scene = "coast_road"
+activity = "傍晚沿着海边公路骑，风把头发全吹起来，她喊了一句「気持ちいいな、おい」"
+weight = 2
+why = "沿海公路 0.7%；她是神奈川出身、离海近（档案）；骑车兜风是推断"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "evening"
+scene = "convenience_store"
+activity = "回程在便利店买冰棒，站在门口吃完才走，想起以前部活回家路上也这样分着吃"
+weight = 1
+why = "便利店 0.3%；档案：苏打冰棒让她想起篮球部回家路上和伙伴分着吃——原文细节"
+
+[[slots]]
+character = "juri"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "回房间把下周的日程抄进记事本，抄完给家里打了个电话，说「元気にしてる」"
+weight = 2
+why = "卧室（她自己的房间）；档案：父亲说「いつでも帰ってきたらいい」；给家里打电话是推断"
+
+# ===========================================================================
+# 随机池（daily-life 场景）—— 让剩下的日常地点也能被抽到
+# ===========================================================================
+#
+# 固定槽位用到 28 个场景（26 个日常 + stage/backstage），池子把**不在固定槽位里的 43 个日常
+# 场景**接进来。她的「街上 40%」靠固定槽位撑住，池子负责让「偶尔跑到别处」也有地方去。
+#
+# 不进池子的 14 个（事件/节日专用，理由见 characters/schedules.model.md）：
+#   stage / backstage（周六固定槽位）、banquet、beach、flower_field / cherry / ginkgo、
+#   hospital_corridor / exam_room、hall、izakaya / bar、airport、bowling。
+
+[[pools]]
+character = "juri"
+day = "any"
+slot = "any"
+chance = 0.18
+scenes = [
+  "street", "street_night", "park_night", "garden", "flowershop", "car",
+  "kitchen", "home", "home_living", "washitsu", "bathroom", "sento",
+  "dressing_room", "esports_room", "library", "music_room", "art_room",
+  "cooking_room", "studio_small", "lecture_hall", "school_gate", "office_corridor",
+  "office_reception", "bookstore", "mall", "arcade", "cake_shop", "bakery",
+  "laundry", "general_store", "fastfood", "station", "station_hall", "subway",
+  "train", "vending_machine", "crossroad", "railway_crossing", "alley",
+  "temple", "lake", "river", "office_building",
+]
+weights = [
+  2, 1, 1, 1, 1, 2,
+  1, 1, 1, 1, 1, 1,
+  1, 2, 1, 1, 1,
+  1, 1, 1, 1, 2,
+  1, 2, 2, 2, 1, 1,
+  1, 2, 2, 2, 1, 1,
+  2, 1, 2, 1, 2,
+  1, 1, 1, 1,
+]
+why = "43 个剩余日常地点：给 2 的是她真的会去的地方（街上、车里、游戏厅、书店、商场、便利店式快餐、车站、十字路口、小巷、家庭式杂货店——「街上 40%」这条数据落在这些地方），chance 0.18 是「这一天不按作息走」的概率。"
+
+[[pools]]
+character = "juri"
+day = "any"
+slot = "night"
+chance = 0.18
+scenes = [
+  "street_night", "station_hall", "subway", "vending_machine", "railway_crossing",
+  "alley", "fastfood", "office_corridor", "office_building", "temple", "sento",
+  "park_night", "car",
+]
+weights = [2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+why = "夜 22-2 点还说得过去的地方：夜街、车站大厅、地铁、自动贩卖机、道口、小巷、深夜快餐、加班的事务所走廊、事务所大楼、夜里的寺庙、钱汤、夜里的公园、车里。她怕黑，但怕归怕，路还是要走（人设）。"
+
+# ===========================================================================
+# 节日覆盖（只写与共享日历/真乃 不同的 12 条，其余回落到 holidays.toml）
+# ===========================================================================
+#
+# 她的节日多半落在「这条街」上：神社、商店街、宿舍、実家（神奈川）。真乃 的覆盖以公园/花/
+# 家里为主，所以这些条目是真的不同，不是换个说法。
+
+[[holidays]]
+holiday = "new_year"
+dates = ["2026-01-01", "2027-01-01"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shrine", "home"]
+weights = [3, 2]
+priority = 100
+activity = "元旦，回神奈川的実家，被父亲问「アイドル、どうだ」，她说「……まぁ、やってる」"
+
+[[holidays]]
+holiday = "hatsumode"
+ranges = [
+  { from = "2026-01-01", to = "2026-01-03" },
+  { from = "2027-01-01", to = "2027-01-03" },
+]
+slots = ["morning", "noon"]
+scenes = ["shrine", "stone_path"]
+weights = [3, 2]
+priority = 95
+activity = "初詣，参道是坡道，她一级一级走上去，说「この坂、毎年きついな」"
+
+[[holidays]]
+holiday = "setsubun"
+dates = ["2026-02-03", "2027-02-03"]
+slots = ["morning", "noon", "evening"]
+scenes = ["shopstreet", "shrine"]
+weights = [3, 2]
+priority = 55
+activity = "節分，商店街的撒豆是她主动揽下海报的活，站在人群里喊「鬼は外、福は内」"
+
+[[holidays]]
+holiday = "hanami"
+ranges = [
+  { from = "2026-03-25", to = "2026-04-05" },
+  { from = "2027-03-26", to = "2027-04-06" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["cherry", "park"]
+weights = [3, 2]
+priority = 70
+chance = 0.45
+activity = "花見，她带着果穂去看樱花，果穂在树下跑来跑去，她在后面喊「走るなって」"
+
+[[holidays]]
+holiday = "tanabata"
+dates = ["2026-07-07", "2027-07-07"]
+slots = ["evening", "night"]
+scenes = ["shopstreet", "park_night"]
+weights = [3, 2]
+priority = 60
+activity = "七夕，商店街的竹枝上她写的是「みんな、元気でいろよ」，写完自己先不好意思了"
+
+[[holidays]]
+holiday = "marine_day"
+dates = ["2026-07-20", "2027-07-19"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["beach", "coast_road"]
+weights = [3, 2]
+priority = 90
+activity = "海の日，回神奈川，带果穂去海边，教她在浪里跳，自己被浪打了一身"
+
+[[holidays]]
+holiday = "obon"
+ranges = [
+  { from = "2026-08-13", to = "2026-08-16" },
+  { from = "2027-08-13", to = "2027-08-16" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["home", "washitsu", "temple"]
+weights = [3, 2, 2]
+priority = 70
+chance = 0.8
+activity = "お盆，回実家。和室的榻榻米有点硬，她躺下就睡着了，被母亲拍醒去扫墓"
+
+[[holidays]]
+holiday = "sports_day"
+dates = ["2026-10-12", "2027-10-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "residential_street"]
+weights = [3, 2]
+priority = 90
+activity = "スポーツの日，跑到公园跟一群中学生打球，打完被叫「お姉さん、上手いね」"
+
+[[holidays]]
+holiday = "culture_day"
+dates = ["2026-11-03", "2027-11-03"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["hall", "school_corridor"]
+weights = [3, 2]
+priority = 90
+activity = "文化の日，学校合唱祭，她在礼堂侧幕等上场，唱的是假声那一段，唱完自己先笑"
+
+[[holidays]]
+holiday = "momijigari"
+ranges = [
+  { from = "2026-11-10", to = "2026-11-30" },
+  { from = "2027-11-10", to = "2027-11-30" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["ginkgo", "temple"]
+weights = [3, 2]
+priority = 60
+chance = 0.4
+activity = "紅葉狩り，银杏落了一地，她踩着走，说「この音、好きだな」——跟篮球那个声音一样"
+
+[[holidays]]
+holiday = "christmas"
+dates = ["2026-12-25", "2027-12-25"]
+slots = ["noon", "evening", "night"]
+scenes = ["banquet", "dorm"]
+weights = [2, 3]
+priority = 80
+activity = "クリスマス，事务所的圣诞会她露了个面，回宿舍跟凛世分了一块蛋糕"
+
+[[holidays]]
+holiday = "omisoka"
+dates = ["2025-12-31", "2026-12-31", "2027-12-31"]
+slots = ["evening", "night"]
+scenes = ["temple", "dorm"]
+weights = [2, 3]
+priority = 80
+activity = "大晦日，本来想回実家，最后在宿舍跟凛世一起煮了年越しそば，钟声从电视里听"
+
+# ---------------------------------------------------------------------------
+# 突发事件（chance 是每次通话命中这个事件的概率，不是占比；文件顺序就是优先级）
+# ---------------------------------------------------------------------------
+#
+# 她是「街上的人」，所以两个无条件事件都在街上（商店街、家庭餐厅）；其余挂季节/天气/节日。
+
+[[events]]
+character = "juri"
+chance = 0.10
+scene = "shrine"
+activity = "夏祭り的晚上，神社的境内摆满摊子，她手里拿着苹果糖，被果穂拉着去看金鱼"
+conditions = { holiday = "natsumatsuri", slot = ["evening", "night"] }
+why = "神社 2.7%（相对偏好 ×4.8）；档案：苹果糖让她想起篮球练习后去庙会吃到的那一个很酸——这条是照那个记忆做的"
+
+[[events]]
+character = "juri"
+chance = 0.06
+scene = "shopstreet"
+activity = "在商店街被会长叫住，说节分那天想请放クラ来，她一口答应下来，回头才想「あ、日程……」"
+why = "商店街 5.9%；档案：商店街会长请放クラ参加节分撒豆，她主动揽下发海报的活——原文事件"
+
+[[events]]
+character = "juri"
+chance = 0.05
+scene = "restaurant"
+activity = "在家庭餐厅碰到班上的同学，被问「西城さんって、アイドルなの？」，她说「……やってる」"
+conditions = { slot = ["noon", "evening"] }
+why = "家庭餐厅 4.5%；档案：同学会问她篮球和偶像的事；在餐厅被撞见是推断（早上/深夜不会在家庭餐厅碰同学）"
+
+[[events]]
+character = "juri"
+chance = 0.06
+scene = "cherry"
+activity = "收工路上拐进樱花道，站着看了一会儿，说「こんなに咲いてんのに、誰も見てねーのかよ」"
+conditions = { season = "spring" }
+why = "樱花道 0.1%；季节限定场景；她会替没人看的东西不值（人设）"
+
+[[events]]
+character = "juri"
+chance = 0.05
+scene = "ginkgo"
+activity = "秋天在银杏道上走，踩着落叶，捡了一片最黄的夹进台本"
+conditions = { season = "autumn" }
+why = "银杏道 0.0%（0.3% 的那一档是别人的）；季节限定场景；捡叶子是推断"
+
+[[events]]
+character = "juri"
+chance = 0.05
+scene = "beach"
+activity = "夏天的海边外景，她第一个冲进浪里，被工作人员喊回来补防晒"
+conditions = { season = ["spring", "summer"] }
+why = "海边 2.5%（四人里最高）；神奈川出身、离海近（档案）；外景 + 玩水是推断"
+
+[[events]]
+character = "juri"
+chance = 0.04
+scene = "flower_field"
+activity = "为了拍一支广告去花田，等灯的时候她蹲在田埂上，说「こんなとこ、普段来ねーもんな」"
+conditions = { season = ["spring", "autumn"] }
+why = "花田 0.6%；季节限定场景；外景地点是推断"
+
+[[events]]
+character = "juri"
+chance = 0.045
+scene = "banquet"
+activity = "演出结束后的打ち上げ，她坐在角落吃，被夏葉拉去敬酒，杯子里是ウーロン茶"
+conditions = { season = ["autumn", "winter"], slot = ["evening", "night"] }
+why = "宴会厅 0.5%；未成年只喝ウーロン茶；打ち上げ是行业惯例（推断）"
+
+[[events]]
+character = "juri"
+chance = 0.04
+scenes = ["izakaya", "bar"]
+weights = [2, 2]
+activity = "事务所的忘年会，她被前辈劝酒，举着ウーロン茶说「アタシ、こっちでいいんで」"
+conditions = { season = "winter", slot = ["evening", "night"] }
+why = "居酒屋 0.6% / 酒吧 1.5%；未成年，两处不进日常池，只在忘年会事件里出现"
+
+[[events]]
+character = "juri"
+chance = 0.035
+scenes = ["hospital_corridor", "exam_room"]
+weights = [2, 1]
+activity = "脚踝扭了还硬撑了两天，被はづきさん押去诊所，她在走廊上单脚站着等拍片"
+conditions = { season = "winter" }
+why = "医院走廊 0.0%（0.5% 档）/ 诊察室 0.5%；粉丝来信总写「怪我しないようにね」（档案）——受伤是最合理的意外（推断）"
+
+[[events]]
+character = "juri"
+chance = 0.03
+scene = "airport"
+activity = "夏天的远征，一早在机场集合，她第一次自己办登机，站在机器前研究了五分钟"
+conditions = { season = "summer" }
+why = "机场 0.2%；档案：手机和网上的事她都得靠凛世；自助值机卡住是她的性格（推断）"
+
+[[events]]
+character = "juri"
+chance = 0.04
+scene = "hall"
+activity = "文化祭前夜，她在礼堂搬椅子排到很晚，最后一排排完自己坐在台上看了会儿空座位"
+conditions = { season = "autumn" }
+why = "礼堂 0.2%；学园祭/合唱祭排在秋天（推断）；礼堂不进日常池，只在文化祭场合出现"
+
+[[events]]
+character = "juri"
+chance = 0.04
+scene = "bowling"
+activity = "下雨取消了外景，五个人临时去打保龄球，她一个人赢了全场，还教果穂怎么拿球"
+conditions = { weather = "rain" }
+why = "档案：她运动全般、和主持人比投篮全赢；保龄球馆要专门约，不进日常池"

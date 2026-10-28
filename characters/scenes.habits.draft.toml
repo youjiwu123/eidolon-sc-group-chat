@@ -1,0 +1,439 @@
+# 每角色「常去的地方 + 这会儿在做什么」草稿 —— 先给你过目，不接进代码。
+#
+# 用法（定稿后）：把这些条目并进 `characters/scenes.toml` 的 `[[behaviors]]`，删掉现在那 6 条
+# `character = "*"` 的通用行为（或者留两条当兜底）。冷启动时从她自己那几条里随机挑一条，
+# 按 `scene` 定场景，再按 `text` 写开场白。
+#
+# 场景只有这几个 id：lounge（事务所休息室）、studio（练习室）、park（公园）、beach（海边）、
+# home（她的家）、train（电车上）、sky（说不准/外景）。
+# 每个人的 3 条尽量覆盖「工作 / 放松 / 路上」三种，别全挤在练习室。
+
+[[behaviors]]
+character = "mano"
+scene = "studio"
+text = "在练习室对着镜子练今天的新舞，练到额头上都是汗"
+
+[[behaviors]]
+character = "mano"
+scene = "park"
+text = "在事务所旁边的公园喂鸽子，手里还攥着面包屑"
+
+[[behaviors]]
+character = "mano"
+scene = "home"
+text = "在家里一边哼歌一边收拾房间，手机放在桌上"
+
+[[behaviors]]
+character = "hiori"
+scene = "studio"
+text = "在练习室独自加练，把同一个转身反复磨了二十遍"
+
+[[behaviors]]
+character = "hiori"
+scene = "lounge"
+text = "在休息室的角落看书，旁边放着一杯已经凉了的茶"
+
+[[behaviors]]
+character = "hiori"
+scene = "train"
+text = "结束工作坐在回家的电车上，靠着窗看外面的灯"
+
+[[behaviors]]
+character = "meguru"
+scene = "park"
+text = "在公园的草坪上晒太阳，正跟路过的小狗打招呼"
+
+[[behaviors]]
+character = "meguru"
+scene = "studio"
+text = "在练习室教后辈动作，自己先笑得停不下来"
+
+[[behaviors]]
+character = "meguru"
+scene = "train"
+text = "在电车上戴着耳机听新歌，脚打着拍子"
+
+[[behaviors]]
+character = "kogane"
+scene = "lounge"
+text = "在休息室给大家煮咖啡，围裙还没来得及解"
+
+[[behaviors]]
+character = "kogane"
+scene = "studio"
+text = "在练习室练新曲的舞步，嘴里小声数着拍子"
+
+[[behaviors]]
+character = "kogane"
+scene = "home"
+text = "在家里试做新的甜点，厨房里一股黄油味"
+
+[[behaviors]]
+character = "amana"
+scene = "lounge"
+text = "在休息室的沙发上刷手机，看到好笑的就笑出声"
+
+[[behaviors]]
+character = "amana"
+scene = "home"
+text = "在自己家里给指甲涂新颜色，涂到一半停住了"
+
+[[behaviors]]
+character = "amana"
+scene = "studio"
+text = "在练习室拍今天练习的小视频，准备发给制作人"
+
+[[behaviors]]
+character = "chiyuki"
+scene = "lounge"
+text = "在休息室收拾大家的杂物，顺手把桌面擦了一遍"
+
+[[behaviors]]
+character = "chiyuki"
+scene = "home"
+text = "在家里做晚饭，锅里的汤正咕嘟咕嘟响"
+
+[[behaviors]]
+character = "chiyuki"
+scene = "train"
+text = "买完东西坐在回家的电车上，脚边放着两个纸袋"
+
+[[behaviors]]
+character = "kaho"
+scene = "studio"
+text = "在练习室反复练同一段，头发扎得高高的"
+
+[[behaviors]]
+character = "kaho"
+scene = "park"
+text = "在公园慢跑，跑完正靠在栏杆上喘气"
+
+[[behaviors]]
+character = "kaho"
+scene = "home"
+text = "在家里做拉伸，一边数着秒一边盯着天花板"
+
+[[behaviors]]
+character = "natsuha"
+scene = "studio"
+text = "在练习室编新的动作，笔记本上画满了小人"
+
+[[behaviors]]
+character = "natsuha"
+scene = "park"
+text = "在公园的长椅上写东西，笔杆咬着笔帽"
+
+[[behaviors]]
+character = "natsuha"
+scene = "home"
+text = "在家里调新曲的编曲，桌上摊着一堆线材"
+
+[[behaviors]]
+character = "kiriko"
+scene = "lounge"
+text = "在休息室安静地坐着，手里转着一支笔"
+
+[[behaviors]]
+character = "kiriko"
+scene = "studio"
+text = "在练习室对着镜子调整表情，练到满意为止"
+
+[[behaviors]]
+character = "kiriko"
+scene = "train"
+text = "坐在靠窗的座位上，看着窗外发呆"
+
+[[behaviors]]
+character = "sakuya"
+scene = "studio"
+text = "在练习室带着后辈复习基础，声音比平时高一度"
+
+[[behaviors]]
+character = "sakuya"
+scene = "lounge"
+text = "在休息室整理排练表，红笔在纸上划得沙沙响"
+
+[[behaviors]]
+character = "sakuya"
+scene = "park"
+text = "在公园散步，顺便想想下一场演出的编排"
+
+[[behaviors]]
+character = "yuika"
+scene = "lounge"
+text = "在休息室看杂志，看到漂亮的衣服就折个角"
+
+[[behaviors]]
+character = "yuika"
+scene = "home"
+text = "在自己家里挑明天要穿的衣服，床上摊了一整片"
+
+[[behaviors]]
+character = "yuika"
+scene = "train"
+text = "坐在电车上补妆，小镜子里映着窗外的光"
+
+[[behaviors]]
+character = "rinze"
+scene = "park"
+text = "在公园里观察鸟，手里的本子记得密密麻麻"
+
+[[behaviors]]
+character = "rinze"
+scene = "lounge"
+text = "在休息室泡红茶，茶具摆得很讲究"
+
+[[behaviors]]
+character = "rinze"
+scene = "home"
+text = "在家里给植物浇水，一盆一盆地看过去"
+
+[[behaviors]]
+character = "chiyoko"
+scene = "studio"
+text = "在练习室练声，把同一个音拉得很长"
+
+[[behaviors]]
+character = "chiyoko"
+scene = "lounge"
+text = "在休息室和工作人员确认明天的行程，边记边点头"
+
+[[behaviors]]
+character = "chiyoko"
+scene = "home"
+text = "在家里给家里打电话，说着说着笑起来"
+
+[[behaviors]]
+character = "fuyuko"
+scene = "studio"
+text = "在练习室一个人录视频，确认自己的角度"
+
+[[behaviors]]
+character = "fuyuko"
+scene = "home"
+text = "在家里看配信，把弹幕一条条读完"
+
+[[behaviors]]
+character = "fuyuko"
+scene = "train"
+text = "在电车上戴着耳机，手指在膝盖上敲节奏"
+
+[[behaviors]]
+character = "mei"
+scene = "lounge"
+text = "在休息室的沙发上躺着，书盖在脸上"
+
+[[behaviors]]
+character = "mei"
+scene = "home"
+text = "在家里写歌词，废纸团在脚边堆成小山"
+
+[[behaviors]]
+character = "mei"
+scene = "park"
+text = "在公园的长椅上抱着膝盖坐着，看来来往往的人"
+
+[[behaviors]]
+character = "asahi"
+scene = "studio"
+text = "在练习室练到很晚，只剩她一个人和镜子"
+
+[[behaviors]]
+character = "asahi"
+scene = "train"
+text = "坐在最后一班电车上，靠窗抱着自己的包"
+
+[[behaviors]]
+character = "asahi"
+scene = "home"
+text = "在家里对着镜子练表情，一遍一遍地来"
+
+[[behaviors]]
+character = "hazuki"
+scene = "lounge"
+text = "在休息室给大家泡茶，顺手把点心摆好"
+
+[[behaviors]]
+character = "hazuki"
+scene = "home"
+text = "在家里整理花材，桌上铺着旧报纸"
+
+[[behaviors]]
+character = "hazuki"
+scene = "park"
+text = "在公园里散步，看到好看的花就停下来"
+
+[[behaviors]]
+character = "luca"
+scene = "studio"
+text = "在练习室练小提琴，弓弦的声音断断续续"
+
+[[behaviors]]
+character = "luca"
+scene = "home"
+text = "在家里听唱片，闭着眼睛跟着哼"
+
+[[behaviors]]
+character = "luca"
+scene = "lounge"
+text = "在休息室擦小提琴的琴身，动作很轻"
+
+[[behaviors]]
+character = "tenka"
+scene = "home"
+text = "在家里写信，信纸摊了一桌子"
+
+[[behaviors]]
+character = "tenka"
+scene = "lounge"
+text = "在休息室的窗边坐着，看着外面的云"
+
+[[behaviors]]
+character = "tenka"
+scene = "park"
+text = "在公园的长椅上读书，读一段就抬头发会儿呆"
+
+[[behaviors]]
+character = "chiyuki"
+scene = "train"
+text = "在电车上给妈妈发消息，说今天会早点回去"
+
+[[behaviors]]
+character = "mikoto"
+scene = "studio"
+text = "在练习室练剑舞的步法，脚下踩得很稳"
+
+[[behaviors]]
+character = "mikoto"
+scene = "lounge"
+text = "在休息室闭目养神，背挺得笔直"
+
+[[behaviors]]
+character = "mikoto"
+scene = "home"
+text = "在家里写书法，最后一笔收得很慢"
+
+[[behaviors]]
+character = "madoka"
+scene = "studio"
+text = "在练习室练舞，动作干脆得像在切风"
+
+[[behaviors]]
+character = "madoka"
+scene = "lounge"
+text = "在休息室的角落听歌，谁也不打扰"
+
+[[behaviors]]
+character = "madoka"
+scene = "train"
+text = "在电车上看着窗外，眼神比平时软一点"
+
+[[behaviors]]
+character = "juri"
+scene = "lounge"
+text = "在休息室补妆，镜子前摆着一排口红"
+
+[[behaviors]]
+character = "juri"
+scene = "home"
+text = "在挑今晚要穿的衣服，对着镜子比来比去"
+
+[[behaviors]]
+character = "juri"
+scene = "park"
+text = "在公园拍照，蹲下来找光线"
+
+[[behaviors]]
+character = "hinana"
+scene = "train"
+text = "在电车上蹦蹦跳跳地站着，扶着吊环哼歌"
+
+[[behaviors]]
+character = "hinana"
+scene = "park"
+text = "在公园追蝴蝶，跑得气喘吁吁"
+
+[[behaviors]]
+character = "hinana"
+scene = "home"
+text = "在家里偷偷练新歌，声音压在嗓子里"
+
+[[behaviors]]
+character = "haruki"
+scene = "studio"
+text = "在练习室拍舞蹈视频，一遍不满意就重来"
+
+[[behaviors]]
+character = "haruki"
+scene = "lounge"
+text = "在休息室吃便当，吃得很专注"
+
+[[behaviors]]
+character = "haruki"
+scene = "home"
+text = "在家里打游戏，耳机挂在一只耳朵上"
+
+[[behaviors]]
+character = "nichika"
+scene = "home"
+text = "在自己家里看直播，一边看一边记笔记"
+
+[[behaviors]]
+character = "nichika"
+scene = "lounge"
+text = "在休息室等电梯，手里拎着一袋零食"
+
+[[behaviors]]
+character = "nichika"
+scene = "train"
+text = "在电车上刷手机，看到有趣的就截图"
+
+[[behaviors]]
+character = "mamimi"
+scene = "studio"
+text = "在练习室给动作找角度，嘴里念着节拍"
+
+[[behaviors]]
+character = "mamimi"
+scene = "home"
+text = "在家里研究新的妆，镜子前摆满了小瓶子"
+
+[[behaviors]]
+character = "mamimi"
+scene = "lounge"
+text = "在休息室摆弄手机，想拍点好看的"
+
+[[behaviors]]
+character = "koito"
+scene = "studio"
+text = "在练习室练舞，汗把刘海黏在额头上"
+
+[[behaviors]]
+character = "koito"
+scene = "park"
+text = "在公园跑步，跑完坐在长椅上喝水"
+
+[[behaviors]]
+character = "koito"
+scene = "home"
+text = "在家里看电视，抱着靠垫缩成一团"
+
+[[behaviors]]
+character = "hana"
+scene = "lounge"
+text = "在休息室翻杂志，看到喜欢的页就停下来"
+
+[[behaviors]]
+character = "hana"
+scene = "home"
+text = "在家里画画，铅笔屑落了一桌子"
+
+[[behaviors]]
+character = "hana"
+scene = "train"
+text = "在电车上把画本摊在膝盖上，画窗外的人"
+
+[[behaviors]]
+character = "luca"
+scene = "train"
+text = "在电车上听小提琴的录音，闭着眼挑毛病"

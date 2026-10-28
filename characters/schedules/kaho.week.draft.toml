@@ -1,0 +1,933 @@
+# 小宮果穂的一周作息 × 地点草案（pilot 批次，先别接进代码）。
+#
+# 证据 vs 推断（口径同 schedules.mano.week.draft.toml）：
+#   - 证据：characters/schedules/kaho.stats.json、characters/facts/kaho.md、characters/sheets/kaho.md。
+#     例：休息室 30.4%（1,617 句，27 人里最高的「枢纽」）、公园 6.7%（相对偏好 ×2.7）、
+#     咖啡店 3.7%、十字路口 3.1%、舞台 2.5%、海边 2.3%、家庭餐厅 2.3%、卧室 2.1%、
+#     后台 1.9%、事务所办公室 1.8%（×2.5）、住宅街 1.6%；结构是工作 39.6% / 街上 27.6% /
+#     其他 24.5% / 家 5.2% / 学校 3.1%。
+#   - **她是小学六年级、12 岁**（不是高中生）：平时上的是小学，所以平日的教室、操场、
+#     走廊、体育馆、家庭科教室都按小学生活用，不套高中的校舍（转场时间也短：她住家里，不走宿舍）。
+#     语料里学校只占 3.1%，这部分的「哪一天上学」是推断，`why` 里写「推断」。
+#   - 休息室 30.4% 不能当作息——00001 是通用对话背景，她又是放クラ的 center，被围着说话的
+#     场面特别多。这里把休息室拆成「工作日的集合点 / 收工点」，一天最多两格。
+#   - 2026-10 追加：`[[pools]]` 把不在固定槽位里的 43 个日常场景接进来（chance 0.18），
+#     `[[holidays]]` 只覆盖与共享日历/真乃 不同的 13 个节日（其余回落到 characters/holidays.toml），
+#     `[[events]]` 14 条。一次通话的顺序：节日覆盖 > 事件 > 固定槽位 > 随机池。
+
+# ---------------------------------------------------------------------------
+# 周一：小学 → 駄菓子屋 → 事务所特训
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "六点半就起来了，先带マメ丸在门口转一圈，回来背上黄色ランドセル，出门前对妈妈说「いってきますっ！」"
+weight = 3
+why = "档案：每天由她遛マメ丸、背黄色书包（「ジャスティスイエロー特别帅，所以选了黄色」）；家 0.7%"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "morning"
+scene = "residential_street"
+activity = "牵着マメ丸走到路口，蹲下来跟它说「行ってらっしゃい」，才把它交回妈妈手里"
+weight = 2
+why = "住宅街 1.6%；档案：マメ丸是「家族なので」、每天由她遛；具体路线是推断"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，算术卡在一道题上，她在草稿纸上画了个英雄，偷偷对自己说「ネバー・ギブアップ！」"
+weight = 3
+why = "教室 1.3%；档案：算术不太拿手、会说「ネバー・ギブアップ！」；給食的咖喱是她的最爱（档案）"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休在操场踢球，被同学推为女子队的队长，她说「キャプテン、がんばりますっ！」"
+weight = 2
+why = "学校操场 0.0%（语料里没有）；档案：运动会上被同学推为女子足球队长——原文情节，场地按小学操场补"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "afternoon"
+scene = "school_corridor"
+activity = "放学后走廊上被まおちゃん拉住说悄悄话，她一边听一边点头，书包在背后晃"
+weight = 1
+why = "学校走廊 0.4%；まおちゃん是她最好的朋友（档案）；走廊说悄悄话是推断"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "afternoon"
+scene = "general_store"
+activity = "跟まおちゃん去駄菓子屋，用零花钱抽了一次扭蛋，抽到重复的也说「スゴいですっ！」"
+weight = 2
+why = "杂货店 0.5%；档案：学校附近有放学后常和朋友去的駄菓子屋、她收集ジャスティスⅤ的扭蛋"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "evening"
+scene = "studio"
+activity = "到事务所先做「特訓」，把新舞练到能一口气跳完，跳完自己喊「もう一回ですっ！」"
+weight = 2
+why = "练习室 0.5%；档案：她爱用「特訓あるのみ」「パワーアップ」这类说法；练习量是推断"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室把今天学校的事讲给制作人听，讲完才想起来要问「今日の仕事、何でしたっけ」"
+weight = 3
+why = "休息室 30.4%（1,617 句，27 人最高）；她「想到什么就马上『聞いてください』」（人设）"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "睡前把英雄手办摆成一排，跟它们说明天也要加油，摆完才写作业"
+weight = 2
+why = "卧室 2.1%；档案：房间里ヒーロー周边（小学校６年生会觉得丢人，她只在家人和制作人面前尽情讲）"
+
+[[slots]]
+character = "kaho"
+day = "mon"
+slot = "night"
+scene = "kitchen"
+activity = "妈妈做饭她在旁边帮忙，把胡萝卜切成一样大，说「作戦会議です！」"
+weight = 1
+why = "厨房 0.5%；档案：妈妈会做饭团、亲子丼；她自己在家庭科做过饼干松饼（喜欢动手）"
+
+# ---------------------------------------------------------------------------
+# 周二：小学 → 公园（孩子王）→ 事务所
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "morning"
+scene = "crossroad"
+activity = "上学路上在十字路口当交通旗当番，站得笔直，跟每个同学说「おはようございますっ！」"
+weight = 2
+why = "十字路口 3.1%；档案：商店街会长记得她是「いつもすごく大きな声で挨拶してくれる子」"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "出门前又跑回来拿忘带的联络簿，妈妈说「もう」，她「えへへっ」地跑掉"
+weight = 2
+why = "家 0.7%；小学生的日常（推断）；「えへへっ」是她的笑声（人设）"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，她把读不出的汉字圈起来，下课就去问老师「助けてください！」"
+weight = 2
+why = "教室 1.3%；档案：算术不太拿手、有读不出的汉字就问家人和放クラ（「『助けてください！』って！」）"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "noon"
+scene = "gym"
+activity = "体育课跳箱，她第一个跳过去，落地的时候自己给自己鼓掌"
+weight = 2
+why = "体育馆 0.2%；档案：她个子高、运动好（运动会、足球、滑雪）；跳箱是小学体育（推断）"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "afternoon"
+scene = "park"
+activity = "放学后在公园跟小孩子玩英雄游戏，她当ジャスティスレッド，被五个孩子追着跑"
+weight = 3
+why = "公园 6.7%（她第二高、相对偏好 ×2.7）；档案：制作人就是在公园看见她和孩子们玩才搭话的"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "afternoon"
+scene = "office"
+activity = "到事务所，在办公室把作业摊开写，遇到不会的就抬头问「プロデューサーさん、これ何ですかっ」"
+weight = 2
+why = "事务所办公室 1.8%（×2.5）；档案：制作人教她汉字和算术；在事务所写作业是推断"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室跟放クラ的姐姐们会合，把今天学的英雄台词背给她们听"
+weight = 3
+why = "休息室 30.4%；放クラ五人（档案）；背台词是她的特技「好きな番組の決め台詞を数多く覚えている」"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "evening"
+scene = "restaurant"
+activity = "五个人去家庭餐厅，她点了儿童餐又后悔，说「大人のやつ、一口ください」"
+weight = 2
+why = "家庭餐厅 2.3%（×2.4）；档案：她憧憬「大人」、觉得吃得下黑醋就算长大；儿童餐是推断"
+
+[[slots]]
+character = "kaho"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "睡前背明天要说的台词，背到一半睡着，台本盖在脸上"
+weight = 3
+why = "卧室 2.1%；她的特技就是背台词（档案）；睡着是推断（她白天太满）"
+
+# ---------------------------------------------------------------------------
+# 周三：小学（家庭科）+ 运动会练习 + 特训
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "早上跟マメ丸抢玄关，被它叼走一只鞋，追了半条走廊才拿回来"
+weight = 2
+why = "家 0.7%；档案：マメ丸会自己挑头巾、和她一起睡——是家里的一员（推断的具体行为）"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "morning"
+scene = "residential_street"
+activity = "牵着マメ丸快走一段，边走边对它说「今日は家庭科だから、うまくできるかな」"
+weight = 2
+why = "住宅街 1.6%；遛狗 + 上学是同一条路（推断）"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，她把「こーじょーしん」念成平假名，被同学笑，她也笑"
+weight = 2
+why = "教室 1.3%；档案：难一点的大人词会念成平假名（「こーじょーしん」是她真的念错过的词）"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "noon"
+scene = "cooking_room"
+activity = "家庭科做饼干，她量糖量得特别认真，说「計量は、せいかくにですっ」"
+weight = 2
+why = "家政教室 0.0%（语料里没有）；档案：她在家庭科做过饼干和松饼——原文情节，场地按学校补"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "afternoon"
+scene = "schoolyard"
+activity = "放学后练运动会，她跑得比谁都快，跑完还留下来帮同学收垫子"
+weight = 2
+why = "学校操场 0.0%；档案：运动会上她是红组应援团长、女子足球队长；帮忙收垫子是推断"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "afternoon"
+scene = "general_store"
+activity = "又去了駄菓子屋，这次买了两份，说一份是给「ちょこ先輩」的"
+weight = 2
+why = "杂货店 0.5%；档案：駄菓子屋是放学后的去处、她什么都想着放クラ的姐姐们（推断）"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "evening"
+scene = "studio"
+activity = "特训，把新曲的队形记住，站错位就自己喊「もう一回、お願いしますっ！」"
+weight = 3
+why = "练习室 0.5%；「特訓あるのみ、ですねっ！」是她的口癖（人设）"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室把今天家庭科做的饼干分给大家，一人一块，自己那块最小"
+weight = 2
+why = "休息室 30.4%；她总是先替别人着想（人设）；分饼干是推断"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "把ランドセル里的东西一件件掏出来，掏出皱掉的测验卷，看了两秒又塞回去"
+weight = 2
+why = "卧室 2.1%；小学生的日常（推断）；算术不太拿手（档案）"
+
+[[slots]]
+character = "kaho"
+day = "wed"
+slot = "night"
+scene = "kitchen"
+activity = "跟妈妈一起做明天的便当，她负责把饭装进模子，压得圆圆的"
+weight = 2
+why = "厨房 0.5%；档案：妈妈会做饭团、亲子丼；她帮忙是推断"
+
+# ---------------------------------------------------------------------------
+# 周四：休息日（公园、宠物店、商店街）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "morning"
+scene = "park"
+activity = "没有工作的日子，一早带マメ丸去公园，把球扔得很远，看它跑过去又跑回来"
+weight = 3
+why = "公园 6.7%；档案：マメ丸是家里的柴犬、她最常带它出去；公园是她被发掘的地方"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "morning"
+scene = "petshop"
+activity = "顺路进宠物店看兔子，跟笼子里的兔子说「今日はいい天気ですよ」，被店员笑"
+weight = 2
+why = "宠物店 0.5%；她把マメ丸当家人、对动物说话是她的性格（推断）"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "noon"
+scene = "cafe"
+activity = "跟まおちゃん约在咖啡店，两个人分一份蛋糕，她把大的那块推给まおちゃん"
+weight = 2
+why = "咖啡店 3.7%；まおちゃん是她最好的朋友（档案）；分蛋糕是推断"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "noon"
+scene = "restaurant"
+activity = "中午跟哥哥来家庭餐厅，哥哥请客，她说「お兄ちゃん、カッコいいですっ」"
+weight = 2
+why = "家庭餐厅 2.3%；档案：哥哥在打工、嘴上不肯其实宠她（给零花钱说是「兄のメンツ」）"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "afternoon"
+scene = "supermarket"
+activity = "陪妈妈去超市，在零食区站了很久，最后只拿了一包，说「がまんですっ」"
+weight = 2
+why = "超市 0.6%；档案：母亲会做饭、她常跟着去；忍住只拿一包是「懂事」的一面（推断）"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场看英雄周边的柜台，看了二十分钟，什么都没买，走的时候回头看了三次"
+weight = 2
+why = "商场 0.7%；档案：她收集ジャスティスⅤ的扭蛋、贴纸、卡片，用压岁钱「ふんぱつ」买过变身道具"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "evening"
+scene = "shrine"
+activity = "傍晚跟家人去神社，她投了硬币，许的愿是「みんなが笑顔でいられますように」"
+weight = 2
+why = "神社 0.8%；她的愿望总是为别人（人设：像英雄那样让大家都笑起来）；神社是新年/节分的落点（推断）"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "evening"
+scene = "crossroad"
+activity = "回家路上在十字路口等红灯，看见一只猫在对面，她隔着马路跟它说话"
+weight = 1
+why = "十字路口 3.1%；档案：她连赶走花坛里的猫都怕自己是坏人（many screens）——对猫说话是推断"
+
+[[slots]]
+character = "kaho"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "睡前看录下来的特摄，看到最后一集的高潮，跟着念台词，念完自己鼓掌"
+weight = 2
+why = "卧室 2.1%；档案：看不了就录下来、记得哪一集是第几话的高潮、会背决め台詞"
+
+# ---------------------------------------------------------------------------
+# 周五：小学 → 摄影棚 → 事务所
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "早上把ランドセル背好，对着镜子摆了个英雄的姿势，被妈妈看见，她说「出動です！」"
+weight = 2
+why = "家 0.7%；「ヒーローアイドル小宮果穂、出動です！」是她的自称（档案）"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "坐电车去远一点的现场，站着抓住吊环，把脸贴在窗上看外面"
+weight = 2
+why = "电车 0.6%；她有远处的外景（工作 39.6%）；具体通勤方式是推断"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，她把手举得很高，被点到的时候答得很大声，坐下还小声说「やったー！」"
+weight = 2
+why = "教室 1.3%；她的性格（人设：直率、什么都觉得「スゴいです！」）；课堂细节是推断"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休在操场教低年级的同学踢球，说「いちばん後ろの席まで届けるように」"
+weight = 1
+why = "学校操场 0.0%；档案：樹里教她颠球时说的就是「『いちばん後ろの席まで届けるように』」——她学会了再教别人（推断）"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室，跟放クラ五个人合练，她站中间，喊「最強のアイドルに！」大家接「変身！！」"
+weight = 2
+why = "练习室 0.5%；档案：上台前由她领喊「最強のアイドルに！」大家接「変身！！」——原文"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "拍杂志，摄影师让她摆「カッコいい顔」，她摆成了英雄的姿势，全场笑"
+weight = 2
+why = "摄影棚 0.6%；她一开始想学英雄的样子当偶像，后来才明白「アイドルにはアイドルの、戦い方」（档案）"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "收工前在休息室把下周的日程抄进工作手帐——是妈妈建议她做的"
+weight = 3
+why = "休息室 30.4%；档案：母亲建议她做工作手帐；她自己也管日程（推断）"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "evening"
+scene = "office"
+activity = "在办公室跟制作人报告这周的事，报告完又想起一件，回过头再说一遍"
+weight = 2
+why = "事务所办公室 1.8%（×2.5）；「聞いてください、プロデューサーさん！」（人设）"
+
+[[slots]]
+character = "kaho"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "睡前把英雄手办摆好，跟它们说「今日も、平和でした」"
+weight = 3
+why = "卧室 2.1%；「輝くランドセルはヒーローの証！今日も平和を守ってみせますっ！」（档案里的一句话介绍）"
+
+# ---------------------------------------------------------------------------
+# 周六：工作（英雄秀、舞台）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "morning"
+scene = "office"
+activity = "周六一早到事务所，把台本摊在桌上，用荧光笔把要大声喊的台词全标出来"
+weight = 2
+why = "事务所办公室 1.8%；她对台词的认真（人设：背台词是特技）；荧光笔是推断"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "morning"
+scene = "lounge"
+activity = "在休息室跟はづきさん确认今天的流程，把「出番」两个字圈起来"
+weight = 2
+why = "休息室 30.4%；はづき是事务员、她常找她借厨房/学折纸（档案）"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "noon"
+scene = "backstage"
+activity = "后台换演出服，自己把腰带系了三遍，说「ヒーローは、きちんとですっ」"
+weight = 2
+why = "后台 1.9%；英雄式的自我要求（人设）；后台换装是演出动线（推断）"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "noon"
+scene = "dressing_room"
+activity = "化妆间里被化妆师按着画眼线，她一动不敢动，眼睛瞪得很大"
+weight = 2
+why = "推断：演出前化妆是行业常识；她「一动不敢动」是照她紧张时的样子推断的"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "afternoon"
+scene = "stage"
+activity = "下午的英雄秀，台下有个小女孩喊「果穂ちゃん！」，她愣了一下，然后喊得比谁都大声"
+weight = 3
+why = "舞台 2.5%；档案：主持英雄秀时一个小女孩说是来看她的，她第一次知道自己成了别人的憧憬"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "演出结束回休息室，还穿着演出服，跟每个人击掌，说「協力技、成功ですっ！」"
+weight = 2
+why = "休息室 30.4%；「協力技」「作戦会議」是她的词（人设）；击掌是推断"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "晚上放クラ五个人吃庆功饭，她抢着给每个人倒水，倒完才坐下"
+weight = 2
+why = "家庭餐厅 2.3%；她总是先替别人着想（人设）；庆功饭是推断"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "evening"
+scene = "convenience_store"
+activity = "回家路上在便利店买冰可可，站在门口喝完才走，说「今日は、勝ちました」"
+weight = 1
+why = "便利店 0.2%；档案：妈妈会做冰可可（她爱喝）；「勝ちました」是她的说法（推断）"
+
+[[slots]]
+character = "kaho"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "到家已经快十一点，她把演出服叠好放在椅子上，倒头就睡"
+weight = 2
+why = "卧室 2.1%；工作一天很累是推断（她的夜信号只有 1.5%，是最低的）"
+
+# ---------------------------------------------------------------------------
+# 周日：特摄 + 家人 + まおちゃん
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "周日早上七点就坐在电视机前，等特摄开始，片头曲一响就跟着唱"
+weight = 3
+why = "档案：兴趣是「日曜日朝の子供向け番組を見る事」、早上的特摄一集不落——这是她最硬的一条"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "morning"
+scene = "home_living"
+activity = "看完特摄跟爸妈在客厅吃早饭，把剧情讲了一遍，爸爸一边看报纸一边「へえ」"
+weight = 2
+why = "家里的客厅（黄窗帘/餐桌）；档案：家里过节、过生日都全家一起"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "noon"
+scene = "park"
+activity = "中午带マメ丸去公园，遇到常一起玩的小孩，她又当了一次英雄"
+weight = 2
+why = "公园 6.7%；マメ丸 + 公园是她周末的固定组合（推断）"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "下午跟まおちゃん在咖啡店写作业，写完了两个人聊「好きな人」的话题，她答「ヒーロー！」"
+weight = 2
+why = "咖啡店 3.7%；档案：和同学聊「喜欢的人」时她回答「ピンチのときに助けに来てくれる、ヒーロー！」"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场碰到卖英雄周边的快闪店，她站在门口深呼吸了三次才进去"
+weight = 2
+why = "商场 0.7%；档案：她怕朋友勉强陪自己，只在家里和制作人面前尽情讲英雄——在外面会先犹豫（推断）"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "afternoon"
+scene = "petshop"
+activity = "从商场出来顺路看宠物店，跟マメ丸差不多颜色的柴犬打招呼"
+weight = 2
+why = "宠物店 0.5%；マメ丸是柴犬（档案）；看同品种的狗是推断"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "evening"
+scene = "shrine"
+activity = "傍晚跟家人去神社，把上次求的御守还回去，说「今年も、守ってもらいました」"
+weight = 2
+why = "神社 0.8%；她有把御守还给神社的习惯（新年），这里是同一件事的日常版（推断）"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "睡前把下周的 heroes 周边清单写在便签上，写完贴在书桌前面"
+weight = 2
+why = "卧室 2.1%；收集周边是她的兴趣（档案）；写清单是推断"
+
+[[slots]]
+character = "kaho"
+day = "sun"
+slot = "night"
+scene = "kitchen"
+activity = "下楼喝水，看见妈妈在准备明天的便当，她坐下来帮忙剥豆子"
+weight = 2
+why = "厨房 0.5%；家里的日常（推断）；她习惯帮忙（人设：先替别人着想）"
+
+# ===========================================================================
+# 随机池（daily-life 场景）—— 让剩下的日常地点也能被抽到
+# ===========================================================================
+#
+# 固定槽位用到 28 个场景（26 个日常 + stage/backstage），池子把**不在固定槽位里的 43 个日常
+# 场景**接进来。她是「什么都觉得スゴい」的孩子，池子里的地点她都可能去（学校、商店街、澡堂、
+# 宿舍、电竞房……），所以基本等权。
+#
+# 不进池子的 14 个（事件/节日专用，理由见 characters/schedules.model.md）：
+#   stage / backstage（周六固定槽位）、banquet、beach、flower_field / cherry / ginkgo、
+#   hospital_corridor / exam_room、hall、izakaya / bar、airport、bowling。
+
+[[pools]]
+character = "kaho"
+day = "any"
+slot = "any"
+chance = 0.18
+scenes = [
+  "street", "street_night", "park_night", "garden", "flowershop", "car",
+  "apartment_living", "washitsu", "bathroom", "sento", "dorm", "esports_room",
+  "library", "music_room", "art_room", "studio_small", "lecture_hall", "school_gate",
+  "roof", "recording_studio", "office_corridor", "office_reception", "meeting_room",
+  "bookstore", "shopstreet", "arcade", "cake_shop", "bakery", "laundry",
+  "fastfood", "station", "station_hall", "subway", "vending_machine", "river",
+  "railway_crossing", "alley", "coast_road", "stone_path", "observatory",
+  "temple", "lake", "office_building",
+]
+weights = [
+  2, 1, 1, 1, 1, 2,
+  2, 1, 1, 1, 1, 2,
+  1, 1, 1, 1, 1, 2,
+  1, 1, 1, 1, 1,
+  1, 2, 2, 1, 4, 1,
+  2, 2, 1, 1, 2, 1,
+  1, 1, 1, 1, 1,
+  1, 1, 1,
+]
+why = "43 个剩余日常地点：给 2 的是她的动线（上学路、学校门口、车站、自动贩卖机、快餐、游戏厅、商店街、面包店——小孩子会去的店），给 4 的是蛋糕店/甜品店（她的生日和零食），chance 0.18 是「这一天不按作息走」的概率。权重压平是为了让她「到哪里都说得通」。"
+
+[[pools]]
+character = "kaho"
+day = "any"
+slot = "night"
+chance = 0.18
+scenes = [
+  "street_night", "station_hall", "subway", "vending_machine", "railway_crossing",
+  "alley", "fastfood", "office_corridor", "office_building", "temple", "park_night",
+  "car", "station",
+]
+weights = [1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+why = "夜 22-2 点还说得过去的地方（对 12 岁来说本来就不多，所以这个池子主要是「工作拖晚了」「在回家的路上」）：夜街、车站大厅、地铁、自动贩卖机、道口、小巷、深夜快餐、加班的事务所走廊、事务所大楼、寺庙、夜里的公园、车里、车站。"
+
+# ===========================================================================
+# 节日覆盖（只写与共享日历/真乃 不同的 13 条，其余回落到 holidays.toml）
+# ===========================================================================
+#
+# 她是这批人里唯一的小学生，节日的过法也不一样：こどもの日 是真的要过的、
+# 節分 是在家里和マメ丸一起撒豆、バレンタイン 是给放クラ的姐姐们做手工巧克力。
+# 真乃 的覆盖以「一个人的安静日子」为主，所以这些条目确实不同。
+
+[[holidays]]
+holiday = "new_year"
+dates = ["2026-01-01", "2027-01-01"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shrine", "home_living"]
+weights = [3, 2]
+priority = 100
+activity = "元旦，一家人去初詣，她穿了振袖，走路很小步，说「大人っぽいですか……？」"
+
+[[holidays]]
+holiday = "setsubun"
+dates = ["2026-02-03", "2027-02-03"]
+slots = ["evening", "night"]
+scenes = ["home_living", "supermarket"]
+weights = [3, 1]
+priority = 55
+activity = "節分，她戴着面具当鬼，被マメ丸追着满屋子跑，最后把豆子撒了一地"
+
+[[holidays]]
+holiday = "valentine"
+dates = ["2026-02-14", "2027-02-14"]
+slots = ["morning", "evening"]
+scenes = ["kitchen", "home_living"]
+weights = [3, 2]
+priority = 55
+activity = "バレンタイン，她做了手工巧克力，给放クラ四个人和制作人各一份，自己那份忘了留"
+
+[[holidays]]
+holiday = "hanami"
+ranges = [
+  { from = "2026-03-25", to = "2026-04-05" },
+  { from = "2027-03-26", to = "2027-04-06" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["cherry", "park"]
+weights = [3, 2]
+priority = 70
+chance = 0.45
+activity = "花見，她带了一块野餐布，把带来的饭团分给公园里不认识的小孩"
+
+[[holidays]]
+holiday = "childrens_day"
+dates = ["2026-05-05", "2027-05-05"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "home_living", "supermarket"]
+weights = [3, 2, 1]
+priority = 90
+activity = "こどもの日，她理直气壮地说「まだ子どもですから！」然后去公园玩了半天鲤鱼旗"
+
+[[holidays]]
+holiday = "tanabata"
+dates = ["2026-07-07", "2027-07-07"]
+slots = ["evening", "night"]
+scenes = ["shopstreet", "park_night"]
+weights = [3, 2]
+priority = 60
+activity = "七夕，她在短册上写「みんなが笑顔でいられますように」，写完又加了一句「マメ丸も」"
+
+[[holidays]]
+holiday = "marine_day"
+dates = ["2026-07-20", "2027-07-19"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["beach", "coast_road"]
+weights = [3, 2]
+priority = 90
+activity = "海の日，跟着事务所去海边，她第一个冲进水里，被浪打回来又冲进去"
+
+[[holidays]]
+holiday = "natsumatsuri"
+ranges = [
+  { from = "2026-07-15", to = "2026-08-31" },
+  { from = "2027-07-15", to = "2027-08-31" },
+]
+slots = ["evening", "night"]
+scenes = ["shrine", "park_night"]
+weights = [3, 2]
+priority = 70
+chance = 0.3
+activity = "夏祭り，浴衣是妈妈帮忙穿的，她在神社的摊子上捞金鱼，捞了三条，最后全放回去了"
+
+[[holidays]]
+holiday = "mountain_day"
+dates = ["2026-08-11", "2027-08-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["flower_field", "lake"]
+weights = [3, 2]
+priority = 90
+activity = "山の日，一家人去山里，她在花田里跑了一圈，回来鞋子里全是草籽"
+
+[[holidays]]
+holiday = "sports_day"
+dates = ["2026-10-12", "2027-10-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["park", "schoolyard"]
+weights = [3, 2]
+priority = 90
+activity = "スポーツの日，她在公园组织了一场「全員参加」的比赛，规则是她自己定的"
+
+[[holidays]]
+holiday = "culture_day"
+dates = ["2026-11-03", "2027-11-03"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["hall", "school_corridor"]
+weights = [3, 2]
+priority = 90
+activity = "文化の日，学芸会，她在礼堂演英雄，台词比排练时多了一句，自己加的"
+
+[[holidays]]
+holiday = "christmas"
+dates = ["2026-12-25", "2027-12-25"]
+slots = ["noon", "evening", "night"]
+scenes = ["banquet", "home_living"]
+weights = [2, 3]
+priority = 80
+activity = "クリスマス，事务所的圣诞会她抽到了最小的礼物，还是说「スゴいですっ！」"
+
+[[holidays]]
+holiday = "omisoka"
+dates = ["2025-12-31", "2026-12-31", "2027-12-31"]
+slots = ["evening", "night"]
+scenes = ["home_living", "temple"]
+weights = [3, 2]
+priority = 80
+activity = "大晦日，跟妈妈约好不熬夜，最后还是睡着了，被叫起来听钟声，听两下又睡着"
+
+# ---------------------------------------------------------------------------
+# 突发事件（chance 是每次通话命中这个事件的概率，不是占比；文件顺序就是优先级）
+# ---------------------------------------------------------------------------
+#
+# 她是「公园的孩子」，两个无条件事件都在公园和事务所（她最常待的两处）；
+# 节日专属的排最前面。她没有居酒屋/酒吧（12 岁），也没有保龄球（那是樹里的）。
+
+[[events]]
+character = "kaho"
+chance = 0.10
+scene = "park"
+activity = "こどもの日，她在公园办了一场「こども会」，把附近的小孩都叫来，自己当主持人"
+conditions = { holiday = "childrens_day", slot = ["morning", "noon", "afternoon"] }
+why = "公园 6.7%；こどもの日 是她的日子（12 岁、还在过）；「こども会」是她会干的事（人设：带头喊口号）"
+
+[[events]]
+character = "kaho"
+chance = 0.12
+scene = "park"
+activity = "在公园跟孩子们玩英雄游戏，她当反派，被五个孩子按在地上，笑得说不出话"
+conditions = { slot = ["afternoon", "evening"] }
+why = "公园 6.7%（她第二高）；档案：制作人在公园看见她和孩子们玩才搭话——公园是她最自然的地方（放学后才去，所以限定下半天）"
+
+[[events]]
+character = "kaho"
+chance = 0.055
+scene = "lounge"
+activity = "在休息室等下一个工作，等着等着就睡着了，被はづきさん盖上毯子"
+why = "休息室 30.4%；「夜 1.5%」说明她作息早，白天太满就容易睡着（推断）"
+
+[[events]]
+character = "kaho"
+chance = 0.06
+scene = "beach"
+activity = "夏天的海边外景，她捡了一袋子贝壳，说要带给マメ丸看"
+conditions = { season = "summer" }
+why = "海边 2.3%；档案：什么好事都说「マメ丸に見せてじまんします！」——捡贝壳是照这个推断的"
+
+[[events]]
+character = "kaho"
+chance = 0.035
+scenes = ["hospital_corridor", "exam_room"]
+weights = [2, 1]
+activity = "发烧了，被妈妈带去诊所，她在走廊的椅子上坐着，还惦记着明天的收录"
+conditions = { season = "winter" }
+why = "医院走廊 0.1%；档案：她发烧时樹里来家里探病——这条是照那件事的形状做的；诊察室不进日常池"
+
+[[events]]
+character = "kaho"
+chance = 0.05
+scene = "arcade"
+activity = "下雨取消了外景，樹里带她去游戏厅，她在抓娃娃机前面站了半个小时"
+conditions = { weather = "rain" }
+why = "游戏厅 0.0%（语料里没有）；档案：樹里陪她玩、当她的「鬼コーチ」；下雨改室内是推断"
+
+[[events]]
+character = "kaho"
+chance = 0.06
+scene = "cherry"
+activity = "春天的樱花道，她在树下转圈，说「花びら、雪みたいですっ！」"
+conditions = { season = "spring" }
+why = "樱花道 0.0%（语料里没有）；季节限定场景；转圈是她的孩子气（推断）"
+
+[[events]]
+character = "kaho"
+chance = 0.05
+scene = "ginkgo"
+activity = "秋天的银杏道，她把落叶堆成一小堆，然后跳进去"
+conditions = { season = "autumn" }
+why = "银杏道 0.9%（她相对偏好高的一档）；季节限定场景；跳落叶是 12 岁会做的事（推断）"
+
+[[events]]
+character = "kaho"
+chance = 0.045
+scene = "banquet"
+activity = "演出结束后的打ち上げ，她坐在最边上，杯子里的ウーロン茶被她喝出了仪式感"
+conditions = { season = ["autumn", "winter"], slot = ["evening"] }
+why = "宴会厅 0.4%；未成年只喝ウーロン茶；打ち上げ是行业惯例（推断）。只排傍晚：12 岁的她不会待到深夜"
+
+[[events]]
+character = "kaho"
+chance = 0.05
+scene = "stage"
+activity = "临时被叫去救场，替一个生病的小偶像上台演英雄，她连台词都没背完就上去了"
+conditions = { slot = ["morning", "noon", "afternoon", "evening"] }
+why = "舞台 2.5%；档案：她主持过英雄秀、也在综艺里学过英雄的口气；临时救场是推断（12 岁不会半夜上台）"
+
+[[events]]
+character = "kaho"
+chance = 0.03
+scene = "airport"
+activity = "夏天的远征，一早在机场集合，她抱着自己的行李箱，问「飛行機、乗ったことないですっ」"
+conditions = { season = "summer" }
+why = "机场 0.0%（语料里没有）；她有夏天的远征工作（工作 39.6%）；「第一次坐飞机」是推断"
+
+[[events]]
+character = "kaho"
+chance = 0.04
+scene = "hall"
+activity = "学芸会前一天的彩排，她在礼堂的舞台上把英雄的台词念了一遍，回声很大，她很开心"
+conditions = { season = "autumn" }
+why = "礼堂 0.2%；学芸会/文化祭排在秋天（推断）；礼堂不进日常池，只在学艺会场合出现"
+
+[[events]]
+character = "kaho"
+chance = 0.04
+scene = "flower_field"
+activity = "坐车去花田拍外景，她在田埂上跑，被工作人员喊「走らないで」，她喊回去「ごめんなさいっ！」"
+conditions = { season = ["spring", "autumn"] }
+why = "花田 0.1%；季节限定场景；「被喊了还是笑」是她的性格（推断）"
+
+[[events]]
+character = "kaho"
+chance = 0.04
+scene = "observatory"
+activity = "天气好的晚上，她跟制作人跑到高处看星星，说「エンディングみたいですね」"
+conditions = { weather = "clear" }
+why = "展望台 0.0%（语料里没有）；档案：夺冠那晚她看着星空说像片尾字幕——看星星是照这个推断的"

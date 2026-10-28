@@ -1,0 +1,657 @@
+# 月冈恋钟的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/kogane.md、characters/schedules/kogane.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/kogane.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房煎蛋卷和香肠，把便当装进粉色饭盒，想着中午分给成员"
+weight = 4
+why = "作息：morning 在住处做早餐和便当，偶尔为成员准备便当"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "坐在电车上，抱着装便当的包，望着窗外复习打工的排班表"
+weight = 2
+why = "推断：去打工的路上"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室打开便当盒，招呼大家来吃，自己先夹了一块玉子烧"
+weight = 4
+why = "台词地点统计：事务所休息室(工作) 23.3%；作息：noon 在休息室吃午饭，常与成员分享食物"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店靠窗的座位吃三明治，边吃边用手机记下下午练习的要点"
+weight = 2
+why = "台词地点统计：咖啡店(街上) 5.9%；推断：打工地点附近吃午饭"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练新曲的转身动作，停下来调整呼吸再继续"
+weight = 4
+why = "作息：afternoon 在事务所练习室训练；台词地点统计：练习室(工作) 5.1%"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "afternoon"
+scene = "street"
+activity = "在十字路口附近派发传单，笑着递给路人，偶尔被认出而害羞"
+weight = 3
+why = "作息：afternoon 到街上进行拍摄、派发等宣传工作；台词地点统计：十字路口(街上) 3.1%"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店打工，端着托盘在桌间穿梭，休息时和常客聊了几句"
+weight = 3
+why = "作息：evening 在咖啡店、家庭餐厅等街头地点工作；台词地点统计：咖啡店(街上) 5.9%"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅聚餐，分享 fries，聊着下次演唱会的曲目"
+weight = 3
+why = "作息：evening 与成员聚餐；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "night"
+scene = "lounge"
+activity = "在休息室沙发上和制作人聊天，说着说着眼皮开始打架，差点睡着"
+weight = 4
+why = "作息：night 在事务所休息室加班或聊天；容易在聊天中睡着"
+
+[[slots]]
+character = "kogane"
+day = "mon"
+slot = "night"
+scene = "kitchen"
+activity = "深夜回家后在厨房煮味噌汤，把剩下的食材做成明天的便当"
+weight = 3
+why = "作息：深夜回家后做饭；固定日程：深夜做饭或夜宵"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "在房间里一边听音乐一边做早餐，把吐司烤得有点焦，笑着刮掉"
+weight = 3
+why = "作息：morning 在住处做早餐；台词地点统计：她的家(家庭) 6.0%"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，抓着吊环，心里默念今天练习的舞步顺序"
+weight = 2
+why = "推断：去练习的路上"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起分吃便利店买的饭团，讨论新曲的分配"
+weight = 4
+why = "台词地点统计：事务所休息室(工作) 23.3%；作息：noon 在休息室吃午饭"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "noon"
+scene = "shopstreet"
+activity = "在商店街的面包店买可乐饼面包，站在店门口吃完再走"
+weight = 2
+why = "台词地点统计：商店街(街上) 3.6%；推断：打工地点附近吃午饭"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子纠正手臂的角度，反复练到满意为止"
+weight = 3
+why = "作息：afternoon 在事务所练习室训练；场景 id：studio_small 小练习室"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍杂志照片，按照摄影师指示摆姿势，偶尔害羞地笑场"
+weight = 3
+why = "作息：afternoon 到街上进行拍摄等宣传工作；场景 id：photo_studio 摄影棚"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "evening"
+scene = "restaurant"
+activity = "在家庭餐厅打工，负责点单和送餐，忙得团团转但笑容不减"
+weight = 3
+why = "作息：evening 在家庭餐厅等街头地点工作；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员一起看演唱会的录像，边看边讨论改进的地方"
+weight = 3
+why = "台词地点统计：事务所休息室(工作) 23.3%；推断：晚上在事务所讨论"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在家给老家打电话，聊着聊着说起食堂的招牌菜，声音变得温柔"
+weight = 3
+why = "作息：深夜回家后打电话；台词地点统计：她的家(家庭) 6.0%"
+
+[[slots]]
+character = "kogane"
+day = "tue"
+slot = "night"
+scene = "studio"
+activity = "深夜在练习室独自练舞，对着镜子反复确认动作，直到满意才关灯"
+weight = 2
+why = "作息：偶尔深夜练习舞蹈；台词地点统计：练习室(工作) 5.1%"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房做玉子烧，小心地卷起来，想着今天便当要放什么配菜"
+weight = 4
+why = "作息：morning 在住处做早餐和便当"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "morning"
+scene = "residential_street"
+activity = "走在住宅街去打工的路上，和邻居阿姨打招呼，被夸便当盒很可爱"
+weight = 2
+why = "推断：去打工的路上"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃午餐套餐，把附赠的沙拉吃得干干净净"
+weight = 3
+why = "台词地点统计：咖啡店(街上) 5.9%；作息：noon 在打工地点吃午饭"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室用微波炉热便当，和成员交换配菜，聊得很开心"
+weight = 4
+why = "台词地点统计：事务所休息室(工作) 23.3%；作息：noon 常与成员分享食物"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和舞蹈老师一起抠动作，汗流浃背但眼神认真"
+weight = 4
+why = "作息：afternoon 在事务所练习室训练；台词地点统计：练习室(工作) 5.1%"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街进行街头宣传，拿着麦克风介绍下次的演唱会"
+weight = 3
+why = "作息：afternoon 到街上进行宣传工作；台词地点统计：商店街(街上) 3.6%"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店打工，休息时和同事聊起最近看的电视剧，笑出声"
+weight = 3
+why = "作息：evening 在咖啡店工作；台词地点统计：咖啡店(街上) 5.9%"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "evening"
+scene = "restaurant"
+activity = "和制作人在家庭餐厅讨论工作，边吃边记笔记，偶尔抬头笑"
+weight = 3
+why = "作息：evening 与成员聚餐；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "night"
+scene = "lounge"
+activity = "在休息室和成员聊天，说着说着在沙发上睡着了，被轻轻叫醒"
+weight = 4
+why = "作息：night 在事务所休息室聊天；容易在聊天中睡着"
+
+[[slots]]
+character = "kogane"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在家做夜宵的饭团，一边吃一边看明天的工作安排"
+weight = 3
+why = "作息：深夜回家后做饭；固定日程：深夜做饭或夜宵"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "在房间的镜子前整理头发，确认便当包有没有忘带"
+weight = 3
+why = "作息：morning 在住处做早餐和便当；台词地点统计：她的家(家庭) 6.0%"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "在电车上用手机看舞蹈视频，手指在扶手上轻轻打拍子"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，把炸鸡块分给成员，自己吃着蔬菜"
+weight = 4
+why = "台词地点统计：事务所休息室(工作) 23.3%；作息：noon 常与成员分享食物"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "noon"
+scene = "fastfood"
+activity = "在快餐店点了一份套餐，坐在窗边快速吃完，准备下午的练习"
+weight = 2
+why = "推断：打工或练习间隙吃午饭"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室反复练新曲的队形变换，和成员确认眼神和站位"
+weight = 4
+why = "作息：afternoon 在事务所练习室训练；台词地点统计：练习室(工作) 5.1%"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机买饮料，碰到制作人聊了几句"
+weight = 2
+why = "场景 id：office_corridor 事务所走廊；推断：休息时间"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "evening"
+scene = "restaurant"
+activity = "在家庭餐厅打工，给客人送餐时不小心差点洒了，连忙道歉"
+weight = 3
+why = "作息：evening 在家庭餐厅工作；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的居酒屋和成员吃饭，喝著乌龙茶聊得很热闹"
+weight = 2
+why = "台词地点统计：商店街(街上) 3.6%；推断：与成员聚餐"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "night"
+scene = "kitchen"
+activity = "深夜在厨房做味噌汤，把豆腐切成小块，动作很熟练"
+weight = 4
+why = "作息：深夜回家后做饭；固定日程：深夜做饭或夜宵"
+
+[[slots]]
+character = "kogane"
+day = "thu"
+slot = "night"
+scene = "lounge"
+activity = "在休息室和制作人讨论工作，聊到一半打了个哈欠，不好意思地笑"
+weight = 3
+why = "作息：night 在事务所休息室加班或聊天；容易在聊天中睡着"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房做早餐的煎蛋，把蛋黄煎得半熟，小心地盛到盘子里"
+weight = 4
+why = "作息：morning 在住处做早餐"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上抱着便当包，看着窗外发呆，想着周末回老家的事"
+weight = 2
+why = "推断：去打工的路上"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起吃饭，把自己做的便当分给大家，听大家夸好吃"
+weight = 4
+why = "台词地点统计：事务所休息室(工作) 23.3%；作息：noon 常与成员分享食物"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃意面，用叉子卷起面条，边吃边看手机上的消息"
+weight = 2
+why = "台词地点统计：咖啡店(街上) 5.9%；推断：打工地点吃午饭"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起练舞，互相纠正动作，气氛认真又融洽"
+weight = 4
+why = "作息：afternoon 在事务所练习室训练；台词地点统计：练习室(工作) 5.1%"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "afternoon"
+scene = "street"
+activity = "在十字路口进行街头拍摄，穿着私服在镜头前自然地笑"
+weight = 3
+why = "作息：afternoon 到街上进行拍摄；台词地点统计：十字路口(街上) 3.1%"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店打工，关店前擦桌子，和同事聊着周末的计划"
+weight = 3
+why = "作息：evening 在咖啡店工作；台词地点统计：咖啡店(街上) 5.9%"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅开小会，讨论下次活动的分工，边吃边聊"
+weight = 3
+why = "作息：evening 与成员聚餐；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "night"
+scene = "lounge"
+activity = "在休息室和成员聊天，聊着聊着靠在沙发上睡着了，被盖上毯子"
+weight = 4
+why = "作息：night 在事务所休息室聊天；容易在聊天中睡着"
+
+[[slots]]
+character = "kogane"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在家做夜宵的炒饭，一边吃一边给老家发消息说周末回去"
+weight = 3
+why = "作息：深夜回家后做饭；固定日程：深夜做饭或夜宵"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "morning"
+scene = "kitchen"
+activity = "休息日早起做便当，多做了一些准备送给制作人和成员"
+weight = 4
+why = "休息日：做便当送给他人；作息：morning 做早餐和便当"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "morning"
+scene = "home_living"
+activity = "在客厅慢慢吃早餐，看着电视里的综艺节目笑出声"
+weight = 2
+why = "场景 id：home_living 家里的客厅；推断：休息日早晨"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "noon"
+scene = "lounge"
+activity = "把做好的便当带到事务所，分给成员和工作人员，看大家吃得很开心"
+weight = 3
+why = "休息日：做便当送给他人；台词地点统计：事务所休息室(工作) 23.3%"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "noon"
+scene = "restaurant"
+activity = "和制作人在家庭餐厅吃午饭，聊着最近的工作和生活"
+weight = 3
+why = "休息日：与制作人或成员外出；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "和成员在商店街逛街，看到可爱的杂货就停下来看"
+weight = 3
+why = "休息日：与成员外出；台词地点统计：商店街(街上) 3.6%"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "afternoon"
+scene = "park"
+activity = "在公园的长椅上和制作人聊天，晒着太阳很舒服"
+weight = 2
+why = "休息日：与制作人外出；场景 id：park 公园"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "evening"
+scene = "car"
+activity = "坐在车里回佐世保，看着窗外的风景，想着老家的食堂"
+weight = 3
+why = "休息日：回佐世保老家食堂帮忙；排表红线：回老家需预留交通时间；台词地点统计：车里(街上) 2.4%"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅聚餐，热闹地聊着最近的趣事"
+weight = 3
+why = "休息日：与成员外出；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "从老家回来，在家整理带回来的食材，给制作人发消息报平安"
+weight = 3
+why = "作息：深夜回家后做饭、打电话；排表红线：回老家需预留交通时间"
+
+[[slots]]
+character = "kogane"
+day = "sat"
+slot = "night"
+scene = "lounge"
+activity = "在休息室和成员聊天，聊到一半困了，靠在沙发上打瞌睡"
+weight = 3
+why = "作息：night 在事务所休息室聊天；容易在聊天中睡着"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房做早餐，把昨天从老家带回来的食材做成小菜"
+weight = 4
+why = "作息：morning 在住处做早餐"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日稍微睡懒觉，醒来后坐在床上发呆，然后慢慢起床"
+weight = 2
+why = "推断：休息日早晨；场景 id：bedroom 卧室"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "在客厅吃早午饭，看着电视里的美食节目，记下想做的菜"
+weight = 3
+why = "场景 id：home_living 家里的客厅；推断：休息日午餐"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "和成员在咖啡店吃午餐，聊着下周的练习计划"
+weight = 3
+why = "休息日：与成员外出；台词地点统计：咖啡店(街上) 5.9%"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园散步，看到花坛的花开得很好，停下来拍照"
+weight = 3
+why = "推断：休息日放松；场景 id：park 公园"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室自主练习，把之前没练好的部分反复练了几遍"
+weight = 2
+why = "作息：afternoon 在事务所练习室训练；台词地点统计：练习室(工作) 5.1%"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅吃晚饭，讨论下周的演唱会，气氛热烈"
+weight = 3
+why = "休息日：与成员外出；台词地点统计：家庭餐厅(街上) 2.8%"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "evening"
+scene = "home"
+activity = "在家做晚饭，把从老家带回来的食材做成料理，给制作人发照片"
+weight = 3
+why = "作息：evening 有时回老家食堂帮忙；推断：在家做饭"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "深夜在家做夜宵，一边吃一边给老家打电话，聊着食堂的事"
+weight = 4
+why = "作息：深夜回家后做饭、打电话；固定日程：深夜做饭或夜宵"
+
+[[slots]]
+character = "kogane"
+day = "sun"
+slot = "night"
+scene = "lounge"
+activity = "在休息室和制作人聊下周的安排，说着说着打了个哈欠"
+weight = 3
+why = "作息：night 在事务所休息室聊天；容易在聊天中睡着"
+

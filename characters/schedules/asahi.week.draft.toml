@@ -1,0 +1,657 @@
+# 芹泽朝日的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/asahi.md、characters/schedules/asahi.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/asahi.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "morning"
+scene = "park"
+activity = "在公园跑道上独自慢跑，边跑边数拍子，跑到第三圈时停下来调整呼吸"
+weight = 4
+why = "作息：morning 在事务所或公园自主练跑步"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "坐在教室靠窗的位置，课本摊开却盯着窗外，趁老师转身时从后门溜出去"
+weight = 3
+why = "作息：去学校但常从教室消失"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "noon"
+scene = "roof"
+activity = "溜到校舍天台，对着水塔的影子练舞步，嘴里小声数着八拍"
+weight = 3
+why = "作息：noon 溜去天台跳舞"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "noon"
+scene = "street"
+activity = "午休时间在街上晃，站在十字路口观察行人的走路姿势，记在手机备忘录里"
+weight = 3
+why = "作息：noon 在街上观察行人"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练同一段编舞，汗把刘海黏在额头上也不停"
+weight = 4
+why = "作息：afternoon 在事务所练习室练舞；地点统计练习室 6.9%"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "窝在休息室沙发上翻舞蹈视频，看到有意思的动作就站起来比划两下"
+weight = 3
+why = "地点统计：事务所休息室 20.8%"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和工作人员一起吃便当，边吃边问今天有没有需要帮忙的活"
+weight = 4
+why = "作息：evening 在事务所休息室工作"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "evening"
+scene = "cafe"
+activity = "坐在咖啡店靠窗的位子，点一杯热可可，观察窗外下班的人流"
+weight = 2
+why = "地点统计：咖啡店 4.5%；作息：有时去咖啡店"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "night"
+scene = "studio_small"
+activity = "深夜在小练习室研究发声，对着音箱一遍遍试低音，被制作人敲门劝回去"
+weight = 4
+why = "作息：深夜还在仓库研究发声或练舞，被制作人劝休息"
+
+[[slots]]
+character = "asahi"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "被劝回家后躺在床上，手机里还放着练习录音，听着听着就睡着了"
+weight = 2
+why = "作息：就寝 23点-1点；排表红线：深夜过度练习需强制休息"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "morning"
+scene = "park"
+activity = "清晨在公园长椅边压腿热身，准备下午送外卖前先把身体活动开"
+weight = 3
+why = "作息：morning 在公园自主练跑步"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "morning"
+scene = "classroom"
+activity = "早自习时在教室后排补古文作业，写着写着开始模仿课本插画的姿势"
+weight = 2
+why = "固定日程：学校课业（古文），但常缺席"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "午休留在教室啃面包，被同学问起昨天去哪了，含糊地说在练习"
+weight = 3
+why = "作息：noon 在学校上课"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间在走廊上靠着鞋柜发呆，听见音乐教室传来钢琴声就凑过去听"
+weight = 2
+why = "推断：课间在校园内活动"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "跟着荞麦面店师傅送外卖，拎着保温箱在商店街小跑，和熟客打招呼"
+weight = 5
+why = "固定日程：周二和周六下午送外卖，不可安排其他工作"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "afternoon"
+scene = "street"
+activity = "送完外卖回程路上，在十字路口等红灯时顺便练踏步节奏"
+weight = 2
+why = "固定日程：周二下午送外卖；地点统计：十字路口 3.5%"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "evening"
+scene = "studio"
+activity = "在练习室把下午送外卖时想到的步伐编进舞里，一个人练到灯自动熄灭"
+weight = 4
+why = "作息：evening 在事务所练习室工作"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "evening"
+scene = "park_night"
+activity = "傍晚去公园长椅上坐着，看路灯一盏盏亮起来，脚踝有点酸就揉一揉"
+weight = 2
+why = "作息：有时去公园；排表红线：脚痛等身体不适需留意"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "night"
+scene = "studio_small"
+activity = "深夜在小练习室练舞，脚踝隐隐作痛却不肯停，被制作人发现后强制休息"
+weight = 4
+why = "排表红线：深夜过度练习需强制休息；脚痛需留意"
+
+[[slots]]
+character = "asahi"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "回家后泡了脚，坐在自己房间地板上翻舞蹈笔记，给明天的自己写备注"
+weight = 2
+why = "作息：就寝 23点-1点；推断：回家后的私密时间"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "morning"
+scene = "park"
+activity = "在公园跑完步后对着树影练呼吸法，数着秒数调整气息"
+weight = 3
+why = "作息：morning 在公园自主练跑步"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "坐电车去事务所，抓着吊环在车厢连接处轻轻晃身体找平衡感"
+weight = 2
+why = "推断：通勤路上；场景表：电车"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "noon"
+scene = "roof"
+activity = "午休溜上天台，把外套系在腰上对着铁丝网练转身，风把头发吹乱"
+weight = 3
+why = "作息：noon 溜去天台跳舞"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "noon"
+scene = "street"
+activity = "在学校附近的街上边走边看店铺招牌，琢磨能不能把招牌动作编进舞里"
+weight = 2
+why = "作息：noon 在街上观察行人"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和舞蹈老师抠动作细节，同一个八拍反复练了二十遍"
+weight = 4
+why = "作息：afternoon 在事务所练习室练舞"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前买运动饮料，靠着墙喝完再回练习室"
+weight = 2
+why = "地点统计：事务所休息室 20.8%；推断：走廊休息"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和制作人对明天的安排，一边听一边在膝盖上打拍子"
+weight = 4
+why = "作息：evening 在事务所休息室工作"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店角落写舞蹈笔记，写到一半抬头看窗外发呆"
+weight = 2
+why = "地点统计：咖啡店 4.5%；作息：有时去咖啡店"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "night"
+scene = "studio_small"
+activity = "深夜在小练习室对着镜子练表情，把每个角度都试一遍"
+weight = 4
+why = "作息：深夜自主练习发声或舞蹈"
+
+[[slots]]
+character = "asahi"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "回家路上在便利店买了饭团，坐在自己房间床上边吃边看手机里的练习视频"
+weight = 2
+why = "作息：就寝 23点-1点；推断：回家后的私密时间"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "难得早到教室，趴在桌上补觉，书包里还塞着昨晚的练习服"
+weight = 3
+why = "作息：去学校但常从教室消失；固定日程：学校课业"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "morning"
+scene = "park"
+activity = "在公园长椅上做拉伸，边压腿边看晨跑的老人，学他们的呼吸节奏"
+weight = 3
+why = "作息：morning 在公园自主练跑步"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休在教室和同学分零食，被问起偶像的事，含糊地笑着说还在练"
+weight = 3
+why = "作息：noon 在学校上课"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "noon"
+scene = "street"
+activity = "溜出学校在街上走，站在商店街口看人流，把有趣的走路姿势记下来"
+weight = 2
+why = "作息：noon 在街上观察行人；地点统计：商店街 3.3%"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室一个人练到汗流浃背，对着镜子纠正手臂的角度"
+weight = 4
+why = "作息：afternoon 在事务所练习室练舞"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室沙发上瘫着休息，被工作人员塞了一瓶水，咕咚咕咚喝完"
+weight = 3
+why = "地点统计：事务所休息室 20.8%"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "evening"
+scene = "studio"
+activity = "傍晚在练习室加练，把白天想到的动作串成一小段，反复确认"
+weight = 4
+why = "作息：evening 在事务所练习室工作"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "evening"
+scene = "park"
+activity = "去公园散步换换脑子，坐在长椅上看小孩追鸽子，脚跟着节奏点地"
+weight = 2
+why = "作息：有时去公园"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "night"
+scene = "studio_small"
+activity = "深夜在小练习室研究发声，试到嗓子发哑，被制作人勒令停下"
+weight = 4
+why = "作息：深夜研究发声，被制作人劝休息"
+
+[[slots]]
+character = "asahi"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "回家后坐在自己房间地板上，用毛巾敷嗓子，翻着明天的练习计划"
+weight = 2
+why = "作息：就寝 23点-1点；推断：回家后的私密时间"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "morning"
+scene = "park"
+activity = "在公园跑道上慢跑，跑到一半停下来看天上的云，想着能不能编成动作"
+weight = 3
+why = "作息：morning 在公园自主练跑步"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "在教室后排偷偷看舞蹈视频，被老师点名时站起来答非所问"
+weight = 2
+why = "作息：去学校但常从教室消失"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "noon"
+scene = "roof"
+activity = "午休在天台对着天空练跳跃，落地时膝盖微屈，反复找感觉"
+weight = 3
+why = "作息：noon 溜去天台跳舞"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊上被同学拉住聊天，一边应声一边用脚尖打拍子"
+weight = 2
+why = "推断：课间在校园内活动"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和Straylight的成员合练，被指出节奏偏了，重新来一遍"
+weight = 4
+why = "作息：afternoon 在事务所练习室练舞；休息日也和成员一起"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊上靠着自动贩卖机休息，和路过的经纪人聊了两句"
+weight = 2
+why = "地点统计：事务所休息室 20.8%；推断：走廊休息"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员一起看练习录像，边看边模仿画面里的动作"
+weight = 4
+why = "作息：evening 在事务所休息室工作"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "和成员一起去咖啡店，点了一桌子甜点，边吃边聊下次练习的事"
+weight = 2
+why = "地点统计：咖啡店 4.5%；休息日偶尔和成员逛街"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "night"
+scene = "studio_small"
+activity = "深夜在小练习室练舞，被制作人发现后劝回家，嘴上答应着又多练了一遍"
+weight = 4
+why = "排表红线：深夜过度练习需强制休息"
+
+[[slots]]
+character = "asahi"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "回家后洗完澡坐在床上，手机开着和成员的群聊，聊着聊着就困了"
+weight = 2
+why = "作息：就寝 23点-1点；推断：回家后的私密时间"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "morning"
+scene = "studio"
+activity = "休息日一早就在练习室热身，对着镜子确认昨天练的动作记住了没有"
+weight = 4
+why = "休息日：常去事务所练习或上舞蹈课"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "morning"
+scene = "park"
+activity = "在公园慢跑当晨练，跑完坐在长椅上喝水，看周末早上的人来人往"
+weight = 2
+why = "作息：morning 在公园自主练跑步"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "noon"
+scene = "studio"
+activity = "中午在练习室上舞蹈课，跟着老师的示范一遍遍纠正重心"
+weight = 4
+why = "休息日：上舞蹈课"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "noon"
+scene = "shopstreet"
+activity = "在商店街的荞麦面店帮忙备料，趁师傅不注意偷偷练端盘子的姿势"
+weight = 3
+why = "固定日程：周二和周六下午送外卖；推断：上午在店里帮忙"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "跟着师傅送外卖，拎着保温箱在商店街跑上跑下，熟客都认识她了"
+weight = 5
+why = "固定日程：周二和周六下午送外卖，不可安排其他工作"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "afternoon"
+scene = "street"
+activity = "送完最后一单，在十字路口等红灯时活动脚踝，感觉有点酸就放慢脚步"
+weight = 2
+why = "固定日程：周六下午送外卖；排表红线：脚痛需留意"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚回事务所，在休息室和成员汇合，商量晚上睡衣会要买什么零食"
+weight = 3
+why = "休息日：偶尔和Straylight成员开睡衣会"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "evening"
+scene = "supermarket"
+activity = "和成员一起在超市挑零食，抱着薯片和果汁在货架间转来转去"
+weight = 3
+why = "休息日：和成员开睡衣会；推断：采购零食"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "night"
+scene = "apartment_living"
+activity = "在成员家的客厅开睡衣会，裹着毯子看电影，看到一半开始模仿台词"
+weight = 3
+why = "休息日：偶尔和Straylight成员开睡衣会、看电影"
+
+[[slots]]
+character = "asahi"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "睡衣会散场后回家，躺在床上还在回想电影里的动作，手在空中比划"
+weight = 2
+why = "作息：就寝 23点-1点；推断：回家后的私密时间"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "难得睡到自然醒，在自己房间的床上赖了一会儿，才爬起来换衣服"
+weight = 3
+why = "作息：起床 7-8点；推断：休息日早上"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "morning"
+scene = "studio"
+activity = "休息日早上还是去了练习室，一个人对着镜子慢慢把身体活动开"
+weight = 3
+why = "休息日：常去事务所练习"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃早午餐，边吃边在笔记本上画舞蹈动作的示意图"
+weight = 3
+why = "地点统计：咖啡店 4.5%；推断：休息日中午"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "noon"
+scene = "mall"
+activity = "和成员约在商场碰头，在扶梯上东张西望，看到有趣的店就拉人进去"
+weight = 3
+why = "休息日：偶尔和成员逛街"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "afternoon"
+scene = "studio"
+activity = "下午在练习室上舞蹈课，被老师夸进步了，嘴角忍不住翘起来"
+weight = 4
+why = "休息日：上舞蹈课"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "和成员在商店街闲逛，在杂货店门口停下来看陈列的小玩意"
+weight = 2
+why = "休息日：偶尔和成员逛街；地点统计：商店街 3.3%"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室整理下周的练习计划，写满了一整页便利贴"
+weight = 3
+why = "地点统计：事务所休息室 20.8%；推断：整理日程"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "evening"
+scene = "park"
+activity = "去公园散步，坐在长椅上看夕阳，脚边放着从便利店买的饮料"
+weight = 2
+why = "作息：有时去公园"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "night"
+scene = "studio_small"
+activity = "深夜还是去了小练习室，练到一半想起制作人的话，犹豫着收了动作"
+weight = 3
+why = "排表红线：深夜过度练习需强制休息"
+
+[[slots]]
+character = "asahi"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "回家后早早躺下，手机放在枕边，想着明天要练的东西慢慢睡着"
+weight = 3
+why = "作息：就寝 23点-1点；排表红线：需强制休息"
+

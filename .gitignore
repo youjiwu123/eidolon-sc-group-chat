@@ -33,3 +33,15 @@ deploy/event-names.toml
 /.scratch/photos/prototype/tags/contact_sheet.png
 
 __pycache__/
+
+# 研究记录与实验产物：仓库里已有的保留，新的不再提交
+/.scratch/
+
+# 原声音频（版权归原作方，体积也大）：不进仓库，部署时自备
+characters/voices/
+
+# 后台保存提示词时自动生成的历史备份
+characters/backups/
+
+# 前端构建缓存（下载的字体源文件）
+/frontend/.cache/

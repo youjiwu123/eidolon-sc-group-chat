@@ -1,0 +1,657 @@
+# 杜野凛世的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/rinze.md、characters/schedules/rinze.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/rinze.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "在教室上课，课间和同学一起折纸，折了一只小兔子放在桌上"
+weight = 4
+why = "档案：工作日早上在高中上课，课间有时折纸"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "morning"
+scene = "fastfood"
+activity = "课间和同学去快餐店，点了一杯饮料，边喝边看同学聊天"
+weight = 2
+why = "档案：课间有时和同学去快餐店"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休时在教室和同学一起吃饭，聊着周末看的电影"
+weight = 4
+why = "档案：午休和同学一起吃饭"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "noon"
+scene = "library"
+activity = "独自在图书室读少女漫画，偶尔抬头看看窗外"
+weight = 2
+why = "档案：午休独自读少女漫画"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "在事务所休息室学习，课本摊在桌上，旁边放着折纸作品"
+weight = 4
+why = "地点统计：事务所休息室占17.4%；档案：放学后在休息室学习、折纸"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子练习舞蹈动作，反复调整手势"
+weight = 2
+why = "推断：准备拍摄或训练"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室等待拍摄，一边看古语辞典一边记笔记"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "evening"
+scene = "photo_studio"
+activity = "在摄影棚进行拍摄，按照摄影师指示摆姿势，表情认真"
+weight = 3
+why = "档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "深夜回到宿舍，给制作人打电话汇报今天的工作，声音有点困"
+weight = 3
+why = "档案：深夜回宿舍，偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "mon"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房做点心，试着做巧克力酱，小心地搅拌"
+weight = 2
+why = "档案：深夜偶尔做点心、买巧克力酱"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "morning"
+scene = "classroom"
+activity = "上课时认真记笔记，课间和同学讨论折纸的折法"
+weight = 4
+why = "档案：工作日早上在高中上课，课间有时折纸"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "morning"
+scene = "school_corridor"
+activity = "课间在走廊和同学聊天，手里拿着折纸材料"
+weight = 2
+why = "推断：课间活动"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "午休和同学一起吃饭，听同学聊偶像的话题，微笑附和"
+weight = 4
+why = "档案：午休和同学一起吃饭"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "noon"
+scene = "library"
+activity = "独自在图书室看古语辞典，偶尔在笔记本上写点什么"
+weight = 2
+why = "档案：午休独自看古语辞典"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室折纸，折了一朵花送给制作人"
+weight = 4
+why = "地点统计：事务所休息室占17.4%；档案：放学后在休息室折纸"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练习舞蹈，对着镜子纠正姿势，额头微微出汗"
+weight = 2
+why = "推断：训练"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室复习功课，等待晚上的工作安排"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "evening"
+scene = "recording_studio"
+activity = "在录音棚录制歌曲，戴着耳机专注地唱歌"
+weight = 3
+why = "档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "深夜在宿舍给制作人打电话，聊今天录音的情况，声音轻柔"
+weight = 3
+why = "档案：深夜回宿舍，偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "tue"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房尝试做新的点心，边看食谱边操作"
+weight = 2
+why = "档案：深夜偶尔做点心"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "上课时认真听讲，课间和同学一起折纸，折了千纸鹤"
+weight = 4
+why = "档案：工作日早上在高中上课，课间有时折纸"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "morning"
+scene = "fastfood"
+activity = "课间和同学去快餐店，点了薯条分享，聊着最近看的漫画"
+weight = 2
+why = "档案：课间有时和同学去快餐店"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休和同学一起吃饭，便当是昨晚自己做的"
+weight = 4
+why = "档案：午休和同学一起吃饭"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "noon"
+scene = "library"
+activity = "独自在图书室读少女漫画，看到有趣的地方轻轻笑了"
+weight = 2
+why = "档案：午休独自读少女漫画"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室学习，为考试做准备，笔记写得很工整"
+weight = 4
+why = "地点统计：事务所休息室占17.4%；档案：放学后在休息室学习"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间准备拍摄，整理发型，检查服装"
+weight = 2
+why = "推断：准备拍摄"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室等待工作，一边折纸一边和工作人员聊天"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "evening"
+scene = "photo_studio"
+activity = "在摄影棚拍摄杂志照片，穿着可爱的服装，表情自然"
+weight = 3
+why = "档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "深夜在宿舍和制作人通电话，讨论下次工作的事"
+weight = 3
+why = "档案：深夜回宿舍，偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "wed"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房做饼干，准备明天带给同学"
+weight = 2
+why = "档案：深夜偶尔做点心"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "上课时记笔记，课间和同学折纸，折了一只小狗"
+weight = 4
+why = "档案：工作日早上在高中上课，课间有时折纸"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "morning"
+scene = "school_corridor"
+activity = "课间在走廊和同学聊天，手里拿着折纸作品"
+weight = 2
+why = "推断：课间活动"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休和同学一起吃饭，分享了自己做的点心"
+weight = 4
+why = "档案：午休和同学一起吃饭"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "noon"
+scene = "library"
+activity = "独自在图书室看古语辞典，偶尔查字典"
+weight = 2
+why = "档案：午休独自看古语辞典"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室折纸，折了一束花，准备装饰休息室"
+weight = 4
+why = "地点统计：事务所休息室占17.4%；档案：放学后在休息室折纸"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室练习舞蹈，反复练习同一个动作"
+weight = 2
+why = "推断：训练"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室学习，等待晚上的工作"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "evening"
+scene = "stage"
+activity = "在舞台侧幕等待出场，紧张地握着话筒"
+weight = 3
+why = "档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "深夜在宿舍给制作人打电话，报告今天的工作"
+weight = 3
+why = "档案：深夜回宿舍，偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "thu"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房做巧克力酱，小心地搅拌，满屋香味"
+weight = 2
+why = "档案：深夜偶尔做点心、买巧克力酱"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "上课时认真听讲，课间和同学折纸，折了一只兔子"
+weight = 4
+why = "档案：工作日早上在高中上课，课间有时折纸"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "morning"
+scene = "fastfood"
+activity = "课间和同学去快餐店，点了饮料，聊着周末的计划"
+weight = 2
+why = "档案：课间有时和同学去快餐店"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休和同学一起吃饭，听同学聊偶像的话题"
+weight = 4
+why = "档案：午休和同学一起吃饭"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "noon"
+scene = "library"
+activity = "独自在图书室读少女漫画，沉浸在故事里"
+weight = 2
+why = "档案：午休独自读少女漫画"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室学习，为下周的考试做准备"
+weight = 4
+why = "地点统计：事务所休息室占17.4%；档案：放学后在休息室学习"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间准备拍摄，化妆师在帮她整理妆容"
+weight = 2
+why = "推断：准备拍摄"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室等待工作，一边折纸一边看古语辞典"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "evening"
+scene = "photo_studio"
+activity = "在摄影棚拍摄广告照片，按照指示摆出各种姿势"
+weight = 3
+why = "档案：傍晚多在事务所或外景工作"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "深夜在宿舍和制作人通电话，聊明天休息日的安排"
+weight = 3
+why = "档案：深夜回宿舍，偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "fri"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房做点心，准备明天带去给制作人"
+weight = 2
+why = "档案：深夜偶尔做点心"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "休息日早上睡到自然醒，在房间慢慢整理折纸作品"
+weight = 3
+why = "推断：休息日，可能在家"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "morning"
+scene = "bookstore"
+activity = "去书店站着翻看新出的少女漫画，偶尔记下想买的"
+weight = 2
+why = "档案：休息日也常去书店"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃午餐，点了一份三明治，边吃边看古语辞典"
+weight = 3
+why = "地点统计：咖啡店占3.7%；推断：休息日外出"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅和制作人一起吃饭，聊着工作的事"
+weight = 2
+why = "地点统计：家庭餐厅占4.0%"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "afternoon"
+scene = "cake_shop"
+activity = "去点心教室学做蛋糕，认真记下老师的步骤"
+weight = 3
+why = "档案：休息日常去点心教室"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "在事务所休息室折纸，准备送给粉丝的小礼物"
+weight = 2
+why = "地点统计：事务所休息室占17.4%；推断：休息日也可能去事务所"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和制作人讨论工作，确认下周的安排"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；推断：工作讨论"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "evening"
+scene = "street_night"
+activity = "晚上在街上散步，看着夜景，心情放松"
+weight = 2
+why = "推断：休息日晚上外出"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "深夜在宿舍给制作人打电话，聊今天点心教室的事"
+weight = 3
+why = "档案：深夜偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "sat"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房尝试做今天学的蛋糕，虽然有点失败但很开心"
+weight = 2
+why = "档案：深夜偶尔做点心"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "休息日早上在房间慢慢起床，给阳台的花浇水"
+weight = 3
+why = "推断：休息日在家"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "morning"
+scene = "park"
+activity = "早上去公园散步，坐在长椅上折纸"
+weight = 2
+why = "地点统计：公园占3.8%；推断：休息日外出"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅吃午餐，点了每日特餐，慢慢享用"
+weight = 3
+why = "地点统计：家庭餐厅占4.0%"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃轻食，边吃边看少女漫画"
+weight = 2
+why = "地点统计：咖啡店占3.7%"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "afternoon"
+scene = "bookstore"
+activity = "在书店看书，站着翻了好几本，最后买了一本古语辞典"
+weight = 3
+why = "档案：休息日常去书店"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "afternoon"
+scene = "lounge"
+activity = "在事务所休息室准备下周的工作，整理资料"
+weight = 2
+why = "地点统计：事务所休息室占17.4%；推断：休息日也可能去事务所"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和制作人开会，讨论下周的拍摄计划"
+weight = 3
+why = "地点统计：事务所休息室占17.4%；推断：工作讨论"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "evening"
+scene = "home"
+activity = "傍晚在家准备明天上课的东西，顺便折纸放松"
+weight = 2
+why = "推断：休息日晚上在家"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "深夜在宿舍给制作人打电话，确认明天的工作安排"
+weight = 3
+why = "档案：深夜偶尔给制作人打电话"
+
+[[slots]]
+character = "rinze"
+day = "sun"
+slot = "night"
+scene = "kitchen"
+activity = "在厨房做点小点心，准备明天带去学校"
+weight = 2
+why = "档案：深夜偶尔做点心"
+

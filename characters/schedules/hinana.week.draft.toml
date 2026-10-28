@@ -1,0 +1,657 @@
+# 市川雏菜的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/hinana.md、characters/schedules/hinana.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/hinana.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "morning"
+scene = "school_corridor"
+activity = "拎着书包小跑穿过走廊，鞋柜前差点撞到人，第一节课已经开始了"
+weight = 4
+why = "作息：早上常迟到，第一节课赶不上"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "morning"
+scene = "stone_path"
+activity = "沿着石板坡道慢慢往上走，边走边看手机，完全不着急赶课"
+weight = 2
+why = "推断：迟到时的上学路"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休铃一响就搬椅子凑到透和小糸桌边，三人分着吃便当"
+weight = 4
+why = "作息：午休去找透和小糸一起吃午饭"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊上东张西望找透她们，手里还攥着没打开的面包"
+weight = 2
+why = "地点统计：学校走廊 3.7%"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "afternoon"
+scene = "classroom"
+activity = "趴在课桌上撑着下巴听课，笔记只写了一半，偶尔被老师点名"
+weight = 3
+why = "作息：下午上课"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "afternoon"
+scene = "train"
+activity = "坐在电车上翻课本，把上课没听懂的部分重新看一遍"
+weight = 2
+why = "作息：移动时间复习"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "evening"
+scene = "convenience_store"
+activity = "和透、小糸挤在冷柜前挑饮料，最后一人拿了一瓶不一样的"
+weight = 4
+why = "作息：放学和朋友去便利店，频率高"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "窝在事务所沙发上喝果汁，一边等练习开始一边和工作人员闲聊"
+weight = 3
+why = "地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "洗完澡趴在床上刷手机，看到好笑的视频就笑出声，被妈妈喊小声点"
+weight = 4
+why = "作息：晚上回家放松，睡前玩手机"
+
+[[slots]]
+character = "hinana"
+day = "mon"
+slot = "night"
+scene = "lounge"
+activity = "晚上还留在休息室，捧着热饮慢慢喝，眼睛已经有点睁不开"
+weight = 2
+why = "作息：偶尔去事务所喝饮料"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "morning"
+scene = "classroom"
+activity = "踩着铃声冲进教室，书包往桌上一放就瘫在椅子上喘气"
+weight = 4
+why = "作息：早上常迟到，第一节课赶不上"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "morning"
+scene = "schoolyard"
+activity = "从校门绕到操场边抄近路，被值周老师远远看了一眼"
+weight = 2
+why = "作息：有时在校园探险"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "把桌子拼在一起，听小糸讲昨天的事，笑得筷子都拿不稳"
+weight = 4
+why = "作息：午休和透、小糸一起吃午饭"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "靠在走廊窗边吃面包，等透她们下课一起走"
+weight = 2
+why = "地点统计：学校走廊 3.7%"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午的课困得直点头，用笔尖戳自己手背提神"
+weight = 3
+why = "作息：下午上课；身体：容易困倦"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室里对着镜子反复练同一个动作，练到额头出汗"
+weight = 3
+why = "地点统计：练习室 3.7%；工作安排"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "evening"
+scene = "street"
+activity = "和透并肩走在放学路上，聊着周末要不要一起去商场"
+weight = 4
+why = "作息：放学和朋友回家"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "evening"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前纠结买哪瓶，最后两瓶都买了"
+weight = 3
+why = "地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "窝在自己房间的被子里看视频，手机亮度调到最低，怕被父母发现"
+weight = 4
+why = "作息：深夜就寝；睡前玩手机"
+
+[[slots]]
+character = "hinana"
+day = "tue"
+slot = "night"
+scene = "convenience_store"
+activity = "被叫去买第二天要用的东西，顺便在店门口站着吃完一支冰淇淋"
+weight = 2
+why = "推断：家庭时间与便利店习惯"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "morning"
+scene = "school_gate"
+activity = "在校门口被拦下登记迟到，低着头小声解释"
+weight = 4
+why = "作息：早上常迟到"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "morning"
+scene = "school_corridor"
+activity = "趁课间在走廊上晃，探头看别的班在做什么"
+weight = 2
+why = "作息：有时在校园探险"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "和透、小糸围坐吃午饭，把自己不爱吃的菜偷偷夹给透"
+weight = 4
+why = "作息：午休和透、小糸一起吃午饭"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "noon"
+scene = "school_corridor"
+activity = "抱着便当盒在走廊上找她们，边走边喊名字"
+weight = 2
+why = "地点统计：学校走廊 3.7%"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午的课听得有点走神，在笔记本角落画小人"
+weight = 3
+why = "作息：下午上课"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "afternoon"
+scene = "office"
+activity = "在事务所办公室等安排，坐在椅子上晃腿，听工作人员对流程"
+weight = 3
+why = "作息：下午工作；地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "练习结束后瘫在休息室沙发上，和路过的人有一搭没一搭地聊天"
+weight = 4
+why = "地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "evening"
+scene = "convenience_store"
+activity = "放学路上和透拐进便利店，站在零食货架前挑了半天"
+weight = 3
+why = "作息：放学和朋友去便利店，频率高"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "洗完澡躺在床上刷手机，看到时间吓一跳，赶紧关灯"
+weight = 4
+why = "作息：深夜就寝，睡前玩手机"
+
+[[slots]]
+character = "hinana"
+day = "wed"
+slot = "night"
+scene = "home_living"
+activity = "被妈妈叫到客厅，一边看电视一边把水果吃完才回房"
+weight = 2
+why = "红线：与父母同住，需考虑家庭时间"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "第一节课快结束时才溜进教室，悄悄在最后一排坐下"
+weight = 4
+why = "作息：早上常迟到，第一节课赶不上"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "morning"
+scene = "stone_path"
+activity = "走在通往学校的石板路上，脚步慢得像在散步"
+weight = 2
+why = "推断：上学路"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休时把桌子拼起来，三个人边吃边聊昨天看的节目"
+weight = 4
+why = "作息：午休和透、小糸一起吃午饭"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊上被同学拉住说话，差点忘了午休时间"
+weight = 2
+why = "地点统计：学校走廊 3.7%"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "afternoon"
+scene = "classroom"
+activity = "下午上课时偷偷在课本边缘写歌词，被同桌看见赶紧合上"
+weight = 3
+why = "作息：下午上课"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室里对着镜子调整表情，一遍遍重来"
+weight = 3
+why = "地点统计：练习室 3.7%"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "evening"
+scene = "street"
+activity = "和透一起走在傍晚的街上，讨论晚饭吃什么"
+weight = 4
+why = "作息：放学和朋友回家"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室边喝饮料边看别人练习，偶尔跟着比划两下"
+weight = 3
+why = "地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "回到房间把书包一扔，趴在床上玩手机玩到很晚"
+weight = 4
+why = "作息：晚上回家放松，睡前玩手机"
+
+[[slots]]
+character = "hinana"
+day = "thu"
+slot = "night"
+scene = "station"
+activity = "工作结束得晚，在站台等最后一班车，困得靠着柱子"
+weight = 2
+why = "红线：高中生门禁（推断）；工作到晚上"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "morning"
+scene = "school_corridor"
+activity = "迟到了干脆慢慢走，在走廊上被班主任逮个正着"
+weight = 4
+why = "作息：早上常迟到"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "赶在第一节课前冲进教室，把书往桌上一摊就趴下"
+weight = 3
+why = "作息：早上常迟到"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "和透、小糸一起吃午饭，兴奋地讲周末的安排"
+weight = 4
+why = "作息：午休和透、小糸一起吃午饭"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "在走廊上等她们，靠着鞋柜玩手机"
+weight = 2
+why = "地点统计：学校走廊 3.7%"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "afternoon"
+scene = "classroom"
+activity = "周五下午心已经飞了，课本摊着却一直在看窗外"
+weight = 3
+why = "作息：下午上课"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚里按指示摆姿势，被摄影师夸表情好，有点不好意思"
+weight = 3
+why = "作息：工作（拍摄）不定期，下午居多"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "evening"
+scene = "convenience_store"
+activity = "和透、小糸在便利店门口分着吃刚买的零食，聊到天黑"
+weight = 4
+why = "作息：放学和朋友去便利店，频率高"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室里喝饮料，跟工作人员确认下周的安排"
+weight = 3
+why = "地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "躺在床上刷手机，想着明天不用早起，越玩越精神"
+weight = 4
+why = "作息：深夜就寝，睡前玩手机"
+
+[[slots]]
+character = "hinana"
+day = "fri"
+slot = "night"
+scene = "home_living"
+activity = "在客厅和父母一起看电视，被问学校怎么样，含糊地应付过去"
+weight = 2
+why = "红线：与父母同住，需考虑家庭时间"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "睡到快中午才醒，裹着被子在床上赖着不肯起"
+weight = 4
+why = "作息：早上较晚，休息日悠闲"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "被闹钟吵醒又按掉，翻个身继续睡"
+weight = 3
+why = "推断：起床较晚"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "noon"
+scene = "kitchen"
+activity = "在厨房随便弄点吃的当早午饭，边吃边看手机"
+weight = 3
+why = "推断：休息日在家悠闲"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "和透约在咖啡店碰头，点了饮料慢慢等"
+weight = 3
+why = "地点统计：咖啡店 3.5%"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "和透、小糸在商场里逛，试衣服试到笑成一团"
+weight = 4
+why = "作息：休息日和朋友逛街"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "休息日有拍摄，在白色背景布前一遍遍调整姿势"
+weight = 3
+why = "作息：休息日可能工作拍摄"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "evening"
+scene = "shopstreet"
+activity = "逛完商场又拐进商店街，边走边看店铺招牌"
+weight = 3
+why = "作息：休息日和朋友逛街"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "拍摄结束后在休息室松一口气，捧着饮料和工作人员聊天"
+weight = 3
+why = "地点统计：事务所休息室 19.7%"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "回到家洗完澡，趴在床上把今天拍的照片翻来覆去看"
+weight = 4
+why = "作息：晚上回家放松"
+
+[[slots]]
+character = "hinana"
+day = "sat"
+slot = "night"
+scene = "street_night"
+activity = "晚上还在外面，和透一起走在亮着灯的街上，慢慢往家走"
+weight = 2
+why = "推断：与朋友一起回家"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "睡到自然醒，躺着听房间外面的动静，不想起床"
+weight = 4
+why = "作息：早上较晚，休息日悠闲"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "迷迷糊糊摸到手机，缩在被子里刷了一会儿"
+weight = 3
+why = "作息：睡前玩手机（延伸推断）"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "在客厅和家里人一起吃午饭，被问起最近的工作"
+weight = 3
+why = "红线：与父母同住，需考虑家庭时间"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "noon"
+scene = "apartment_living"
+activity = "去透家集合，在客厅沙发上懒懒地坐着等大家到齐"
+weight = 3
+why = "作息：休息日去透家集合"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "afternoon"
+scene = "studio_small"
+activity = "休息日也去小练习室练一会儿，对着镜子确认动作"
+weight = 3
+why = "作息：休息日可能练习"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "和透她们在公园长椅上坐着，什么也不做地发呆"
+weight = 3
+why = "推断：休息日悠闲度过"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "evening"
+scene = "convenience_store"
+activity = "傍晚和透去便利店买零食，站在门口分着吃"
+weight = 3
+why = "作息：和朋友去便利店，频率高"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "evening"
+scene = "home"
+activity = "早早回家，在自己房间里慢悠悠地整理东西"
+weight = 3
+why = "作息：晚上回家放松"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "躺在床上玩手机，想到明天要上学就叹气"
+weight = 4
+why = "作息：深夜就寝，睡前玩手机"
+
+[[slots]]
+character = "hinana"
+day = "sun"
+slot = "night"
+scene = "bathroom"
+activity = "泡在浴缸里发呆，差点睡着被自己吓一跳"
+weight = 2
+why = "推断：回家放松"
+

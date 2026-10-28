@@ -1,0 +1,657 @@
+# 和泉爱依的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/mei.md、characters/schedules/mei.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/mei.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "在电车上靠着车门补觉，书包抱在怀里，坐过站前被朋友摇醒"
+weight = 4
+why = "作息：工作日早上在家或电车上补觉"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "早读前趴在课桌上打哈欠，被同桌问周末练习累不累，含糊地点头"
+weight = 3
+why = "作息：到校上课，课间与朋友聊天"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "把便当盒打开和两个朋友拼桌，边吃边听她们聊电视剧，笑得差点呛到"
+weight = 4
+why = "作息：在学校吃午饭或与朋友去小卖部"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友溜出校门去咖啡店，点了一份蛋包饭，说下午还有收录得快点吃"
+weight = 2
+why = "台词地点统计：咖啡店(街上) 7.0%"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复走位，被老师指出转身慢了半拍，自己加练了三遍"
+weight = 4
+why = "作息：放学后到事务所练习室训练"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "坐在休息室沙发上等收录，抱着台本小声念台词，时不时抬头看时钟"
+weight = 3
+why = "台词地点统计：事务所休息室 23.6%"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "evening"
+scene = "car"
+activity = "工作结束坐进车里，安全带还没系好就靠着车窗睡着了，头一点一点的"
+weight = 4
+why = "作息：工作结束后坐车回家，在车上睡着"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "evening"
+scene = "home_living"
+activity = "到家把包一扔，帮妈妈摆碗筷，和弟妹抢最后一块炸鸡，被爸爸笑着制止"
+weight = 3
+why = "作息：到家与家人吃晚饭；家人活动多"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在自己房间铺开宣纸写书法，写到一半接起朋友的电话，笔还夹在指间"
+weight = 4
+why = "作息：在家写书法或与朋友长电话"
+
+[[slots]]
+character = "mei"
+day = "mon"
+slot = "night"
+scene = "studio_small"
+activity = "临时加练，在小练习室对着镜子纠正手势，手机里放着明天要录的曲子"
+weight = 2
+why = "作息：偶尔在事务所加班练习"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着打瞌睡，被急刹车晃醒，慌忙确认还有几站到学校"
+weight = 4
+why = "作息：早上在电车上补觉"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "morning"
+scene = "school_corridor"
+activity = "课间靠在走廊窗边和朋友聊天，说起昨晚练到很晚，被吐槽黑眼圈"
+weight = 3
+why = "作息：课间与朋友聊天"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "和朋友一起去小卖部抢最后一个炒面面包，没抢到，只好买了饭团"
+weight = 3
+why = "作息：与朋友去小卖部"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "一个人留在教室吃午饭，边吃边翻台本，把要记的台词用铅笔圈起来"
+weight = 3
+why = "推断：工作日下午有收录，需要提前准备"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚戴着耳机录台词，被监督夸了一句，害羞地低头喝水"
+weight = 4
+why = "作息：参加收录；台词地点统计含录音棚类工作场景"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间让化妆师补妆，手里还攥着台本，对着镜子小声练表情"
+weight = 3
+why = "台词地点统计：后台/化妆间等工作场景"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "evening"
+scene = "car"
+activity = "收工后瘫在后座，抱着靠垫睡着，醒来发现已经到自家附近的路口"
+weight = 4
+why = "作息：工作结束后坐车回家，在车上睡着"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "evening"
+scene = "home_living"
+activity = "和家人围在餐桌边吃火锅，一边给弟妹夹菜一边讲今天录音的趣事"
+weight = 3
+why = "作息：到家与家人吃晚饭"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "趴在床上和朋友煲电话粥，聊到一半突然想起作业没写，惨叫一声爬起来"
+weight = 4
+why = "作息：与朋友长电话"
+
+[[slots]]
+character = "mei"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "洗完澡裹着毛巾坐在床边，一边擦头发一边看明天的行程表，眼皮开始打架"
+weight = 2
+why = "推断：深夜就寝前的准备"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "闹钟响了三遍才爬起来，叼着面包在玄关穿鞋，被妈妈塞了一盒牛奶"
+weight = 3
+why = "推断：早上需上学，容易赖床"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "上课时努力撑着眼皮记笔记，被老师点名回答问题，站起来愣了两秒"
+weight = 3
+why = "作息：到校上课"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友去咖啡店吃午餐，点了一份大份意面，说下午要练习得吃饱一点"
+weight = 3
+why = "作息：有时去卡拉OK/与朋友外出；台词地点统计：咖啡店 7.0%"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "在教室和同学交换便当里的菜，聊起周末要不要一起去唱卡拉OK"
+weight = 3
+why = "作息：在学校吃午饭；休息日与朋友唱卡拉OK"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练新曲的舞蹈，汗顺着下巴滴到地板上，对着镜子给自己喊加油"
+weight = 4
+why = "作息：放学后到事务所练习室训练"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在走廊自动贩卖机前买运动饮料，靠着墙喘气，和路过的staff打招呼"
+weight = 2
+why = "台词地点统计：事务所相关场景占比高"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "evening"
+scene = "train"
+activity = "从事务所坐电车回家，抓着吊环打瞌睡，差点坐过站，慌忙在门关前冲出去"
+weight = 3
+why = "作息：工作结束后坐车回家，在车上睡着"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "evening"
+scene = "home_living"
+activity = "和家人在客厅看电视，一边吃晚饭一边被弟妹缠着讲偶像工作的事"
+weight = 3
+why = "作息：到家与家人吃晚饭；偶尔在家陪弟妹"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在房间写书法静心，写完一张「努力」自己看了半天，觉得有点不好意思"
+weight = 3
+why = "固定日程：书法练习，多在家"
+
+[[slots]]
+character = "mei"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "接到朋友的电话，聊到深夜，抱着枕头在床上滚来滚去地笑"
+weight = 3
+why = "作息：与朋友长电话"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "在电车上靠着扶手补觉，耳机里放着英语听力，其实一句也没听进去"
+weight = 4
+why = "作息：早上在电车上补觉"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "早自习时偷偷在课本空白处画小人，被同桌发现，两人憋笑憋得肩膀发抖"
+weight = 3
+why = "作息：到校上课，课间与朋友聊天"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "和朋友在走廊上边走边吃面包，商量放学后要不要顺路去唱一小时卡拉OK"
+weight = 3
+why = "作息：有时去卡拉OK"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "在教室吃妈妈做的便当，把最后一块玉子烧分给朋友，换来一颗草莓"
+weight = 3
+why = "作息：在学校吃午饭"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室待机，抱着靠垫和工作人员聊天，被夸今天状态不错，笑得眯起眼"
+weight = 3
+why = "作息：偶尔在休息室待机；台词地点统计：休息室 23.6%"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和同伴一起对舞，被指出节奏快了，重新来了一遍又一遍"
+weight = 4
+why = "作息：到事务所练习室训练"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "evening"
+scene = "car"
+activity = "收工后在车里睡着，头靠在车窗上，被经纪人轻轻叫醒时还迷迷糊糊"
+weight = 4
+why = "作息：工作结束后坐车回家，在车上睡着"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，主动帮忙盛饭，说起今天练习被表扬了，语气有点得意"
+weight = 3
+why = "作息：到家与家人吃晚饭"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "摊开作业本却先给朋友打电话，聊着聊着才想起来作业还没动"
+weight = 4
+why = "作息：与朋友长电话"
+
+[[slots]]
+character = "mei"
+day = "thu"
+slot = "night"
+scene = "studio_small"
+activity = "在小练习室加班练习，对着镜子一遍遍确认手势，直到自己满意才收工"
+weight = 2
+why = "作息：偶尔在事务所加班练习"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上和同班朋友碰头，两人靠着车门小声聊周末的打算"
+weight = 3
+why = "作息：早上在电车上补觉/通勤"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "上课前把周末的行程写在手账上，被朋友凑过来看，慌忙合上本子"
+weight = 3
+why = "推断：有行程管理习惯"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友去咖啡店，点了季节限定的甜点，边吃边说这周终于熬到最后一天"
+weight = 3
+why = "台词地点统计：咖啡店 7.0%"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "在教室快速吃完午饭，把台本摊在桌上确认晚上收录的台词"
+weight = 3
+why = "推断：工作日下午至晚上有收录"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚里录歌，唱到高音部分被要求再来一次，深呼吸后重新开口"
+weight = 4
+why = "作息：参加收录"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "afternoon"
+scene = "backstage"
+activity = "在后台的器材箱上坐着等上场，捏着裙角深呼吸，和同伴击掌打气"
+weight = 3
+why = "台词地点统计：后台 3.5%"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "evening"
+scene = "stage"
+activity = "站在舞台侧幕等出场，灯光一亮就挺直背脊，笑着走上台"
+weight = 3
+why = "台词地点统计：舞台 2.3%"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "evening"
+scene = "car"
+activity = "演出结束后在车里累得说不出话，靠着座椅睡着，手里还攥着毛巾"
+weight = 3
+why = "作息：工作结束后坐车回家，在车上睡着"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "night"
+scene = "home_living"
+activity = "回家晚了，家人留了饭菜，她坐在客厅一边吃一边跟妈妈讲今天舞台上的事"
+weight = 3
+why = "作息：到家与家人吃晚饭；家人活动多"
+
+[[slots]]
+character = "mei"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "洗完澡在房间写书法，写完给朋友发照片，收到夸奖后抱着手机傻笑"
+weight = 3
+why = "固定日程：书法练习，多在家"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "难得睡到自然醒，穿着睡衣在厨房帮妈妈做早餐，煎蛋煎糊了一个"
+weight = 3
+why = "休息日：偶尔在家陪弟妹或与家人一起"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "赖在床上不想起，抱着枕头刷手机，看到朋友的邀约消息才慢慢坐起来"
+weight = 3
+why = "推断：休息日早晨较放松"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "noon"
+scene = "shopstreet"
+activity = "和朋友在商店街逛，边走边吃可丽饼，被店铺招牌吸引停下来看"
+weight = 3
+why = "休息日：与朋友逛街；台词地点统计：商店街 2.1%"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "noon"
+scene = "restaurant"
+activity = "和朋友在家庭餐厅吃午饭，点了大份汉堡排，聊到笑出声被邻桌看"
+weight = 3
+why = "休息日：与朋友外出"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "afternoon"
+scene = "arcade"
+activity = "和朋友在游戏厅玩抓娃娃机，抓了三次都没抓到，越抓越不服气"
+weight = 3
+why = "休息日：与朋友逛街游玩（推断）"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场里逛服装店，试了一件连衣裙，对着镜子转圈问朋友好不好看"
+weight = 3
+why = "休息日：与朋友逛街"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "回家陪弟妹看电视，被缠着一起玩游戏，输了要接受被画脸的惩罚"
+weight = 3
+why = "休息日：偶尔在家陪弟妹"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和朋友在家庭餐厅吃晚饭，聊起下周的行程，边吃边在手机上记笔记"
+weight = 2
+why = "休息日：与朋友外出"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在房间铺开宣纸写书法，弟妹跑进来捣乱，她笑着把人赶出去"
+weight = 3
+why = "固定日程：书法练习，多在家"
+
+[[slots]]
+character = "mei"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "和朋友煲电话粥，聊到深夜，被妈妈敲门提醒该睡了"
+weight = 3
+why = "作息：与朋友长电话"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "早起帮妈妈准备早餐，和弟妹抢着用厨房，被爸爸说像在打仗"
+weight = 3
+why = "休息日：偶尔在家陪弟妹或与家人一起"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "morning"
+scene = "train"
+activity = "一早坐电车去事务所，在车上确认今天的行程，难得没有打瞌睡"
+weight = 3
+why = "休息日：多用于工作"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和工作人员一起吃便当，聊起周末的安排，笑得很放松"
+weight = 3
+why = "台词地点统计：事务所休息室 23.6%"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "noon"
+scene = "studio"
+activity = "在练习室做基础训练，对着镜子纠正姿势，汗把刘海都打湿了"
+weight = 3
+why = "休息日：多用于工作；练习室 8.7%"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍宣传照，按摄影师要求摆姿势，被夸笑容很好，害羞地挠头"
+weight = 3
+why = "休息日：多用于工作（推断）"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "工作结束后和朋友在商店街逛，买了新发饰，说下次演出想戴着"
+weight = 2
+why = "休息日：与朋友逛街；商店街 2.1%"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，把今天拍的照片给妈妈看，被说笑得有点僵"
+weight = 3
+why = "作息：到家与家人吃晚饭；家人活动多"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "evening"
+scene = "car"
+activity = "工作结束坐车回家，靠着车窗看街灯，累得没说话但心情不错"
+weight = 3
+why = "作息：工作结束后坐车回家"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在房间写书法，写完一张贴在墙上，对着它小声说下周也要加油"
+weight = 3
+why = "固定日程：书法练习，多在家"
+
+[[slots]]
+character = "mei"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "和朋友打电话聊到深夜，说下周的练习安排，越聊越精神"
+weight = 3
+why = "作息：与朋友长电话"
+

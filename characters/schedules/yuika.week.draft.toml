@@ -1,0 +1,657 @@
+# 三峰结华的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/yuika.md、characters/schedules/yuika.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/yuika.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "坐在靠窗的座位记笔记，偶尔走神想着下午练习的舞步，朋友叫她也没立刻回神"
+weight = 4
+why = "档案：工作日上午去大学上课"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "在电车上靠着门边补觉，手里还攥着没看完的讲义，差点坐过站"
+weight = 2
+why = "推断：熬夜后通勤，可能较晚出门"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "在学校附近的咖啡店点一份简餐，边吃边用手机回事务所的消息"
+weight = 3
+why = "档案：中午常在学校或打工地点附近解决午餐"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室沙发上摊开课题资料，泡了杯茶慢慢写，偶尔和路过的人搭两句话"
+weight = 3
+why = "台词地点统计：事务所休息室占27.9%；档案：有时在事务所做课题"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "对着镜子反复抠一段转身动作，数着拍子自己喊节拍，额头出了汗"
+weight = 4
+why = "档案：下午在事务所练习室排练"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着音箱放的曲子试新编舞，跳一段就停下来记笔记"
+weight = 3
+why = "档案：下午排练；推断：小练习室适合独自试动作"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "窝在休息室角落待机，抱着靠垫看台本，等收录通知，时不时打个哈欠"
+weight = 4
+why = "台词地点统计：事务所休息室占27.9%；档案：傍晚多在休息室待机"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "evening"
+scene = "recording_studio"
+activity = "在录音棚里戴着耳机试唱，隔音板后制作人比了个手势，她点头重来一遍"
+weight = 3
+why = "档案：傍晚参加收录"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "回卧室趴在床上打游戏，手柄搁在枕边，输了就翻身嘟囔一句再开一局"
+weight = 4
+why = "档案：深夜回卧室后打游戏；台词地点统计：卧室占3.8%"
+
+[[slots]]
+character = "yuika"
+day = "mon"
+slot = "night"
+scene = "esports_room"
+activity = "开着多屏电脑打排位，紫光映在脸上，边打边小声复盘刚才的失误"
+weight = 3
+why = "档案：深夜打游戏频率较高"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "morning"
+scene = "lecture_hall"
+activity = "在阶梯教室后排听大课，笔记写得密密麻麻，困了就掐自己一下"
+weight = 4
+why = "档案：工作日上午大学课业"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "沿着石板坡道快步走向学校，手里拎着便利店买的饭团当早饭"
+weight = 2
+why = "推断：上学路上，可能因熬夜赶时间"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "noon"
+scene = "fastfood"
+activity = "在快餐店随便点了个套餐，边吃边翻打工排班表，盘算下午怎么安排"
+weight = 3
+why = "档案：中午在打工地点附近解决午餐；单发打工时间不固定"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间靠在走廊窗边吃面包，朋友来邀约，她犹豫着说下午还有事"
+weight = 3
+why = "档案：课后有时拒绝朋友邀约去打工"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "afternoon"
+scene = "convenience_store"
+activity = "在便利店收银台后站班，趁没客人时把货架上的饮料摆整齐"
+weight = 3
+why = "档案：下午接单发打工，时间不固定"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室跟着编舞老师过队形，走位错了被提醒，她吐了下舌头重来"
+weight = 4
+why = "档案：下午在事务所练习室排练"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊的自动贩卖机前买热饮，靠着墙等会议开始，和工作人员闲聊两句"
+weight = 3
+why = "档案：傍晚参加事务所会议；台词地点统计：休息室类工作场景占比高"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "evening"
+scene = "meeting_room"
+activity = "坐在彩色椅子上听会议，白板上写着日程，她认真记下自己负责的部分"
+weight = 3
+why = "档案：傍晚参加事务所会议"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "night"
+scene = "home_living"
+activity = "在客厅沙发上摊着漫画看，电视开着当背景音，看到一半想起要给老家回消息"
+weight = 3
+why = "档案：家人联系（老家福岛，偶尔通话）；深夜看漫画"
+
+[[slots]]
+character = "yuika"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "关灯后缩在被子里偷偷看舞蹈视频，看到好动作就掀被子比划两下"
+weight = 4
+why = "档案：深夜偷偷练习舞蹈；台词地点统计：卧室占3.8%"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "上课前趴在桌上补觉，铃响了才爬起来，把课本翻到昨天折角那页"
+weight = 4
+why = "档案：工作日上午大学课业；熬夜导致睡眠不足"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着看手机里的日程表，确认下午排练和打工的时间有没有撞"
+weight = 2
+why = "推断：通勤时段，排表需留弹性"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室茶几上摊开便当和课题，一边吃一边和经过的人讨论作业"
+weight = 3
+why = "台词地点统计：事务所休息室占27.9%；档案：有时在事务所做课题"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅卡座里点份午餐，摊开笔记本写大学报告，暖光下有点犯困"
+weight = 3
+why = "档案：中午在学校或打工地点附近解决午餐"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室里对着镜子调整手势角度，反复练同一段副歌，直到自己满意"
+weight = 4
+why = "档案：下午在事务所练习室排练"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在白色背景布前拍宣传照，柔光伞下按指示换姿势，间隙偷偷揉肩膀"
+weight = 3
+why = "档案：下午处理工作；推断：摄影工作"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上待机，抱着膝盖看手机，收到收录时间变更的消息叹了口气"
+weight = 4
+why = "台词地点统计：事务所休息室占27.9%；档案：傍晚在休息室待机"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "evening"
+scene = "dressing_room"
+activity = "在化妆间对着镜子卸妆，桌上的水喝了一半，和旁边的人聊今天收录的趣事"
+weight = 3
+why = "档案：傍晚参加收录；推断：收录后化妆间"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "night"
+scene = "esports_room"
+activity = "深夜开着电脑打游戏，耳机挂在脖子上，边等匹配边啃零食"
+weight = 4
+why = "档案：深夜打游戏频率较高"
+
+[[slots]]
+character = "yuika"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室书桌前翻漫画，看到有趣的地方笑出声，又赶紧捂住嘴怕吵到人"
+weight = 3
+why = "档案：深夜看漫画；台词地点统计：卧室占3.8%"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "morning"
+scene = "lecture_hall"
+activity = "在阶梯教室记笔记，笔尖停了一下，脑子里在过下午要练的舞步"
+weight = 4
+why = "档案：工作日上午大学课业"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "morning"
+scene = "school_gate"
+activity = "踩着点进校门，和门口的同学打个招呼就快步往里走"
+weight = 2
+why = "推断：熬夜后可能较晚到校"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店靠窗的位置吃三明治，翻着打工APP看有没有合适的单子"
+weight = 3
+why = "档案：中午在附近解决午餐；单发打工时间不固定"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "noon"
+scene = "office"
+activity = "在事务所办公室角落吃午饭，桌上摊着文件，边吃边听工作人员交代事项"
+weight = 3
+why = "档案：有时在事务所做课题；台词地点统计：工作场景占比高"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室独自对着镜子练舞，木地板上放着音箱，跳累了就坐长凳上喘气"
+weight = 4
+why = "档案：下午排练；深夜独自练舞有安全风险，此处为白天"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街的店里帮忙打工，站在门口招呼客人，趁空档活动一下站酸的腿"
+weight = 3
+why = "档案：下午接单发打工；台词地点统计：商店街占3.6%"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和同伴一起待机，分着吃零食，聊起最近熬夜打游戏被说的事"
+weight = 4
+why = "台词地点统计：事务所休息室占27.9%；档案：傍晚在休息室待机"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "evening"
+scene = "stage"
+activity = "在舞台侧幕等出场，灯光架下攥着台本默念台词，听到叫名字深吸一口气"
+weight = 3
+why = "档案：傍晚参加收录或演出"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "回家后在房间里偷偷对着镜子练舞，动作放得很轻，怕楼下听见"
+weight = 4
+why = "档案：深夜偷偷练习舞蹈；台词地点统计：卧室占3.8%"
+
+[[slots]]
+character = "yuika"
+day = "thu"
+slot = "night"
+scene = "convenience_store"
+activity = "深夜去便利店买宵夜，站在冷柜前挑饮料，顺便看看有没有新出的零食"
+weight = 2
+why = "推断：熬夜后的深夜外出"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "上课时把手机藏在课本下面看事务所的日程，被点名回答问题慌了一下"
+weight = 4
+why = "档案：工作日上午大学课业"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上靠着扶手打瞌睡，耳机里放着要练的曲子，坐过一站才惊醒"
+weight = 2
+why = "推断：熬夜导致睡眠不足，通勤补觉"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，和同伴聊周末的安排，说想去古董店逛逛"
+weight = 3
+why = "台词地点统计：事务所休息室占27.9%；档案：休息日去古董店"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间在走廊和朋友聊天，被问周末要不要出去玩，她说要看工作安排"
+weight = 3
+why = "档案：课后有时拒绝朋友邀约；排表需留弹性"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室跟队排练，镜子前一遍遍走位，汗顺着下巴滴到地板上"
+weight = 4
+why = "档案：下午在事务所练习室排练"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在走廊抱着资料快步走，遇到工作人员就停下来确认下周的排班"
+weight = 3
+why = "档案：下午处理工作；排表需留弹性"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上待机，腿搭在扶手上刷手机，等收录开始前先放松一下"
+weight = 4
+why = "台词地点统计：事务所休息室占27.9%；档案：傍晚在休息室待机"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "evening"
+scene = "recording_studio"
+activity = "在录音棚对着麦克风唱，隔着隔音板看制作人点头，唱完自己先笑了"
+weight = 3
+why = "档案：傍晚参加收录"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "night"
+scene = "street_night"
+activity = "收录结束后走在夜晚的街上，路过亮灯的写字楼，抬头看了看星空"
+weight = 3
+why = "台词地点统计：十字路口等街上场景占比不低；档案：深夜回家"
+
+[[slots]]
+character = "yuika"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "回卧室后开着台灯打游戏，打到一半想起明天休息，干脆又开了一局"
+weight = 4
+why = "档案：深夜打游戏；休息日前更放松"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日睡到快中午，被手机消息吵醒，翻个身把被子拉过头顶"
+weight = 4
+why = "推断：常熬夜，休息日起得晚"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "morning"
+scene = "home_living"
+activity = "难得早起，在客厅慢悠悠地泡茶，边喝边翻昨天没看完的漫画"
+weight = 2
+why = "档案：休息日也常在家打游戏；推断：偶尔早起"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点份早午餐，靠窗坐着看街上的人，慢慢吃完不赶时间"
+weight = 3
+why = "档案：休息日会去咖啡店；台词地点统计：咖啡店占4.5%"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "noon"
+scene = "general_store"
+activity = "在有点昭和感的杂货店里翻旧货，拿起一个小摆件看了半天又放回去"
+weight = 3
+why = "档案：休息日去古董店；推断：杂货店语义最近"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街慢慢逛，看看店铺招牌，偶尔进店翻翻东西，不急着买"
+weight = 3
+why = "台词地点统计：商店街占3.6%；档案：休息日外出逛街"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "休息日临时有外景拍摄，在摄影棚里换好服装，等灯架调好位置"
+weight = 3
+why = "档案：休息日参加外景拍摄"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "evening"
+scene = "park"
+activity = "傍晚在公园长椅上坐着，看天色暗下来，手里拿着刚买的饮料发呆"
+weight = 3
+why = "台词地点统计：公园占3.1%；档案：休息日外出"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "在家客厅边吃晚饭边看电视，看到有趣的节目就笑，饭都忘了扒"
+weight = 3
+why = "推断：休息日晚间在家放松"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "night"
+scene = "esports_room"
+activity = "在电竞房开着多屏打游戏，紫光下戴着耳机，一局接一局停不下来"
+weight = 4
+why = "档案：休息日常在家打游戏；深夜游戏频率高"
+
+[[slots]]
+character = "yuika"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "躺在床上看漫画，看到深夜还不想睡，手机屏幕的光映在脸上"
+weight = 3
+why = "档案：深夜看漫画；常熬夜"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "睡到自然醒，赖在床上刷手机，看到老家发来的消息就回了几句"
+weight = 4
+why = "档案：家人联系（老家福岛）；推断：休息日起得晚"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "morning"
+scene = "kitchen"
+activity = "难得下厨做简单的早饭，在厨房小餐桌前慢慢吃，顺手把碗洗了"
+weight = 2
+why = "推断：休息日在家做饭"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "noon"
+scene = "restaurant"
+activity = "在家庭餐厅卡座里吃午饭，摊开笔记本写大学作业，暖光下有点犯困"
+weight = 3
+why = "档案：大学课业；休息日也需处理作业"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "noon"
+scene = "bookstore"
+activity = "在书店站着翻新出的漫画，看完一本又拿一本，站得腿都酸了"
+weight = 3
+why = "档案：深夜看漫画，喜欢漫画；推断：休息日逛书店"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "afternoon"
+scene = "cafe"
+activity = "在咖啡店靠窗的位置坐着，边喝饮料边看街上的人，偶尔在手机上记点什么"
+weight = 3
+why = "档案：休息日会去咖啡店；台词地点统计：咖啡店占4.5%"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园散步，走到长椅边坐下休息，看着小孩在草地上跑"
+weight = 3
+why = "台词地点统计：公园占3.1%；档案：休息日外出"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "休息日傍晚还是来了事务所，在休息室待机，顺便和工作人员确认下周安排"
+weight = 3
+why = "台词地点统计：事务所休息室占27.9%；排表需留弹性"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "在家客厅沙发上和老家通电话，说着说着笑起来，把脚缩到沙发上"
+weight = 3
+why = "档案：家人联系（老家福岛，偶尔通话）"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室里对着镜子偷偷练舞，动作放轻，练完坐回床上看手机"
+weight = 4
+why = "档案：深夜偷偷练习舞蹈；台词地点统计：卧室占3.8%"
+
+[[slots]]
+character = "yuika"
+day = "sun"
+slot = "night"
+scene = "esports_room"
+activity = "想着明天有课，还是没忍住开了一局游戏，边打边说明天一定早睡"
+weight = 3
+why = "档案：深夜打游戏频率较高；常熬夜"
+

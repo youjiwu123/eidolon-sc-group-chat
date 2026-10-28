@@ -1,0 +1,657 @@
+# 园田智代子的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/chiyoko.md、characters/schedules/chiyoko.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/chiyoko.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "在卧室对着镜子扎丸子头，嘴里念叨着今天要买的限定甜点，动作比平时快"
+weight = 4
+why = "档案：morning在家起床后扎丸子头"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "morning"
+scene = "cake_shop"
+activity = "早起在甜品店门口排队，手里攥着零钱，不时看表担心上学迟到"
+weight = 3
+why = "档案：有时早起排队买限定甜点"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "数学课上眼皮打架，强撑着记笔记，最后还是趴在桌上睡着了"
+weight = 4
+why = "档案：数学课头疼，偶尔在课上睡着"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时和同学在走廊闲聊，分享早上买的甜点，笑得很开心"
+weight = 2
+why = "推断：午休时间在走廊交流"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练舞步，汗流浃背但眼神认真，偶尔停下来调整呼吸"
+weight = 4
+why = "地点统计：练习室(工作) 5.9%；档案：放学后去事务所练习"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室沙发上瘫着，一边揉腿一边和成员吐槽数学课，手里还拿着甜点"
+weight = 3
+why = "地点统计：事务所休息室(工作) 15.5%"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店靠窗位置，点了一份新品蛋糕，认真地在笔记本上记录味道和口感"
+weight = 4
+why = "地点统计：咖啡店(街上) 6.1%；档案：傍晚巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "evening"
+scene = "home_living"
+activity = "和家人围坐在餐桌旁吃晚饭，聊着今天学校的趣事，气氛温馨"
+weight = 3
+why = "档案：家人会等她吃饭，傍晚尽量留出家庭时间"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "night"
+scene = "kitchen"
+activity = "深夜在厨房烤饼干，一边看教程一边调整配方，满屋都是黄油香"
+weight = 4
+why = "档案：深夜在家做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "趴在书桌前赶数学作业，咬着笔头一脸苦恼，旁边放着吃了一半的甜点"
+weight = 3
+why = "档案：深夜写作业"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "起床后匆匆扎好丸子头，一边叼着面包一边检查书包，发现忘带作业本又跑回房间"
+weight = 4
+why = "档案：morning在家起床后扎丸子头"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "在电车上抓着吊环，随着车厢摇晃打瞌睡，差点坐过站"
+weight = 3
+why = "推断：家远需早起上学，通勤时间长"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "数学课上努力睁大眼睛，但还是在课本上画起了甜点，被老师点名后慌忙站起来"
+weight = 4
+why = "档案：数学课头疼，偶尔在课上睡着"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休时坐在操场长椅上，和同学分享自己做的饼干，听大家夸赞时有点害羞"
+weight = 2
+why = "推断：午休在操场休息"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和成员讨论新曲的站位，一边记笔记一边分神看桌上的甜品杂志"
+weight = 4
+why = "地点统计：事务所休息室(工作) 15.5%"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室独自加练，对着镜子纠正动作，偶尔停下来用毛巾擦汗"
+weight = 3
+why = "推断：放学后练习，小练习室可用"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街闲逛，看到新开的甜品摊就凑过去，和摊主阿姨聊得很投机"
+weight = 4
+why = "地点统计：商店街(街上) 5.0%；档案：傍晚巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅聚餐，一边吃一边讨论下次巡甜品店的计划，笑声不断"
+weight = 3
+why = "档案：傍晚与成员聚餐"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "night"
+scene = "home_living"
+activity = "在客厅练签名，写了满满一页纸，偶尔抬头看电视里的综艺节目"
+weight = 3
+why = "档案：深夜练签名"
+
+[[slots]]
+character = "chiyoko"
+day = "tue"
+slot = "night"
+scene = "park_night"
+activity = "在夜晚的公园长椅上，吃着自制的甜点，看着星空发呆，享受独处时光"
+weight = 2
+why = "档案：偶尔深夜在公园吃自制甜点"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "比平时早起十分钟，慢慢扎好丸子头，对着镜子练习微笑，准备今天的工作"
+weight = 4
+why = "档案：morning在家起床后扎丸子头"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "morning"
+scene = "stone_path"
+activity = "走在通往学校的石板路上，耳机里听着音乐，脚步轻快"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "数学课上强打精神，但还是在笔记本边缘画满了小蛋糕，被同桌提醒才回过神来"
+weight = 4
+why = "档案：数学课头疼，偶尔在课上睡着"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "noon"
+scene = "library"
+activity = "午休时在图书室查甜点食谱，偷偷抄在笔记本上，怕被管理员发现"
+weight = 2
+why = "推断：午休在图书室"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起练舞，被指出动作不够到位，一个人对着镜子反复练习"
+weight = 4
+why = "地点统计：练习室(工作) 5.9%"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前买饮料，碰到工作人员就鞠躬问好"
+weight = 3
+why = "地点统计：事务所走廊(工作) 2.4%"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店写作业，点了一杯热可可，偶尔抬头看窗外行人"
+weight = 4
+why = "地点统计：咖啡店(街上) 6.1%"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，帮忙摆碗筷，聊起今天练习的进展"
+weight = 3
+why = "档案：家人会等她吃饭，傍晚尽量留出家庭时间"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "night"
+scene = "kitchen"
+activity = "深夜尝试做新的甜点，一边看手机上的食谱一边称量材料，表情专注"
+weight = 4
+why = "档案：深夜在家做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室书桌前赶作业，困得直打哈欠，但想到明天能吃到甜点又打起精神"
+weight = 3
+why = "档案：深夜赶作业"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "起床后对着镜子扎丸子头，发现头发翘起来，用水压了半天"
+weight = 4
+why = "档案：morning在家起床后扎丸子头"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，一手抓吊环一手看甜点博客，差点坐过站"
+weight = 3
+why = "推断：通勤时间长"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "数学课上努力记笔记，但眼皮越来越重，最后趴在桌上睡着了"
+weight = 4
+why = "档案：数学课头疼，偶尔在课上睡着"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时在走廊和同学聊天，分享昨天做的甜点，被夸手艺好"
+weight = 2
+why = "推断：午休在走廊"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室沙发上和成员讨论恐怖节目的工作，一边说害怕一边给自己打气"
+weight = 4
+why = "地点统计：事务所休息室(工作) 15.5%；档案：怕鬼却常接恐怖工作"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚里戴着耳机唱歌，被制作人指出细节问题，反复调整"
+weight = 3
+why = "推断：偶像工作包括录音"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的甜品店前犹豫不决，最后买了两块蛋糕，打算带回家给家人"
+weight = 4
+why = "地点统计：商店街(街上) 5.0%；档案：傍晚巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，聊起恐怖节目的事，被家人笑说胆子小"
+weight = 3
+why = "档案：家人会等她吃饭"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "night"
+scene = "kitchen"
+activity = "深夜在厨房做饼干，一边做一边哼歌，烤好后先尝了一块，满意地点头"
+weight = 4
+why = "档案：深夜在家做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室练签名，写了满满一页，又翻出作业本赶了几道题"
+weight = 3
+why = "档案：深夜练签名或赶作业"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "起床后扎好丸子头，检查今天要带的甜点食谱，心情很好"
+weight = 4
+why = "档案：morning在家起床后扎丸子头"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "morning"
+scene = "cake_shop"
+activity = "早起在甜品店排队买限定甜点，买到后开心地拍照"
+weight = 3
+why = "档案：有时早起排队买限定甜点"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "数学课上强撑着不睡，但还是在课本上画起了甜点，被老师点名后脸红"
+weight = 4
+why = "档案：数学课头疼，偶尔在课上睡着"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休时在操场长椅上吃便当，和同学交换零食"
+weight = 2
+why = "推断：午休在操场"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起排练新曲，动作越来越整齐，得到老师表扬"
+weight = 4
+why = "地点统计：练习室(工作) 5.9%"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间对着镜子整理发型，准备拍摄，桌上放着成员给的糖果"
+weight = 3
+why = "推断：拍摄前在化妆间准备"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店和成员讨论周末巡甜品店的计划，一边说一边在笔记本上画地图"
+weight = 4
+why = "地点统计：咖啡店(街上) 6.1%"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅聚餐，庆祝一周工作结束，吃得很开心"
+weight = 3
+why = "档案：傍晚与成员聚餐"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "night"
+scene = "home_living"
+activity = "在客厅看电视，一边看一边吃自制甜点，享受周末前夜"
+weight = 3
+why = "推断：晚上在家放松"
+
+[[slots]]
+character = "chiyoko"
+day = "fri"
+slot = "night"
+scene = "park_night"
+activity = "在夜晚的公园散步，手里拿着自制甜点，偶尔抬头看星星"
+weight = 2
+why = "档案：偶尔深夜在公园吃自制甜点"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "休息日睡到自然醒，慢悠悠地扎好丸子头，在厨房准备做甜点的材料"
+weight = 4
+why = "档案：休息日在家帮忙做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "赖在床上看甜点视频，看到喜欢的就截图保存，打算以后试试"
+weight = 3
+why = "推断：休息日早上赖床"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "noon"
+scene = "kitchen"
+activity = "在厨房和妈妈一起做蛋糕，负责装饰，挤奶油时手有点抖"
+weight = 4
+why = "档案：休息日在家帮忙做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "noon"
+scene = "cake_shop"
+activity = "一个人巡甜品店，在蛋糕柜前纠结选哪款，最后买了三块"
+weight = 3
+why = "档案：休息日一个人巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街逛甜品店，和店员聊天，试吃新品"
+weight = 4
+why = "地点统计：商店街(街上) 5.0%；档案：休息日巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "和成员在商场逛街，被拉进服装店试衣服，有点害羞"
+weight = 3
+why = "档案：休息日与成员逛街"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅聚餐，聊起最近的甜点巡礼，互相推荐店铺"
+weight = 4
+why = "档案：休息日与成员聚餐"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，帮忙摆碗筷，聊起今天做的蛋糕"
+weight = 3
+why = "档案：家人会等她吃饭"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "night"
+scene = "kitchen"
+activity = "深夜在厨房尝试新甜点，一边看食谱一边调整糖量，烤好后满意地拍照"
+weight = 4
+why = "档案：深夜在家做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "在客厅看电视，一边看一边吃自制甜点，享受周末夜晚"
+weight = 3
+why = "推断：晚上在家放松"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "休息日早上慢慢扎好丸子头，在厨房准备做甜点的材料，哼着歌"
+weight = 4
+why = "档案：休息日在家帮忙做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "赖在床上看甜点博客，看到新店开业的消息，眼睛发亮"
+weight = 3
+why = "推断：休息日早上赖床"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "noon"
+scene = "kitchen"
+activity = "在厨房和妈妈一起做饼干，负责用模具压形状，做得不亦乐乎"
+weight = 4
+why = "档案：休息日在家帮忙做点心"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "一个人巡甜品店，在咖啡店点了一份新品蛋糕，认真记录味道"
+weight = 3
+why = "档案：休息日一个人巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街逛甜品店，和店员聊天，试吃新品，买了一些带回家"
+weight = 4
+why = "地点统计：商店街(街上) 5.0%；档案：休息日巡甜品店"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园长椅上休息，吃着刚买的甜点，看着来往的人"
+weight = 3
+why = "地点统计：公园(街上) 4.4%"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起吃晚饭，聊起明天上学的事，有点不想面对数学课"
+weight = 4
+why = "档案：家人会等她吃饭"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅聚餐，讨论下周的工作安排，互相加油"
+weight = 3
+why = "档案：休息日与成员聚餐"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室赶作业，想到明天要上学就叹气，但还是认真写完了"
+weight = 4
+why = "档案：深夜赶作业"
+
+[[slots]]
+character = "chiyoko"
+day = "sun"
+slot = "night"
+scene = "kitchen"
+activity = "深夜在厨房做甜点，准备明天带去学校和成员分享"
+weight = 3
+why = "档案：深夜在家做点心"
+

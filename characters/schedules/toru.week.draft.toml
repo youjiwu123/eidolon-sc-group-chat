@@ -1,0 +1,917 @@
+# 浅倉透的一周作息 × 地点草案（pilot 批次，先别接进代码）。
+#
+# 证据 vs 推断（口径同 schedules.mano.week.draft.toml）：
+#   - 证据：characters/schedules/toru.stats.json、characters/facts/toru.md、characters/sheets/toru.md。
+#     例：卧室 10.2%（619 句，相对偏好 ×3.7）、休息室 9.9%、住宅街 2.8%、公园 2.5%、
+#     后台 2.4%、教室 2.2%、练习室 2.2%、学校走廊 1.9%（×3.2）、商店街 1.9%、
+#     天台 1.4%（×3.4）、图书室 0.6%…结构是工作 18.2% / 学校 7.2% / 街上 20.9% / 家 11.7% /
+#     其他 42.0%，**「其他」是 27 人里最高的**——她的一天本来就不集中在某几个地方。
+#   - 推断：原作没有时钟也没有星期几。她是高二（2 年 4 组），平日上午上课、下午有收录或练习，
+#     周四是「没有工作的日子」，周六是工作、周日睡到下午——这套排法是照「高中生 + 偶像」补的，
+#     学校占 7.2% 已经是这批人里最高的（stats 说校园场景在语料里只有 2–6%），
+#     所以学校场景反而可以放心多排一点。
+#   - 她的固定槽位刻意排得「散」：卧室、住宅街、天台、河堤、展望台、洗衣店、便利店都进去，
+#     这是数据说的（卧室 10.2% / 休息室 9.9%，没有一个是 20% 以上的「枢纽」），
+#     不是把真乃的周表换个地点。
+#   - 2026-10 追加：`[[pools]]` 把不在固定槽位里的 41 个日常场景接进来（chance 0.18），
+#     `[[holidays]]` 只覆盖与共享日历/真乃 不同的 11 个节日（其余回落到 characters/holidays.toml），
+#     `[[events]]` 13 条。一次通话的顺序：节日覆盖 > 事件 > 固定槽位 > 随机池。
+
+# ---------------------------------------------------------------------------
+# 周一：学校（上课睡觉）+ 黄昏的公园
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "morning"
+scene = "bedroom"
+activity = "闹钟响了三次才起来，坐在床边发了会儿呆，校服还是昨天折好的那样"
+weight = 3
+why = "卧室 10.2%（619 句，全部场景第一，相对偏好 ×3.7）；档案：不擅长守时、手机没电也没发现"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "morning"
+scene = "residential_street"
+activity = "走路上学，算着时间出门结果还是迟了，干脆慢慢走，心想「歩いた方が早いよ」"
+weight = 2
+why = "住宅街 2.8%；档案：她的名台词就是「歩いた方が早いよ」；住宅街是回家/上学路上的场景"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课睡过去了，被老师叫「浅倉、起きろー」，起来第一句是「……あー、はい」"
+weight = 3
+why = "教室 2.2%；档案：上课会睡着，原文就是这句「浅倉、起きろー」"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间走廊上有人跟她打招呼，她不认识也点头，走两步才想起来是广告播出之后开始的"
+weight = 2
+why = "学校走廊 1.9%（相对偏好 ×3.2）；档案：广告播出后走廊挤满人、陌生人先跟她打招呼"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "afternoon"
+scene = "roof"
+activity = "放学前去天台，靠着铁丝网看云，看到预备铃响才下楼"
+weight = 2
+why = "天台 1.4%（相对偏好 ×3.4）；她喜欢高处、看晚霞（档案：百货公司屋顶「見たくて、上で」）"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "afternoon"
+scene = "library"
+activity = "被叫去图书室补课，补到一半发现窗外的云好看，就走神了"
+weight = 1
+why = "图书室 0.6%；档案：她常补课（剧情里多次提到「補講」）；具体到图书室是推断"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "evening"
+scene = "park"
+activity = "绕去公园，在ジャングルジム前面站了一会儿，没上去，就坐在旁边的长椅上"
+weight = 2
+why = "公园 2.5%；档案：小时候在公园盯着ジャングルジム不敢上去，那个梦一直是「爬不到顶的ジャングルジム」"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "evening"
+scene = "convenience_store"
+activity = "在便利店买了一个おにぎり，站在门口就吃完了，包装纸塞进口袋忘了扔"
+weight = 2
+why = "便利店 0.9%；档案：爱吃おにぎり（「ラス１だったけど、ゲット」）；随手买是推断"
+
+[[slots]]
+character = "toru"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "躺在床上用手机看剧，看到第三集就睡着了，手机还亮着"
+weight = 3
+why = "卧室 10.2%；档案：一熬夜就是在追剧、「プロデューサーも絶対ハマると思うんだけどな、あのドラマ」"
+
+# ---------------------------------------------------------------------------
+# 周二：工作（摄影、收录）+ 回家路上
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "坐电车去事务所，靠着门站着，看着窗外发呆，坐过了一站才反应过来"
+weight = 2
+why = "电车 0.5%；档案：坐反了方向的电车、在半路偶遇刚收工的咲耶；坐过站是她的日常（推断）"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "morning"
+scene = "lounge"
+activity = "到休息室先倒在沙发上，被はづきさん叫起来化妆"
+weight = 3
+why = "休息室 9.9%（她第二高）；她在事务所的第一落点就是沙发（档案里常见）"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "noon"
+scene = "photo_studio"
+activity = "拍广告的平面，被要求「もっと笑って」，她说「笑う……どうやって？」"
+weight = 2
+why = "摄影棚 0.3%；「人からどう見られるかを気にしない」是她的人设，所以被要求表情会卡住（推断）"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "noon"
+scene = "dressing_room"
+activity = "在化妆间把台本盖在脸上，化妆师说「浅倉さん、起きて」，她说「起きてる」"
+weight = 2
+why = "推断：拍摄中间换装补妆是行业常识；她在任何地方都能睡着（档案：电影院、上课）"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "录音棚里唱主题曲，三次里有一次歌词蒙混过去了，只有円香听得出来"
+weight = 3
+why = "录音棚 0.3%；档案：她唱歌三次里有一次蒙混歌词，只有円香听得出来——这是原文细节"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室，舞蹈老师嫌她「やる気あるの」，她说「あります」——说得比平时清楚一点"
+weight = 2
+why = "练习室 2.2%；档案：舞蹈老师嫌她不认真、让她「河原コース100周してから出直しなさい」"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "evening"
+scene = "station"
+activity = "收工回家，在站台等车，看线路图上自己不认识的站名，想着哪天去一次"
+weight = 2
+why = "车站 0.3%；档案：她的日誌只写过「旅に出ます」，害制作人满城找她——想走就走是她的底色"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "evening"
+scene = "supermarket"
+activity = "顺路去超市，妈妈说「牛乳切らした」她就去了，站在货架前忘了要买多少"
+weight = 2
+why = "超市 1.3%；档案：和父母同住、母亲开朗爱说话；「忘了要买多少」是她的记性（推断）"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "洗完澡躺在床上看老电影，看到一半睡着，醒来发现已经放到片尾了"
+weight = 3
+why = "卧室 10.2%；档案：在快关门的老电影院一场接一场看，看到一半常常睡着"
+
+[[slots]]
+character = "toru"
+day = "tue"
+slot = "night"
+scene = "bathroom"
+activity = "泡澡泡到水凉，被妈妈敲门喊「透、のぼせちゃうよ」"
+weight = 2
+why = "浴室 0.1%；推断：她在家里最放松的地方是浴缸（怕烫是她的档案细节，所以水凉了才出来）"
+
+# ---------------------------------------------------------------------------
+# 周三：学校 + 放学后的商店街
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "被妈妈叫起来，一边找印章一边说「お母さーん、印鑑どこだっけー」"
+weight = 2
+why = "档案：她决定当偶像时是一边找印章一边对母亲说的，原话就是这句；家 0.5%"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "morning"
+scene = "residential_street"
+activity = "和円香在门口碰上，两个人一前一后走，谁也没说话"
+weight = 2
+why = "住宅街 2.8%；档案：两家是隔壁邻居，「家が隣で同じような時間に出発するから、一緒になるってだけ」"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "上课时在课本边上画ジャングルジム，被委员长看见了，她说「落書きじゃないよ、設計図」"
+weight = 2
+why = "教室 2.2%；档案：ジャングルジムの夢是她的核心；委员长是她同学（G.R.A.D.）"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "noon"
+scene = "schoolyard"
+activity = "午休在操场边坐着，看低年级的学妹们玩，看到有人被落下就一直看着"
+weight = 1
+why = "学校操场 0.1%；她会注意到「被落下的人」（小糸的分量，档案）；具体在操场是推断"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "afternoon"
+scene = "gym"
+activity = "体育课，跑得不算慢，跑完就躺在垫子上看体育馆的天花板"
+weight = 1
+why = "体育馆 0.5%；档案：她真的去跑了「河原コース100周」；躺垫子是她的自然体（推断）"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "afternoon"
+scene = "school_corridor"
+activity = "走廊上被低年级的雛菜拦住，往她包上挂了个吉祥物，她到晚上才发现"
+weight = 2
+why = "学校走廊 1.9%；档案：雛菜会不打招呼往她包上挂吉祥物，「你常常没发现」——原文细节"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "evening"
+scene = "shopstreet"
+activity = "放学后四个人一起逛商店街，她走在最后面，谁停下来看什么她就跟着停"
+weight = 2
+why = "商店街 1.9%；noctchill 是幼なじみ四人组（档案），一起在街上晃是推断"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店坐了很久，只点了一杯冰咖啡，说「コーヒー、そんなに得意じゃないのに」"
+weight = 2
+why = "咖啡店 1.4%；档案原话「コーヒー、そんなに得意じゃないのに」，但会和制作人一起喝アイスコーヒー"
+
+[[slots]]
+character = "toru"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "半夜醒来，躺在床上想白天那个梦——还是一样，爬不到顶"
+weight = 3
+why = "卧室 10.2%；档案：从小反复做同一个「へんなジャングルジム」的梦"
+
+# ---------------------------------------------------------------------------
+# 周四：没有工作的日子（她最像自己的一天）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "morning"
+scene = "bedroom"
+activity = "没有工作，睡到十一点，醒了也不起来，躺着看天花板"
+weight = 3
+why = "卧室 10.2%；档案：她的日誌「今日はレッスン。歌メインでやった」之外基本不写，休息日就是躺着"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "morning"
+scene = "laundry"
+activity = "抱着一筐衣服去自助洗衣店，等的时候坐在折叠椅上晃腿，钱包忘在家里了"
+weight = 1
+why = "自助洗衣店 0.1%；档案：她会忘带钱包（给小糸买指环糖结果自己没带钱包）——洗衣店是照这个推断的"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "noon"
+scene = "restaurant"
+activity = "中午去家庭餐厅吃担々麺，被烫了一下，还是继续吃"
+weight = 2
+why = "家庭餐厅 0.1%；档案：爱吃担々麺（演技课后要制作人陪她去）、怕烫「熱いの苦手なんだ」"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "noon"
+scene = "supermarket"
+activity = "在超市买晚饭的材料，站在货架前想「酸辣湯トマトチーズラーメン」还差什么"
+weight = 2
+why = "超市 1.3%；档案：家里常做「酸辣湯トマトチーズラーメン」，还会请伙伴来吃"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "afternoon"
+scene = "park"
+activity = "下午在公园长椅上躺着，风一阵一阵的，她说「気持ちいいでしょ……！風──」"
+weight = 2
+why = "公园 2.5%；档案：她喜欢起风的时候，和制作人在树荫下比赛「风よ、来い」"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "afternoon"
+scene = "river"
+activity = "去河堤跑步，跑了两圈就走起来，走到桥下看水面"
+weight = 2
+why = "河堤 0.7%；档案：舞蹈老师罚她跑「河原コース100周」，她真的去跑了，跑不完就分期付款"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "evening"
+scene = "observatory"
+activity = "绕到百货公司屋顶看晚霞，趴在栏杆上，看到天全黑才走"
+weight = 2
+why = "展望台 0.7%；档案：她喜欢高处和晚霞，「見たくて、上で。燃えてるもの」"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "evening"
+scene = "stone_path"
+activity = "从坡道走下来，走到一半停下来，回头看刚才那个高度"
+weight = 1
+why = "石板路 0.7%（相对偏好高）；「のぼる」是她的词（档案）；坡道对应「のぼる/てっぺん」的意象（推断）"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "晚上把攒了几天的日誌一起写，写「レッスン行って、打ち合わせ行った。バスで行った。忙しかった。」"
+weight = 2
+why = "档案：她真的这么写过日誌，被念过之后写下「日誌、がんばる。がんばれ。」"
+
+[[slots]]
+character = "toru"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在客厅跟妈妈一起看电视，妈妈说什么她都「んー」地应着"
+weight = 2
+why = "家 0.5%；档案：母亲开朗爱说话、两人关系亲近；一起看电视是推断"
+
+# ---------------------------------------------------------------------------
+# 周五：学校 + 收录
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "morning"
+scene = "bedroom"
+activity = "起床气还没散，坐在床上把袜子穿反了，出门才发现"
+weight = 2
+why = "卧室 10.2%；她的自然体、不在意细节（人设）"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "电车上靠着门，耳机只戴了一只，另一只挂在领口"
+weight = 2
+why = "电车 0.5%；她听歌但不讲究（推断）；通勤信号 2.3%"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "周五的课，她在课本上写「旅に出ます」，写完自己笑了"
+weight = 2
+why = "档案：她第一次写的日誌只有一句「旅に出ます」，害制作人满城找她——写在课本上是推断"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "noon"
+scene = "library"
+activity = "图书室补课，补完把借的书还了，书是两个月前借的"
+weight = 2
+why = "图书室 0.6%；补课是她档案里的常态；还书超期是推断"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室，被指出动作不到位，她说「わかんないや」，然后自己又跳了一遍"
+weight = 2
+why = "练习室 2.2%；「わかんないや」是她的口癖；嘴上不明白但身体会再来一遍（推断）"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "录音棚里制作人说要再唱一遍，她说「いいよ」，唱完问「……どう？」"
+weight = 2
+why = "录音棚 0.3%；工作信号 4.5%；她会主动问「どう？」（推断，来自她「見てて」的撒娇）"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "收工后在休息室赖着不走，被はづきさん赶了两次才起来"
+weight = 3
+why = "休息室 9.9%；「赖着不走」是她的自然体（推断），休息室是她最常待的地方之一（数据）"
+
+[[slots]]
+character = "toru"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "半夜两点还在看剧，看到感动的地方也没哭，就是一直看着"
+weight = 3
+why = "卧室 10.2%；夜 3.5% 的信号；她看剧看到很晚（档案）"
+
+# ---------------------------------------------------------------------------
+# 周六：工作（舞台）+ 演出后的商店街
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "morning"
+scene = "lounge"
+activity = "周六早上到事务所，抱着台本在沙发上又睡了一会儿，化妆师来才醒"
+weight = 3
+why = "休息室 9.9%；任何地方都能睡着（档案）"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "morning"
+scene = "backstage"
+activity = "在后台换上演出服，发现袜子还是反的，也懒得换"
+weight = 2
+why = "后台 2.4%；她的不在意细节（人设）+ 演出动线（推断）"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "noon"
+scene = "dressing_room"
+activity = "化妆间里被按着做头发，她闭着眼睛，化妆师以为她睡着了"
+weight = 2
+why = "推断：演出前化妆是行业常识；她在化妆间睡着有出处（任何地方都能睡）"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "noon"
+scene = "stage"
+activity = "彩排，站在侧幕等自己的段落，灯光一打她就不困了"
+weight = 2
+why = "舞台 1.5%；noctchill 第一次正式舞台是海边花火大会的小舞台（档案）——舞台上的她是醒的"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "afternoon"
+scene = "stage"
+activity = "正式演出，唱到一半看见台下有人举着写她名字的牌子，愣了一下才接着唱"
+weight = 3
+why = "舞台 1.5%、工作信号 4.5%；她会因为「有人在看」而醒过来（档案：W.I.N.G. 夺冠、观众的声音）"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "演出结束回休息室，把高跟鞋踢掉，坐在地板上喝水"
+weight = 3
+why = "休息室 9.9%；收工的落点（推断）"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "evening"
+scene = "shopstreet"
+activity = "晚上跟円香、小糸、雛菜在商店街买吃的，她拿着鲷鱼烧走在最后"
+weight = 2
+why = "商店街 1.9%；noctchill 四人组的日常（档案）；买吃的走在最后是推断"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "evening"
+scene = "train"
+activity = "坐电车回家，车厢空，她把脚伸到对面的座位上，被円香说了一句"
+weight = 1
+why = "电车 0.5%；和円香的相处（档案：円香嘴上冷淡却总在照看她）"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "到家倒头就睡，妆都没卸干净"
+weight = 2
+why = "卧室 10.2%；工作一天很累是推断"
+
+[[slots]]
+character = "toru"
+day = "sat"
+slot = "night"
+scene = "bathroom"
+activity = "被妈妈赶去洗澡，泡着泡着在浴缸里睡着了"
+weight = 1
+why = "浴室 0.1%；她在浴缸里睡着是这个人的性格（推断）"
+
+# ---------------------------------------------------------------------------
+# 周日：睡到下午 + 傍晚的河堤
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "周日睡到下午一点，窗帘没拉开，房间还是暗的"
+weight = 3
+why = "卧室 10.2%；「夏休み、いつも終わらない感じして、苦手だった」——她本来就是这种时间感"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "被妈妈拉开窗帘，说「透、もうお昼だよ」，她拿被子蒙住头"
+weight = 2
+why = "家 0.5%；母亲叫她起床（推断，母亲叫她「透」是档案）"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "下午被円香拖去咖啡店，她点了冰可可，说「コーヒーより、こっち」"
+weight = 2
+why = "咖啡店 1.4%；她不太能喝咖啡（档案）；和円香一起是推断"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "noon"
+scene = "residential_street"
+activity = "回家路上在小巷口停下，看别人家的狗，看很久"
+weight = 2
+why = "住宅街 2.8%（她第四高）；她会被路边的东西绊住（推断）；小巷是相邻场景"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "傍晚去公园，这次真的爬上了ジャングルジム，坐在最上面说「なんか、簡単だね」"
+weight = 2
+why = "公园 2.5%；档案：她和制作人真的爬上公园的ジャングルジム，原话「なんか、簡単だね。てっぺん来るの」"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "afternoon"
+scene = "observatory"
+activity = "从天台一样的地方看城市，说「全然ある、てっぺんより上」"
+weight = 2
+why = "展望台 0.7%；档案原话「全然ある、てっぺんより上」；高处是她的落点"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "evening"
+scene = "river"
+activity = "在河堤上坐着，风大，她缩着脖子也不肯回去"
+weight = 2
+why = "河堤 0.7%；喜欢风（档案）；坐着不动是她的常态（推断）"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "evening"
+scene = "vending_machine"
+activity = "在路边的自动贩卖机买热的，捧在手里暖手，喝完才走"
+weight = 1
+why = "自动贩卖机 0.2%；她怕烫，所以要「捧着暖手」（推断，来自档案的怕烫）"
+
+[[slots]]
+character = "toru"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "睡前给制作人发消息，只写了「見てて」，发完就睡着了"
+weight = 2
+why = "卧室 10.2%；档案：她最常对制作人说的是「見てて」「見ててよ」"
+
+# ===========================================================================
+# 随机池（daily-life 场景）—— 让剩下的日常地点也能被抽到
+# ===========================================================================
+#
+# 固定槽位用到 30 个场景（28 个日常 + stage/backstage），池子把**不在固定槽位里的 41 个日常
+# 场景**接进来。chance 0.18 = 「这一天不按作息走」的概率——对她来说这个池子尤其重要：
+# 她的「其他」占 42%，本来就没有一条稳定动线。
+#
+# 不进池子的 14 个（事件/节日专用，理由见 characters/schedules.model.md）：
+#   stage / backstage（周六固定槽位）、banquet、beach、flower_field / cherry / ginkgo、
+#   hospital_corridor / exam_room、hall、izakaya / bar、airport、bowling。
+
+[[pools]]
+character = "toru"
+day = "any"
+slot = "any"
+chance = 0.18
+scenes = [
+  "street", "street_night", "shrine", "park_night", "garden", "flowershop",
+  "car", "kitchen", "apartment_living", "home_living", "washitsu", "sento",
+  "dorm", "esports_room", "art_room", "music_room", "studio_small", "cooking_room",
+  "lecture_hall", "school_gate", "office", "office_corridor", "office_reception",
+  "meeting_room", "bookstore", "mall", "arcade", "cake_shop", "bakery",
+  "general_store", "petshop", "fastfood", "station_hall", "subway",
+  "railway_crossing", "crossroad", "alley", "coast_road", "temple", "lake",
+  "office_building",
+]
+weights = [
+  2, 1, 1, 1, 1, 1,
+  2, 1, 2, 1, 1, 1,
+  1, 2, 1, 1, 1, 1,
+  1, 1, 1, 2, 1,
+  1, 1, 2, 2, 1, 1,
+  1, 1, 2, 1, 1,
+  2, 1, 2, 2, 1, 1,
+  1,
+]
+why = "41 个剩余日常地点基本等权：给 2 的是她的动线（街上、车里、公寓客厅、游戏厅、事务所走廊、网吧式快餐、道口、小巷、沿海公路——「走远一点」是她的底色），chance 0.18 是「这一天不按作息走」的概率。"
+
+[[pools]]
+character = "toru"
+day = "any"
+slot = "night"
+chance = 0.18
+scenes = [
+  "street_night", "station_hall", "subway", "railway_crossing", "alley",
+  "fastfood", "office_corridor", "office_building", "temple", "sento",
+  "park_night", "car",
+]
+weights = [2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+why = "夜 22-2 点还说得过去的地方：夜街、车站大厅、地铁、道口、小巷、深夜快餐、加班的事务所走廊、事务所大楼、夜里的寺庙、钱汤、夜里的公园、车里。学校、花店、超市这些夜里不会去的地方不进夜池。"
+
+# ===========================================================================
+# 节日覆盖（只写与共享日历/真乃 不同的 11 条，其余回落到 holidays.toml）
+# ===========================================================================
+#
+# 她是「按自己节奏」的人，所以节日覆盖也比别人少：真正会改她一天的只有元旦、情人节（母亲）、
+# 花見、海の日、GW（在家躺着）、スポーツの日、文化の日（学园祭）、紅葉、お盆（祖母家）、
+# クリスマス、大晦日。
+
+[[holidays]]
+holiday = "new_year"
+dates = ["2026-01-01", "2027-01-01"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shrine", "home_living"]
+weights = [3, 2]
+priority = 100
+activity = "元旦，被妈妈拉去神社，抽到「大吉」，她看了看说「……わかんないや」，还是折好放进钱包"
+
+[[holidays]]
+holiday = "valentine"
+dates = ["2026-02-14", "2027-02-14"]
+slots = ["morning", "evening", "night"]
+scenes = ["kitchen", "home_living", "cake_shop"]
+weights = [3, 2, 1]
+priority = 55
+activity = "バレンタイン，妈妈为了「１番になる」先送了巧克力，她帮妈妈把给爸爸的那份藏起来"
+
+[[holidays]]
+holiday = "hanami"
+ranges = [
+  { from = "2026-03-25", to = "2026-04-05" },
+  { from = "2027-03-26", to = "2027-04-06" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["cherry", "park"]
+weights = [3, 2]
+priority = 70
+chance = 0.45
+activity = "花見，她坐在树下看花瓣落下来，说「桜、ずっと見てられるな」——然后真的看了一下午"
+
+[[holidays]]
+holiday = "golden_week"
+ranges = [
+  { from = "2026-04-29", to = "2026-05-06" },
+  { from = "2027-04-29", to = "2027-05-05" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["home_living", "bedroom"]
+weights = [2, 3]
+priority = 65
+chance = 0.4
+activity = "ゴールデンウィーク，事务所放假，她在家里躺了两天，说「人生って、長いなー」"
+
+[[holidays]]
+holiday = "marine_day"
+dates = ["2026-07-20", "2027-07-19"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["beach", "coast_road"]
+weights = [3, 2]
+priority = 90
+activity = "海の日，坐很久的车去海边，什么都没干，就是在沙滩上躺着听风"
+
+[[holidays]]
+holiday = "obon"
+ranges = [
+  { from = "2026-08-13", to = "2026-08-16" },
+  { from = "2027-08-13", to = "2027-08-16" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["washitsu", "temple", "home_living"]
+weights = [3, 2, 1]
+priority = 70
+chance = 0.8
+activity = "お盆，在奶奶家待到お盆过完，和室的席子有太阳的味道，她躺着躺着就睡着了"
+
+[[holidays]]
+holiday = "sports_day"
+dates = ["2026-10-12", "2027-10-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["river", "park"]
+weights = [3, 2]
+priority = 90
+activity = "スポーツの日，她想起「河原コース100周」，去跑了两圈，剩下的说「ぶんかつ……ばらい……で」"
+
+[[holidays]]
+holiday = "culture_day"
+dates = ["2026-11-03", "2027-11-03"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["hall", "school_corridor"]
+weights = [3, 2]
+priority = 90
+activity = "文化の日，学园祭，二年四组的发表她被拉去当旁白，声音不大，但一句没错"
+
+[[holidays]]
+holiday = "momijigari"
+ranges = [
+  { from = "2026-11-10", to = "2026-11-30" },
+  { from = "2027-11-10", to = "2027-11-30" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["ginkgo", "temple"]
+weights = [3, 2]
+priority = 60
+chance = 0.4
+activity = "紅葉狩り，银杏落了一地，她踩着走，说声音好听，走了三个来回"
+
+[[holidays]]
+holiday = "christmas"
+dates = ["2026-12-25", "2027-12-25"]
+slots = ["noon", "evening", "night"]
+scenes = ["banquet", "home_living", "cake_shop"]
+weights = [2, 3, 1]
+priority = 80
+activity = "クリスマス，事务所的圣诞会她露了个面就走了，回家跟爸妈吃蛋糕"
+
+[[holidays]]
+holiday = "omisoka"
+dates = ["2025-12-31", "2026-12-31", "2027-12-31"]
+slots = ["evening", "night"]
+scenes = ["temple", "home_living"]
+weights = [2, 3]
+priority = 80
+activity = "大晦日，跟家里人吃完年越しそば，被拉去排队等钟声，数到第三下就忘了数"
+
+# ---------------------------------------------------------------------------
+# 突发事件（chance 是每次通话命中这个事件的概率，不是占比；文件顺序就是优先级）
+# ---------------------------------------------------------------------------
+#
+# 无条件事件只有两条（游戏厅、咖啡店），chance 压低，避免吃掉太多机会；
+# 其余都挂在季节/天气/节日上。节日专属的排最前面。
+
+[[events]]
+character = "toru"
+chance = 0.10
+scene = "beach"
+activity = "夏祭り的晚上，海边有个小舞台，没人在看，她们还是唱完了，然后一起跑向海边喊「花火じゃなくて、こっち見ろー」"
+conditions = { holiday = "natsumatsuri", slot = ["evening", "night"] }
+why = "档案：noctchill 第一次正式舞台就是海边花火大会的小舞台，唱完跑向海边喊的正是这句——这是她的原点"
+
+[[events]]
+character = "toru"
+chance = 0.05
+scene = "observatory"
+activity = "天气好，绕到高处看城市的灯，看到忘了时间，回去被妈妈说了一句"
+conditions = { weather = "clear" }
+why = "展望台 0.7%；她喜欢高处和看得很远的地方（档案：百货公司屋顶看晚霞）"
+
+[[events]]
+character = "toru"
+chance = 0.045
+scene = "arcade"
+activity = "被雛菜拉去游戏厅，抓娃娃抓到一半就坐在旁边的椅子上看她抓"
+conditions = { slot = ["afternoon", "evening"] }
+why = "游戏厅 0（语料里没有）；档案：雛菜会不打招呼就跑到她家等她、给她涂指甲——被拉去玩是照这个推断的（只在下半天，因为她放学后才会被拉走）"
+
+[[events]]
+character = "toru"
+chance = 0.04
+scene = "cafe"
+activity = "被円香叫去咖啡店，坐了半个小时才说「……何の話だっけ」"
+conditions = { slot = ["noon", "evening"] }
+why = "咖啡店 1.4%；円香会来她家、替她操心（档案）；被叫出去是推断"
+
+[[events]]
+character = "toru"
+chance = 0.06
+scene = "cherry"
+activity = "收工路上拐进樱花道，站着看到天黑，走的时候头发上落了两片花瓣"
+conditions = { season = "spring" }
+why = "樱花道 0.2%；季节限定场景；「ずっと見てられる」式的发呆（推断）"
+
+[[events]]
+character = "toru"
+chance = 0.05
+scene = "ginkgo"
+activity = "秋天在银杏道上走，踩着落叶，说这声音「やば」"
+conditions = { season = "autumn" }
+why = "银杏道 0.2%；季节限定场景；「やば」是她的口癖（人设）"
+
+[[events]]
+character = "toru"
+chance = 0.04
+scene = "flower_field"
+activity = "为了一个广告的外景去花田，等灯的时候躺在田埂上，被工作人员叫起来"
+conditions = { season = ["spring", "autumn"] }
+why = "花田 0.0%（1 句）；季节限定场景；「哪里都能躺」是她的人设（推断）"
+
+[[events]]
+character = "toru"
+chance = 0.045
+scene = "banquet"
+activity = "演出结束后的打ち上げ，她被缠着讲「戦略性」，讲到一半直接掉进了泳池"
+conditions = { season = ["autumn", "winter"], slot = ["evening", "night"] }
+why = "宴会厅 0.5%；档案：业界派对那一场她真的掉进泳池，其他三个人跟着跳下去——原文事件"
+
+[[events]]
+character = "toru"
+chance = 0.04
+scenes = ["izakaya", "bar"]
+weights = [2, 2]
+activity = "事务所的忘年会，她坐在角落喝ウーロン茶，被前辈笑「透、それお茶だよ」"
+conditions = { season = "winter", slot = ["evening", "night"] }
+why = "居酒屋 0.9% / 酒吧 0.0%；未成年只喝ウーロン茶——两处不进日常池，只在忘年会事件里出现"
+
+[[events]]
+character = "toru"
+chance = 0.035
+scene = "exam_room"
+activity = "感冒拖成了咳嗽，被带去诊所，她在诊察床上又睡着了"
+conditions = { season = "winter" }
+why = "诊察室 0.4%；冬天生病是最合理的意外（推断）；医院走廊不进池，这里只用到诊察室"
+
+[[events]]
+character = "toru"
+chance = 0.03
+scene = "airport"
+activity = "夏天的远征，一早在机场集合，她抱着行李箱站在值机柜台前，护照差点忘在家里"
+conditions = { season = "summer" }
+why = "机场 0.2%；她本来就想去很远的地方（档案：日誌只写「旅に出ます」）；「哪天远征」是推断"
+
+[[events]]
+character = "toru"
+chance = 0.03
+scene = "park"
+activity = "在公园的长椅上躺着，醒来天已经黑了，手机上有円香发来的三条消息"
+why = "公园 2.5%；她到哪里都能睡着（档案：电影院、上课）；被円香找是两个人的常态（档案：「勝手にどこか行かないで」）"
+
+[[events]]
+character = "toru"
+chance = 0.04
+scene = "bowling"
+activity = "下雨取消了外景，四个人临时去打保龄球，她洗了一整局沟还是笑"
+conditions = { weather = "rain" }
+why = "档案：下雨时她们会临时改计划（推断）；保龄球馆要专门约，不进日常池"

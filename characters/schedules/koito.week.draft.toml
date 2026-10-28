@@ -1,0 +1,657 @@
+# 福丸小糸的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/koito.md、characters/schedules/koito.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/koito.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "morning"
+scene = "school_corridor"
+activity = "提前到校，在走廊窗边摊开课本复习英语单词，偶尔抬头看窗外"
+weight = 4
+why = "作息：早起提前到校，在教室或走廊复习功课；地点统计：学校走廊3.6%"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "坐在自己座位上写数学作业，遇到不会的题小声叹气，又继续翻参考书"
+weight = 3
+why = "作息：早起提前到校，在教室复习功课；地点统计：教室2.8%"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休时在教室边吃便当边看文库本，同学叫她聊天，她有点慌地应声"
+weight = 4
+why = "作息：午休在教室或图书馆看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "noon"
+scene = "library"
+activity = "在图书室角落安静地写作业，笔尖沙沙响，偶尔瞥一眼窗外"
+weight = 3
+why = "作息：午休在教室或图书馆看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "在事务所休息室沙发上摊开课本，一边预习一边等练习开始"
+weight = 4
+why = "作息：放学后去事务所，在休息室学习；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练舞步，数着拍子，额头微微出汗"
+weight = 3
+why = "作息：在练习室练舞；地点统计：练习室6.2%"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和队友一起对台本，她小声提出自己的想法，被采纳后有点开心"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习，偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "evening"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前犹豫买什么饮料，最后选了热茶"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在家书桌前写粉丝信的回信，字迹工整，写到一半停下来想措辞"
+weight = 4
+why = "作息：深夜在家学习或写粉丝信回信；固定日程：粉丝信回信"
+
+[[slots]]
+character = "koito"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室床上复习明天的小测验，困得揉眼睛，但还是坚持看完一页"
+weight = 3
+why = "作息：深夜在家学习；地点统计：卧室5.2%"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "和雏菜一起坐电车上学，她抓着吊环，听雏菜说话时轻轻点头"
+weight = 4
+why = "固定日程：和雏菜一起上学；推断：通勤时段"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "morning"
+scene = "school_corridor"
+activity = "在走廊上被同学叫住问作业，她紧张地讲解，声音越来越小"
+weight = 3
+why = "作息：早起提前到校，在走廊复习；地点统计：学校走廊3.6%"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "noon"
+scene = "library"
+activity = "在图书室查资料，为偶像工作做笔记，偶尔抬头看时钟"
+weight = 4
+why = "作息：午休在图书馆看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "在教室和同学一起吃饭，听大家聊天，自己偶尔插一两句话"
+weight = 3
+why = "作息：午休在教室看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室独自练舞，对着镜子纠正手势，反复练同一段"
+weight = 3
+why = "作息：在练习室练舞；场景：小练习室"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室复习功课，把参考书摊了一桌，用荧光笔做标记"
+weight = 4
+why = "作息：在休息室学习；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "晚上在休息室和队友讨论演出细节，她认真记笔记，偶尔点头"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习，偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊上遇到制作人，紧张地打招呼后快步走开，又回头看了一眼"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在家写粉丝信回信，桌上摊着信纸和笔，妹妹在旁边画画"
+weight = 4
+why = "作息：深夜在家写粉丝信回信；家庭时间需保留"
+
+[[slots]]
+character = "koito"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室书桌前预习明天的课程，台灯下影子拉得很长，她打了个哈欠"
+weight = 3
+why = "作息：深夜在家学习；地点统计：卧室5.2%"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "早到教室，在黑板上写今天的值日事项，写完赶紧回到座位"
+weight = 3
+why = "作息：早起提前到校，在教室复习功课"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "morning"
+scene = "school_corridor"
+activity = "在走廊上背英语单词，边走边默念，差点撞到同学"
+weight = 4
+why = "作息：早起提前到校，在走廊复习；地点统计：学校走廊3.6%"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休时在教室写作业，同学邀她去小卖部，她犹豫一下还是去了"
+weight = 3
+why = "作息：午休在教室看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "noon"
+scene = "library"
+activity = "在图书室安静地看书，阳光透过窗户照在书页上，她眯了眯眼"
+weight = 4
+why = "作息：午休在图书馆看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和队友一起学习，互相提问，她答对时有点小得意"
+weight = 4
+why = "作息：在休息室学习；偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练舞，对着镜子调整姿势，反复练习转身动作"
+weight = 3
+why = "作息：在练习室练舞；地点统计：练习室6.2%"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室看录像回放，检查自己的舞蹈动作，用笔做记录"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊上等队友，靠着墙看手机，偶尔抬头看走廊尽头"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在家和妹妹一起看电视，妹妹靠在她身上，她有点困但没动"
+weight = 3
+why = "家庭时间需保留；地点统计：卧室5.2%"
+
+[[slots]]
+character = "koito"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室写粉丝信回信，写到一半想起明天要早起，赶紧收尾"
+weight = 4
+why = "作息：深夜在家写粉丝信回信；固定日程：粉丝信回信"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "morning"
+scene = "school_corridor"
+activity = "在走廊上遇到雏菜，两人一起走去教室，她听雏菜说话时笑了一下"
+weight = 4
+why = "固定日程：和雏菜一起上学；地点统计：学校走廊3.6%"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "在教室复习古文，小声念着课文，手指在桌上划着"
+weight = 3
+why = "作息：早起提前到校，在教室复习功课"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "noon"
+scene = "library"
+activity = "在图书室写作业，笔尖沙沙响，偶尔抬头看窗外"
+weight = 4
+why = "作息：午休在图书馆看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "在教室和同学一起吃便当，听大家聊偶像的话题，她有点不好意思"
+weight = 3
+why = "作息：午休在教室看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练舞，对着镜子反复练同一个动作，直到满意为止"
+weight = 4
+why = "作息：在练习室练舞；地点统计：练习室6.2%"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室复习数学，遇到难题皱起眉头，用笔敲着草稿纸"
+weight = 3
+why = "作息：在休息室学习；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "晚上在休息室和队友一起看演出视频，她认真做笔记，偶尔提问"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习，偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊上练习发声，小声哼着歌，听到脚步声立刻停下"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在家书桌前写粉丝信回信，台灯下她一字一句地写，表情认真"
+weight = 4
+why = "作息：深夜在家写粉丝信回信；固定日程：粉丝信回信"
+
+[[slots]]
+character = "koito"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室预习明天的课程，困得趴在桌上，又强撑着坐起来"
+weight = 3
+why = "作息：深夜在家学习；地点统计：卧室5.2%"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "morning"
+scene = "school_corridor"
+activity = "在走廊上复习英语，边走边背单词，差点撞到老师"
+weight = 4
+why = "作息：早起提前到校，在走廊复习；地点统计：学校走廊3.6%"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "在教室整理书包，把今天要交的作业检查了一遍，松了口气"
+weight = 3
+why = "作息：早起提前到校，在教室复习功课"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休时在教室看书，同学在旁边聊天，她偶尔抬头听几句"
+weight = 3
+why = "作息：午休在教室看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "noon"
+scene = "library"
+activity = "在图书室写作业，安静得能听到翻书声，她专注地写着"
+weight = 4
+why = "作息：午休在图书馆看书、写作业"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和队友一起学习，互相提问，她答对时有点小得意"
+weight = 4
+why = "作息：在休息室学习；偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室独自练舞，对着镜子纠正姿势，反复练同一段"
+weight = 3
+why = "作息：在练习室练舞；场景：小练习室"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和队友讨论明天的安排，她认真记笔记，偶尔点头"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习，偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊上遇到制作人，紧张地打招呼后快步走开，又回头看了一眼"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在家写粉丝信回信，写到一半想起明天有工作，提前收好信纸"
+weight = 4
+why = "作息：深夜在家写粉丝信回信；工作前夜需留休息时间"
+
+[[slots]]
+character = "koito"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室整理明天要带的东西，把包放在床边，然后关灯睡觉"
+weight = 3
+why = "作息：深夜在家学习；工作前夜需留休息时间"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "morning"
+scene = "photo_studio"
+activity = "在摄影棚拍摄，站在白色背景布前，按照摄影师指示摆姿势，有点紧张"
+weight = 4
+why = "休息日通常有工作拍摄；场景：摄影棚"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "morning"
+scene = "studio"
+activity = "在练习室练舞，对着镜子反复练习，汗湿了刘海"
+weight = 3
+why = "休息日通常有练习；地点统计：练习室6.2%"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "noon"
+scene = "lounge"
+activity = "午休时在休息室吃便当，和队友聊上午的拍摄，她小声笑着"
+weight = 4
+why = "作息：在休息室学习或休息；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友在咖啡店吃午餐，她有点拘谨，但聊到偶像话题时话多了起来"
+weight = 2
+why = "休息日偶尔和朋友一起；场景：咖啡店"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室练舞，和队友一起扣动作，她认真听队友的建议"
+weight = 4
+why = "休息日通常有练习；地点统计：练习室6.2%"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室复习功课，把参考书摊了一桌，用荧光笔做标记"
+weight = 3
+why = "作息：在休息室学习；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和队友一起看演出视频，她认真做笔记，偶尔提问"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习，偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊上等队友，靠着墙看手机，偶尔抬头看走廊尽头"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在家和妹妹一起看电视，妹妹靠在她身上，她有点困但没动"
+weight = 3
+why = "家庭时间需保留；地点统计：卧室5.2%"
+
+[[slots]]
+character = "koito"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室写粉丝信回信，写到一半想起明天要早起，赶紧收尾"
+weight = 4
+why = "作息：深夜在家写粉丝信回信；固定日程：粉丝信回信"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "morning"
+scene = "studio"
+activity = "在练习室练舞，对着镜子反复练习，汗湿了刘海"
+weight = 4
+why = "休息日通常有练习；地点统计：练习室6.2%"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "morning"
+scene = "photo_studio"
+activity = "在摄影棚拍摄，站在白色背景布前，按照摄影师指示摆姿势，有点紧张"
+weight = 3
+why = "休息日通常有工作拍摄；场景：摄影棚"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "noon"
+scene = "lounge"
+activity = "午休时在休息室吃便当，和队友聊上午的练习，她小声笑着"
+weight = 4
+why = "作息：在休息室学习或休息；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友在咖啡店吃午餐，她有点拘谨，但聊到偶像话题时话多了起来"
+weight = 2
+why = "休息日偶尔和朋友一起；场景：咖啡店"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室复习功课，把参考书摊了一桌，用荧光笔做标记"
+weight = 4
+why = "作息：在休息室学习；地点统计：事务所休息室16.9%"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室独自练舞，对着镜子纠正姿势，反复练同一段"
+weight = 3
+why = "作息：在练习室练舞；场景：小练习室"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "傍晚在休息室和队友讨论下周的安排，她认真记笔记，偶尔点头"
+weight = 4
+why = "作息：傍晚到晚上在事务所工作或学习，偶尔和队友一起"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "evening"
+scene = "office_corridor"
+activity = "在走廊上遇到制作人，紧张地打招呼后快步走开，又回头看了一眼"
+weight = 2
+why = "推断：事务所走廊是可能经过的地方"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在家写粉丝信回信，桌上摊着信纸和笔，妹妹在旁边画画"
+weight = 4
+why = "作息：深夜在家写粉丝信回信；家庭时间需保留"
+
+[[slots]]
+character = "koito"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "在卧室整理书包，把明天要用的课本放好，然后关灯睡觉"
+weight = 3
+why = "作息：深夜在家学习；地点统计：卧室5.2%"
+

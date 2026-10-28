@@ -1,0 +1,936 @@
+# 風野灯織的一周作息 × 地点草案（pilot 批次，先别接进代码）。
+#
+# 证据 vs 推断（口径同 schedules.mano.week.draft.toml）：
+#   - 证据：characters/schedules/hiori.stats.json 的地点分布与时间信号、
+#     characters/facts/hiori.md、characters/sheets/hiori.md。
+#     例：事务所休息室 23.7%（1,936 句，全部场景最高）、卧室 6.4%、十字路口 4.6%、
+#     练习室 4.3%、公园 3.8%、咖啡店 3.1%，工作 34.9% / 街上 26.7% / 家 9.5% / 学校 3.3%。
+#     语境信号：工作 10.7% / 练习 5.6% / 吃饭 5.4% / 夜 3.0% / 通勤 2.3% / 学校 1.9% / 朝 1.6%。
+#   - 推断：原作没有时钟也没有星期几。周一周三周五上学 + 练习、周二收录、周四休息跑腿、
+#     周六工作、周日休息，是照「高一学生 + 偶像工作」排的；学校占比在语料里只有 3.3%
+#     （见 schedules.stats.md「语料本身的偏向」），所以学校是按学历推断补的，`why` 里写「推断」。
+#   - 注意：休息室 23.7% 不能直接当作息——00001 是通用对话背景（见 stats 的 caveat），
+#     这里把它拆成「工作日的落点」：一早碰头、收工、被叫去开会，而不是让她整天坐沙发。
+#   - 2026-10 追加：`[[pools]]` 把不在固定槽位里的 39 个日常场景接进来（chance 0.18），
+#     `[[holidays]]` 只覆盖与共享日历/真乃 不同的 12 个节日（其余回落到 characters/holidays.toml），
+#     `[[events]]` 14 条，带 conditions 和演出/季节/生病专用场景。
+#     一次通话的顺序：节日覆盖 > 事件 > 固定槽位 > 随机池。字段含义见 characters/schedules.model.md。
+
+# ---------------------------------------------------------------------------
+# 周一：学校 + 练习室（她的主场是练习室和休息室）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "六点半起床，先看今天的星座占卜，再把便当的菜装进盒子——颜色要对得上，不然她自己不痛快"
+weight = 3
+why = "档案：每天看占卜（「イルミネ」所以在意星星）、便当自己做且营养均衡颜色漂亮；家里台词 2.1%"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "morning"
+scene = "station"
+activity = "在站台等车，耳机里放着要练的曲子，车来了才把耳机摘下来"
+weight = 2
+why = "相对偏好：车站 ×2.9（比全体平均高）；档案：常戴耳机听音乐，「戴着耳机就没人来搭话」"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，笔记记得比谁都整齐，黑板抄慢了就下课借同学的补"
+weight = 2
+why = "推断：高一学生，平日白天在上学；教室 1.8% 是她学校场景里最高的一项"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "noon"
+scene = "library"
+activity = "午休一个人去图书室，饭团吃完就把参考书摊开——这里没人搭话，她反而松一口气"
+weight = 2
+why = "推断：她「不擅长和人打交道」、中学时总是一个人（档案）、喜欢安静的地方；图书室是她日常里最合理的独处点（语料近 0，按人设补）"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "放学直接去练习室，把上周没跳顺的转身一个人磨到能过，镜子里的自己被她盯得发毛"
+weight = 3
+why = "练习室 4.3%、台词里 5.6% 带レッスン/練習；「もっとレッスンしないと」是她的口头禅（人设）"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "跟制作人对这周的日程，笔记本摊开一条条确认，连「提前十分钟到」都写进去"
+weight = 2
+why = "休息室 23.7%（1,936 句）；特技是「スケジュール管理」；档案：制作人编的「提前10分钟」ジンクス她当真"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "evening"
+scene = "studio_small"
+activity = "真乃和めぐる先走了，她一个人留在小练习室又跳了半小时，跳到腿发抖才停"
+weight = 2
+why = "档案：几乎每天都在练习，回家也检查编舞，因此睡眠不足；小练习室是照「一个人加练」推断的"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "evening"
+scene = "train"
+activity = "坐车回家，靠着门站着，把今天的反省点在手机备忘录里敲成三条"
+weight = 2
+why = "电车 0.4%、通勤信号 2.3%；档案：反省点会密密麻麻写下来，制作人劝她「也写写做得好的地方」"
+
+[[slots]]
+character = "hiori"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "睡前把今天的录像再看一遍，看到自己错的那一拍就按暂停，来回拖了五次"
+weight = 3
+why = "卧室 6.4%（相对偏好 ×2.3）；档案：回家后对着视频检查舞蹈和曲子"
+
+# ---------------------------------------------------------------------------
+# 周二：收录 + 化妆间 + 办公室
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "morning"
+scene = "lounge"
+activity = "一早到事务所，先把水烧上——她习惯给真乃和めぐる泡红茶，边泡边把今天的收录单过一遍"
+weight = 2
+why = "休息室是她「泡红茶」的地方（档案：会在事务所给真乃、めぐる、制作人泡红茶）；早上碰头是三人同框的固定场面"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "morning"
+scene = "recording_studio"
+activity = "进录音棚先开嗓，一句副歌反复唱到制作人点头，她自己还觉得不够"
+weight = 3
+why = "录音棚 0.3%，但「工作」信号 10.7% 是全场景最高档；收录具体排周二属于推断"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "noon"
+scene = "dressing_room"
+activity = "在化妆间吃便当，被化妆师按着补妆，嘴里还含着饭，含含糊糊说「すみません」"
+weight = 2
+why = "推断：收录前后进化妆间是行业常识；便当有档案依据（她自己做、算营养）"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "noon"
+scene = "restaurant"
+activity = "收录拖过了中午，跟工作人员在附近的家庭餐厅随便吃点，她盯着菜单算了半天热量"
+weight = 1
+why = "家庭餐厅 0.3%；吃饭信号 5.4%（她的第二高信号）；具体到周二是推断"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "收录完被拉去隔壁摄影棚补拍几张宣传照，被要求「もう少し笑って」，她笑得很努力"
+weight = 2
+why = "摄影棚 0.4%；她说自己「不擅长笑给别人看」，被夸反而先否认（人设）"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "afternoon"
+scene = "office"
+activity = "在办公室跟制作人核对下周的行程，把「空着」的那两天也填上了自主练习"
+weight = 2
+why = "事务所办公室 0.4%；特技「スケジュール管理」；「空いた日は練習」是她会做的事（推断）"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "收工后在休息室跟真乃、めぐる磨蹭，听めぐる讲今天谁被夸了，嘴上说「すぐ調子に乗る」"
+weight = 3
+why = "休息室 23.7%；三人的收尾几乎都在这里；「すぐ調子に乗るの、めぐるの悪い癖だよ」是她的原话"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "evening"
+scene = "car"
+activity = "坐事务所的车回家，路上把窗户开一条缝，风一吹就有点困"
+weight = 2
+why = "车里 2.6%；她的通勤是电车/事务所车两头（推断，语料里两种都有）"
+
+[[slots]]
+character = "hiori"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "洗完澡坐在床边写工作笔记，写到「今日の反省」那栏就停不下来"
+weight = 3
+why = "卧室 6.4%；档案：把工作和课程的反省点密密麻麻写在笔记本上"
+
+# ---------------------------------------------------------------------------
+# 周三：学校（家政课）+ 练习
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "morning"
+scene = "kitchen"
+activity = "早起把便当做了，煎蛋卷卷得很整齐——第一次做这道菜时烤焦了，父亲还是说好吃"
+weight = 3
+why = "档案：从小学开始做饭，第一次做的是煎蛋卷；厨房在她家台词里是日常落点（推断）"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "早读，把昨天没写完的作业补完，不会的题先圈出来问老师"
+weight = 2
+why = "推断：优等生型，作业不会拖；教室 1.8%"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "noon"
+scene = "cooking_room"
+activity = "家政课，她一个人把三个人的份都切好了，被老师说「手際がいい」时只说「普通のことです」"
+weight = 2
+why = "家政教室 0.1%；特技是料理（档案），被夸先否认（人设）；排到周三是推断"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "noon"
+scene = "school_corridor"
+activity = "课间在走廊被同学叫住问电视上的事，她答得有点生硬，回教室路上又后悔"
+weight = 2
+why = "学校走廊 0.5%；档案：说话直、容易说出带刺的话，说完又马上后悔"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "放学去练习室，跟真乃一起练，指出她脚步慢半拍时把话说轻了一点"
+weight = 3
+why = "练习室 4.3%；档案：以前指出真乃的失误说得太重，后来改了说法"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "afternoon"
+scene = "gym"
+activity = "体育馆被社团占着，她在角落等场地，顺便看别人打球，心里算自己的体力还差多少"
+weight = 1
+why = "体育馆 0.6%；她「体力跟不上就给自己定下比别人加倍练习」（档案）；等场地是推断"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "evening"
+scene = "studio_small"
+activity = "小练习室加练，把今天被指出的地方单独跳十遍，跳到第十遍才肯喝水"
+weight = 2
+why = "档案：加倍练习、睡眠不足；小练习室是加练的地方（推断）"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "evening"
+scene = "train"
+activity = "坐车回家，车上人多，她抓着吊环把明天的时间表在脑子里过了一遍"
+weight = 2
+why = "电车 0.4%、通勤 2.3%；「スケジュール管理」是特技"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "到家先烧水泡红茶，等水开的时候把桌子擦了，才坐下来"
+weight = 2
+why = "档案：在家里几乎不喝黑咖啡、红茶是「団らんのキーアイテム」；家务全归她（档案）"
+
+[[slots]]
+character = "hiori"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "趴在床上看明天要用的台本，看着看着就睡着了，灯还亮着"
+weight = 2
+why = "卧室 6.4%；档案：常因练习和检查睡眠不足"
+
+# ---------------------------------------------------------------------------
+# 周四：休息日、家务和跑腿（她的休息日也排得很满）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "没有工作的一天，还是七点就醒了，干脆把衣服洗了、地拖了，才坐下来吃早饭"
+weight = 3
+why = "档案：家务都是她负责（买米买洗衣粉记在便签上），制作人说简直像一个人生活"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "morning"
+scene = "supermarket"
+activity = "去超市买这一周的菜，站在货架前算家里还有什么，最后买了做炖菜用的肉"
+weight = 2
+why = "超市 0.7%；档案：「今天用家里的肉做个炖菜」，买菜时会盘算家里有什么"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "noon"
+scene = "shopstreet"
+activity = "绕去商店街，从肉铺走到干货店，跟相熟的老板点个头就走，不太会寒暄"
+weight = 2
+why = "商店街 1.9%；「不擅长和人打交道」（档案）；逛商店街是推断"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "noon"
+scene = "bookstore"
+activity = "在书店站着翻偶像杂志和其他人的演出报道，翻到有用的那页就记在手机里"
+weight = 2
+why = "书店 0（语料里没有）；档案：认真研究其他偶像的演出影像和偶像杂志——按这个爱好推断"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "afternoon"
+scene = "park"
+activity = "在公园长椅上坐着听音乐，太阳晒到腿上，她难得没有在想练习的事"
+weight = 2
+why = "公园 3.8%；档案：兴趣是「音楽鑑賞」「綺麗な景色を探すこと」；休息日晒太阳是推断"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "afternoon"
+scene = "cafe"
+activity = "进咖啡店写这周的复盘，写完才发现杯子空了，坐了快两个小时"
+weight = 2
+why = "咖啡店 3.1%；咖啡对她只是「団らんのキーアイテム」（档案），但咖啡店是她会待很久的地方（推断）"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "evening"
+scene = "river"
+activity = "傍晚沿河堤走，看到好看的天色就停下来，掏出手机拍一张——她存了一堆这样的照片"
+weight = 3
+why = "河堤 0.9%（相对偏好 ×2.1）；档案：兴趣是寻找美丽的风景"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "evening"
+scene = "crossroad"
+activity = "在十字路口等红灯，看见对面大楼的灯亮起来，站着看了一会儿才过马路"
+weight = 2
+why = "十字路口 4.6%（她的第三高）、相对偏好里有街口；「綺麗な景色」的日常版（推断）"
+
+[[slots]]
+character = "hiori"
+day = "thu"
+slot = "night"
+scene = "kitchen"
+activity = "晚上试做新的炖菜，调料按克数放，做多了就分装成明天的便当"
+weight = 3
+why = "档案：煎饺子连「30 秒后」「每 10 个约 80 毫升热水」都严格算；厨房是她休息日的落点（推断）"
+
+# ---------------------------------------------------------------------------
+# 周五：学校 + 练习 + 会议
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "比平时早起十分钟，把制服熨平、领带打好，出门前又照了一次镜子"
+weight = 2
+why = "推断：她的校服打领带（档案，和真乃、めぐる不同校）；早起十分钟呼应她的ジンクス"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "车上背这周的英文单词，背到一半抬头看窗外，又低下头继续"
+weight = 2
+why = "通勤 2.3%；她是优等生型（推断）；电车是她上学的方式（档案里学校在别处）"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "上午的课，老师提问她答得又快又准，坐下时被同桌小声说「さすが」"
+weight = 2
+why = "推断：优等生；教室 1.8%"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "noon"
+scene = "library"
+activity = "午休在图书室把下周的小测范围过了一遍，顺手把借书卡上的书还了"
+weight = 2
+why = "推断：安静的独处点；图书室按人设补（语料近 0）"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "放学去练习室，把下周要用的新舞整个过一遍，过完自己加了十遍副歌"
+weight = 3
+why = "练习室 4.3%、练习信号 5.6%；「もっとレッスンしないと」"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室开企划会，她把每个人的发言都记下来，散会后又问了一句「あの件、いつまでに」"
+weight = 1
+why = "会议室 0.7%；认真、要强、爱把事情揽在自己身上（人设），会上做记录是推断"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "收工前在休息室跟はづきさん确认下周安排，被塞了一颗糖，她说「いりません」还是收下了"
+weight = 2
+why = "休息室 23.7%；はづき是事务员（档案）；「いりません」式的嘴硬是她的说话方式（人设）"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "evening"
+scene = "station"
+activity = "在站台等车，把今天记的三条反省点又看了一遍，最后删掉一条写成「でも、まあ」"
+weight = 2
+why = "相对偏好车站 ×2.9；制作人劝她「也写写做得好的地方」（档案）——她试着改了（推断）"
+
+[[slots]]
+character = "hiori"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "睡前给真乃发消息问明天几点到，发完又补一句「遅刻はダメだからね」"
+weight = 3
+why = "卧室 6.4%；「油断大敵」是她的口癖（人设）；和真乃的联络是档案里的日常"
+
+# ---------------------------------------------------------------------------
+# 周六：工作（收录、舞台）
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "morning"
+scene = "office"
+activity = "周六一早到事务所，比集合时间早十分钟——她自己的规矩，走廊上还没人"
+weight = 2
+why = "档案：制作人编的「提前 10 分钟到现场工作就会成功」，她当真地加快了脚步；办公室 0.4%"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "morning"
+scene = "dressing_room"
+activity = "在化妆间做头发，手里还攥着台本，化妆师说「まだ読んでるの」"
+weight = 2
+why = "推断：上台前她一定会再过一遍台本（认真型）；化妆间是演出动线的一站"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "noon"
+scene = "backstage"
+activity = "在后台侧幕等上场，把要说的第一句话默念了三遍，手心有点汗"
+weight = 2
+why = "后台 2.2%；档案：上台前说「まず私たちが楽しまないと」，紧张是常态"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "noon"
+scene = "recording_studio"
+activity = "上午先补录一段副歌，唱到第四遍制作人才说「OK」，她还是问「もう一回いいですか」"
+weight = 2
+why = "录音棚 0.3%、工作信号 10.7%；她的完美主义（人设）"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "afternoon"
+scene = "stage"
+activity = "下午的小型演出，她在侧幕等自己的段落，上台前对真乃说「まず私たちが楽しまないと」"
+weight = 3
+why = "舞台 1.3%；档案里单独演唱会前她说的就是这句「まず私たちが楽しまないと」"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "afternoon"
+scene = "lounge"
+activity = "演出结束回事务所，累得在休息室沙发上坐了很久，先说的却是「細かい反省点は多々あります」"
+weight = 2
+why = "休息室 23.7%；「細かい反省点は多々あります」是她的原话（档案）"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "晚上跟真乃、めぐる去吃饭，三个人点了不一样的定食，她把最好吃的那口分给她们"
+weight = 2
+why = "家庭餐厅 0.3%；档案：三人也一起去咖啡店吃饭、开お泊り会——地点是推断"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "evening"
+scene = "train"
+activity = "吃完饭坐车回家，靠着窗，耳机里的歌放到第二遍才发现自己在跟着哼"
+weight = 1
+why = "电车 0.4%、夜 3.0%；听音乐是她的兴趣（档案）"
+
+[[slots]]
+character = "hiori"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "到家爸妈都还没睡，她把今天演出的事讲了两句，讲完自己先去洗澡了"
+weight = 2
+why = "家里的客厅（黄窗帘/餐桌）是家庭场景；档案：和父母同住、父亲单身赴任不常在家"
+
+# ---------------------------------------------------------------------------
+# 周日：休息、见朋友、看风景
+# ---------------------------------------------------------------------------
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "睡到九点多，醒了也不起来，躺在床上把天花板看了一会儿"
+weight = 2
+why = "卧室 6.4%；休息日补觉是推断（她平时睡眠不足，档案）"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "morning"
+scene = "home_living"
+activity = "跟妈妈在客厅吃早午饭，妈妈问工作累不累，她说「平気」，说完多夹了一筷子菜"
+weight = 2
+why = "档案：母亲每天很晚才回来，母女俩的相处时间少；家里的客厅是照这个推断的"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "约真乃、めぐる在咖啡店，三个人挤一张小桌，她被めぐる抢了蛋糕上的草莓"
+weight = 2
+why = "咖啡店 3.1%；三人常一起吃饭（档案）；「苦しいって、めぐる」式的相处（人设）"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "noon"
+scene = "mall"
+activity = "去商场看衣服，试了一件又放回去，最后只买了一双练舞用的袜子"
+weight = 2
+why = "商场 0.4%；实用主义、把钱花在练习上（推断）；她「不擅长挑衣服」在档案里有影子"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "afternoon"
+scene = "observatory"
+activity = "坐车去高台，看城市看到天开始变色，才想起该回去了"
+weight = 2
+why = "展望台 0.8%；档案：兴趣是「綺麗な景色を探すこと」，会浏览海外观光地想着「至少去一次」"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "从高台下来顺路进公园，坐在长椅上把刚才拍的照片翻了一遍，删掉一半"
+weight = 2
+why = "公园 3.8%；拍照→删照是「寻找美丽风景」的日常动作（推断）"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "回家做晚饭，爸妈都在，饭桌上她话不多，但把每个人的碗都添满了"
+weight = 2
+why = "档案：家务和做饭都是她；家里一起吃饭是推断"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "evening"
+scene = "river"
+activity = "吃完饭出去走一圈，河堤上有人在跑步，她看了两眼，说明天开始也跑跑看"
+weight = 1
+why = "河堤 0.9%；她说「体力跟不上」所以要练（档案）；跑步是推断"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "把下周的日程写进手帐，写完在空白处写了一句「油断大敵」"
+weight = 2
+why = "卧室 6.4%；「油断大敵」是她的口癖（人设）；手帐对应「スケジュール管理」"
+
+[[slots]]
+character = "hiori"
+day = "sun"
+slot = "night"
+scene = "kitchen"
+activity = "睡前把明天的便当材料准备好，装进保鲜盒，冰箱门关上前又看了一眼"
+weight = 1
+why = "厨房；便当是她每天的事（档案）；睡前备料是推断"
+
+# ===========================================================================
+# 随机池（daily-life 场景）—— 让剩下的日常地点也能被抽到
+# ===========================================================================
+#
+# 固定槽位用到 32 个场景（30 个日常 + stage/backstage），池子把**不在固定槽位里的 39 个日常
+# 场景**接进来：先按作息/日历/事件决定这一格该在哪，池子再按 `chance` 中签，中签就换成池子里
+# 的一个地点。池子只放「日常地点」——演出、宴会、机场、保龄球、酒吧、居酒屋、季节限定都不放。
+#
+# 不进池子的 14 个（事件/节日专用，理由见 characters/schedules.model.md）：
+#   stage / backstage              演出（周六下午/中午的固定槽位）
+#   banquet                        宴会厅：打ち上げ、圣诞会
+#   beach                          海边：要出远门（海の日 + 夏日事件）
+#   flower_field / cherry / ginkgo 季节限定（山の日 / 花見 / 紅葉狩り）
+#   hospital_corridor / exam_room  生病（冬天事件）
+#   hall                           礼堂：学园祭/合唱祭（文化の日）
+#   izakaya / bar                  未成年，只在忘年会事件里露个面（喝ウーロン茶）
+#   airport                        出远门
+#   bowling                        要专门约
+# 39 + 30 = 69 个日常场景，一个不落；校验脚本会断言这件事。`sky` 是兜底，不进池子。
+
+[[pools]]
+character = "hiori"
+day = "any"
+slot = "any"
+chance = 0.18
+scenes = [
+  "street", "street_night", "shrine", "park_night", "garden", "schoolyard",
+  "flowershop", "convenience_store", "apartment_living", "washitsu", "bathroom",
+  "sento", "dorm", "esports_room", "art_room", "music_room", "lecture_hall",
+  "school_gate", "roof", "office_corridor", "office_reception", "cake_shop",
+  "bakery", "laundry", "general_store", "petshop", "fastfood", "station_hall",
+  "subway", "vending_machine", "railway_crossing", "residential_street", "alley",
+  "coast_road", "stone_path", "temple", "lake", "office_building", "arcade",
+]
+weights = [
+  2, 1, 1, 1, 1, 1,
+  1, 2, 1, 1, 1,
+  1, 1, 1, 1, 1, 1,
+  1, 1, 2, 1, 1,
+  1, 1, 1, 1, 1, 1,
+  1, 1, 1, 1, 1,
+  1, 2, 1, 1, 1, 1,
+]
+why = "39 个剩余日常地点基本等权（只有街上、车站大厅、便利店、事务所走廊、音乐教室、石板路、住宅街给 2，因为它们是她的动线），chance 0.18 是「这一天不按作息走」的概率。神社压到 1：她的神社戏靠节日覆盖（初詣）和事件，不该在随机池里被抽成日常。"
+
+[[pools]]
+character = "hiori"
+day = "any"
+slot = "night"
+chance = 0.18
+scenes = [
+  "street_night", "station_hall", "subway", "vending_machine", "railway_crossing",
+  "residential_street", "alley", "convenience_store", "office_corridor",
+  "fastfood", "office_building", "temple",
+]
+weights = [2, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1]
+why = "夜 22-2 点还说得过去的地方：夜街、车站大厅、地铁、自动贩卖机、道口、住宅街、小巷、便利店、加班的事务所走廊、深夜快餐、事务所大楼、夜里的寺庙。学校、公园、花店这些夜里不会去的地方不进夜池。"
+
+# ===========================================================================
+# 节日覆盖（优先级高于事件和槽位）
+# ===========================================================================
+#
+# `holiday` 指向 characters/holidays.toml 的 id（那边是日历权威）；`dates`/`ranges` 只是镜像，
+# 校验脚本会抓不一致。只写与共享日历/真乃 不同的 13 条，其余节日回落到 holidays.toml 的
+# 默认 scenes/activities。`slots` 省略=五个时段全盖。
+# `priority`：100 元日 / 95 初詣 / 90 公休 / 85 振替・国民の休日 / 80 大晦日・クリスマス
+#   70 花見・お盆・夏祭り / 65 GW / 60 七夕・紅葉狩り・ハロウィン / 55 節分・ひな祭り・バレンタイン
+# `chance` 只给窗口型节日（花見/お盆/夏祭り/紅葉狩り/GW）设，表示「这天真的去了」。
+
+[[holidays]]
+holiday = "new_year"
+dates = ["2026-01-01", "2027-01-01"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["shrine", "home_living", "kitchen"]
+weights = [3, 3, 1]
+priority = 100
+activity = "元旦，参拜回来就和妈妈在厨房做杂煮，她负责把每样材料切成一样大"
+
+[[holidays]]
+holiday = "setsubun"
+dates = ["2026-02-03", "2027-02-03"]
+slots = ["evening", "night"]
+scenes = ["home_living", "kitchen", "supermarket"]
+weights = [3, 3, 1]
+priority = 55
+activity = "節分，她在厨房按食谱卷惠方卷，卷完才想起来忘了朝哪个方向吃"
+
+[[holidays]]
+holiday = "valentine"
+dates = ["2026-02-14", "2027-02-14"]
+slots = ["morning", "evening"]
+scenes = ["kitchen", "supermarket"]
+weights = [3, 2]
+priority = 55
+activity = "バレンタイン，她买了一堆材料在厨房试做，温度计插在巧克力里不敢挪开"
+
+[[holidays]]
+holiday = "hinamatsuri"
+dates = ["2026-03-03", "2027-03-03"]
+slots = ["noon", "evening"]
+scenes = ["washitsu", "kitchen"]
+weights = [3, 2]
+priority = 55
+activity = "ひな祭り，在奶奶家的和室吃过ちらし寿司，回来路上说「来年は私が作ります」"
+
+[[holidays]]
+holiday = "hanami"
+ranges = [
+  { from = "2026-03-25", to = "2026-04-05" },
+  { from = "2027-03-26", to = "2027-04-06" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["cherry", "river"]
+weights = [3, 2]
+priority = 70
+chance = 0.45
+activity = "花見，便当是她自己做的，怕人多，特意挑了河堤那一段人少的樱树"
+
+[[holidays]]
+holiday = "tanabata"
+dates = ["2026-07-07", "2027-07-07"]
+slots = ["evening", "night"]
+scenes = ["shopstreet", "home"]
+weights = [3, 1]
+priority = 60
+activity = "七夕，商店街的竹枝上她写的那张折得最小，写的是「もっと上手くなれますように」"
+
+[[holidays]]
+holiday = "marine_day"
+dates = ["2026-07-20", "2027-07-19"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["beach", "coast_road"]
+weights = [3, 2]
+priority = 90
+activity = "海の日，跟着事务所来海边出外景，她防晒涂得很仔细，还是在海边站了很久"
+
+[[holidays]]
+holiday = "mountain_day"
+dates = ["2026-08-11", "2027-08-11"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["flower_field", "observatory"]
+weights = [3, 2]
+priority = 90
+activity = "山の日，坐了很久的车去看山上的花田，回来在展望台又停了一次"
+
+[[holidays]]
+holiday = "culture_day"
+dates = ["2026-11-03", "2027-11-03"]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["hall", "school_corridor", "ginkgo"]
+weights = [3, 2, 1]
+priority = 90
+activity = "文化の日，学校合唱祭，她在礼堂侧幕等上场，手心全是汗，还在数别人的拍子"
+
+[[holidays]]
+holiday = "momijigari"
+ranges = [
+  { from = "2026-11-10", to = "2026-11-30" },
+  { from = "2027-11-10", to = "2027-11-30" },
+]
+slots = ["morning", "noon", "afternoon"]
+scenes = ["ginkgo", "observatory", "temple"]
+weights = [3, 2, 1]
+priority = 60
+chance = 0.4
+activity = "紅葉狩り，银杏落了一地，她捡了一片最完整的夹进手帐里"
+
+[[holidays]]
+holiday = "christmas"
+dates = ["2026-12-25", "2027-12-25"]
+slots = ["noon", "evening", "night"]
+scenes = ["banquet", "kitchen", "home_living"]
+weights = [2, 3, 2]
+priority = 80
+activity = "クリスマス，收录结束事务所在宴会厅开了圣诞会，她做的蛋糕被一抢而空，自己一口没吃到"
+
+[[holidays]]
+holiday = "omisoka"
+dates = ["2025-12-31", "2026-12-31", "2027-12-31"]
+slots = ["evening", "night"]
+scenes = ["kitchen", "home_living", "temple"]
+weights = [3, 2, 1]
+priority = 80
+activity = "大晦日，陪妈妈做完年越しそば，又赶去排队等钟声，钟声一下一下她跟着数"
+
+# ---------------------------------------------------------------------------
+# 突发事件（chance 是每次通话命中这个事件的概率，不是占比；文件顺序就是优先级）
+# ---------------------------------------------------------------------------
+#
+# `conditions` 是闸门：全部条件都命中才轮到 roll `chance`，不写就是不设限。
+# 键：season / weather / holiday / weekday / slot。值可以是单值也可以是数组（命中任一即可）。
+# 节日专属的事件排在最前面；无条件事件压低 chance，避免吃掉太多机会。
+
+[[events]]
+character = "hiori"
+chance = 0.10
+scene = "beach"
+activity = "夏祭り的晚上，海边有一场小小的花火，她仰着头看，看到一半才想起来要许愿"
+conditions = { holiday = "natsumatsuri", slot = ["evening", "night"] }
+why = "海边 1.7%（四人里最高的一档）；花火大会在海边是夏天最像「她的一天被打断」的日子；许愿指向她的占卜癖（档案）"
+
+[[events]]
+character = "hiori"
+chance = 0.04
+scene = "shrine"
+activity = "路过神社，忍不住抽了一签，抽到「末吉」，看完折好放进钱包，没跟任何人说"
+conditions = { season = ["spring", "autumn"] }
+why = "神社 0.8%；档案：每天看占卜、买新的占卜书、运势差会不安——但她说占卜只是「お守り代わり」"
+
+[[events]]
+character = "hiori"
+chance = 0.05
+scenes = ["hospital_corridor", "exam_room"]
+weights = [2, 1]
+activity = "练过头，早上起不来，被はづきさん带去诊所，走廊的塑料椅上她还抱着台本"
+conditions = { season = "winter" }
+why = "医院走廊 0.7% / 诊察室 0.7%；档案：组合刚成立时她练到病倒、めぐる来探望——这条是照那件事的形状做的（推断）"
+
+[[events]]
+character = "hiori"
+chance = 0.045
+scene = "stage"
+activity = "被临时叫去代演一个节目，从接到电话到上台只有四十分钟，她居然全记住了"
+conditions = { slot = ["afternoon", "evening"] }
+why = "舞台 1.3%；「臨時」的工作在偶像现场是常态（推断）；她的记忆力来自每天反复练（档案）"
+
+[[events]]
+character = "hiori"
+chance = 0.05
+scene = "beach"
+activity = "跟着事务所去海边出外景，浪打过来把裙摆打湿了，她先去看镜头有没有拍到"
+conditions = { season = "summer" }
+why = "海边 1.7%；夏日外景是行业惯例（推断）；「先去看镜头」是她工作优先的性格（人设）"
+
+[[events]]
+character = "hiori"
+chance = 0.045
+scene = "banquet"
+activity = "演出结束后的打ち上げ，她被安排在最里面那桌，杯子里的ウーロン茶一口没动"
+conditions = { season = ["autumn", "winter"], slot = ["evening", "night"] }
+why = "宴会厅 0.5%；打ち上げ是行业惯例（推断）；未成年只喝ウーロン茶——不进日常池，只在庆功场合出现"
+
+[[events]]
+character = "hiori"
+chance = 0.06
+scene = "cherry"
+activity = "收工路上拐进樱花道，站着看了很久，走的时候头发上落了两片花瓣，到事务所才发现"
+conditions = { season = "spring" }
+why = "樱花道 0.1%；档案：喜欢寻找美丽的风景——绕路去看花是推断，樱花道是季节限定场景"
+
+[[events]]
+character = "hiori"
+chance = 0.05
+scene = "ginkgo"
+activity = "秋天收工早，绕去看银杏，捡了一片夹进台本，说要做书签"
+conditions = { season = "autumn" }
+why = "银杏道 0.3%；季节限定场景；捡叶子做书签是「綺麗な景色」爱好的延续（推断）"
+
+[[events]]
+character = "hiori"
+chance = 0.04
+scene = "flower_field"
+activity = "休息日一个人坐车去看花田，回来的时候手里多了一袋车站买的土产"
+conditions = { season = ["spring", "autumn"] }
+why = "花田 0（语料里没有）；档案：兴趣是寻找美丽的风景、会想着「至少去一次」海外观光地——花田是照这个推断的"
+
+[[events]]
+character = "hiori"
+chance = 0.03
+scene = "airport"
+activity = "夏天的远征，一早在机场集合，她抱着自己的行李箱站在值机柜台前，护照还是新的"
+conditions = { season = "summer" }
+why = "机场 0.2%；档案：会浏览海外观光地的网站想着「至少去一次」——「哪天远征」是推断"
+
+[[events]]
+character = "hiori"
+chance = 0.04
+scenes = ["izakaya", "bar"]
+weights = [2, 2]
+activity = "事务所的忘年会，她被带到居酒屋的二层，杯子里的ウーロン茶被前辈笑"
+conditions = { season = "winter", slot = ["evening", "night"] }
+why = "居酒屋 0.6% / 酒吧 0.3%；未成年，只喝ウーロン茶——这两处不进日常池，只在忘年会事件里出现"
+
+[[events]]
+character = "hiori"
+chance = 0.05
+scene = "office_corridor"
+activity = "比集合时间早到十分钟，走廊上一个人都没有，她在那儿把台本又默了一遍"
+conditions = { slot = ["morning"] }
+why = "档案：制作人编的「提前 10 分钟到现场工作就会成功」ジンクス，她当真地提前到了；事务所走廊 0.7% 档的日常空间"
+
+[[events]]
+character = "hiori"
+chance = 0.05
+scene = "lounge"
+activity = "在休息室等人，被はづきさん塞了一叠要签名的色纸，她一张一张签到最后才发现手在抖"
+why = "休息室 23.7%（她的枢纽）；签名是偶像的日常劳动（推断）；「手在抖」照她紧张时的样子（人设）"
+
+[[events]]
+character = "hiori"
+chance = 0.04
+scene = "bowling"
+activity = "下雨取消了外景，真乃提议去打保龄球，她认真记分，还算了每一球的角度"
+conditions = { weather = "rain" }
+why = "档案：煎饺子连「30 秒后」「80 毫升」都要算——算角度是她的性格（推断）；保龄球馆要专门约，不进日常池"

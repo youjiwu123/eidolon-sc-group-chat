@@ -1,0 +1,657 @@
+# 大崎甘奈的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/amana.md、characters/schedules/amana.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/amana.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "六点半起床，系上围裙在厨房煎蛋，把甜花的那份也装进便当盒"
+weight = 5
+why = "作息：在家早起准备，做早饭和便当"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房煮味噌汤，一边看时钟一边喊甜花起床，怕她迟到"
+weight = 3
+why = "推断：做早饭在厨房"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "在教室和甜花并桌吃便当，聊周末买的指甲油颜色"
+weight = 5
+why = "作息：在学校和甜花一起吃便当"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时和几个朋友靠在走廊窗边，分着吃小袋零食"
+weight = 2
+why = "作息：午休时和朋友聊天"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室沙发上摊开作业本，等练习开始前先写几题"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子纠正手势，和千雪一起数拍子"
+weight = 3
+why = "地点统计：练习室 5.5%"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在休息室和制作人确认明天的安排，顺手收拾桌上的杯子"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "evening"
+scene = "home_living"
+activity = "回家后系上围裙做晚饭，甜花在旁边帮忙摆碗筷"
+weight = 3
+why = "作息：回家做晚饭"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在自己房间的书桌前写日记，写到一半想起作业还没动"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "mon"
+slot = "night"
+scene = "esports_room"
+activity = "和甜花在电竞房打扑克，输的人明天负责倒垃圾"
+weight = 2
+why = "作息：有时熬夜玩扑克"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "早起把昨晚晾的衣服收进来叠好，再匆匆扎头发"
+weight = 4
+why = "作息：在家早起准备"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "走在通往学校的石板坡道上，手里拎着便当袋，脚步有点快"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "和甜花在教室吃便当，交换彼此便当里的菜"
+weight = 5
+why = "作息：在学校和甜花一起吃便当"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "noon"
+scene = "roof"
+activity = "午休时和朋友溜上天台，趴在铁丝网边看操场"
+weight = 2
+why = "推断：午休和朋友聊天"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子练新曲的站位，反复确认转身的角度"
+weight = 3
+why = "地点统计：练习室 5.5%"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在走廊自动贩卖机前买热茶，和路过的工作人员打招呼"
+weight = 2
+why = "推断：事务所内移动"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和千雪、甜花一起看工作录像，边看边记笔记"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "evening"
+scene = "supermarket"
+activity = "回家前在超市挑打折的肉和蔬菜，盘算今晚的菜单"
+weight = 3
+why = "作息：回家做晚饭"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在房间写日记，写到甜花今天说的笑话又忍不住笑出来"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "趴在床上赶明天的作业，笔尖停在数学题上打瞌睡"
+weight = 3
+why = "作息：有时熬夜赶作业"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房煎玉子烧，用筷子卷得不太整齐，有点懊恼"
+weight = 4
+why = "作息：做早饭和便当"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "在玄关检查书包和便当，回头对屋里喊「我出门了」"
+weight = 3
+why = "作息：早起准备然后去学校"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和甜花头碰头看手机上的美甲图片，讨论周末去做什么款式"
+weight = 5
+why = "作息：午休时和朋友聊天"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "noon"
+scene = "schoolyard"
+activity = "和朋友在操场边的长椅上吃面包，看低年级学生打球"
+weight = 2
+why = "推断：午休户外"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室把作业摊在膝盖上写，旁边放着事务所的茶水"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚里试唱新曲，隔着玻璃对调音师比手势"
+weight = 2
+why = "推断：工作内容"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "evening"
+scene = "home_living"
+activity = "回家后和甜花一起在客厅看电视，边看边叠衣服"
+weight = 3
+why = "地点统计：家里的客厅 8.4%"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室等甜花收工，靠在沙发上翻杂志"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在书桌前写日记，把今天练习时被夸的地方记下来"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "wed"
+slot = "night"
+scene = "home_living"
+activity = "深夜在客厅和甜花玩纸牌，输的人要学猫叫"
+weight = 2
+why = "作息：有时熬夜玩扑克"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "早起发现甜花还在睡，轻轻推醒她，把便当塞进她书包"
+weight = 4
+why = "作息：在家早起准备"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "morning"
+scene = "residential_street"
+activity = "走在住宅街的路上，和邻居阿姨打招呼，脚步轻快"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "和甜花在教室吃便当，今天特意多做了她爱吃的鸡蛋卷"
+weight = 5
+why = "作息：在学校和甜花一起吃便当"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "noon"
+scene = "library"
+activity = "午休时去图书室还书，顺便翻几页新到的杂志"
+weight = 2
+why = "推断：午休活动"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和千雪一起练舞，被指出重心不稳后反复练习"
+weight = 3
+why = "地点统计：练习室 5.5%"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间对着镜子整理头发，准备拍宣传照"
+weight = 2
+why = "推断：工作准备"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和制作人讨论下次活动的方向，认真做笔记"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "evening"
+scene = "home_living"
+activity = "回家后在客厅和甜花一起准备晚饭，让她帮忙洗菜"
+weight = 3
+why = "作息：回家做晚饭"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在房间写日记，写到一半停下来给甜花发消息问她睡了没"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "坐在床上赶作业，困得把笔掉在被子上"
+weight = 3
+why = "作息：有时熬夜赶作业"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房把便当装好，顺手多做了一份给甜花当点心"
+weight = 4
+why = "作息：做早饭和便当"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "在房间对着镜子练习微笑，然后抓起书包出门"
+weight = 3
+why = "作息：早起准备"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "和甜花在教室吃便当，聊明天休息日要去哪里逛"
+weight = 5
+why = "作息：在学校和甜花一起吃便当"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时和朋友在走廊上聊新出的甜品店，约好放学去看看"
+weight = 2
+why = "作息：午休时和朋友聊天"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和甜花一起看工作邮件，互相提醒截止时间"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在走廊上遇到制作人，站着聊了几句下周的安排"
+weight = 2
+why = "推断：事务所内移动"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "工作结束后在休息室和千雪分零食，聊最近看的电视剧"
+weight = 4
+why = "地点统计：事务所休息室 20.4%"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "和甜花在咖啡店喝热可可，讨论周末的美甲款式"
+weight = 3
+why = "地点统计：咖啡店 4.2%"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在房间写日记，把明天想做的事列成清单"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "fri"
+slot = "night"
+scene = "esports_room"
+activity = "和甜花在电竞房打游戏，输的人要请喝果汁"
+weight = 2
+why = "作息：有时熬夜玩扑克或游戏"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "休息日睡到七点半，起床后慢慢做早餐，不用赶时间"
+weight = 4
+why = "作息：休息日在家"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "morning"
+scene = "home_living"
+activity = "在客厅和甜花一起看电视，抱着靠垫赖在沙发上"
+weight = 3
+why = "地点统计：家里的客厅 8.4%"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "noon"
+scene = "mall"
+activity = "和朋友在商场逛店铺，试戴帽子互相拍照"
+weight = 4
+why = "作息：休息日和朋友逛街购物"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店和朋友吃午餐，聊学校里的趣事"
+weight = 3
+why = "地点统计：咖啡店 4.2%"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街逛杂货店，挑可爱的发圈"
+weight = 3
+why = "地点统计：商店街 4.0%"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "和朋友在商场做美甲，选了淡粉色的款式"
+weight = 4
+why = "作息：休息日做美甲"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "回家后和家人在客厅吃晚饭，聊今天逛街买的东西"
+weight = 4
+why = "作息：休息日陪家人"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和家人一起去家庭餐厅吃饭，帮甜花点她犹豫的甜点"
+weight = 2
+why = "推断：家庭活动"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在房间写日记，把今天买的东西画在小插图旁边"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "和甜花在客厅铺开扑克牌，玩到妈妈催睡觉"
+weight = 3
+why = "作息：休息日和甜花玩游戏"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "早起后不急着换衣服，穿着家居服在厨房慢慢煮咖啡"
+weight = 4
+why = "作息：休息日在家"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "morning"
+scene = "home_living"
+activity = "在客厅帮妈妈整理旧照片，听她讲以前的事"
+weight = 3
+why = "作息：陪家人"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "和甜花一起在客厅吃午饭，边吃边看综艺节目"
+weight = 4
+why = "地点统计：家里的客厅 8.4%"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友约在咖啡店，交换最近买的化妆品"
+weight = 2
+why = "推断：休息日和朋友"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "afternoon"
+scene = "lounge"
+activity = "偶尔有工作，在休息室和制作人确认下周的行程"
+weight = 3
+why = "作息：偶尔有工作"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "和甜花在公园散步，坐在长椅上吃冰淇淋"
+weight = 3
+why = "推断：休息日户外"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "在客厅和甜花一起准备晚饭，让她帮忙摆盘子"
+weight = 4
+why = "作息：回家做晚饭"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "evening"
+scene = "supermarket"
+activity = "和妈妈一起去超市采购一周的食材，推着购物车商量菜单"
+weight = 2
+why = "推断：家庭活动"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在房间写日记，总结这一周的事，给下周的自己打气"
+weight = 5
+why = "作息：写日记(每天睡前)"
+
+[[slots]]
+character = "amana"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "早早洗漱完躺在床上，翻看手机里的照片慢慢睡着"
+weight = 3
+why = "推断：就寝前"
+

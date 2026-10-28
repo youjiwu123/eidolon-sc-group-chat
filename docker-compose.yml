@@ -4,7 +4,7 @@ services:
     env_file: .env
     volumes:
       - eidolon-data:/data
-      - ./characters:/characters:ro
+      - ./characters:/characters:rw # 后台提示词编辑器保存人设和 modes.toml 时要写回来
       - ./corpus:/corpus:ro
       - ./deploy:/deploy:ro # 活动名对照表 event-names.toml（同步时读取）
     restart: unless-stopped

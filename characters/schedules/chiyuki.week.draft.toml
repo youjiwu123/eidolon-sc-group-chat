@@ -1,0 +1,657 @@
+# 桑山千雪的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/chiyuki.md、characters/schedules/chiyuki.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/chiyuki.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "morning"
+scene = "river"
+activity = "沿着河堤慢跑，晨风拂过脸颊，偶尔停下来看看水面"
+weight = 4
+why = "作息：晨跑开始；台词地点统计：河堤虽未列但语义最近"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "在房间做手工杂货，缝制小布袋，准备送给组合成员"
+weight = 3
+why = "作息：回房间做杂货或准备一天；手工/杂货制作"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "在事务所休息室吃便当，边吃边看工作邮件，偶尔缝几针"
+weight = 5
+why = "台词地点统计：事务所休息室26.2%；作息：在休息室吃午饭并处理工作"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店点份简餐，摊开笔记本确认下午的拍摄流程"
+weight = 2
+why = "台词地点统计：咖啡店5.4%；作息：可能在咖啡店与人约谈"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子练舞，反复调整动作，汗湿了鬓角"
+weight = 4
+why = "作息：在练习室排练；台词地点统计：练习室3.5%"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍杂志照，按照摄影师指示摆姿势，偶尔害羞地笑"
+weight = 3
+why = "作息：拍摄或录节目；推断：工作安排"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街逛食材店，想着晚上做火锅要买什么"
+weight = 4
+why = "台词地点统计：商店街4.3%；作息：在商店街购物"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "evening"
+scene = "restaurant"
+activity = "和组合成员在家庭餐厅吃饭，聊着最近的工作和私事"
+weight = 3
+why = "作息：与组合成员吃饭；推断：家庭餐厅适合聚餐"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在房间做插花，修剪花枝，安静地调整角度"
+weight = 4
+why = "作息：回宿舍做手工、插花或看书"
+
+[[slots]]
+character = "chiyuki"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "累得直接倒在床上，衣服都没换就睡着了"
+weight = 2
+why = "作息：累时直接倒在床上"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "morning"
+scene = "park"
+activity = "在公园慢跑，经过长椅时停下来拉伸，呼吸新鲜空气"
+weight = 3
+why = "作息：晨跑；推断：公园适合跑步"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "morning"
+scene = "home"
+activity = "在房间整理布料和手工材料，考虑新作品的设计"
+weight = 3
+why = "作息：回房间做杂货或准备一天"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室边吃午饭边缝补演出服，偶尔和路过的制作人聊几句"
+weight = 5
+why = "台词地点统计：事务所休息室26.2%；作息：在休息室吃午饭并处理工作"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "noon"
+scene = "office_corridor"
+activity = "在走廊的自动贩卖机买饮料，靠在墙边喝，稍作休息"
+weight = 2
+why = "台词地点统计：事务所走廊1.9%；推断：工作间隙"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录制新曲，戴着耳机调整呼吸，专注地唱"
+weight = 4
+why = "作息：收录；推断：工作安排"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "afternoon"
+scene = "cafe"
+activity = "在咖啡店和制作人讨论工作，桌上摊着资料和两杯咖啡"
+weight = 3
+why = "台词地点统计：咖啡店5.4%；作息：在咖啡店与人约谈"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街挑选晚餐食材，和熟悉的店主打招呼"
+weight = 4
+why = "台词地点统计：商店街4.3%；作息：在商店街购物"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "evening"
+scene = "restaurant"
+activity = "和制作人一起吃牛丼，边吃边聊工作上的事，放松地笑"
+weight = 3
+why = "作息：偶尔和制作人吃牛丼"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在房间看书，靠在床头，读到喜欢的段落会停下来思考"
+weight = 4
+why = "作息：回宿舍看书"
+
+[[slots]]
+character = "chiyuki"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "早早洗漱完躺在床上，给母亲发消息报平安"
+weight = 3
+why = "作息：有时早睡；家人：母亲会寄东西，需留出联系时间"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "morning"
+scene = "river"
+activity = "在河堤晨跑，遇到同样晨跑的人会点头致意"
+weight = 4
+why = "作息：晨跑开始"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "在房间做手工，缝制小饰品，准备送给粉丝"
+weight = 3
+why = "作息：回房间做杂货"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃午饭，顺便整理下午拍摄要用的东西"
+weight = 5
+why = "台词地点统计：事务所休息室26.2%"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "noon"
+scene = "dressing_room"
+activity = "在化妆间吃三明治，对着镜子检查妆容"
+weight = 2
+why = "台词地点统计：后台1.9%；推断：工作准备"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室排练新曲的舞蹈，反复练习难点动作"
+weight = 4
+why = "作息：在练习室排练"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄广告，按照指示摆出各种姿势，偶尔害羞"
+weight = 3
+why = "作息：拍摄"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街逛杂货店，寻找可以做手工的素材"
+weight = 4
+why = "台词地点统计：商店街4.3%；作息：在商店街购物"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "evening"
+scene = "restaurant"
+activity = "和组合成员在家庭餐厅聚餐，聊着最近的趣事"
+weight = 3
+why = "作息：与组合成员吃饭"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在房间插花，把花材修剪成喜欢的形状，享受安静"
+weight = 4
+why = "作息：回宿舍插花"
+
+[[slots]]
+character = "chiyuki"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "躺在床上看手机，看着看着就睡着了"
+weight = 2
+why = "作息：累时直接倒在床上"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "morning"
+scene = "park"
+activity = "在公园晨跑，沿着小路跑了几圈，最后在长椅上休息"
+weight = 3
+why = "作息：晨跑"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "morning"
+scene = "home"
+activity = "在房间做手工，把昨天买的材料分类整理"
+weight = 3
+why = "作息：回房间做杂货"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃便当，边吃边和经纪人确认工作安排"
+weight = 5
+why = "台词地点统计：事务所休息室26.2%"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "noon"
+scene = "office_corridor"
+activity = "在走廊遇到其他偶像，站着聊了一会儿，分享零食"
+weight = 2
+why = "台词地点统计：事务所走廊1.9%"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚录制广播节目，对着麦克风轻松地聊天"
+weight = 4
+why = "作息：收录"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "afternoon"
+scene = "cafe"
+activity = "在咖啡店和杂志编辑讨论采访内容，认真做笔记"
+weight = 3
+why = "台词地点统计：咖啡店5.4%；作息：在咖啡店与人约谈"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街买晚餐食材，顺便看看新开的店铺"
+weight = 4
+why = "台词地点统计：商店街4.3%"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "evening"
+scene = "restaurant"
+activity = "和制作人一起吃牛丼，聊着下次演出的计划"
+weight = 3
+why = "作息：偶尔和制作人吃牛丼"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在房间看书，做笔记，偶尔抬头看看窗外的夜景"
+weight = 4
+why = "作息：回宿舍看书"
+
+[[slots]]
+character = "chiyuki"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "给母亲打电话，聊了聊近况，被叮嘱注意身体"
+weight = 3
+why = "家人：母亲会寄东西，需留出联系时间"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "morning"
+scene = "river"
+activity = "在河堤晨跑，跑完后做拉伸，感受清晨的凉爽"
+weight = 4
+why = "作息：晨跑"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "在房间做手工，完成了一个小包，满意地端详"
+weight = 3
+why = "作息：回房间做杂货"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室吃午饭，和组合成员分享零食，聊得开心"
+weight = 5
+why = "台词地点统计：事务所休息室26.2%"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "noon"
+scene = "dressing_room"
+activity = "在化妆间吃便当，让化妆师补妆，准备下午的拍摄"
+weight = 2
+why = "台词地点统计：后台1.9%"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室排练，和组合成员一起确认队形"
+weight = 4
+why = "作息：在练习室排练"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "在摄影棚拍摄杂志封面，穿着华丽的服装，表情认真"
+weight = 3
+why = "作息：拍摄"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街逛超市，为周末的火锅会采购食材"
+weight = 4
+why = "台词地点统计：商店街4.3%；休息日：在房间办火锅会"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "evening"
+scene = "restaurant"
+activity = "和组合成员在家庭餐厅吃饭，讨论周末的计划"
+weight = 3
+why = "作息：与组合成员吃饭"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在房间准备火锅会的材料，把食材切好装盘"
+weight = 4
+why = "休息日：在房间办火锅会"
+
+[[slots]]
+character = "chiyuki"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "累得直接倒在床上，想着明天休息，安心地闭上眼"
+weight = 2
+why = "作息：累时直接倒在床上"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "睡到自然醒，在床上赖了一会儿，然后慢慢起床"
+weight = 4
+why = "休息日：常补觉"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "morning"
+scene = "river"
+activity = "比平时晚一点去晨跑，跑完后在河堤散步"
+weight = 3
+why = "作息：晨跑（推断每天）"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店和朋友喝茶，聊着最近的生活"
+weight = 4
+why = "休息日：约人喝茶；台词地点统计：咖啡店5.4%"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "noon"
+scene = "home"
+activity = "在房间做手工，把之前买的材料拿出来慢慢做"
+weight = 3
+why = "休息日：做杂货"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街逛街，看看衣服和杂货，偶尔进店逛逛"
+weight = 4
+why = "休息日：逛街；台词地点统计：商店街4.3%"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场里逛，看看新出的化妆品和衣服"
+weight = 3
+why = "休息日：逛街；推断：商场适合逛街"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "evening"
+scene = "home"
+activity = "在房间办火锅会，和组合成员一起围坐，热闹地吃饭"
+weight = 4
+why = "休息日：在房间办火锅会"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和朋友在家庭餐厅吃饭，聊到很晚"
+weight = 3
+why = "休息日：约人喝茶（延伸至吃饭）"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "火锅会结束后收拾房间，洗碗擦桌子，累但满足"
+weight = 4
+why = "休息日：办火锅会后的整理"
+
+[[slots]]
+character = "chiyuki"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "躺在床上看手机，不知不觉睡着了"
+weight = 2
+why = "作息：累时直接倒在床上"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "睡到很晚才起床，慢悠悠地做早餐"
+weight = 4
+why = "休息日：常补觉"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "morning"
+scene = "park"
+activity = "在公园散步，看看花草，放松心情"
+weight = 3
+why = "休息日：散步；推断：公园适合散步"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店吃早午餐，边吃边看书，享受悠闲时光"
+weight = 4
+why = "休息日：约人喝茶；台词地点统计：咖啡店5.4%"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "noon"
+scene = "home"
+activity = "在房间做手工，把上周没做完的杂货继续完成"
+weight = 3
+why = "休息日：做杂货"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "afternoon"
+scene = "shopstreet"
+activity = "在商店街闲逛，看看有没有新开的店，偶尔买点小吃"
+weight = 4
+why = "休息日：逛街；台词地点统计：商店街4.3%"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "afternoon"
+scene = "home"
+activity = "在房间整理衣柜，把衣服按季节分类"
+weight = 3
+why = "休息日：做杂货（延伸至整理）"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "evening"
+scene = "restaurant"
+activity = "和组合成员在家庭餐厅吃饭，聊着下周的工作"
+weight = 4
+why = "作息：与组合成员吃饭"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "evening"
+scene = "home"
+activity = "在房间做火锅，一个人也认真地准备，享受独处"
+weight = 3
+why = "休息日：在房间办火锅会（一个人版）"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在房间插花，把新买的花材插进花瓶，调整造型"
+weight = 4
+why = "作息：回宿舍插花"
+
+[[slots]]
+character = "chiyuki"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "早早躺在床上，准备迎接新的一周，很快入睡"
+weight = 3
+why = "作息：有时早睡"
+

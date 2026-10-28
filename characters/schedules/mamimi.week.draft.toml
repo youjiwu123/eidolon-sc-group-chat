@@ -1,0 +1,657 @@
+# 田中摩美美的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/mamimi.md、characters/schedules/mamimi.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/mamimi.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "morning"
+scene = "bedroom"
+activity = "闹钟响了三遍才伸手按掉，把脸埋进枕头继续赖床，手机早没电了"
+weight = 4
+why = "作息：早上通常起不来，赖床或翘课"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "morning"
+scene = "school_gate"
+activity = "勉强赶到校门，打着哈欠拖着步子往里走，书包带子滑到胳膊上也不管"
+weight = 2
+why = "作息：偶尔勉强到校但提不起劲"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "趴在课桌上补觉，老师在讲台上讲课，她把脸埋进臂弯里一动不动"
+weight = 3
+why = "作息：若在学校则下午上课，但常缺席"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "noon"
+scene = "shopstreet"
+activity = "翘了课在商店街闲逛，在便利店买了罐咖啡边走边喝，眼睛还没完全睁开"
+weight = 3
+why = "作息：多数时候在街上晃或补觉"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "afternoon"
+scene = "school_corridor"
+activity = "放学后靠在走廊窗边和结华闲聊，抱怨今天又没睡够，声音懒懒的"
+weight = 3
+why = "作息：放学后与结华等同学闲聊"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "afternoon"
+scene = "lounge"
+activity = "直接去了事务所休息室，窝在沙发角落刷手机，偶尔抬头应一句别人的话"
+weight = 3
+why = "地点统计：事务所休息室占 29.6%"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "evening"
+scene = "cafe"
+activity = "傍晚才真正醒过来，坐在咖啡店靠窗的位置发呆，回绝了邀约却还是出了门"
+weight = 4
+why = "作息：傍晚醒来，回绝邀约后仍出门闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街一家家店门口晃过去，看到有趣的小东西就停下来多看两眼"
+weight = 3
+why = "作息：到商店街或咖啡店闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "night"
+scene = "lounge"
+activity = "深夜在事务所休息室待着，和工作人员有一搭没一搭地聊天，拒绝深夜录影"
+weight = 3
+why = "作息：深夜在事务所活动，但拒绝深夜录影"
+
+[[slots]]
+character = "mamimi"
+day = "mon"
+slot = "night"
+scene = "street_night"
+activity = "夜里在街上慢慢走，路灯把影子拉长，手机没电也不急着回家"
+weight = 3
+why = "作息：深夜在街上活动，会早点回家"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "morning"
+scene = "bedroom"
+activity = "窗帘缝里透进光，她翻了个身把被子拉过头顶，完全没打算起床"
+weight = 5
+why = "作息：通常起不来，赖床或翘课"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "morning"
+scene = "train"
+activity = "难得坐上电车，靠着车门打瞌睡，差点坐过站才慌忙下车"
+weight = 2
+why = "推断：通勤时段，容易迟到"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "noon"
+scene = "home"
+activity = "翘课回家补觉，房间里安安静静，手机扔在桌上一直没充电"
+weight = 4
+why = "作息：多数时候在街上晃或补觉；手机常没电"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "noon"
+scene = "park"
+activity = "在公园长椅上缩着睡了一会儿，被路过的小孩吵醒后皱着眉坐起来"
+weight = 2
+why = "推断：街上晃或补觉的延伸"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和结华分一袋零食，边吃边聊昨天看的剧，笑得没什么力气"
+weight = 3
+why = "地点统计：事务所休息室占 29.6%；与结华闲聊"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "被叫去小练习室，靠着镜子坐在地上，看别人练舞自己慢吞吞地跟着比划"
+weight = 2
+why = "推断：偶像工作相关"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "evening"
+scene = "shopstreet"
+activity = "傍晚出门，在商店街的杂货店门口停下，翻着陈列架上的小玩意儿"
+weight = 4
+why = "作息：傍晚醒来后到商店街闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "evening"
+scene = "cafe"
+activity = "在咖啡店点了一杯甜的，托着腮看窗外的人来人往，谁发消息都不回"
+weight = 3
+why = "地点统计：咖啡店占 3.7%；手机常忘看"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "night"
+scene = "lounge"
+activity = "夜里在休息室沙发上躺着刷手机，工作人员催她回家才慢吞吞起身"
+weight = 3
+why = "作息：深夜在事务所活动，会早点回家"
+
+[[slots]]
+character = "mamimi"
+day = "tue"
+slot = "night"
+scene = "convenience_store"
+activity = "回家路上拐进便利店，在冷柜前站了半天，最后只买了一瓶饮料"
+weight = 2
+why = "推断：深夜回家路上"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "morning"
+scene = "bedroom"
+activity = "完全没醒，闹钟被塞进枕头底下，房间里只有空调的低鸣"
+weight = 5
+why = "作息：早上起不来，容易迟到或翘课"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "morning"
+scene = "home_living"
+activity = "被家里人叫了几次才爬起来，披着外套在客厅晃了一圈又倒回沙发"
+weight = 2
+why = "推断：家庭场景；早上起不来"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "noon"
+scene = "shopstreet"
+activity = "中午才出门，在商店街随便买了个面包，边走边啃，一副没睡醒的样子"
+weight = 3
+why = "作息：多数时候在街上晃"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "难得来上课，坐在教室后排撑着下巴，黑板上的字一个也没进脑子"
+weight = 2
+why = "作息：若在学校则下午上课"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "afternoon"
+scene = "school_corridor"
+activity = "课间靠在走廊的鞋柜旁和结华说话，聊到一半打了个大哈欠"
+weight = 3
+why = "作息：放学后与结华等同学闲聊"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室沙发上蜷着，把外套盖在身上小睡，来往的人放轻了脚步"
+weight = 3
+why = "地点统计：事务所休息室占 29.6%"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "evening"
+scene = "cafe"
+activity = "傍晚醒透后去咖啡店，坐在拱形大窗边，慢慢喝一杯，看天色暗下来"
+weight = 4
+why = "作息：傍晚醒来后到咖啡店闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "evening"
+scene = "crossroad"
+activity = "在十字路口等红灯，抬头看了看天，绿灯亮了才慢悠悠迈步"
+weight = 2
+why = "地点统计：十字路口占 2.7%"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "night"
+scene = "lounge"
+activity = "深夜在休息室和制作人聊了几句工作安排，明确说了深夜录影不行"
+weight = 3
+why = "作息：拒绝深夜录影；地点统计：休息室"
+
+[[slots]]
+character = "mamimi"
+day = "wed"
+slot = "night"
+scene = "residential_street"
+activity = "沿着住宅街往家走，路灯下脚步很慢，手机在口袋里一直没响"
+weight = 2
+why = "作息：会早点回家；手机常没电"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "morning"
+scene = "bedroom"
+activity = "睡得很沉，被子踢到床尾，阳光照到脸上也只是皱了下眉"
+weight = 5
+why = "作息：通常起不来，赖床或翘课"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "morning"
+scene = "train"
+activity = "勉强赶上电车，抓着吊环站着打盹，头一点一点的"
+weight = 2
+why = "推断：通勤时段，容易迟到"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "noon"
+scene = "park"
+activity = "翘了课在公园长椅上躺着，用帽子盖住脸，晒着太阳补觉"
+weight = 3
+why = "作息：多数时候在街上晃或补觉"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "noon"
+scene = "fastfood"
+activity = "在快餐店随便吃点，托盘放在桌上，人却靠着椅背发呆"
+weight = 2
+why = "推断：白天在外解决午饭"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室和结华一起看手机上的视频，笑到一半又困了，靠在沙发扶手上"
+weight = 3
+why = "地点统计：休息室占 29.6%；与结华闲聊"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前站着，犹豫了半天按下一罐热的"
+weight = 2
+why = "推断：事务所内活动"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "evening"
+scene = "shopstreet"
+activity = "傍晚出门逛商店街，在花店门口停下来看了会儿花，没买"
+weight = 4
+why = "作息：傍晚醒来后到商店街闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "evening"
+scene = "river"
+activity = "沿着河堤慢慢走，风吹过来，她把外套拢了拢，难得看起来清醒"
+weight = 2
+why = "推断：傍晚出门闲逛的延伸"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "night"
+scene = "lounge"
+activity = "夜里在休息室待着，翻杂志等时间过去，说太晚的工作一律不接"
+weight = 3
+why = "作息：深夜在事务所活动，拒绝深夜录影"
+
+[[slots]]
+character = "mamimi"
+day = "thu"
+slot = "night"
+scene = "street_night"
+activity = "在夜晚的街道上闲晃，便利店的灯亮着，她拐进去又空手出来"
+weight = 2
+why = "作息：深夜在街上活动"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "morning"
+scene = "bedroom"
+activity = "闹钟响过之后被她一把按掉，翻个身继续睡，完全放弃了上午"
+weight = 5
+why = "作息：早上起不来，容易迟到或翘课"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "morning"
+scene = "home_living"
+activity = "被叫起来吃早饭，坐在餐桌前发呆，筷子都没动几下"
+weight = 2
+why = "推断：家庭场景；早上提不起劲"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "noon"
+scene = "shopstreet"
+activity = "中午在商店街晃，进了便利店又出来，手里多了一罐咖啡"
+weight = 3
+why = "作息：多数时候在街上晃"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "坐在教室里，课本摊开着却没翻页，眼睛看着窗外"
+weight = 2
+why = "作息：若在学校则下午上课"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "afternoon"
+scene = "school_corridor"
+activity = "放学后和结华在走廊聊周末的安排，说得兴起时难得有点精神"
+weight = 3
+why = "作息：放学后与结华等同学闲聊"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "afternoon"
+scene = "lounge"
+activity = "在休息室沙发上瘫着，听别人讨论工作，偶尔插一句懒懒的意见"
+weight = 3
+why = "地点统计：休息室占 29.6%"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "傍晚在咖啡店靠窗坐着，把手机插上充电，慢慢等它亮起来"
+weight = 4
+why = "作息：傍晚醒来后到咖啡店闲逛；手机常没电"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街的店与店之间闲逛，看到新开的店就探头进去看看"
+weight = 3
+why = "作息：到商店街闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "night"
+scene = "lounge"
+activity = "深夜在休息室和工作人员收尾，确认完明天的事就准备回家"
+weight = 3
+why = "作息：深夜在事务所活动，会早点回家"
+
+[[slots]]
+character = "mamimi"
+day = "fri"
+slot = "night"
+scene = "station"
+activity = "在夜晚的站台等车，靠着柱子打了个小哈欠，车来了才动"
+weight = 2
+why = "推断：回家路上"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "morning"
+scene = "bedroom"
+activity = "休息日睡得很沉，窗帘拉着，房间里分不清是早上还是下午"
+weight = 5
+why = "作息：休息日通常睡到傍晚"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "morning"
+scene = "apartment_living"
+activity = "半夜起来过一趟，现在窝在客厅大沙发上裹着毯子继续睡"
+weight = 2
+why = "推断：休息日补觉"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "noon"
+scene = "bedroom"
+activity = "翻了个身继续睡，手机在床头亮了一下又暗下去，她没看"
+weight = 4
+why = "作息：休息日睡到傍晚；手机常忘看"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "noon"
+scene = "home_living"
+activity = "被饭香叫醒，迷迷糊糊坐到餐桌前，头发还乱着"
+weight = 2
+why = "推断：休息日在家"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "afternoon"
+scene = "bedroom"
+activity = "下午还在赖床，抱着枕头刷了会儿手机，又困了"
+weight = 3
+why = "作息：休息日通常睡到傍晚"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "afternoon"
+scene = "cafe"
+activity = "难得下午就出门，在咖啡店坐着慢慢醒神，看窗外发愣"
+weight = 2
+why = "推断：休息日出门闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "evening"
+scene = "mall"
+activity = "傍晚出门去商场逛，在店铺间慢慢走，试了几件衣服又放回去"
+weight = 4
+why = "作息：休息日睡到傍晚后出门闲逛、购物"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "evening"
+scene = "shopstreet"
+activity = "在商店街闲逛时和制作人偶遇，愣了一下，随口聊了几句"
+weight = 3
+why = "作息：休息日出门闲逛，与制作人偶遇"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "night"
+scene = "restaurant"
+activity = "晚上被拉去家庭餐厅聚会，坐在卡座里听大家说话，偶尔笑一下"
+weight = 3
+why = "作息：晚上可能参加聚会"
+
+[[slots]]
+character = "mamimi"
+day = "sat"
+slot = "night"
+scene = "street_night"
+activity = "聚会散场后在夜晚的街上慢慢走，风吹得人清醒了一点"
+weight = 2
+why = "推断：聚会后回家路上"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "morning"
+scene = "bedroom"
+activity = "睡到日上三竿也没醒，被子裹成一团，闹钟根本没设"
+weight = 5
+why = "作息：休息日通常睡到傍晚"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "morning"
+scene = "bathroom"
+activity = "半夜起来洗了把脸，现在又困了，扶着门框晃回房间"
+weight = 2
+why = "推断：夜型作息的休息日"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "noon"
+scene = "bedroom"
+activity = "中午依旧在睡，阳光从窗帘缝里漏进来，她背对着光"
+weight = 4
+why = "作息：休息日睡到傍晚"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "被家里人喊起来吃饭，坐在沙发上边吃边看电视，眼睛半睁着"
+weight = 2
+why = "推断：休息日在家"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "afternoon"
+scene = "bedroom"
+activity = "下午窝在床上看手机，看到有趣的就笑一下，然后继续躺着"
+weight = 3
+why = "作息：休息日通常睡到傍晚"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "afternoon"
+scene = "bookstore"
+activity = "出门拐进书店，站着翻杂志，翻完一本又拿一本"
+weight = 2
+why = "推断：休息日出门闲逛"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "evening"
+scene = "shopstreet"
+activity = "傍晚出门逛商店街，在甜品店门口停下，最后还是进去买了一个"
+weight = 4
+why = "作息：休息日睡到傍晚后出门闲逛、购物"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "evening"
+scene = "park_night"
+activity = "在夜晚的公园长椅上坐着，路灯亮着，她抱着膝盖看天"
+weight = 2
+why = "推断：傍晚后闲逛的延伸"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "night"
+scene = "lounge"
+activity = "夜里在休息室待了一会儿，确认完下周的安排就收拾东西回家"
+weight = 3
+why = "作息：深夜在事务所活动，会早点回家"
+
+[[slots]]
+character = "mamimi"
+day = "sun"
+slot = "night"
+scene = "residential_street"
+activity = "沿着住宅街往家走，脚步比平时快一点，想着明天又要早起就叹气"
+weight = 2
+why = "作息：会早点回家；早上起不来"
+

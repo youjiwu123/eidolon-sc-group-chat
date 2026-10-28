@@ -1,0 +1,657 @@
+# 八宫巡的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/meguru.md、characters/schedules/meguru.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/meguru.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "坐在靠窗的座位上，课本立着当掩护，脑袋一点一点地打瞌睡，被同桌轻轻戳醒"
+weight = 4
+why = "作息：工作日早上学校上课（常打瞌睡）"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "morning"
+scene = "office_corridor"
+activity = "比平时早到事务所，抱着书包沿走廊小跑去休息室，跟遇到的staff打招呼"
+weight = 2
+why = "作息：有时早到事务所准备"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休把便当摊在桌上，和两三个朋友边吃边聊周末的电视节目，笑得很大声"
+weight = 4
+why = "作息：学校午休常与朋友聊天、吃便当"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "noon"
+scene = "lounge"
+activity = "工作间隙窝在休息室沙发上，捧着便利店饭团小口吃，跟经纪人确认下午的安排"
+weight = 2
+why = "地点统计：事务所休息室20.8%"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练同一段舞步，数着拍子，累了就扶着把杆喘气"
+weight = 4
+why = "作息：放学后去事务所练习"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "afternoon"
+scene = "library"
+activity = "放学后钻进图书室，摊开作业本赶数学题，笔尖停在半空发呆"
+weight = 2
+why = "作息：偶尔图书馆赶作业"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "evening"
+scene = "home"
+activity = "吃过晚饭趴在书桌前写作业，写到一半眼皮打架，笔从手里滑下去"
+weight = 4
+why = "作息：傍晚回家处理作业，常犯困"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "evening"
+scene = "home_living"
+activity = "窝在客厅沙发上跟朋友打电话，聊着聊着被爸爸提醒别太晚，赶紧压低声音"
+weight = 3
+why = "固定日程：与朋友通话；红线：家人担心"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "洗完澡钻进被窝，手机还没放下就困得睁不开眼，屏幕的光照在脸上"
+weight = 4
+why = "作息：夜里早睡，很快入睡"
+
+[[slots]]
+character = "meguru"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "想熬夜看会儿手机，结果抱着枕头在床边睡着，被妈妈盖好被子"
+weight = 2
+why = "作息：偶尔熬夜失败"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "背着书包走上石板坡道去学校，脚步轻快，顺手跟路过的邻居阿姨问早"
+weight = 3
+why = "推断：上学通勤路线"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "morning"
+scene = "park"
+activity = "早起晨跑，沿着公园步道慢跑一圈，停下来拉伸时呼出白气"
+weight = 2
+why = "作息：有时晨跑"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休和朋友们在走廊上靠着鞋柜聊天，手里还捏着没吃完的面包"
+weight = 3
+why = "作息：午休与朋友聊天"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "坐在座位上吃便当，边吃边翻看下午要用的台本，嘴里念念有词"
+weight = 3
+why = "推断：工作间隙也在确认安排"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "站在白色背景布前拍杂志照，按摄影师指示换姿势，笑得有点僵"
+weight = 3
+why = "作息：放学后外景或拍摄"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子纠正手势，音箱放着曲子，一个人默默特训"
+weight = 3
+why = "地点统计：练习室4.9%"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "evening"
+scene = "train"
+activity = "坐在电车上靠窗的位置，抱着书包打盹，坐过站前被报站声惊醒"
+weight = 3
+why = "推断：工作结束回家路上"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "evening"
+scene = "home"
+activity = "回家先摊开作业，边写边跟朋友发消息，写到一半趴在桌上叹气"
+weight = 3
+why = "作息：傍晚处理作业"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "把明天要穿的衣服叠好放在椅背上，关灯前又看了眼手机就睡了"
+weight = 4
+why = "作息：早睡早起习惯"
+
+[[slots]]
+character = "meguru"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在厨房倒杯水，被爸爸叮嘱早点睡，乖乖点头回房间"
+weight = 2
+why = "红线：家人担心（父亲心配性）"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "第一节课就撑不住，用手支着下巴打瞌睡，被老师点名时慌忙站起来"
+weight = 4
+why = "作息：上课常打瞌睡"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "morning"
+scene = "station"
+activity = "在站台等车，边等边默背英语单词，电车进站才把本子收起来"
+weight = 2
+why = "推断：通勤时段"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休和朋友们围在一起分零食，聊起最近看的电视剧，笑到拍桌子"
+weight = 4
+why = "作息：午休与朋友聊天"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室沙发上和同期的偶像一起吃便当，互相吐槽上午的课"
+weight = 2
+why = "地点统计：事务所休息室20.8%"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "afternoon"
+scene = "park"
+activity = "外景拍摄间隙坐在公园长椅上，捧着热饮暖手，跟staff聊接下来的镜头"
+weight = 3
+why = "地点统计：公园4.6%；作息：外景拍摄"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "afternoon"
+scene = "office_corridor"
+activity = "在走廊的自动贩卖机前买饮料，抱着罐子靠在墙边歇一会儿"
+weight = 2
+why = "地点统计：事务所走廊"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "evening"
+scene = "home"
+activity = "吃过晚饭摊开作业本，遇到不会的题就打电话问朋友，边问边打哈欠"
+weight = 4
+why = "作息：傍晚处理作业、与朋友通话"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "evening"
+scene = "residential_street"
+activity = "工作结束走在住宅街回家，路灯刚亮，脚步有点拖，书包带子松松垮垮"
+weight = 2
+why = "推断：回家路上"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "night"
+scene = "bedroom"
+activity = "躺在床上跟朋友煲电话粥，说着说着声音变小，差点握着手机睡着"
+weight = 3
+why = "固定日程：与朋友通话；红线：电话多可能影响休息"
+
+[[slots]]
+character = "meguru"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "设好闹钟就关灯，把被子拉到下巴，几分钟就睡熟了"
+weight = 4
+why = "作息：很快入睡"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "morning"
+scene = "classroom"
+activity = "早自习时强撑着看书，眼皮一直往下掉，最后干脆趴在桌上补觉"
+weight = 4
+why = "作息：上课常打瞌睡"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "morning"
+scene = "office"
+activity = "提早到事务所办公室，帮staff整理资料，一边打哈欠一边把文件分类"
+weight = 2
+why = "作息：早到事务所准备"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休和朋友分享便当里的菜，聊起社团的事，被问田径部要不要来帮忙"
+weight = 3
+why = "作息：午休与朋友聊天；固定日程：田径部外援"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "noon"
+scene = "cafe"
+activity = "工作间隙在咖啡店靠窗的位子吃简餐，翻着台本记笔记"
+weight = 2
+why = "地点统计：咖啡店4.3%"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室跟着编舞老师一遍遍过动作，汗顺着脸颊流下来也顾不上擦"
+weight = 4
+why = "作息：放学后练习"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "afternoon"
+scene = "library"
+activity = "在图书室角落赶作业，参考书摊了一桌，写累了就趴在桌上歇一会儿"
+weight = 2
+why = "作息：偶尔图书馆赶作业"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "evening"
+scene = "home"
+activity = "回家路上买了面包，坐在餐桌前一边吃一边补作业，笔迹越来越潦草"
+weight = 3
+why = "作息：傍晚回家处理作业"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "evening"
+scene = "home_living"
+activity = "在客厅跟朋友打电话聊工作的事，被爸爸从旁边提醒别聊太久"
+weight = 3
+why = "固定日程：与朋友通话；红线：家人担心"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "把明天要用的东西装进书包，关灯后很快就睡着了"
+weight = 4
+why = "作息：早睡早起"
+
+[[slots]]
+character = "meguru"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "想复习考试内容，翻了两页就困得合上书，索性直接去睡"
+weight = 2
+why = "红线：考试前会发愁；作息：熬夜困难"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "周五的课也照旧打瞌睡，被同桌推醒时一脸茫然地看黑板"
+weight = 4
+why = "作息：上课常打瞌睡"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "morning"
+scene = "park"
+activity = "早起绕公园跑一圈，跑完在长椅上喘气，看着晨光慢慢亮起来"
+weight = 2
+why = "作息：有时晨跑"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休和朋友们聊周末的计划，一边吃便当一边兴奋地比划"
+weight = 4
+why = "作息：午休与朋友聊天"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "noon"
+scene = "office_corridor"
+activity = "在走廊上边走边吃三明治，跟迎面来的staff点头打招呼"
+weight = 2
+why = "地点统计：事务所走廊"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚戴着耳机反复录同一句，隔着玻璃跟调音师比手势确认"
+weight = 3
+why = "推断：工作内容包含录音"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "afternoon"
+scene = "shrine"
+activity = "外景拍摄在神社石阶上取景，休息时坐在石灯笼旁看台本"
+weight = 2
+why = "推断：外景拍摄地点"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "evening"
+scene = "train"
+activity = "在电车上靠着车门站着，困得直点头，手里还攥着没写完的作业"
+weight = 3
+why = "推断：回家路上；作息：常犯困"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "evening"
+scene = "home"
+activity = "回家先洗澡，出来摊开作业，边写边跟朋友发消息商量周末"
+weight = 3
+why = "作息：傍晚处理作业"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "night"
+scene = "bedroom"
+activity = "周五晚上稍微放松，躺在床上看视频，看着看着就睡着了"
+weight = 3
+why = "作息：夜里早睡，偶尔熬夜失败"
+
+[[slots]]
+character = "meguru"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "跟朋友打电话聊到很晚，被爸爸敲门提醒才依依不舍地挂掉"
+weight = 2
+why = "红线：电话多可能影响休息；家人担心"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "morning"
+scene = "schoolyard"
+activity = "作为田径部外援在操场帮忙计时，拿着秒表喊加油，自己也跟着跑了几圈"
+weight = 4
+why = "固定日程：社团活动（田径部外援）周六上午"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "morning"
+scene = "gym"
+activity = "在体育馆帮忙搬器材、布置场地，跟社团的同学边干活边聊天"
+weight = 2
+why = "推断：社团活动相关"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "社团活动结束后和朋友们去咖啡店，点了一份松饼分着吃，聊得很起劲"
+weight = 3
+why = "作息：休息日与朋友出游"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "noon"
+scene = "shopstreet"
+activity = "在商店街边走边看小吃摊，和同行的朋友商量中午吃什么"
+weight = 3
+why = "地点统计：商店街2.7%"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "afternoon"
+scene = "library"
+activity = "下午钻进图书室赶作业，桌上摊着好几科的本子，一脸认真地算题"
+weight = 3
+why = "作息：休息日下午赶作业"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "周末也有拍摄，在摄影棚换好服装，对着镜头摆出元气的姿势"
+weight = 3
+why = "固定日程：周末事务所工作"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "evening"
+scene = "home"
+activity = "回家吃过晚饭，把剩下的作业收尾，写完长出一口气"
+weight = 3
+why = "作息：晚上早睡前的日常"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "evening"
+scene = "home_living"
+activity = "和家人一起在客厅看电视，被爸爸问工作累不累，笑着说不累"
+weight = 3
+why = "红线：家人担心（父亲心配性）"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "早早洗漱完躺下，翻了两页漫画就困了，关灯睡觉"
+weight = 4
+why = "作息：晚上早睡"
+
+[[slots]]
+character = "meguru"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "跟朋友打电话聊今天的社团活动，聊到一半被提醒该睡了"
+weight = 2
+why = "固定日程：与朋友通话；红线：影响休息"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "睡到自然醒，慢吞吞地起床，在厨房帮妈妈准备早午饭"
+weight = 3
+why = "推断：休息日上午"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "morning"
+scene = "park"
+activity = "早上出门散步，在公园长椅上坐着晒太阳，看小孩子在草地上跑"
+weight = 2
+why = "地点统计：公园4.6%"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "noon"
+scene = "restaurant"
+activity = "和朋友在家庭餐厅吃午饭，边吃边聊下周的安排，笑得很开心"
+weight = 3
+why = "作息：休息日与朋友出游"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "noon"
+scene = "home_living"
+activity = "在家和家里人一起吃午饭，聊着学校和工作的事"
+weight = 3
+why = "推断：休息日家庭时间"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "afternoon"
+scene = "library"
+activity = "在图书室把作业和考试复习一起赶，遇到难题皱着眉头翻参考书"
+weight = 3
+why = "作息：休息日下午赶作业；红线：考试前会发愁"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "afternoon"
+scene = "lounge"
+activity = "下午到事务所，在休息室跟staff确认下周的行程，顺便整理台本"
+weight = 3
+why = "固定日程：周末事务所工作；地点统计：休息室20.8%"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "evening"
+scene = "home"
+activity = "回家吃过晚饭，把书包收拾好，检查明天要带的东西"
+weight = 3
+why = "推断：休息日晚上准备下周"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "evening"
+scene = "home_living"
+activity = "在客厅跟朋友打电话聊一会儿，被爸爸提醒明天要上学，早点挂断"
+weight = 3
+why = "固定日程：与朋友通话；红线：家人担心"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "早早躺下，把闹钟调好，闭上眼睛很快就睡着了"
+weight = 4
+why = "作息：早睡早起"
+
+[[slots]]
+character = "meguru"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "想着明天要上学有点不情愿，翻了个身还是很快睡过去"
+weight = 2
+why = "作息：很快入睡"
+

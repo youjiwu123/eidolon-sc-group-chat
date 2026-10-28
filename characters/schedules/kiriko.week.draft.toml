@@ -1,0 +1,657 @@
+# 幽谷雾子的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/kiriko.md、characters/schedules/kiriko.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/kiriko.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "morning"
+scene = "home"
+activity = "在厨房把菠菜和香蕉打成绿色冰沙，装进保温杯，准备带去学校"
+weight = 4
+why = "作息：在家或上学路上，可能带自制蔬菜冰沙去学校或事务所"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "morning"
+scene = "train"
+activity = "坐在电车上，抱着书包打瞌睡，手里还攥着没喝完的冰沙"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学拼桌，打开便当盒，里面有昨晚自己做的玉子烧"
+weight = 4
+why = "作息：午休可能与同学一起吃便当"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "抱着便当盒往教室走，被同学叫住，站在走廊聊了几句"
+weight = 2
+why = "推断：午休移动"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "推着推车，把洗好叠齐的床单送到各个病房，和护士姐姐点头打招呼"
+weight = 4
+why = "作息：放学后去医院帮忙（晾床单、看孩子）"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子纠正舞步，L'Antica的曲子循环播放，额头微微出汗"
+weight = 3
+why = "作息：放学后去事务所练习；练习室占3.7%"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上和L'Antica成员一起看演唱会录像，边看边记笔记"
+weight = 4
+why = "作息：在事务所工作或与L'Antica成员一起活动；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "evening"
+scene = "office_corridor"
+activity = "从自动贩卖机买了热茶，靠在走廊墙边休息，等练习室空出来"
+weight = 2
+why = "推断：事务所内移动"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在自己房间的书桌前复习数学，遇到难题就停下来转笔，台灯亮到很晚"
+weight = 4
+why = "作息：在家学习或准备考试"
+
+[[slots]]
+character = "kiriko"
+day = "mon"
+slot = "night"
+scene = "lounge"
+activity = "深夜还在休息室查资料，笔记本摊在膝盖上，偶尔抬头看时钟"
+weight = 2
+why = "作息：偶尔深夜还在事务所查资料"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "morning"
+scene = "kitchen"
+activity = "在厨房把昨晚切好的蔬菜放进搅拌机，一边看时间一边等冰沙打好"
+weight = 4
+why = "作息：在家或上学路上，可能带自制蔬菜冰沙"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "走在通往学校的石板坡道上，手里提着装冰沙的袋子，脚步轻快"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "noon"
+scene = "classroom"
+activity = "午休时坐在自己座位，一边吃便当一边翻看下午要交的笔记"
+weight = 4
+why = "作息：在学校上课，午休可能与同学一起吃便当"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "noon"
+scene = "library"
+activity = "午休跑到图书室，在角落安静地看一本关于药草的书"
+weight = 2
+why = "推断：午休空闲"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和L'Antica成员一起排练新曲的站位，反复确认转身的角度"
+weight = 4
+why = "作息：放学后去事务所练习；练习室占3.7%"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "在儿科病房陪孩子们折纸，把折好的纸鹤串起来挂在窗边"
+weight = 3
+why = "作息：去医院帮忙（看孩子）"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员们分吃一盒点心，聊着下次演唱会的曲目安排"
+weight = 4
+why = "作息：与L'Antica成员一起活动；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "evening"
+scene = "recording_studio"
+activity = "在录音棚里戴着耳机试唱，隔音玻璃另一侧制作人比了个OK的手势"
+weight = 2
+why = "推断：事务所工作内容"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在家里的客厅餐桌上摊开课本，一边等家人回来一边写作业"
+weight = 4
+why = "作息：晚上学习；家人晚归，可能需独自在家"
+
+[[slots]]
+character = "kiriko"
+day = "tue"
+slot = "night"
+scene = "bedroom"
+activity = "坐在床上用手机查明天要用的资料，查完就关灯准备睡"
+weight = 2
+why = "推断：就寝前"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "morning"
+scene = "home"
+activity = "起得比平时早，在厨房慢慢打冰沙，顺便把便当也装好"
+weight = 4
+why = "作息：在家，可能带自制蔬菜冰沙"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "morning"
+scene = "train"
+activity = "在电车上靠着门边的扶手，望着窗外掠过的街景发呆"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学交换便当里的菜，尝了对方的炸鸡块"
+weight = 4
+why = "作息：午休可能与同学一起吃便当"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "noon"
+scene = "schoolyard"
+activity = "吃完便当到操场边的长椅上坐一会儿，晒太阳"
+weight = 2
+why = "推断：午休户外休息"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "抱着装满干净床单的篮子，从走廊这头走到那头，和认识的病人打招呼"
+weight = 4
+why = "作息：放学后去医院帮忙（晾床单）"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子练表情，把歌词一句句唱出来，调整嘴角的弧度"
+weight = 3
+why = "作息：去事务所练习；小练习室可用"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室把作业摊在茶几上写，L'Antica的成员在旁边轻声聊天"
+weight = 4
+why = "作息：在事务所工作或与成员一起，有时在休息室学习；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "evening"
+scene = "office"
+activity = "在办公室帮整理演唱会资料，把文件按日期排好放进文件夹"
+weight = 2
+why = "推断：事务所工作"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在自己房间复习英语单词，把不熟的词写在便签上贴到墙上"
+weight = 4
+why = "作息：在家学习或准备考试"
+
+[[slots]]
+character = "kiriko"
+day = "wed"
+slot = "night"
+scene = "home_living"
+activity = "在客厅一边看电视一边等家人回来，不知不觉在沙发上睡着了"
+weight = 2
+why = "作息：家人晚归，晚上可能需独自在家"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "morning"
+scene = "kitchen"
+activity = "把冰沙倒进杯子时洒了一点，赶紧擦干净，然后匆匆出门"
+weight = 4
+why = "作息：在家或上学路上，可能带自制蔬菜冰沙"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "morning"
+scene = "crossroad"
+activity = "在十字路口等红灯，手里提着冰沙，看着对面学校的方向"
+weight = 2
+why = "推断：上学路上；十字路口占4.8%"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "noon"
+scene = "classroom"
+activity = "午休时一边吃便当一边和同学讨论周末要不要去逛街"
+weight = 4
+why = "作息：午休可能与同学一起吃便当"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "拿着便当盒去隔壁班找朋友，站在走廊上边吃边聊"
+weight = 2
+why = "推断：午休串班"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室反复练一段独舞，对着镜子调整手臂的角度，直到满意为止"
+weight = 4
+why = "作息：放学后去事务所练习；练习室占3.7%"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "在护士站帮忙整理病历，把文件夹按病房号排好"
+weight = 3
+why = "作息：去医院帮忙，时间不固定"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员们围坐，一边吃零食一边商量下次活动的主题"
+weight = 4
+why = "作息：与L'Antica成员一起活动；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "evening"
+scene = "dressing_room"
+activity = "在化妆间对着镜子整理头发，准备拍新的宣传照"
+weight = 2
+why = "推断：拍摄准备"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在自己房间写数学题，遇到不会的就翻参考书，桌上摊满了草稿纸"
+weight = 4
+why = "作息：在家学习或准备考试"
+
+[[slots]]
+character = "kiriko"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "靠在床头用手机和成员发消息，聊着聊着就困了"
+weight = 2
+why = "推断：就寝前"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "morning"
+scene = "home"
+activity = "在厨房把冰沙装好，又顺手做了个简单的饭团当早餐"
+weight = 4
+why = "作息：在家，可能带自制蔬菜冰沙"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "morning"
+scene = "train"
+activity = "在电车上站着，一手拉吊环一手护着书包里的冰沙"
+weight = 2
+why = "推断：上学路上"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "noon"
+scene = "classroom"
+activity = "午休时和同学一起看手机上的流行趋势，讨论周末的安排"
+weight = 4
+why = "作息：午休可能与同学一起吃便当"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "noon"
+scene = "roof"
+activity = "拿着便当到天台，坐在水塔阴影下一个人安静地吃"
+weight = 2
+why = "推断：午休想独处"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "在走廊尽头的休息区陪一个怕打针的孩子说话，转移他的注意力"
+weight = 4
+why = "作息：去医院帮忙（看孩子）"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起过一遍新曲的队形，互相提醒脚步的位置"
+weight = 3
+why = "作息：放学后去事务所练习"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室一边喝热茶一边和成员复盘今天的练习，笑声不断"
+weight = 4
+why = "作息：在事务所工作或与L'Antica成员一起活动；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "evening"
+scene = "cafe"
+activity = "和成员在咖啡店靠窗的座位，边喝饮料边聊私底下的趣事"
+weight = 2
+why = "地点统计：咖啡店占2.7%；推断：休息日/傍晚与同伴"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在自己房间复习这周的功课，把重点整理到笔记本上"
+weight = 4
+why = "作息：在家学习或准备考试"
+
+[[slots]]
+character = "kiriko"
+day = "fri"
+slot = "night"
+scene = "home_living"
+activity = "在客厅一边看电视一边等家人，不知不觉在沙发上睡着了"
+weight = 2
+why = "作息：家人晚归，晚上可能需独自在家"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "比平时晚起，在厨房慢悠悠地做早餐，顺便准备一天的便当"
+weight = 4
+why = "休息日：有时在家做手工或陪家人"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "morning"
+scene = "park"
+activity = "到公园散步，在长椅上坐下，看晨练的老人和遛狗的人"
+weight = 2
+why = "地点统计：公园占3.5%；推断：休息日早晨散步"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "noon"
+scene = "lounge"
+activity = "在休息室和成员一起吃从便利店买来的午饭，讨论下午的安排"
+weight = 4
+why = "休息日：可能去事务所工作；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "noon"
+scene = "shopstreet"
+activity = "和成员在商店街闲逛，被小吃摊的香味吸引过去"
+weight = 3
+why = "休息日：与同伴逛街"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和成员一起加练，反复打磨新曲的副歌部分"
+weight = 4
+why = "休息日：可能去事务所工作；练习室占3.7%"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "在医院帮忙整理仓库，把新送来的床单分类放好"
+weight = 3
+why = "休息日：有时去医院帮忙"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员一起看之前演唱会的录像，边看边笑"
+weight = 4
+why = "休息日：可能去事务所工作；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "evening"
+scene = "restaurant"
+activity = "和成员在家庭餐厅吃晚饭，分享各自点的菜"
+weight = 3
+why = "休息日：与同伴逛街；推断：晚餐"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在自己房间做手工，把之前买的布料缝成一个小袋子"
+weight = 4
+why = "休息日：有时在家做手工"
+
+[[slots]]
+character = "kiriko"
+day = "sat"
+slot = "night"
+scene = "home_living"
+activity = "在客厅陪家人看电视，一边聊天一边吃水果"
+weight = 3
+why = "休息日：有时在家陪家人"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "睡到自然醒，在厨房给自己做一顿丰盛的早餐"
+weight = 4
+why = "休息日：有时在家"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "morning"
+scene = "river"
+activity = "沿着河堤慢跑，呼吸早晨的空气，偶尔停下来看河面"
+weight = 2
+why = "推断：休息日早晨锻炼"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "noon"
+scene = "shopstreet"
+activity = "和成员约在商店街碰头，一边走一边看店铺的橱窗"
+weight = 4
+why = "休息日：与同伴逛街"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店和成员一起吃午餐，讨论下午去哪里逛"
+weight = 3
+why = "地点统计：咖啡店占2.7%；休息日与同伴"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "afternoon"
+scene = "mall"
+activity = "在商场里和成员一起挑衣服，互相给对方建议"
+weight = 4
+why = "休息日：与同伴逛街"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "afternoon"
+scene = "hospital_corridor"
+activity = "在医院帮忙给孩子们读绘本，坐在走廊的长椅上"
+weight = 3
+why = "休息日：有时去医院帮忙"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和成员一起整理下周的日程，把注意事项写在白板上"
+weight = 4
+why = "休息日：可能去事务所工作；休息室占26.1%"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "evening"
+scene = "park"
+activity = "傍晚在公园散步，坐在长椅上看夕阳，给成员发消息"
+weight = 2
+why = "地点统计：公园占3.5%；推断：休息日傍晚"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在自己房间准备下周的课程，把课本和笔记本装进书包"
+weight = 4
+why = "作息：晚上学习或准备考试"
+
+[[slots]]
+character = "kiriko"
+day = "sun"
+slot = "night"
+scene = "home_living"
+activity = "在客厅陪家人吃晚饭，聊这周发生的事"
+weight = 3
+why = "休息日：有时在家陪家人"
+

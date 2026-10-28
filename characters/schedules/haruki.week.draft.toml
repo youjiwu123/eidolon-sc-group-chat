@@ -1,0 +1,657 @@
+# 郁田阳希的一周作息 × 地点草案（自动生成，待人工校对后接入）。
+#
+# 生成依据：characters/facts/haruki.md、characters/schedules/haruki.stats.json、
+# 剧情逐话摘要推出的作息档（.scratch/outline/out/作息/haruki.md）。
+# `why` 里写「推断：」的是没有直接出处的排布。字段含义见 characters/schedules.model.md。
+
+# ----------------------------------------------------------------------
+# mon
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "morning"
+scene = "art_room"
+activity = "在美术室支起画架，对着石膏像画素描，时不时用橡皮轻点出高光"
+weight = 5
+why = "作息：工作日上午在美术高中上课，画素描或赶课题"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "morning"
+scene = "classroom"
+activity = "坐在靠窗的课桌前赶课题草稿，铅笔在速写本上快速勾线"
+weight = 3
+why = "作息：工作日上午在美术高中上课，课间常速写"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "noon"
+scene = "school_corridor"
+activity = "和同学靠在走廊窗边吃面包，聊着下午要交的作业"
+weight = 3
+why = "作息：午休与朋友吃饭"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "noon"
+scene = "general_store"
+activity = "放学路上拐进杂货店，在画材架前挑便宜的铅笔和橡皮"
+weight = 2
+why = "作息：午休偶尔去百元店买画材或小物"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室对着镜子反复练同一段动作，停下来在本子上记要点"
+weight = 5
+why = "作息：放学后到事务所练习室自主练习"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "坐在长桌边听工作人员讲拍摄安排，边听边在台本上做标记"
+weight = 3
+why = "作息：参加拍摄与会议"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "evening"
+scene = "street"
+activity = "工作结束后提前一站下车，沿着大街慢慢走，观察行人和店铺招牌"
+weight = 4
+why = "作息：工作结束后常步行一两个车站，边走边观察街景"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室沙发上摊开速写本，把刚才路上看到的街景补画完"
+weight = 3
+why = "台词地点统计：事务所休息室占 8.5%"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "night"
+scene = "home"
+activity = "在姐姐家的桌前整理手帐，把今天的速写贴上去，困了就趴着眯一会儿"
+weight = 4
+why = "作息：在姐姐家画速写或整理手帐，累时早早睡着"
+
+[[slots]]
+character = "haruki"
+day = "mon"
+slot = "night"
+scene = "bedroom"
+activity = "洗完澡钻进被窝，翻两页画集就眼皮打架，早早关灯睡了"
+weight = 3
+why = "作息：就寝约 22:00-24:00，容易睡着"
+
+# ----------------------------------------------------------------------
+# tue
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "morning"
+scene = "art_room"
+activity = "美术室里颜料味很重，她对着静物摆件调色，袖口沾了一点蓝"
+weight = 5
+why = "作息：工作日上午在美术高中上课，画素描或赶课题"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "morning"
+scene = "stone_path"
+activity = "上学走石板坡道，边走边抬头看树影，手里还捏着速写本"
+weight = 2
+why = "推断：通学路上，地点表有石板路"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友在靠窗木桌吃简餐，她把餐巾纸翻过来画桌上的杯子"
+weight = 3
+why = "作息：午休与朋友吃饭；地点统计咖啡店占 2.9%"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休时在走廊长椅上翻画集，同学过来喊她才合上书"
+weight = 2
+why = "推断：学校午休时间"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室对着镜子纠正手势，音箱放着曲子，她一遍遍数拍子"
+weight = 4
+why = "作息：放学后到事务所练习室自主练习"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "afternoon"
+scene = "photo_studio"
+activity = "站在白色背景布前按摄影师指示换姿势，休息时偷偷活动肩膀"
+weight = 3
+why = "作息：参加拍摄与工作"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "evening"
+scene = "park"
+activity = "在公园长椅坐下，把刚才路上看到的树和长椅画进速写本"
+weight = 4
+why = "台词地点统计：公园占 4.1%；作息：傍晚散步观察街景"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "evening"
+scene = "office_corridor"
+activity = "在事务所走廊的自动贩卖机前买热饮，靠着墙歇一会儿再回去"
+weight = 2
+why = "地点表：事务所走廊；推断：工作间隙"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "night"
+scene = "home"
+activity = "在姐姐家餐桌上摊开手帐，写下今天练习的反思，字迹慢慢变歪"
+weight = 4
+why = "作息：在姐姐家画速写或整理手帐"
+
+[[slots]]
+character = "haruki"
+day = "tue"
+slot = "night"
+scene = "home_living"
+activity = "和姐姐在客厅看电视，抱着靠垫没看多久就开始点头打瞌睡"
+weight = 3
+why = "作息：容易睡着；姐姐担心身体"
+
+# ----------------------------------------------------------------------
+# wed
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "morning"
+scene = "classroom"
+activity = "早自习时在课桌下偷偷速写前排同学的后脑勺，被老师点名才抬头"
+weight = 4
+why = "作息：课间常速写；工作日上午上课"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "morning"
+scene = "art_room"
+activity = "在美术室赶交课题，画架前站了整个上午，偶尔退后两步看整体"
+weight = 5
+why = "作息：画素描或赶课题"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "noon"
+scene = "general_store"
+activity = "午休跑去杂货店，在货架前挑装画材的小收纳盒，挑得很认真"
+weight = 3
+why = "作息：午休偶尔去百元店买画材或小物"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "noon"
+scene = "schoolyard"
+activity = "和朋友在操场边的长椅吃便当，她边吃边看天上的云"
+weight = 2
+why = "推断：午休与朋友吃饭"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室里只有她一个人，对着镜子把同一段动作练到出汗"
+weight = 5
+why = "作息：放学后到事务所练习室自主练习，频率高"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "afternoon"
+scene = "recording_studio"
+activity = "在录音棚隔着玻璃唱，唱完摘下耳机听工作人员的反馈"
+weight = 2
+why = "作息：参加拍摄与工作"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "evening"
+scene = "shopstreet"
+activity = "沿着商店街慢慢走，看店铺招牌的字体，掏出本子记两笔"
+weight = 4
+why = "作息：傍晚散步观察街景"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "evening"
+scene = "lounge"
+activity = "回事务所休息室，瘫在沙发上喝水，和路过的工作人员打招呼"
+weight = 3
+why = "台词地点统计：事务所休息室占 8.5%"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "night"
+scene = "home"
+activity = "在姐姐家画今天街景的速写，画到一半笔停住，人已经睡着了"
+weight = 4
+why = "作息：在姐姐家画速写，累时早早睡着"
+
+[[slots]]
+character = "haruki"
+day = "wed"
+slot = "night"
+scene = "bathroom"
+activity = "泡在浴缸里发呆，热水把一天的疲劳慢慢泡开"
+weight = 2
+why = "推断：就寝前的放松时间"
+
+# ----------------------------------------------------------------------
+# thu
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "morning"
+scene = "art_room"
+activity = "美术室里对着石膏像画明暗，橡皮屑落了一桌"
+weight = 5
+why = "作息：工作日上午在美术高中上课，画素描"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "morning"
+scene = "school_gate"
+activity = "踩着点进校门，书包侧袋里露出速写本的角"
+weight = 2
+why = "推断：通学时间"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "noon"
+scene = "school_corridor"
+activity = "午休和同学在走廊分零食，她拿包装纸背面画小漫画"
+weight = 3
+why = "作息：午休与朋友吃饭；课间常速写"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "noon"
+scene = "cafe"
+activity = "和朋友在咖啡店点杯饮料，她对着拱形大窗外的街景速写"
+weight = 2
+why = "地点统计：咖啡店占 2.9%"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "afternoon"
+scene = "studio"
+activity = "在练习室和同伴一起对动作，休息时互相指出哪里还不够"
+weight = 4
+why = "作息：放学后到事务所练习室自主练习"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "afternoon"
+scene = "meeting_room"
+activity = "在会议室看白板上的日程，把演出邀约的日期认真抄进手帐"
+weight = 3
+why = "作息：参加会议；排表红线：演出邀约可能冲突"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "evening"
+scene = "river"
+activity = "沿着河堤步道走，停下来画斜拉桥的轮廓，风吹得纸角翻动"
+weight = 4
+why = "作息：傍晚散步观察街景；地点表：河堤"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "evening"
+scene = "station"
+activity = "在站台等车，靠着柱子看轨道延伸的方向，手里捏着速写本"
+weight = 2
+why = "作息：步行一两个车站；地点表：车站"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "night"
+scene = "home"
+activity = "在姐姐家桌前整理手帐，把河堤的速写贴上去，写上日期"
+weight = 4
+why = "作息：在姐姐家画速写或整理手帐"
+
+[[slots]]
+character = "haruki"
+day = "thu"
+slot = "night"
+scene = "bedroom"
+activity = "早早洗漱完躺下，手机放在枕边没看几眼就睡着了"
+weight = 3
+why = "作息：就寝约 22:00-24:00，容易睡着"
+
+# ----------------------------------------------------------------------
+# fri
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "morning"
+scene = "art_room"
+activity = "美术室里赶最后一张课题，颜料没干就退后看效果"
+weight = 5
+why = "作息：工作日上午在美术高中上课，赶课题"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "morning"
+scene = "classroom"
+activity = "上课时在笔记本边缘画小人，被同桌戳了一下才回神"
+weight = 3
+why = "作息：课间常速写"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "noon"
+scene = "general_store"
+activity = "午休去杂货店补画材，在货架前比较两支笔的价格"
+weight = 3
+why = "作息：午休偶尔去百元店买画材"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "noon"
+scene = "school_corridor"
+activity = "和朋友靠在走廊窗边吃饭团，聊周末要不要去看展"
+weight = 2
+why = "作息：午休与朋友吃饭"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "afternoon"
+scene = "studio"
+activity = "练习室里自主练习，练到腿有点软才扶着把杆停下来"
+weight = 5
+why = "作息：放学后到事务所练习室自主练习；红线：容易过度练习"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "afternoon"
+scene = "dressing_room"
+activity = "在化妆间对着镜子整理头发，等工作人员来叫她去拍摄"
+weight = 2
+why = "台词地点统计：后台/化妆间相关工作场景"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "evening"
+scene = "street_night"
+activity = "工作结束走夜路回家，抬头看亮灯的写字楼，在本子上记下光的样子"
+weight = 4
+why = "作息：傍晚散步观察街景"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "evening"
+scene = "lounge"
+activity = "在休息室和同伴聊今天的练习，笑得靠在沙发扶手上"
+weight = 3
+why = "台词地点统计：事务所休息室占 8.5%"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "night"
+scene = "home"
+activity = "在姐姐家画速写，姐姐端来热牛奶催她早点睡"
+weight = 4
+why = "作息：在姐姐家画速写；姐姐担心身体"
+
+[[slots]]
+character = "haruki"
+day = "fri"
+slot = "night"
+scene = "home_living"
+activity = "和姐姐在客厅聊这周的事，说着说着声音变小，困意上来了"
+weight = 3
+why = "作息：容易睡着；姐姐担心身体"
+
+# ----------------------------------------------------------------------
+# sat
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "morning"
+scene = "train"
+activity = "坐电车回长野老家，靠窗坐着看窗外掠过的田和山"
+weight = 4
+why = "作息：休息日回长野老家"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "morning"
+scene = "home"
+activity = "难得睡到自然醒，在被窝里赖了一会儿才起来收拾画具"
+weight = 3
+why = "推断：休息日早晨"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "noon"
+scene = "home_living"
+activity = "在老家客厅和家人一起吃午饭，被问学校的事，她笑着答"
+weight = 4
+why = "作息：休息日回长野老家"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "noon"
+scene = "cafe"
+activity = "在咖啡店靠窗坐下，点杯饮料就开始画窗外的街"
+weight = 3
+why = "地点统计：咖啡店占 2.9%；休息日写生"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "afternoon"
+scene = "park"
+activity = "在公园长椅上写生，画来往的人和树影，一坐就是一下午"
+weight = 4
+why = "作息：休息日写生；地点统计：公园占 4.1%"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "afternoon"
+scene = "studio"
+activity = "明明休息还是偷偷跑来练习室，对着镜子练到忘记时间"
+weight = 3
+why = "作息：休息日也常偷偷自主练习；红线：容易过度练习"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "evening"
+scene = "observatory"
+activity = "在展望台看城市亮起来，靠着栏杆把夜景画进本子"
+weight = 4
+why = "地点统计：展望台占 3.4%；作息：观察街景"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "evening"
+scene = "residential_street"
+activity = "沿着住宅街慢慢走回姐姐家，路灯一盏盏亮起来"
+weight = 3
+why = "作息：傍晚散步回家"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "night"
+scene = "home"
+activity = "在姐姐家把今天写的生整理进手帐，贴上门票和速写"
+weight = 4
+why = "作息：在姐姐家整理手帐"
+
+[[slots]]
+character = "haruki"
+day = "sat"
+slot = "night"
+scene = "bedroom"
+activity = "洗完澡早早躺下，明天还想去美术馆，想着想着就睡着了"
+weight = 3
+why = "作息：容易睡着；休息日去美术馆"
+
+# ----------------------------------------------------------------------
+# sun
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "morning"
+scene = "train"
+activity = "坐电车去美术馆，在车上翻画集，看到喜欢的页面就折角"
+weight = 4
+why = "作息：休息日去美术馆"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "morning"
+scene = "home"
+activity = "早起在桌前画速写，窗外还很安静，只有铅笔的声音"
+weight = 3
+why = "推断：早起挑战与清晨练习"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "noon"
+scene = "cafe"
+activity = "在美术馆附近的咖啡店吃午饭，桌上摊着刚买的明信片"
+weight = 3
+why = "作息：休息日去美术馆；地点统计：咖啡店"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "noon"
+scene = "restaurant"
+activity = "和家人或朋友在家庭餐厅吃饭，她边吃边讲昨天写生的事"
+weight = 2
+why = "推断：休息日外出就餐"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "afternoon"
+scene = "park"
+activity = "在公园写生，画水边和长椅上的人，画到太阳偏西"
+weight = 4
+why = "作息：休息日写生；地点统计：公园"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "afternoon"
+scene = "studio_small"
+activity = "在小练习室偷偷自主练习，对着镜子一遍遍确认动作"
+weight = 3
+why = "作息：休息日也常偷偷自主练习"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "evening"
+scene = "park_night"
+activity = "天黑了还在公园长椅上画路灯，本子上的光晕一圈圈叠着"
+weight = 3
+why = "作息：傍晚观察街景；地点表：夜晚的公园"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "evening"
+scene = "crossroad"
+activity = "在十字路口等红灯，抬头看车流和信号灯，随手记下颜色"
+weight = 3
+why = "作息：傍晚散步观察街景"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "night"
+scene = "home"
+activity = "在姐姐家整理这周的速写，挑几张夹进手帐里"
+weight = 4
+why = "作息：在姐姐家画速写或整理手帐"
+
+[[slots]]
+character = "haruki"
+day = "sun"
+slot = "night"
+scene = "bedroom"
+activity = "把画具收好，早早钻进被窝，为明天上学做准备"
+weight = 3
+why = "作息：就寝约 22:00-24:00，容易睡着"
+
