@@ -15,10 +15,10 @@ from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.x509.oid import ExtendedKeyUsageOID, NameOID
 
-OUT = pathlib.Path("/tmp/certs")
-OUT.mkdir(exist_ok=True)
+OUT = pathlib.Path(__file__).resolve().parent.parent / "certs"  # 默认写仓库里的 certs/
+OUT.mkdir(parents=True, exist_ok=True)
 NOW = datetime.datetime.now(datetime.UTC)
-ADDRESSES = ["127.0.0.1"]  # 局域网 IP 自己加，例如 "192.168.1.10"
+ADDRESSES = ["127.0.0.1", "192.168.5.2"]  # 局域网 IP 自己加，例如 "192.168.1.10"
 NAMES = ["localhost", "eidolon.local"]  # 有自己的域名就加在这里，例如 "eidolon.example.com"
 
 
