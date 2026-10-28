@@ -26,14 +26,17 @@ negative prompt is fixed altogether: `nsfw`, the Human Focus preset, and what no
 hers shows (ADR-0023). Neither the deployer nor any user changes them.
 """
 
+import asyncio
 import json
 import logging
 import re
+from collections.abc import Collection
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal, get_args
 
 from eidolon.characters import Character
+from eidolon.llm import ChatLLM, ChatMessage
 
 log = logging.getLogger(__name__)
 
@@ -128,22 +131,30 @@ def read_tag(text: str) -> PhotoTag:
     return PhotoTag(shot, framing, place, outfit, action, tuple(stripped))
 
 
-def image_prompt(character: Character, tag: PhotoTag, style: str = "") -> ImagePrompt:
+def image_prompt(
+    character: Character, tag: PhotoTag, style: str = "", drop: Collection[str] = ()
+) -> ImagePrompt:
     """The prompts a photo of `character` (who has her photo tags) is generated from, as
     `tag` says it is taken, in the art style `style`.
 
     Tags are written in the order they matter: who she is first (her character tag and the
     work's), then what the conversation has her doing, where and wearing what, then her
     looks, and the deployment's art style last but for the quality tags — a scene the
-    conversation set up outranks the style it is drawn in."""
+    conversation set up outranks the style it is drawn in.
+
+    `drop` are tags `conflict_messages` had the chat model take out first (see
+    `analyze_conflicts`); they are left out of her fields and the style, never of who she is,
+    her looks or the quality tags."""
     assert character.photo_tag is not None and character.photo_appearance is not None
     action = tag.action
     if tag.shot == "other" and not any(g in t for t in action for g in _GAZES):
         action = (*action, LOOKING_AT_VIEWER)
+    dropped = frozenset(tag.strip().lower() for tag in drop)
     positive = (
         "1girl", "solo", character.photo_tag, WORK_TAG,
-        *action, *tag.place, *tag.outfit, tag.framing, *_shot_tags(tag.shot),
-        character.photo_appearance, *_styled(style), *QUALITY_TAGS,
+        *_without(action, dropped), *_without(tag.place, dropped),
+        *_without(tag.outfit, dropped), tag.framing, *_shot_tags(tag.shot),
+        character.photo_appearance, *_without(_styled(style), dropped), *QUALITY_TAGS,
     )
     return ImagePrompt(", ".join(positive), NEGATIVE_PROMPT)
 
@@ -161,9 +172,108 @@ def check_prompt(style: str = "") -> ImagePrompt:
     return ImagePrompt(", ".join(positive), NEGATIVE_PROMPT)
 
 
+CONFLICT_INSTRUCTIONS = """\
+你在检查一张角色照片的英文 tag 列表，找出和「照片要拍的场景」明显冲突的 tag。
+
+只删这几类：
+- 与 place / action / outfit 矛盾的内容 tag，例如场景是澡堂却写 sparkle、starry sky、stage lights、confetti；
+- 彼此矛盾的 tag，例如 indoor 和 outdoor、day 和 night 同时出现。
+不要删：1girl、solo、角色 tag、外貌 tag、质量 tag（rating:general、very aesthetic、masterpiece、no text）。
+画风（style）里的 artist 名和媒介可以保留；只有它明确写了和场景冲突的内容时，才删那一项。
+拿不准就不要删。只输出 JSON：{"drop": ["tag", ...]}；没有要删的就 {"drop": []}。"""
+"""What the chat model is asked before a photo is generated (`analyze_conflicts`)."""
+
+CONFLICT_TIMEOUT = 8.0
+"""How long the conflict check may take before the photo goes ahead without it."""
+
+_JSON_OBJECT = re.compile(r"\{.*\}", re.DOTALL)
+
+
+def conflict_messages(
+    character: Character, tag: PhotoTag, style: str, raw: str = ""
+) -> list[ChatMessage]:
+    """What `analyze_conflicts` asks the chat model: the scene as her fields say it, the
+    deployment's style, and what may be dropped. `raw` is her tag as she wrote it, before
+    cleaning, so a place the all-ages gate took out is still a scene to check against."""
+    lines = [
+        f"场景（place）：{', '.join(tag.place)}",
+        f"动作（action）：{', '.join(tag.action)}",
+        f"穿着（outfit）：{', '.join(tag.outfit)}",
+        f"构图（framing）：{tag.framing}；拍摄（shot）：{tag.shot}",
+        f"画风（style）：{style.strip() or '（无）'}",
+        f"角色：{character.photo_tag}",
+    ]
+    if raw.strip():
+        lines.append(f"她写的原文（有些 tag 已被清理掉）：{raw.strip()}")
+    return [ChatMessage("system", CONFLICT_INSTRUCTIONS), ChatMessage("user", "\n".join(lines))]
+
+
+async def analyze_conflicts(
+    chat: "ChatLLM",
+    character: Character,
+    tag: PhotoTag,
+    style: str,
+    raw: str = "",
+    timeout: float = CONFLICT_TIMEOUT,
+) -> tuple[str, ...]:
+    """The tags the chat model has taken out of this photo's fields and style, or none: it
+    cannot answer, answers something unreadable, or takes too long, and the photo goes ahead
+    as her tag wrote it."""
+    try:
+        answer = await asyncio.wait_for(
+            _conflict_answer(chat, conflict_messages(character, tag, style, raw)), timeout
+        )
+    except Exception:  # noqa: BLE001 - a check that fails must not cost her the photo
+        log.info("photo conflict check failed; the tags go in as written", exc_info=True)
+        return ()
+    parsed = parse_conflict(answer)
+    if parsed is None:
+        log.info("photo conflict check answered nothing readable; the tags go in as written")
+        return ()
+    return parsed
+
+
+async def _conflict_answer(chat: "ChatLLM", messages: list[ChatMessage]) -> str:
+    chunks: list[str] = []
+    async for chunk in chat.stream(messages):
+        if isinstance(chunk, str):
+            chunks.append(chunk)
+    return "".join(chunks)
+
+
+def parse_conflict(answer: str) -> tuple[str, ...] | None:
+    """The tags `answer` says to drop, lower-cased and deduplicated; None if it is not the
+    JSON object the check asks for."""
+    match = _JSON_OBJECT.search(answer or "")
+    if match is None:
+        return None
+    try:
+        data = json.loads(match.group())
+    except json.JSONDecodeError:
+        return None
+    drop = data.get("drop") if isinstance(data, dict) else None
+    if not isinstance(drop, list):
+        return None
+    tags: list[str] = []
+    for item in drop:
+        if not isinstance(item, str):
+            continue
+        tag = " ".join(item.replace("_", " ").lower().split())
+        if tag and tag not in tags:
+            tags.append(tag)
+    return tuple(tags[:8])
+
+
+def _without(tags: tuple[str, ...], dropped: frozenset[str]) -> tuple[str, ...]:
+    """`tags` without those the conflict check took out (the style is one comma-separated
+    entry, so its tags are split before it gets here)."""
+    return tuple(tag for tag in tags if tag.strip().lower() not in dropped)
+
+
 def _styled(style: str) -> tuple[str, ...]:
-    """The art style as it is written into a prompt: as it is, or not at all if empty."""
-    return (style.strip(),) if style.strip() else ()
+    """The art style as it is written into a prompt: one tag per comma, as the deployer
+    wrote them, or nothing if empty."""
+    return tuple(part.strip() for part in style.split(",") if part.strip())
 
 
 def _shot_tags(shot: Shot) -> tuple[str, ...]:

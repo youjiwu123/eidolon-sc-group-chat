@@ -467,6 +467,10 @@ class Settings:
     scene_moves: bool = False
     """Whether a turn that talks them into another place moves her there (DESIGN.md「通话场景」):
     asked of the chat model once after `done`, so off unless `.env` turns it on."""
+    photo_conflicts: bool = False
+    """Whether a photo's tags are passed by the chat model before it is generated, to drop
+    the ones that conflict with the scene or each other (e.g. `sparkle` for a bathhouse):
+    one small extra call per photo, so off unless `.env` turns it on."""
     explicit_content: bool = True
     """Whether adult content is allowed at all, a deployer-level setting; off unless
     `.env` turns it on, and the admin console may override it. It never lets a character
@@ -585,6 +589,7 @@ class Settings:
             affinity_and_gifts=_switch("EIDOLON_AFFINITY_AND_GIFTS", default=True),
             reach_outs=_switch("EIDOLON_REACH_OUTS"),
             scene_moves=_switch("EIDOLON_SCENE_MOVES"),
+            photo_conflicts=_switch("EIDOLON_PHOTO_CONFLICTS"),
             explicit_content=_switch("EIDOLON_EXPLICIT_CONTENT", default=True),
             proxy=proxy_from_env(),
             service_status=service_status_from_env(),

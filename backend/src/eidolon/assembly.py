@@ -358,6 +358,7 @@ def build(
         lambda: config.history_turns, world, affinities, config.affinity_judge(), photos,
         happenings, modes, explicit_content=lambda: config.explicit_content,
         character_modes=character_modes, affinity_prompts=affinity_prompts,
+        photo_conflicts=lambda: settings.photo_conflicts,
     )
     own_keys = OwnKeys(
         own_llm_service, config, activity, speech, exempting=lambda: config.exempting_keys,

@@ -538,6 +538,7 @@ class ConversationEngine:
         explicit_content: Callable[[], bool] = lambda: False,
         character_modes: CharacterModes | None = None,
         affinity_prompts: Prompts | None = None,
+        photo_conflicts: Callable[[], bool] = lambda: False,
     ) -> None:
         """Without `retrieval`, turns carry no story or character facts and find no
         memories. Each turn reads only the conversation's latest turns, as many as
@@ -572,6 +573,7 @@ class ConversationEngine:
         self._explicit_content = explicit_content
         self._character_modes = character_modes
         self._affinity_prompts = affinity_prompts or DEFAULT_PROMPTS
+        self._photo_conflicts = photo_conflicts
         self._ended_listeners: list[Callable[[str, EndsFor], None]] = []
 
     def reload_modes(self, modes: Mapping[str, Mode]) -> None:
@@ -799,7 +801,8 @@ class ConversationEngine:
                             if isinstance(event, PhotoTagged):
                                 if photo_asked and photo_asked.keeps_tag:
                                     yield self._begin_photo(
-                                        character, event.tag, conversation.user_id, photo
+                                        character, event.tag, conversation.user_id, photo,
+                                        llms.chat,
                                     )
                                 continue
                             yield event
@@ -951,11 +954,14 @@ class ConversationEngine:
         return await self._photos.came_out(photo_id, user_id)
 
     def _begin_photo(
-        self, character: Character, tag: str, user_id: str, photo: _Photo
+        self, character: Character, tag: str, user_id: str, photo: _Photo, chat: ChatLLM | None
     ) -> PhotoPending:
-        """Begin the photo her `tag` says, the turn's one, for the user."""
+        """Begin the photo her `tag` says, the turn's one, for the user: passed by `chat`
+        first when the deployment checks for tags that conflict with the scene."""
         assert self._photos is not None
-        photo.id, photo.tag = self._photos.begin(character, tag, user_id, photo.own), tag
+        photo.id, photo.tag = self._photos.begin(
+            character, tag, user_id, photo.own, chat if self._photo_conflicts() else None
+        ), tag
         return PhotoPending(photo.id)
 
     def _mode_prompt(self, conversation: Conversation) -> str:
