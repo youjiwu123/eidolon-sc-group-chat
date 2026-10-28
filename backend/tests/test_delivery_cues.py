@@ -42,13 +42,14 @@ def test_a_well_formed_cue_is_voiced_but_not_shown_and_kept_as_written():
     assert parser.complete[0].ja == "[shyly] えへへ、[laughing nervously]ありがとう"
 
 
-def test_cues_written_any_other_way_are_neither_voiced_nor_shown():
+def test_round_brackets_are_hers_shown_and_voiced():
     reply = "<ja>(happy)えへへ（小声で）ねえ【嬉しそうに】うん[嬉しそうに]よし（笑）</ja><zh>嘿嘿</zh>"
 
     shown, voiced, parser = parse(reply)
 
-    assert joined(shown) == "えへへねえうんよし"
-    assert "".join(text for _, text in voiced) == "えへへねえうんよし"
+    # 圆括号里的动作和心里话：给人看，也念出来；写成语气提示样子的、方括号和方头括号，谁都不看。
+    assert joined(shown) == "えへへ（小声で）ねえうんよし（笑）"
+    assert "".join(text for _, text in voiced) == "えへへ（小声で）ねえうんよし（笑）"
     assert parser.complete[0].ja.startswith("(happy)")  # the record keeps what was written
 
 
@@ -117,10 +118,16 @@ def test_a_cue_with_no_words_after_it_is_not_voiced():
 
 
 def test_cues_in_the_subtitle_are_not_shown():
-    shown, voiced, _ = parse("<ja>うん</ja><zh>[happily] 嗯（开心）</zh>")
+    shown, voiced, _ = parse("<ja>うん</ja><zh>[happily] 嗯</zh>")
 
     assert joined(shown, "zh") == "嗯"
     assert voiced == [(0, "うん")]
+
+
+def test_round_brackets_in_the_subtitle_are_shown_they_are_hers():
+    shown, _, _ = parse("<ja>うん</ja><zh>（开心）嗯</zh>")
+
+    assert joined(shown, "zh") == "（开心）嗯"
 
 
 REPLY = ["<ja>[shyly] えへへ、(happy)ありがとう</ja><zh>[happily] 嘿嘿，谢谢</zh>"]

@@ -24,6 +24,7 @@ from eidolon.config import (
 from eidolon.live_config import (
     AFFINITY,
     CHAT_LLM,
+    EXPLICIT_CONTENT,
     IMAGE,
     JUDGE,
     JUDGE_THRESHOLDS,
@@ -172,6 +173,14 @@ class ReachOutsInput(BaseModel):
     per_day: Any
 
 
+class ExplicitContentInput(BaseModel):
+    """Whether adult content is allowed at all, true or false; checked by the live
+    configuration. It is a deployer-level switch, and it never lets a character under 18
+    through, which the code's age gate decides."""
+
+    enabled: Any
+
+
 class ProxyInput(BaseModel):
     """The proxy as the admin saves it: the switch, the address (a password typed into it
     is kept apart, as a key is; empty for none), and a switch for each of the deployer's
@@ -222,6 +231,7 @@ INPUTS: dict[str, type[BaseModel]] = {
     LIMITS: LimitsInput,
     AFFINITY: AffinityInput,
     REACH_OUTS: ReachOutsInput,
+    EXPLICIT_CONTENT: ExplicitContentInput,
     PROXY: ProxyInput,
     SERVICE_STATUS: ServiceStatusInput,
 }

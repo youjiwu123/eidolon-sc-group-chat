@@ -1,6 +1,7 @@
 """The producer profile and what it tells the character about the user, and the prompt
-section about now: the time where the user is, and whether they are typing, in a call, or
-not talking to her at all, as when she reaches out (GLOSSARY.md「搭话」).
+section about now: the time where the user is, where she is as the conversation page shows
+it, and whether they are typing, in a call, or not talking to her at all, as when she
+reaches out (GLOSSARY.md「搭话」).
 
 A profile field left unset keeps its default: the character sheet decides how
 the character addresses the producer, the producer is the man of the original
@@ -29,6 +30,15 @@ MAX_FORM_OF_ADDRESS_LENGTH = 20
 
 _GENDER_NAMES: dict[Gender, str] = {"male": "男性", "female": "女性"}
 _WEEKDAYS = "一二三四五六日"
+
+
+@dataclass(frozen=True)
+class Place:
+    """Where she is at this moment, as the conversation page's 「现在：…」 shows it: the
+    scene's name, and what she is doing there, if the schedule says."""
+
+    name: str
+    activity: str = ""
 
 
 @dataclass(frozen=True)
@@ -64,6 +74,10 @@ class ProducerProfile:
     gender: Gender | None = None
     timezone: str | None = None
     birthday: Birthday | None = None
+    special_mode: str = ""
+    """Kept from when one mode held for every character: no prompt reads it now (each
+    character's modes are the user's own, `character_modes.CharacterModes`), and it is left
+    in the profile's shape so that saved profiles and the browser's still load."""
 
 
 @cache
@@ -147,11 +161,13 @@ def now_prompt(
     talking: Talking,
     affinity_lines: Sequence[str] = (),
     last_contact: datetime | None = None,
+    place: Place | None = None,
 ) -> str:
     """The prompt section about now: the time where the user is, how they are `talking` with
-    the character, when they were `last_contact` in touch, if ever, and how long ago, and
-    whether it is their birthday; then `affinity_lines`, how the character feels toward them
-    now (`affinity.affinity_prompt`)."""
+    the character, where she is (`place`, if the page shows it), when they were
+    `last_contact` in touch, if ever, and how long ago, and whether it is their birthday;
+    then `affinity_lines`, how the character feels toward them now
+    (`affinity.affinity_prompt`)."""
     zone = ZoneInfo(timezone)
     local = now.astimezone(zone)
     lines = [
@@ -160,6 +176,12 @@ def now_prompt(
         f"（星期{_WEEKDAYS[local.weekday()]}）{local:%H:%M}（制作人所在时区 {timezone}）。",
         _TALKING[talking],
     ]
+    if place is not None and place.name:
+        doing = f"：{place.activity.strip()}" if place.activity.strip() else ""
+        lines.append(
+            f"你此刻在「{place.name}」{doing}。"
+            "如果这段对话里你们已经说好去了别处，以对话为准。"
+        )
     if last_contact is not None:
         then = last_contact.astimezone(zone)
         year = f"{then.year}年" if then.year != local.year else ""

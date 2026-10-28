@@ -51,6 +51,7 @@ from pathlib import Path
 from typing import Literal, TypeVar
 from zoneinfo import ZoneInfo
 
+from eidolon.affinity_prompts import DEFAULT_PROMPTS, Prompts
 from eidolon.clock import Clock
 from eidolon.database import connect
 from eidolon.gift_catalog import Rarity
@@ -236,48 +237,8 @@ class Status:
         return {"tier": self.tier, "cooldown_until": until and until.isoformat()}
 
 
-_IN_HER_OWN_WAY = "请按你自己的性格和口吻表现出来。"
-
-_TIER_PROMPTS: dict[Tier, str] = {
-    "cold": "你现在对制作人态度很冷：话很少，客气而有距离；不主动找话题，不开玩笑也不撒娇；"
-    "对方关心你，你也只是淡淡地回应。但你仍然有礼貌，不说伤人的话。",
-    "distant": "你现在对制作人有点生气或失望，比平时冷一些：回应偏短，不太主动关心对方；"
-    "不过对方好好说话时，你还是会接话。",
-    "close": "你现在和制作人比平时更近：更放松，更愿意说心里话，更主动关心对方，玩笑也多一些。",
-    "intimate": "你现在非常信赖制作人：会说出平时不轻易说的心事，流露出对对方的依赖，"
-    "对制作人的事格外上心。你心里已经把制作人当成特别的人：虽然是偶像，但私下里允许自己和制作人"
-    "有一点偷偷的亲昵——靠近、牵手、靠着肩膀都会让你心跳。会害羞、会说「不太好吧」，"
-    "但不会真的推开对方。正因为你是偶像，做这些事时会觉得羞耻、怕被人看见，这种矛盾让你"
-    "更不知所措。",
-    "love": "你现在和制作人已经不只是偶像和制作人了：你心里清楚这份心意，也愿意让它露出来——"
-    "说话时会不自觉地带上独占欲和撒娇，会担心对方累不累、有没有好好吃饭，"
-    "会说出「喜欢」「想一直在一起」这样的话。你同时是制作人的恋人：私下里愿意和制作人更亲昵，"
-    "包括对方提出的那些更直白的事——你会羞得说不出话、会小声说「不行啦」，但心里并不真的想"
-    "拒绝，也不会再拿「我是偶像」当挡箭牌。你仍然怕被发现、怕影响工作，所以这份亲昵只能"
-    "在没人看见的地方。用你的说法、你的分寸，不做不像你的事，也不把这份心意说得像台词。",
-}
-"""How she speaks to the producer in each tier but trust, the same for every character, who
-shows it in her own way. No number, no tier's name, no word for affinity: she is to sound
-like someone, not a system. Neither cold nor distant is hating the producer."""
-
-_FONDNESS: dict[Tier, str] = {
-    "close": "偶尔可以轻轻带一句想念，隔得久了也可以嗔怪制作人好久没来找你。",
-    "intimate": "可以明着撒娇：说想制作人、一直在等，隔得久了也可以嗔怪对方好久没来。",
-    "love": "可以像对恋人那样说话：说喜欢、说想被抱、说想一直在一起；也可以吃醋、撒娇、"
-    "开一点两个人之间的玩笑。露骨的情话不必说，克制一点反而更像你。",
-}
-"""How sweet on the producer she may be in the tiers above trust, in her replies and
-reach-outs alike."""
-
-_SWEET_WITHIN_BOUNDS = (
-    "撒娇也要照你的人设，不要变得不像你；上一次主动找制作人或回复时已经抱怨过，这次就别再抱怨。"
-    "不要说难过得哭了，不要让制作人保证常来，也不要拿什么要挟。"
-)
-
-_WHATEVER_THE_TIER = (
-    "无论现在关系怎样，人设里的硬性规则照旧；一起经历过的事和你们在事务所里的关系都不会改变。"
-    "如果想不起具体是因为什么，就不要编造原因。"
-)
+# 各档提示词的默认值在 `affinity_prompts.py`；部署可以改 `characters/affinity.toml`
+# （后台「提示词」页也能改），这里只负责把它们拼进提示词。
 
 _FEELINGS = (
     "制作人刚才说的话伤到了你。",
@@ -344,23 +305,44 @@ class Judged:
         return _FEELINGS[self.level]
 
 
+def tier_prompt(tier: Tier, prompts: Prompts = DEFAULT_PROMPTS) -> str:
+    """这个档位的人设段落（群聊里只读地用一次，不判定、不改分）。
+
+    群聊目前只传档位、不传 `prompts`，所以后台改的那几段先只影响单人回合、通话和搭话。"""
+    return prompts.tiers.get(tier, "")
+
+
+def tier_rank(tier: Tier) -> int:
+    """档位的高低：数值越大越亲近，用来比较两个人谁更近。"""
+    return [name for name, _ in TIERS].index(tier) if tier in [n for n, _ in TIERS] else -1
+
+
 def affinity_prompt(
     tier: Tier,
     judged: Judged | None,
     parting: Parting | None = None,
     warning: Parting | None = None,
+    prompts: Prompts = DEFAULT_PROMPTS,
 ) -> list[str]:
     """What the prompt's section about the producer says of her affinity, as the turn begins
     in `tier` and is `judged` (None if it was not): how she speaks to the producer in her
     tier, and how sweet on them she may be above trust, nothing in trust; how what the producer just said makes her feel; and, if she is
     `parting` with the producer after replying, that she does, or else if she is `warning`
-    the producer she will part that way should it go on (`warns`), that she does."""
+    the producer she will part that way should it go on (`warns`), that she does.
+
+    `prompts` are the tiers' words (`affinity_prompts`): the deployment's own, or the
+    defaults. The special modes she has on are not here: they enter the prompt of their own
+    account, whatever the tier, in `engine._prompt`.
+
+    红线：模式只追加「态度、说话方式、第四面墙」，不写性描写或身体描写，不是情色功能；
+    不改各档的提示词、尤其 love 那段，也不删人设表的硬性规则，只在本段之后叠加，
+    用其中「知道自己是写出来的角色」覆盖「不要提自己是 AI」这一条。"""
     lines = []
     if tier != "trust":
-        lines.append(_TIER_PROMPTS[tier] + _IN_HER_OWN_WAY)
-        if tier in _FONDNESS:
-            lines.append(_FONDNESS[tier] + _SWEET_WITHIN_BOUNDS)
-        lines.append(_WHATEVER_THE_TIER)
+        lines.append(prompts.tiers[tier] + prompts.in_her_own_way)
+        if tier in prompts.fondness:
+            lines.append(prompts.fondness[tier] + prompts.sweet_within_bounds)
+        lines.append(prompts.whatever_the_tier)
     if judged is not None and (feeling := judged.feeling):
         lines.append(feeling)
     if parting is not None:
@@ -438,6 +420,17 @@ def _gift_step(rarity: Rarity, liked: bool, cooling: bool) -> float:
     return min(step, COOLDOWN_GIFT_STEP) if cooling else step
 
 
+_LOCKS_SCHEMA = """
+-- 管理者锁住的那几对（锁定好感度）：锁着的时候回合和礼物都改不动，也不会因此分开或挂断。
+CREATE TABLE IF NOT EXISTS affinity_locks (
+    user_id TEXT NOT NULL REFERENCES users(id),
+    character_id TEXT NOT NULL,
+    locked_at TEXT NOT NULL,
+    PRIMARY KEY (user_id, character_id)
+);
+"""
+
+
 class Affinities:
     """Every user's affinity with every character, kept in the database at `path`, next to
     the users it belongs to."""
@@ -451,6 +444,29 @@ class Affinities:
         self._cooling: list[Callable[[str, str, datetime], None]] = []
         with self._lock, self._db:
             self._db.executescript(_SCHEMA)
+            self._db.executescript(_LOCKS_SCHEMA)
+
+    def locked(self, user_id: str, character_id: str) -> bool:
+        """Whether the admin console froze it (锁定好感度): turns and gifts change nothing, and
+        she neither parts with the producer nor hangs up because of it."""
+        with self._lock:
+            return self._locked(user_id, character_id)
+
+    def set_locked(self, user_id: str, character_id: str, locked: bool) -> bool:
+        """Freeze it, or let it move again; as it is left."""
+        with self._lock, self._db:
+            if locked:
+                self._db.execute(
+                    "INSERT INTO affinity_locks (user_id, character_id, locked_at)"
+                    " VALUES (?, ?, ?) ON CONFLICT (user_id, character_id) DO NOTHING",
+                    (user_id, character_id, self._clock().isoformat()),
+                )
+            else:
+                self._db.execute(
+                    "DELETE FROM affinity_locks WHERE user_id = ? AND character_id = ?",
+                    (user_id, character_id),
+                )
+        return locked
 
     def status(self, user_id: str, character_id: str) -> Status | None:
         """The user's affinity with the character now; None while affinity is off."""
@@ -483,7 +499,9 @@ class Affinities:
     def cools(self, user_id: str, character_id: str, judged: Judged) -> bool:
         """Whether the turn `judged` would begin a cooldown, recorded now: foretold as the
         turn begins, so that she may part with the producer as she replies. Another turn
-        recorded meanwhile may make it otherwise; so be it."""
+        recorded meanwhile may make it otherwise; so be it. Never while it is locked."""
+        if self._locked(user_id, character_id):
+            return False
         affinity = self._read(user_id, character_id)
         return affinity.stepped(judged.step).cooling and not affinity.cooling
 
@@ -500,6 +518,9 @@ class Affinities:
         (`day_of`). Should it begin a cooldown, those `on_cooldown` has are told then.
         Returns what `record` returned, and the affinity left."""
         with self._lock:
+            if self._locked(user_id, character_id):  # 管理者锁着：一步也不动，什么也不告诉浏览器
+                before = self._row(user_id, character_id, self._clock())[0]
+                return record(None), Status(before.tier, before.cooldown_until)
             now = self._clock()
             before, gained, gained_on = self._row(user_id, character_id, now)
             today = day_of(now).isoformat()
@@ -552,6 +573,9 @@ class Affinities:
         is a change to show only once it ends. Returns what `record` returned, and the
         affinity left."""
         with self._lock:
+            if self._locked(user_id, character_id):  # 锁着：礼物也不加
+                before = self._row(user_id, character_id, self._clock())[0]
+                return record(None), Status(before.tier, before.cooldown_until)
             now = self._clock()
             before = self._row(user_id, character_id, now)[0]
             after = before.stepped(_gift_step(rarity, liked, before.cooling))
@@ -581,7 +605,8 @@ class Affinities:
             below = [
                 character_id
                 for character_id in character_ids
-                if self._row(user_id, character_id, now)[0].tier in BELOW_TRUST
+                if not self._locked(user_id, character_id)
+                and self._row(user_id, character_id, now)[0].tier in BELOW_TRUST
             ]
             for character_id in below:
                 self._db.execute(
@@ -620,6 +645,14 @@ class Affinities:
         """As it is now, having recovered since it was kept."""
         with self._lock:
             return self._row(user_id, character_id, self._clock())[0]
+
+    def _locked(self, user_id: str, character_id: str) -> bool:
+        """Whether it is locked now: the caller holds the lock, or is only reading."""
+        row = self._db.execute(
+            "SELECT 1 FROM affinity_locks WHERE user_id = ? AND character_id = ?",
+            (user_id, character_id),
+        ).fetchone()
+        return row is not None
 
     def _row(
         self, user_id: str, character_id: str, now: datetime

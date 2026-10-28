@@ -35,7 +35,7 @@ from tests.fakes import (
 from tests.test_activity_records import dashboard
 from tests.test_admin_users import ADMIN, admin_beside
 from tests.test_affinity import keep
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import close_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 OUT_OF_LINE = level(1, out_of_line=True)
@@ -62,7 +62,7 @@ def settings(settings: Settings) -> Settings:
 async def talk(client: httpx.AsyncClient, conversation: str, times: int) -> None:
     for _ in range(times):
         events = await send_turn(client, conversation, "今天怎么样")
-        assert events[-1]["type"] in ("done", "error")
+        close_of(events)  # her reply, or why there is none
 
 
 async def test_the_section_sums_up_the_judged_turns_and_ranks_the_characters_by_how_many(

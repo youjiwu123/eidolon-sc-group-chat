@@ -20,6 +20,9 @@ import sqlite3
 from pathlib import Path
 
 USER_DATA = [
+    ("group_message_speech",
+     "message_id IN (SELECT id FROM group_messages WHERE group_id IN"
+     " (SELECT id FROM group_conversations WHERE user_id = ?))"),
     ("group_messages", "group_id IN (SELECT id FROM group_conversations WHERE user_id = ?)"),
     ("group_conversations", "user_id = ?"),
     ("memory_vectors", "user_id = ?"),
@@ -30,6 +33,8 @@ USER_DATA = [
     ("messages", "conversation_id IN (SELECT id FROM conversations WHERE user_id = ?)"),
     ("conversation_events",
      "conversation_id IN (SELECT id FROM conversations WHERE user_id = ?)"),
+    ("conversation_scenes",
+     "conversation_id IN (SELECT id FROM conversations WHERE user_id = ?)"),
     ("reach_outs", "conversation_id IN (SELECT id FROM conversations WHERE user_id = ?)"),
     ("reach_out_schedules",
      "conversation_id IN (SELECT id FROM conversations WHERE user_id = ?)"),
@@ -37,6 +42,8 @@ USER_DATA = [
     ("conversations", "user_id = ?"),
     ("producer_profiles", "user_id = ?"),
     ("affinities", "user_id = ?"),
+    ("affinity_locks", "user_id = ?"),
+    ("character_modes", "user_id = ?"),
     ("gift_balances", "user_id = ?"),
     ("gift_backpacks", "user_id = ?"),
     ("gift_rewards", "user_id = ?"),
@@ -60,6 +67,7 @@ CONVERSATION_DATA = [
     ("message_speech", "conversation_id = ?"),
     ("messages", "conversation_id = ?"),
     ("conversation_events", "conversation_id = ?"),
+    ("conversation_scenes", "conversation_id = ?"),
     ("reach_outs", "conversation_id = ?"),
     ("reach_out_schedules", "conversation_id = ?"),
     ("calls", "conversation_id = ?"),

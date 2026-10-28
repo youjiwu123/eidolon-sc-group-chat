@@ -18,7 +18,7 @@ from tests.fakes import (
     FakeReranker,
     context_of,
 )
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はいっ</ja><zh>好的</zh>"]
 CAT = "制作人家里养了一只叫小白的猫"
@@ -35,7 +35,7 @@ def memories_section(system: str) -> str:
 
 async def turn(client: httpx.AsyncClient, conversation_id: str, text: str) -> None:
     events = await send_turn(client, conversation_id, text)
-    assert events[-1]["type"] == "done", events[-1]
+    assert done_of(events)["type"] == "done", events[-1]
 
 
 async def test_what_the_user_told_mano_reaches_kogane_as_hearsay(make_client: ClientFactory):

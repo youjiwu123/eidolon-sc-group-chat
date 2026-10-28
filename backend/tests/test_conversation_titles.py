@@ -51,7 +51,7 @@ from tests.test_she_ends_conversation import client_judging, ended_by
 from tests.test_she_hangs_up import OUT_OF_LINE
 from tests.test_she_hangs_up import say as say_in_call
 from tests.test_shared_memory import CAT, memorized
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 TITLE = "商量周末去看海"
@@ -95,7 +95,7 @@ def give_pudding(database: Path, conversation: str) -> None:
 async def say(client: httpx.AsyncClient, conversation: str, n: int) -> None:
     """`n` typed turns, each done."""
     for i in range(n):
-        assert (await send_turn(client, conversation, f"第{i}句"))[-1]["type"] == "done"
+        assert done_of(await send_turn(client, conversation, f"第{i}句"))["type"] == "done"
 
 
 async def test_the_third_turn_names_the_conversation_once(make_client: ClientFactory):
@@ -268,7 +268,7 @@ async def test_a_turn_on_an_own_background_model_is_named_by_it(
     own_keys = {"llm": THINKING, "memory_llm": MEMORY_LLM}
 
     for text in ["第一句", "第二句", "第三句"]:
-        assert (await send_turn(client, conversation, text, own_keys=own_keys))[-1]["type"] == "done"
+        assert done_of(await send_turn(client, conversation, text, own_keys=own_keys))["type"] == "done"
 
     assert await listed_titles(client) == [TITLE]
     assert own_llm.llm.keys == [MINE, MINE, MINE, MEMORY_KEY]

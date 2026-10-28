@@ -60,6 +60,27 @@ async def test_admins_enter_by_any_identity_listed_and_no_one_else_does(
     assert not await enters(nobody)
 
 
+async def test_a_developer_login_the_list_names_is_an_admin(
+    make_client: ClientFactory, settings: Settings
+):
+    """没有配 OAuth 的本地部署也要有管理员：开发者登录会给账号记一条 `github:<名字>` 的
+    身份，`EIDOLON_ADMINS` 里写同一个名字就算（只开了 `EIDOLON_DEV_LOGIN` 时才有这条登录）。"""
+    settings = replace(settings, admins=frozenset({("github", "producer")}))
+
+    listed = make_client(FakeLLM(), user=None, settings=settings)
+    assert (await listed.post("/api/auth/dev-login", json={"name": "producer"})).status_code == 204
+    await agree_to_terms(listed)
+
+    assert await enters(listed) and await is_admin(listed)
+    methods = (await listed.get("/api/account")).json()["sign_in_methods"]
+    assert [m["provider"] for m in methods] == ["github"]
+    # 名单里没有的名字登录进来，照旧什么后台也看不到。
+    other = make_client(FakeLLM(), user=None, settings=settings)
+    assert (await other.post("/api/auth/dev-login", json={"name": "someone"})).status_code == 204
+    await agree_to_terms(other)
+    assert not await enters(other) and not await is_admin(other)
+
+
 async def test_an_admin_who_has_not_agreed_to_the_terms_finds_no_admin_console(
     make_client: ClientFactory, settings: Settings, github: FakeIdentityProvider
 ):

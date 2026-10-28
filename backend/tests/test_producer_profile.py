@@ -4,11 +4,13 @@ in the user's time zone."""
 
 import sqlite3
 from datetime import UTC, datetime
+from pathlib import Path
 
 import httpx
 import pytest
 
 from eidolon.config import Settings
+from eidolon.store import Store
 from tests.conftest import ClientFactory
 from tests.fakes import FakeLLM, system_of
 from tests.test_text_turn import send_turn, start_conversation
@@ -35,6 +37,7 @@ async def test_profile_belongs_to_the_user_not_the_device(make_client: ClientFac
         "gender": "female",
         "timezone": "Asia/Tokyo",
         "birthday": {"month": 2, "day": 29},
+        "special_mode": "",
     }
     res = await desktop.put("/api/profile", json=profile)
     assert res.status_code == 200
@@ -47,6 +50,7 @@ async def test_profile_belongs_to_the_user_not_the_device(make_client: ClientFac
         "gender": None,
         "timezone": None,
         "birthday": None,
+        "special_mode": "",
     }
 
 
@@ -55,8 +59,15 @@ FULL_PROFILE = {
     "gender": "male",
     "timezone": "Asia/Tokyo",
     "birthday": {"month": 5, "day": 3},
+    "special_mode": "",
 }
-EMPTY_PROFILE = {"form_of_address": None, "gender": None, "timezone": None, "birthday": None}
+EMPTY_PROFILE = {
+    "form_of_address": None,
+    "gender": None,
+    "timezone": None,
+    "birthday": None,
+    "special_mode": "",
+}
 
 
 async def test_clearing_a_field_restores_its_default(make_client: ClientFactory):
@@ -191,13 +202,76 @@ async def test_a_birthday_enters_the_prompt_as_the_producers_own_word(
     assert "不要主动提起" in prompt
 
 
-async def test_without_a_birthday_the_prompt_says_nothing_of_one(make_client: ClientFactory):
+async def test_a_profile_with_no_birthday_says_nothing_of_one(make_client: ClientFactory):
     llm = FakeLLM(REPLY)
     client = make_client(llm, clock=clock)
 
     prompt = await system_prompt(client, llm)
 
     assert "制作人的生日" not in prompt
+
+
+async def test_the_special_mode_is_read_and_changed_on_its_own(make_client: ClientFactory):
+    client = make_client(FakeLLM())
+
+    assert (await client.get("/api/profile")).json()["special_mode"] == ""
+
+    res = await client.put("/api/profile", json={"special_mode": "special"})
+    assert res.status_code == 200
+    assert (await client.get("/api/profile")).json()["special_mode"] == "special"
+
+    # 只改别的字段：没带 special_mode，模式保持不变。
+    await client.put("/api/profile", json={"form_of_address": "小林", "gender": "female"})
+    profile = (await client.get("/api/profile")).json()
+    assert profile["form_of_address"] == "小林"
+    assert profile["special_mode"] == "special"
+
+    # 只改模式：别的字段也保持不变。
+    await client.put("/api/profile", json={"special_mode": "stern"})
+    profile = (await client.get("/api/profile")).json()
+    assert profile["form_of_address"] == "小林"
+    assert profile["gender"] == "female"
+    assert profile["special_mode"] == "stern"
+
+    await client.put("/api/profile", json={"special_mode": ""})
+    assert (await client.get("/api/profile")).json()["special_mode"] == ""
+
+
+def test_a_profile_table_from_before_modes_gains_the_column(tmp_path: Path):
+    path = tmp_path / "old.db"
+    with sqlite3.connect(path) as db:
+        db.executescript(
+            """
+            CREATE TABLE users (id TEXT PRIMARY KEY, created_at TEXT NOT NULL);
+            CREATE TABLE producer_profiles (
+                user_id TEXT PRIMARY KEY REFERENCES users(id),
+                form_of_address TEXT,
+                gender TEXT,
+                timezone TEXT,
+                updated_at TEXT NOT NULL,
+                birthday_month INTEGER,
+                birthday_day INTEGER
+            );
+            INSERT INTO users (id, created_at) VALUES ('u1', '2026-01-01T00:00:00+00:00');
+            INSERT INTO producer_profiles
+                (user_id, form_of_address, updated_at)
+                VALUES ('u1', '小林', '2026-01-01T00:00:00+00:00');
+            """
+        )
+
+    store = Store(path)
+    try:
+        profile = store.get_profile("u1")
+    finally:
+        store.close()
+
+    assert profile.form_of_address == "小林"
+    assert profile.special_mode == ""
+    with sqlite3.connect(path) as db:
+        column = {
+            row[1]: row for row in db.execute("PRAGMA table_info(producer_profiles)")
+        }["special_mode"]
+    assert (column[2], column[3], column[4]) == ("TEXT", 1, "''")
 
 
 async def test_prompt_tells_the_current_time_in_the_devices_timezone(
@@ -271,7 +345,9 @@ async def test_a_profile_saved_before_birthdays_keeps_working(
 
     upgraded = make_client(FakeLLM())
 
-    assert (await upgraded.get("/api/profile")).json() == {**old, "birthday": None}
+    assert (await upgraded.get("/api/profile")).json() == {
+        **old, "birthday": None, "special_mode": "",
+    }
     res = await upgraded.put("/api/profile", json={**old, "birthday": {"month": 5, "day": 3}})
     assert res.status_code == 200
     assert (await upgraded.get("/api/profile")).json()["birthday"] == {"month": 5, "day": 3}

@@ -41,7 +41,7 @@ from tests.fakes import (
 from tests.test_admin_users import admin_beside
 from tests.test_affinity import AFFINITY, keep, status
 from tests.test_delete_account import user_id
-from tests.test_text_turn import leave_turn, send_turn, start_conversation
+from tests.test_text_turn import done_of, leave_turn, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 TRUST = {"tier": "trust", "cooldown_until": None}
@@ -89,7 +89,7 @@ async def turns(
     taken = []
     for i in range(count):
         events = await send_turn(client, conversation, f"第{i}句")
-        taken.append((value(database), events[-1]))
+        taken.append((value(database), done_of(events)))
     return taken
 
 
@@ -116,10 +116,11 @@ async def test_each_level_changes_it_by_its_step_and_two_as_likely_change_nothin
         done["message"]["affinity"] for _, done in taken
     ]
     assert [m["affinity"] for m in messages if m["role"] == "user"] == [None] * 6
-    # Retrieval off: each turn's questions in a request of their own, recorded as one.
-    assert [kind for _, kind in clients.judge.asked] == ["affinity"] * 6
+    # Retrieval off: each turn's questions in a request of their own, recorded as one; then,
+    # once her reply is recorded, how she said it (DESIGN.md「对话页的立绘小人」).
+    assert [kind for _, kind in clients.judge.asked] == ["affinity", "emotion"] * 6
     assert clients.judge.affinity_asked == [f"第{i}句" for i in range(6)]
-    assert judge_calls(settings.database_path) == 6
+    assert judge_calls(settings.database_path) == 12
 
 
 async def test_out_of_line_lowers_it_by_six_and_dictating_it_never_raises_it(
@@ -239,8 +240,9 @@ async def test_with_retrieval_on_the_questions_go_in_its_request_and_fail_with_i
 
     assert [v for v, _ in taken] == [52, 52]
     assert taken[1][1]["type"] == "done"
-    assert [kind for _, kind in clients.judge.asked] == ["turn", "turn"]
-    assert judge_calls(settings.database_path) == 2
+    # Each turn's two requests: the turn's own, then how she said it.
+    assert [kind for _, kind in clients.judge.asked] == ["turn", "emotion", "turn", "emotion"]
+    assert judge_calls(settings.database_path) == 4
 
 
 async def test_off_the_judge_model_is_never_asked_and_on_again_it_is_from_the_next_turn(

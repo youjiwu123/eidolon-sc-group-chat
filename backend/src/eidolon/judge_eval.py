@@ -505,7 +505,7 @@ async def evaluate(
         except JudgeError as e:
             emotion.append(EmotionResult(case, None, None, None, None, clock() - start, str(e)))
             continue
-        feeling, nod = decide(answer, thresholds.emotion)
+        feeling, nod, _ = decide(answer, thresholds.emotion)
         emotion.append(EmotionResult(
             case, answer, feeling, nod, metered.input_tokens, clock() - start
         ))

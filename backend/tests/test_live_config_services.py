@@ -536,7 +536,7 @@ async def test_a_saved_judge_model_judges_the_next_turn_while_a_call_keeps_its_o
     await speech.stts[-1].hear("早上好")
     await browser.turn()
     emotion = await browser.next_server_message("emotion")
-    await send_turn(client, conversation_id, "你好")
+    typed = await send_turn(client, conversation_id, "你好")
     asked = list(clients.judge.asked)
     closed_during_call = list(clients.judges_closed)
     await browser.close()
@@ -544,7 +544,9 @@ async def test_a_saved_judge_model_judges_the_next_turn_while_a_call_keeps_its_o
     await until(lambda: clients.judges_closed)
 
     assert asked == [
-        (CF_TOKEN, "check"), (CF_TOKEN, "turn"), (JEV_KEY, "emotion"), (CF_TOKEN, "turn")
+        (CF_TOKEN, "check"),
+        (CF_TOKEN, "turn"), (JEV_KEY, "emotion"),  # 这通电话：问题按现在生效的判，语气按接通时的判
+        (CF_TOKEN, "turn"), (CF_TOKEN, "emotion"),  # 这句打字：问题，和回复记下之后判的语气
     ]
     assert clients.judges_opened == [
         JevSettings(JEV_KEY), CloudflareJudgeSettings(CF_TOKEN, "account-1", "clef-flash")
@@ -554,11 +556,14 @@ async def test_a_saved_judge_model_judges_the_next_turn_while_a_call_keeps_its_o
     # The call judges her emotion on the model it connected with, by its threshold; each
     # turn's question goes to the model in effect, by its own, recorded as the one it is.
     assert emotion["emotion"] == "calm"
+    # 打字这一句的语气按存下的那个模型判：0.45 到得了它的 0.4，比接通时那个的 0.5 低。
+    assert typed[-1] == {"type": "emotion", "emotion": "happy", "nod": None, "strength": 0.45}
     assert [[t.name for t in tools] for tools in clients.llm.tools] == [
         ["recall_story"], ["recall_story"]
     ]
-    await until(lambda: len(recorded(client, "judge")) == 3)  # as the call is written
+    await until(lambda: len(recorded(client, "judge")) == 4)  # as the call is written
     assert recorded(client, "judge") == [
+        ("api.cloudflare.com", "clef-flash", False),
         ("api.cloudflare.com", "clef-flash", False),
         ("api.cloudflare.com", "clef-flash", False),
         ("openrouter.ai", "typesafe/jev-1.13", False),
@@ -613,10 +618,10 @@ async def test_bailian_saved_judges_the_next_turn_at_its_workspace_in_beijing_un
         BailianJudgeSettings(BL_KEY, "llm-ws1", "singapore"),
     ]
     assert (BL_KEY, "turn") in clients.judge.asked
-    await until(lambda: recorded(client, "judge"))
+    await until(lambda: len(recorded(client, "judge")) == 2)
     assert recorded(client, "judge") == [
         ("cn-beijing.maas.aliyuncs.com", "decision-model-preview", False)
-    ]
+    ] * 2  # 这一回合的问题，和回复记下之后判的语气
     shown = saved.json()["judge"]
     assert shown["effective"] == {k: v for k, v in BAILIAN.items() if k != "api_key"} | {
         "api_key_last4": "3333", "account_id": None, "region": "beijing"

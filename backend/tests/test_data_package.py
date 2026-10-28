@@ -38,7 +38,13 @@ PROFILE = {
     "timezone": "Asia/Tokyo",
     "birthday": {"month": 2, "day": 29},
 }
-EMPTY_PROFILE = {"form_of_address": None, "gender": None, "timezone": None, "birthday": None}
+EMPTY_PROFILE = {
+    "form_of_address": None,
+    "gender": None,
+    "timezone": None,
+    "birthday": None,
+    "special_mode": "",
+}
 NOTHING_ELSE = {"conversations": 0, "photos": 0, "memories": 0, "skipped": []}
 
 
@@ -127,10 +133,10 @@ async def test_the_producer_profile_moves_to_another_deployment(
 
     assert res.status_code == 200, res.text
     assert res.json() == {**NOTHING_ELSE, "profile": True}
-    assert (await there.get("/api/profile")).json() == PROFILE
+    assert (await there.get("/api/profile")).json() == {**PROFILE, "special_mode": ""}
     again = await import_package(there, package, "profile")
     assert again.json() == {**NOTHING_ELSE, "profile": False}  # the same as it was: nothing new
-    assert (await there.get("/api/profile")).json() == PROFILE
+    assert (await there.get("/api/profile")).json() == {**PROFILE, "special_mode": ""}
 
 
 async def test_a_profile_left_unset_in_the_package_clears_the_one_here(

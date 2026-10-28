@@ -66,14 +66,16 @@ SHOWN_MEMORIES = 20
 numbered, so it neither writes them down again nor misses what the turn supersedes."""
 EXCHANGE_HISTORY = 4
 """How many of the messages before the user's latest the background model reads with it."""
-MAX_NEW_MEMORIES = 5
-"""The most memories one turn writes down."""
-MAX_MEMORY_LENGTH = 200
-"""How much of a memory, in characters, is kept; longer ones are cut short."""
+MAX_NEW_MEMORIES = 8
+"""The most memories one turn writes down (raised from 5: more of what he says is kept)."""
+MAX_MEMORY_LENGTH = 320
+"""How much of a memory, in characters, is kept; longer ones are cut short (raised from 200:
+an episode is written with what happened and how she took it)."""
 CANDIDATES = 12
 """How many of the user's memories nearest the turn the reranker is offered."""
-MAX_FOUND = 3
-"""The most memories one turn's prompt carries, after reranking."""
+MAX_FOUND = 5
+"""The most memories one turn's prompt carries, after reranking (raised from 3: more of what
+she remembers comes back to her)."""
 LATELY = timedelta(days=14)
 """How long ago what she reaches out with as his news may have been written down."""
 MAX_LATEST = 5
@@ -533,7 +535,15 @@ class Memories:
                 return
             if self._clearings.get(user_id, 0) != clearings:
                 return  # cleared since the turn began
-            added = await asyncio.to_thread(self._add, conversation, written, shown, now)
+            added = await asyncio.to_thread(
+                self._add,
+                conversation.user_id,
+                conversation.character_id,
+                conversation.id,
+                written,
+                shown,
+                now,
+            )
         except Exception:
             log.warning("writing memories failed in conversation %s", conversation.id,
                         exc_info=True)
@@ -543,6 +553,64 @@ class Memories:
                 await self._vectors(services.embedder, user_id, added, forget=False)
         except EmbeddingError:
             log.warning("embedding new memories failed; they are embedded when searched",
+                        exc_info=True)
+
+    def write_group(
+        self,
+        user_id: str,
+        speaker: Character,
+        timezone: str,
+        transcript: Sequence[tuple[str, str]],
+        text: str,
+        llm: ChatLLM,
+    ) -> None:
+        """Start writing down what the user revealed in a group chat: `text`, what he just
+        said there, after `transcript` (who said what, before it); `speaker` is the one whose
+        memory it is (the first of the group to answer him)."""
+        if (services := self._services) is None:
+            return
+        now = self._clock().astimezone(ZoneInfo(timezone))
+        task = asyncio.create_task(
+            self._write_group(services, llm, user_id, speaker, transcript, text, now),
+            context=detached(),  # after the turn, not part of it (see `activity`)
+        )
+        self._hold(user_id, task)
+
+    async def _write_group(
+        self,
+        services: _Services,
+        llm: ChatLLM,
+        user_id: str,
+        speaker: Character,
+        transcript: Sequence[tuple[str, str]],
+        text: str,
+        now: datetime,
+    ) -> None:
+        try:
+            shown = await self._shown(services.embedder, user_id, text, None)
+            prompt = _group_extraction_prompt(speaker, transcript, text, shown, now)
+            answer = "".join([
+                chunk async for chunk in llm.stream(prompt)
+                if isinstance(chunk, str)
+            ])
+            written = parse_memories(answer)
+            if written is None:
+                log.warning(  # its length only: the answer is about the user
+                    "background model wrote no memories JSON (%d characters) for a group of %s",
+                    len(answer), user_id,
+                )
+                return
+            added = await asyncio.to_thread(
+                self._add, user_id, speaker.id, None, written, shown, now
+            )
+        except Exception:
+            log.warning("writing group memories failed for %s", user_id, exc_info=True)
+            return
+        try:
+            if added:
+                await self._vectors(services.embedder, user_id, added, forget=False)
+        except EmbeddingError:
+            log.warning("embedding new group memories failed; they are embedded when searched",
                         exc_info=True)
 
     def kept(self, user_id: str) -> list[Memory]:
@@ -568,17 +636,21 @@ class Memories:
 
     def _add(
         self,
-        conversation: Conversation,
+        user_id: str,
+        character_id: str,
+        conversation_id: str | None,
         written: Sequence["NewMemory"],
         shown: Sequence[Memory],
         now: datetime,
     ) -> list[Memory]:
-        """Remember what the user told the conversation's character just `now`, each new
-        memory superseding those it names among the memories the background model was
-        `shown` that still hold; returns the memories that are new. One the user already
-        has is left out, or if superseded, holds again and supersedes what it names."""
+        """Remember what the user told the character just `now`, each new memory superseding
+        those it names among the memories the background model was `shown` that still hold;
+        returns the memories that are new. One the user already has is left out, or if
+        superseded, holds again and supersedes what it names.
+
+        `conversation_id` is the conversation it was told in, or None for one told in a group
+        (groups are not conversations of their own here)."""
         added = []
-        user_id = conversation.user_id
         created_at = now.astimezone(UTC).isoformat()
         with self._lock, self._db:
             for memory in written:
@@ -590,18 +662,23 @@ class Memories:
                 if kept is None:
                     # Its conversation may have been deleted since the turn (GLOSSARY.md
                     # 「历史对话」): the memory is kept all the same, saying where no longer.
-                    cursor = self._db.execute(
-                        "INSERT INTO memories"
-                        " (user_id, source_character_id, conversation_id, text, created_at)"
-                        " VALUES (?, ?, (SELECT id FROM conversations WHERE id = ?), ?, ?)",
-                        (user_id, conversation.character_id, conversation.id, memory.text,
-                         created_at),
-                    )
+                    if conversation_id is None:
+                        cursor = self._db.execute(
+                            "INSERT INTO memories"
+                            " (user_id, source_character_id, conversation_id, text, created_at)"
+                            " VALUES (?, ?, NULL, ?, ?)",
+                            (user_id, character_id, memory.text, created_at),
+                        )
+                    else:
+                        cursor = self._db.execute(
+                            "INSERT INTO memories"
+                            " (user_id, source_character_id, conversation_id, text, created_at)"
+                            " VALUES (?, ?, (SELECT id FROM conversations WHERE id = ?), ?, ?)",
+                            (user_id, character_id, conversation_id, memory.text, created_at),
+                        )
                     assert cursor.lastrowid is not None
                     id = cursor.lastrowid
-                    added.append(self._memory(
-                        id, user_id, conversation.character_id, memory.text, created_at
-                    ))
+                    added.append(self._memory(id, user_id, character_id, memory.text, created_at))
                 else:
                     id, superseded = kept
                     if not superseded:
@@ -737,12 +814,18 @@ _INSTRUCTIONS = """\
 
 只记过后仍有意义的事。
 要记的：制作人自己透露的个人情况、喜好、经历、计划、身边的人和宠物、希望偶像记住的事；\
-会持续几天、朋友过后会问起的近况，例如生病、考试、面试、搬家、出差。
-不要记的：当天就会过去的状态（例如累、困、饿、无聊、心情不好）和一时的情绪，\
-同一句话里还说了值得记的事时只记那件事、不记这种状态；寒暄；偶像说的话；原作剧情和偶像的设定；制作人向偶像提的问题。
+会持续几天、朋友过后会问起的近况，例如生病、考试、面试、搬家、出差；\
+今天做过、去过、见了谁、吃了什么特别的东西——这些过后她还会提起，也记下来。
+**情绪激烈的时刻**也记：一次冲突、一次冒犯、被当众为难或羞辱、被冷落、被他弄哭，\
+一次很温馨的相处、被认真对待、一起笑到停不下来——只要当时谁的情绪很激烈，\
+哪怕只发生过一次，也值得写下来。
+不要记的：一过就散的琐碎状态（例如累、困、饿、无聊）——除非它和上面那种情绪激烈的时刻连在一起；\
+寒暄；偶像说的话；原作剧情和偶像的设定；制作人向偶像提的问题。
 
 每条记忆是一句能单独看懂的中文陈述，以「制作人」开头，例如「制作人养了一只叫小白的猫」。
-提到「明天」「下周六」这样的相对时间时，换算成具体日期写下来。
+写详细一点：发生了什么、在哪儿、谁做了什么说了什么、她当时是什么反应、什么情绪。\
+不要只写一句概括，也不要省掉让这件事被记住的那个细节；一长句读不通就写成两句，\
+仍然要是一条能单独看懂的记忆。提到「明天」「下周六」这样的相对时间时，换算成具体日期写下来。
 
 「已经记住的事」按编号列出了和这轮对话最相关的记忆，写之前先对照：
 - 和已经记住的一样的，不要再写。
@@ -774,6 +857,23 @@ def _extraction_prompt(
         else:
             lines.append(f"{character.name}：{_said(message)}")
     lines += [f"制作人（最新的一句话）：{text}", f"{character.name}：{_said(reply)}"]
+    return [ChatMessage("system", _INSTRUCTIONS), ChatMessage("user", "\n".join(lines))]
+
+
+def _group_extraction_prompt(
+    character: Character,
+    transcript: Sequence[tuple[str, str]],
+    text: str,
+    shown: Sequence[Memory],
+    now: datetime,
+) -> list[ChatMessage]:
+    """The extraction prompt for a group chat: who said what before `text`, what he just
+    said there, and the memories the background model is `shown`."""
+    lines = [f"今天是 {_date(now)}（制作人所在时区）。", "", "# 已经记住的事"]
+    lines += [f"{n}. {m.text}" for n, m in enumerate(shown, 1)] or ["（还没有）"]
+    lines += ["", "# 群里的对话（制作人和几位偶像在一起）"]
+    lines += [f"{who}：{said}" for who, said in transcript]
+    lines += [f"制作人（最新的一句话）：{text}", "", f"（这些话是群里的；{character.name}也在场。）"]
     return [ChatMessage("system", _INSTRUCTIONS), ChatMessage("user", "\n".join(lines))]
 
 

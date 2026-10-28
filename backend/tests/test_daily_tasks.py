@@ -27,7 +27,7 @@ from tests.test_data_package import import_package
 from tests.test_data_package_conversations import conversations_package, packaged_conversation
 from tests.test_delete_account import DELETE
 from tests.test_gift_giving import CAKE, catalog, draw_them, given, holding  # noqa: F401
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 
@@ -60,7 +60,7 @@ def tasks(turns: int = 0, gifts: int = 0) -> list[dict]:
 async def turns(client: httpx.AsyncClient, conversation: str, count: int) -> None:
     for i in range(count):
         events = await send_turn(client, conversation, f"第{i}句")
-        assert events[-1]["type"] == "done", events
+        assert done_of(events)["type"] == "done", events
 
 
 async def test_none_is_done_to_begin_with_and_they_begin_again_at_the_next_midnight_in_beijing(
@@ -319,10 +319,10 @@ async def test_a_turn_says_what_it_was_rewarded_with_and_none_if_nothing(
     clock.advance(minutes=1)
     tenth = await send_turn(client, conversation, "第十句")
 
-    assert first[-1]["rewarded"] == rewarded("one_turn", at=began)
-    assert second[-1]["type"] == "done"
-    assert second[-1]["rewarded"] is None
-    assert tenth[-1]["rewarded"] == rewarded("ten_turns", at=clock.now, stage=("turns", 1))
+    assert done_of(first)["rewarded"] == rewarded("one_turn", at=began)
+    assert done_of(second)["type"] == "done"
+    assert done_of(second)["rewarded"] is None
+    assert done_of(tenth)["rewarded"] == rewarded("ten_turns", at=clock.now, stage=("turns", 1))
 
 
 async def test_a_turn_in_a_call_says_what_it_was_rewarded_with(

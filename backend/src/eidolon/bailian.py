@@ -9,10 +9,12 @@ and sends back each sentence as far as it has heard it (`result-generated`), the
 it so far each time, until the sentence ends (`sentence_end`). The first of a sentence
 with words in it (not the empty one DashScope sends as soon as it hears a voice, nor its
 heartbeats) starts the utterance; the sentence's end ends it, transcribed unless it came
-to no words (a cough, say). Near-field voice detection (`vad_model`) is what keeps coughs
-from being heard as sentences at all; the model and parameters are those measured in
-ticket bailian-stt 01. The call's hot words (`hot_words`) go with the task as its
-`vocabulary`, made for the task alone: no hot word list is kept on anyone's account.
+to no words (a cough, say). Voice detection is left to DashScope's own: a `vad_model`
+(`near_meeting_16k` was tried) heard nothing at all in quiet, breathy or laughing speech,
+so it is not sent; the parameters are those measured in ticket bailian-stt 01 and the
+recognition comparison in `.scratch/asr-compare`. The call's hot words (`hot_words`) go
+with the task as its `vocabulary`, made for the task alone: no hot word list is kept on
+anyone's account.
 
 DashScope ends a task sent nothing for 23 seconds, so while no audio comes (the
 microphone muted, say) the service sends silence itself.
@@ -73,13 +75,14 @@ PACKET_BYTES = SAMPLE_RATE * 2 // 10
 PARAMETERS: dict[str, Any] = {
     "format": "pcm",
     "sample_rate": SAMPLE_RATE,
-    "vad_model": "near_meeting_16k",
     "language_hints": ["zh", "ja"],
     "heartbeat": True,
 }
-"""Each task's: near-field voice detection, which hears no sentence in a cough, Chinese and
-Japanese, and heartbeats. How long a pause ends a sentence is DashScope's default (1.3 s),
-which has it end about 1.0–1.2 s after the last word."""
+"""Each task's: Chinese and Japanese, and heartbeats. No `vad_model`: near-field voice
+detection (`near_meeting_16k`) was measured to hear nothing at all in quiet, breathy or
+laughing speech — 5 of 12 real lines came back empty — so a cough may be transcribed as a
+sentence instead, which is the lesser fault. How long a pause ends a sentence is
+DashScope's default (1.3 s), which has it end about 1.0–1.2 s after the last word."""
 
 HOT_WORD_WEIGHT = 4
 """How strongly each hot word is listened out for, of 1 to 5: what DashScope recommends.

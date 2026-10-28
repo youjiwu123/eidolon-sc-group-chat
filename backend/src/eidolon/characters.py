@@ -36,6 +36,10 @@ her romaji, which is not how Danbooru writes every name; and her looks as tags
 (`photo_appearance`): hair colour, hairstyle, eye colour, no accessories nor clothes. She
 sends no photos without both.
 
+Optionally too, she has her age in the original's official setting (`age`), read from her
+facts' 「基本信息」. The adult-content gate reads it in code: an age under 18 keeps her out,
+and a missing age is unknown, and unknown is treated as a minor.
+
 She likes one to three gifts in the gift catalog (`liked_gifts`, by gift identifier),
 each with her sources behind it in her facts' sources file (「喜欢的礼物」). Whether they
 are in the catalog is checked once both are loaded (`gift_catalog.check_liked_gifts`).
@@ -158,6 +162,10 @@ class Character:
     """Her character tag as Danbooru writes it, e.g. `sakuragi mano`, for her photos."""
     photo_appearance: str | None = None
     """Her looks as tags, e.g. `brown hair, medium hair, brown eyes`, for her photos."""
+    age: int | None = None
+    """Her age in the original's official setting, from her facts' 「基本信息」; None when
+    unknown. The adult-content gate reads it in code: under 18 or unknown keeps her
+    out, whatever any switch says."""
 
     @property
     def photographed(self) -> bool:
@@ -264,6 +272,13 @@ def _parse_character(
             f"角色 {label} 的 default_outfit 应写成 stand/<enzaId> 或 stand_costume/<enzaId>"
             f"（enzaId 是十位数字），现在是 {default_outfit!r}"
         )
+    age = entry.get("age")
+    # bool is an int in Python, but `age = true` is a mistake all the same.
+    if age is not None and (type(age) is not int or age <= 0):
+        raise CharacterConfigError(
+            f"角色 {label} 的 age 应为正整数（她的年龄，来自 facts 的「基本信息」），"
+            f"现在是 {age!r}；不知道年龄时不写这一项"
+        )
 
     return Character(
         id=entry["id"],
@@ -288,6 +303,7 @@ def _parse_character(
         liked_gifts=tuple(liked_gifts),
         photo_tag=_other_name(entry, "photo_tag", label),
         photo_appearance=_other_name(entry, "photo_appearance", label),
+        age=age,
     )
 
 

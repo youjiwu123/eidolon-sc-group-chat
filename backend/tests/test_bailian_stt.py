@@ -167,7 +167,6 @@ async def test_the_task_asks_for_the_measured_recognition_and_is_finished_at_the
     assert payload["parameters"] == {
         "format": "pcm",
         "sample_rate": 16000,
-        "vad_model": "near_meeting_16k",
         "language_hints": ["zh", "ja"],
         "heartbeat": True,
     }

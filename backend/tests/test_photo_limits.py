@@ -73,7 +73,7 @@ async def test_five_photos_an_hour_then_she_cannot_and_the_user_is_told_when_to_
     assert used_up(refused) == [
         {"type": "photos-used-up", "retry_at": (START + timedelta(hours=1)).isoformat()}
     ]
-    assert [e["type"] for e in refused][-2:] == ["photos-used-up", "done"]
+    assert [e["type"] for e in refused if e["type"] != "emotion"][-2:] == ["photos-used-up", "done"]
     assert USED_UP in context_of(llm.prompts[5])
     assert len(image.requests) == 5  # her tag was dropped
     assert "photo" not in record[-1]

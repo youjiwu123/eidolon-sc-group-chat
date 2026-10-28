@@ -33,7 +33,7 @@ from tests.test_admin_users import ADMIN, admin_beside
 from tests.test_affinity import keep, status
 from tests.test_affinity_prompt import about_now
 from tests.test_rate_limit import post_turn
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 PARTING = "这句话之后你暂时不想再和制作人说话了。先回应，再用你自己的方式表明你现在不想聊下去。"
@@ -84,11 +84,11 @@ async def test_the_turn_that_takes_it_to_0_has_her_part_and_begins_a_cooldown(
     parting = await send_turn(client, conversation, "随便你")
 
     assert PARTING not in about_now(llm, 0)
-    assert staying[-1]["affinity"]["cooldown_until"] is None
+    assert done_of(staying)["affinity"]["cooldown_until"] is None
     assert PARTING in about_now(llm, 1)
     assert "挂断电话" not in about_now(llm, 1)  # that is for calls alone
-    assert parting[-1]["message"]["affinity"]["cooldown"] is True
-    assert parting[-1]["affinity"]["cooldown_until"] == UNTIL
+    assert done_of(parting)["message"]["affinity"]["cooldown"] is True
+    assert done_of(parting)["affinity"]["cooldown_until"] == UNTIL
 
 
 async def test_in_a_cooldown_turns_and_calls_are_refused_counting_towards_nothing_until_it_ends(
@@ -128,8 +128,8 @@ async def test_in_a_cooldown_turns_and_calls_are_refused_counting_towards_nothin
     assert board["calls"]["total"] == 0
     assert speech.stts == []
     assert thawed == {"tier": "cold", "cooldown_until": None}
-    assert again[-1]["type"] == "done"
-    assert fell_again[-1]["message"]["affinity"]["cooldown"] is True
+    assert done_of(again)["type"] == "done"
+    assert done_of(fell_again)["message"]["affinity"]["cooldown"] is True
     assert cooling_again.status_code == 409
     assert len(llm.prompts) == 2
 
@@ -141,7 +141,7 @@ async def test_a_cooldown_is_hers_alone(make_client: ClientFactory, settings: Se
 
     events = await send_turn(client, other, "在吗")
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
 
 
 async def test_off_nothing_is_refused_whatever_is_kept(
@@ -159,4 +159,4 @@ async def test_off_nothing_is_refused_whatever_is_kept(
     events = await send_turn(client, conversation, "在吗")
 
     assert asked.status_code == 200
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"

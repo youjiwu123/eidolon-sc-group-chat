@@ -26,10 +26,11 @@ text turn and lands in the same conversation record.
 
 import asyncio
 import logging
-from collections.abc import AsyncGenerator, Awaitable, Callable, Sequence
+from collections.abc import AsyncGenerator, Awaitable, Callable, Mapping, Sequence
 from contextlib import nullcontext
 from contextvars import ContextVar
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
+import time
 from datetime import datetime, timedelta
 from typing import Any, Literal, Protocol
 
@@ -93,6 +94,7 @@ from pipecat.workers.runner import WorkerRunner
 
 from eidolon.activity import (
     CallEndReason,
+    Result,
     ErrorKind,
     Origin,
     Recording,
@@ -143,6 +145,7 @@ from eidolon.own_keys import (
 from eidolon.greetings import FISH_TTS_HTTP_URL
 from eidolon.happenings import Happenings
 from eidolon.proxy import ProxiedWebsocket, ProxyRoutes, masked, open_client
+from eidolon.producer import Place
 from eidolon.readings import Reading, pronunciation_dictionary
 from eidolon.reply_format import SegmentComplete, SegmentDelta, SpeechDelta
 from eidolon.store import Conversation, NotFound, Store
@@ -178,8 +181,8 @@ change the network traffic: WebRTC always sends Opus at 48 kHz."""
 class Call:
     """A call the browser asked for: which conversation, the models its turns run on (the
     user's own, if `own_llm`) and the one its replies are voiced with, how it wants the
-    audio, the time zone its device reports, and the user's own image generation its photos
-    are generated on, if it brings it."""
+    audio, the time zone its device reports, the user's own image generation its photos
+    are generated on, if it brings it, and where she is (`place`), if the page shows it."""
 
     conversation: Conversation
     character: Character
@@ -190,6 +193,8 @@ class Call:
     own_llm: bool = False
     voiced_by: FishAudioModel = DEFAULT_FISH_AUDIO_MODEL
     own_image: ImageSettings | None = None
+    place: Place | None = None
+    """她此刻在哪儿，页首「现在：…」那一张；回合的「此刻」里告诉她。"""
 
 
 _taking_turn: ContextVar["CallTurns | None"] = ContextVar("_taking_turn", default=None)
@@ -302,10 +307,13 @@ class Speech(Protocol):
 class SegmentTextFrame(TextFrame):
     """Some of the Japanese of segment `segment` of reply `reply`, delivery cues and all,
     for TTS to voice. Replies are numbered from 1 within the call, segments from 0 within
-    the reply."""
+    the reply. In a group call each segment is said by one of the group: `speaker` is which
+    she is, and `voice` is hers, for TTS to say it in (None: the call's own character)."""
 
     reply: int
     segment: int
+    speaker: str | None = None
+    voice: str | None = None
 
 
 @dataclass
@@ -317,11 +325,16 @@ class SegmentCompleteFrame(ControlFrame):
     segment: int
 
 
-def segment_playing(reply: int, segment: int) -> OutputTransportMessageFrame:
+def segment_playing(
+    reply: int, segment: int, speaker: str | None = None
+) -> OutputTransportMessageFrame:
     """The `segment-playing` server message, telling the browser her voice has started
-    playing segment `segment` of reply `reply`. Queued with the audio, just ahead of the
-    segment's first, the transport sends it as that audio starts playing."""
-    message = {"type": "segment-playing", "reply": reply, "segment": segment}
+    playing segment `segment` of reply `reply`, said by `speaker` in a group call (None: the
+    call's own character). Queued with the audio, just ahead of the segment's first, the
+    transport sends it as that audio starts playing."""
+    message: dict[str, Any] = {"type": "segment-playing", "reply": reply, "segment": segment}
+    if speaker is not None:
+        message["speaker"] = speaker
     return OutputTransportMessageFrame(message=ServerMessage(data=message).model_dump())
 
 
@@ -433,6 +446,11 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
         self._dictionary = pronunciation_dictionary(readings)
         self._arriving: tuple[int, int] | None = None  # (reply, segment) of the Japanese coming in
         self._voiced: tuple[int, int] | None = None  # (reply, segment) being voiced
+        # In a group call each segment is said by one of the group: whose it is, and the voice
+        # to say it in (None: the call's own character, one voice all call).
+        self._arriving_speaker: str | None = None
+        self._arriving_voice: str | None = None
+        self._voiced_speaker: str | None = None
         self._announced = False  # its `segment-playing` message is queued
         # The Fish Audio session voicing it, and what receives the session's audio until it
         # has finished:
@@ -445,6 +463,8 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
     async def process_frame(self, frame: Frame, direction: FrameDirection) -> None:
         if isinstance(frame, SegmentTextFrame):
             self._arriving = (frame.reply, frame.segment)
+            self._arriving_speaker = frame.speaker
+            self._arriving_voice = frame.voice
         elif isinstance(frame, LLMFullResponseStartFrame):
             if self._reconnecting is None or self._reconnecting.done():
                 self._keep_spare()  # a reconnection under way opens one of its own
@@ -459,6 +479,7 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
     async def _handle_interruption(self, frame: InterruptionFrame, direction: FrameDirection):
         await super()._handle_interruption(frame, direction)
         self._arriving = self._voiced = None
+        self._arriving_speaker = self._arriving_voice = self._voiced_speaker = None
 
     def _holds_speech(self) -> bool:
         return super()._holds_speech() or self._session is not None
@@ -468,6 +489,9 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
         if self._voiced != self._arriving:  # the first of the next segment's Japanese
             await self._end_segment()
             self._voiced = self._arriving
+            self._voiced_speaker = self._arriving_speaker
+            if self._arriving_voice:  # a group call's speaker: say it in her voice
+                await self.speak_as(self._arriving_voice)
             self._announced = self._arriving is None  # Japanese under no segment: nothing to say
         if self._session is None or self._finished.is_set():  # or it ended early
             await self._start_session(context_id)
@@ -475,7 +499,9 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
             yield None
             return
         if not self._announced and self._voiced is not None:  # ahead of its first audio
-            await self.append_to_audio_context(context_id, segment_playing(*self._voiced))
+            await self.append_to_audio_context(
+                context_id, segment_playing(*self._voiced, speaker=self._voiced_speaker)
+            )
             self._announced = True
         text = spoken_by(text, self._settings.model)  # pyright: ignore[reportArgumentType]
         try:
@@ -588,13 +614,30 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
                 return
         self._spare = self.create_task(self._open())
 
-    async def _open(self) -> ClientConnection | None:
-        """A new connection to Fish Audio, its session started, ready for the text to
-        voice; None if it could not be opened, the error having been reported."""
-        headers = {"Authorization": f"Bearer {self._api_key}"}
-        model = assert_given(self._settings.model)
-        if model is not None:
-            headers["model"] = model
+    async def speak_as(self, voice: str) -> None:
+        """Have the next segment voiced in `voice`, a character's own (a group call's speakers
+        each have theirs): Fish Audio takes the voice with the session it opens (`reference_id`
+        in the start message), not with each text, so a spare connection opened for another
+        voice is dropped and the next segment opens its own — a second or so later, once, each
+        time the speaker changes. The segment being voiced is left alone."""
+        voice = (voice or "").strip()
+        if not voice or self._settings.voice == voice:
+            return
+        self._settings.voice = voice
+        spare, self._spare = self._spare, None
+        if spare is None:
+            return
+        if not spare.done():
+            spare.cancel()
+            await asyncio.gather(spare, return_exceptions=True)
+        elif not spare.cancelled():
+            websocket = spare.result()
+            if websocket is not None:
+                await websocket.close()
+
+    def _request(self) -> dict[str, Any]:
+        """What this session starts with: her voice (`reference_id`), the audio it is for, and
+        how it is read (`readings` as its dictionary)."""
         request: dict[str, Any] = {
             "text": "",
             "sample_rate": self._fish_sample_rate,
@@ -613,6 +656,16 @@ class FishTTS(InterruptsFirst, ProxiedWebsocket, FishAudioTTSService):
             request["top_p"] = self._settings.top_p
         if self._dictionary is not None:
             request["pronunciation_dictionary"] = self._dictionary
+        return request
+
+    async def _open(self) -> ClientConnection | None:
+        """A new connection to Fish Audio, its session started, ready for the text to
+        voice; None if it could not be opened, the error having been reported."""
+        headers = {"Authorization": f"Bearer {self._api_key}"}
+        model = assert_given(self._settings.model)
+        if model is not None:
+            headers["model"] = model
+        request = self._request()
         websocket: ClientConnection | None = None
         try:
             websocket = await self._websocket_connect(self._base_url, additional_headers=headers)
@@ -964,6 +1017,7 @@ class Calls:
         )
         self._owners: dict[str, str] = {}  # peer connection id → the user it belongs to
         self._live: set[_LiveCall] = set()
+        self._group_live: set[GroupLiveCall] = set()
         self._watch: asyncio.Task | None = None  # hangs up banned and deleted users' calls
 
     def _limits(self) -> CallLimits:
@@ -1006,11 +1060,13 @@ class Calls:
         options: CallOptions,
         offer: SessionDescription,
         brought: BroughtKeys = BroughtKeys(),
+        place: Place | None = None,
     ) -> dict:
         """Answer a new call into the user's `conversation` with `character`, bringing
-        `brought`, let through by `Admissions.call`, whose exceptions it raises. Whatever
-        fails before the call is served, it never connected; once it is served, it is
-        settled as it ends, letting go of the keys it brought."""
+        `brought`, let through by `Admissions.call`, whose exceptions it raises. `place` is
+        where she is, as the page shows it. Whatever fails before the call is served, it
+        never connected; once it is served, it is settled as it ends, letting go of the
+        keys it brought."""
         admission = self._admissions.call(user_id, character.id, brought)
 
         def keep(connected_at: datetime, duration_s: float) -> None:
@@ -1019,7 +1075,8 @@ class Calls:
 
         outcome = CallOutcome(admission, self._limits(), self._clock, keep)
         return await self._start(
-            user_id, conversation, character, options, offer, admission, outcome, brought.image
+            user_id, conversation, character, options, offer, admission, outcome, brought.image,
+            place,
         )
 
     async def _start(
@@ -1032,6 +1089,7 @@ class Calls:
         admission: Admission[CallKeys],
         outcome: CallOutcome,
         own_image: ImageSettings | None = None,
+        place: Place | None = None,
     ) -> dict:
         keys = admission.keys
         connections: list[SmallWebRTCConnection] = []
@@ -1057,7 +1115,7 @@ class Calls:
         try:
             call = Call(
                 conversation, character, admission.llms, options.muted, options.quality,
-                options.device_timezone, admission.own_llm, keys.tts_model, own_image,
+                options.device_timezone, admission.own_llm, keys.tts_model, own_image, place,
             )
             answer = await self._answer(SmallWebRTCRequest(offer.sdp, offer.type), serve)
         except BaseException:
@@ -1070,6 +1128,77 @@ class Calls:
             elif connections:  # the pipeline could not be built; Pipecat only logs why
                 await _within_disconnect_timeout(connections[0].disconnect(), "a call")
             outcome.set_up_failed()
+            raise CallFailed()
+        self._owners[answer["pc_id"]] = user_id
+        return answer
+
+    async def start_group(
+        self,
+        user_id: str,
+        group: Any,
+        roster: Mapping[str, Character],
+        options: CallOptions,
+        offer: SessionDescription,
+    ) -> dict:
+        """Answer a new call into `group` (DESIGN.md「群聊语音房」): one WebRTC connection, its
+        turns taken by `group_call.GroupTurns`, each segment voiced in the voice of whoever of
+        the group says it. Counts towards the first member's calls, whose cooldown holds it
+        too. Raises what `Admissions.call` does, as a call with her does."""
+        members = [roster[cid] for cid in group.participants if cid in roster]
+        if not members:
+            raise CallFailed()
+        admission = self._admissions.call(user_id, members[0].id, BroughtKeys())
+        limits = self._limits()
+        max_seconds = limits.duration.total_seconds() if limits.duration else None
+        max_turns = limits.turns
+        started: list[GroupLiveCall] = []
+        released = False
+
+        def settle(
+            result: Result, duration: float | None = None, end_reason: CallEndReason | None = None
+        ) -> None:
+            """这通电话的结局记进运行记录：接通了多久、为什么结束；密钥也跟着放掉。"""
+            nonlocal released
+            if released:
+                return
+            released = True
+            admission.settle(result, duration, end_reason)
+
+        async def serve(connection: SmallWebRTCConnection) -> None:
+            @connection.event_handler("closed")
+            async def forget(connection: SmallWebRTCConnection) -> None:
+                self._owners.pop(connection.pc_id, None)
+
+            live = GroupLiveCall(
+                connection,
+                group,
+                roster,
+                self._store,
+                self._speech,
+                admission.keys,
+                admission.llms.chat,
+                admission.llms.background,
+                options.quality,
+                max_seconds,
+                max_turns,
+                user_id,
+                settle,
+            )
+            self._group_live.add(live)
+            live.start(on_done=self._group_live.discard)
+            started.append(live)
+            if self._watch is None or self._watch.done():
+                self._watch = asyncio.create_task(self._hang_up_users_gone())
+
+        try:
+            answer = await self._answer(SmallWebRTCRequest(offer.sdp, offer.type), serve)
+        except BaseException:
+            settle("failed", None, "failed")
+            raise
+        if answer is None or not started:
+            for live in started:
+                await live.hang_up("failed")
+            settle("failed", None, "failed")
             raise CallFailed()
         self._owners[answer["pc_id"]] = user_id
         return answer
@@ -1100,7 +1229,7 @@ class Calls:
     @property
     def in_progress(self) -> int:
         """How many calls there are now, connected or still connecting."""
-        return len(self._live)
+        return len(self._live) + len(self._group_live)
 
     def in_call(self, conversation_id: str) -> bool:
         """Whether there is a call in the conversation now, connected or still connecting."""
@@ -1110,7 +1239,8 @@ class Calls:
         """Hang up the user's calls, for `reason`, and wait for them to end; a reply in
         progress is dropped. Unless banned, a user's calls are hung up as they are deleted."""
         await asyncio.gather(
-            *(live.hang_up(reason) for live in list(self._live) if live.user_id == user_id)
+            *(live.hang_up(reason) for live in list(self._live) if live.user_id == user_id),
+            *(live.hang_up(reason) for live in list(self._group_live) if live.user_id == user_id),
         )
 
     def cooled(self, user_id: str, character_id: str, until: datetime) -> None:
@@ -1132,9 +1262,9 @@ class Calls:
     async def _hang_up_users_gone(self) -> None:
         """While there are calls, hang up those of users banned or deleted meanwhile (by
         then, their calls were hung up as they were deleted, unless on the command line)."""
-        while self._live:
+        while self._live or self._group_live:
             await asyncio.sleep(USER_CHECK_INTERVAL)
-            users = {live.user_id for live in self._live}
+            users = {live.user_id for live in list(self._live) + list(self._group_live)}
             for user_id in users - self._store.active_users(users):
                 try:
                     self._store.get_user(user_id)
@@ -1148,7 +1278,10 @@ class Calls:
         """Hang up every call and wait for them to end; a reply in progress is dropped."""
         if self._watch is not None:
             self._watch.cancel()
-        await asyncio.gather(*(live.hang_up("shutdown") for live in list(self._live)))
+        await asyncio.gather(
+            *(live.hang_up("shutdown") for live in list(self._live)),
+            *(live.hang_up("shutdown") for live in list(self._group_live)),
+        )
         await _within_disconnect_timeout(self._webrtc.close(), "the calls left")
 
     async def _answer(
@@ -1243,6 +1376,7 @@ class _LiveCall:
 
         @transport.event_handler("on_client_connected")
         async def connected(transport: SmallWebRTCTransport, _: SmallWebRTCConnection) -> None:
+            self._connected_at = time.monotonic()
             self._connected.set()
             self._turns.connected()
 
@@ -1345,6 +1479,144 @@ class _LiveCall:
             self._outcome.ended_by("failed")
             await self._worker.cancel()
         await running
+
+
+GROUP_EMOTION_TIMEOUT = 4.0
+"""How long a group call's judge may take on one line: her voice is queued ahead of it, so the
+wait costs nothing, and 1.5 seconds is short for a whole line's prompt (a line left unjudged is
+a cell that does not change face)."""
+
+
+class GroupLiveCall:
+    """A call into a group (DESIGN.md「群聊语音房」): one WebRTC connection, the group's voices,
+    its turns taken by `group_call.GroupTurns` — however many of the group the judge picks
+    answer, one after another, each segment in the voice of whoever says it."""
+
+    def __init__(
+        self,
+        connection: SmallWebRTCConnection,
+        group: Any,
+        roster: Mapping[str, Character],
+        store: Store,
+        speech: SpeechServices,
+        keys: CallKeys,
+        chat: Any,
+        picker: Any,
+        quality: Quality,
+        max_seconds: float | None = None,
+        max_turns: int | None = None,
+        user_id: str = "",
+        settle: Callable[[Result, float | None, CallEndReason | None], None] | None = None,
+    ) -> None:
+        from eidolon.group_call import GroupTurns, GroupVoicing
+
+        self.user_id = user_id
+        self._settle = settle
+        self._connected_at: float | None = None
+        self._end_reason: CallEndReason | None = None
+
+        self._connection = connection
+        sample_rate = _SAMPLE_RATES[quality]
+        transport = SmallWebRTCTransport(
+            connection,
+            TransportParams(
+                audio_in_enabled=True, audio_out_enabled=True, audio_out_sample_rate=sample_rate
+            ),
+        )
+        hearing = speech.stt(keys.stt, own="stt" in keys.own)
+        first = next(iter(roster.values()))
+        tts = speech.tts(
+            keys.tts, keys.tts_model, first.voice_id, sample_rate, own="tts" in keys.own
+        )
+        emotions = keys.emotions
+        if emotions is not None and emotions.timeout < GROUP_EMOTION_TIMEOUT:
+            # 判语气放在她的声音推进去之后，多等一会儿不影响她开口；1.5 秒对一整句的提示词太紧，
+            # 判不出来格子就不换表情，看起来就像「只动嘴」。
+            emotions = replace(emotions, timeout=GROUP_EMOTION_TIMEOUT)
+        turns = GroupTurns(
+            GroupVoicing(store, group, roster, chat, picker, emotions),
+            max_turns,
+            self._hung_up_for_turns,
+        )
+        self._worker = PipelineWorker(
+            Pipeline(
+                [
+                    transport.input(),
+                    hearing.stt,
+                    UserTurnProcessor(user_turn_strategies=ExternalUserTurnStrategies()),
+                    turns,
+                    tts,
+                    transport.output(),
+                ]
+            ),
+            processor_unusable_policy=ProcessorUnusablePolicy.CANCEL,
+        )
+        self._connected = asyncio.Event()
+        self._task: asyncio.Task | None = None
+        self._max_seconds = max_seconds
+        self._limit: asyncio.Task | None = None
+
+        @transport.event_handler("on_client_connected")
+        async def connected(transport: SmallWebRTCTransport, _: SmallWebRTCConnection) -> None:
+            self._connected_at = time.monotonic()
+            self._connected.set()
+
+        @transport.event_handler("on_client_disconnected")
+        async def gone(transport: SmallWebRTCTransport, _: SmallWebRTCConnection) -> None:
+            await self._worker.cancel()
+
+    def start(self, on_done: Callable[["GroupLiveCall"], None]) -> None:
+        """Serve the call in the background; `on_done` is told once it has ended."""
+        self._task = asyncio.create_task(self._serve())
+        self._task.add_done_callback(lambda _: on_done(self))
+
+    async def hang_up(self, reason: CallEndReason = "hung_up") -> None:
+        """End the call now, for `reason` (as the single call's does), and wait until it has."""
+        self._end_reason = reason
+        await self._worker.cancel()
+        if self._task is not None:
+            await asyncio.wait({self._task})
+
+    async def _serve(self) -> None:
+        if self._max_seconds:
+            self._limit = asyncio.create_task(self._hang_up_after(self._max_seconds))
+        try:
+            running = asyncio.create_task(WorkerRunner(handle_sigint=False).run(self._worker))
+            connected = asyncio.create_task(self._connected.wait())
+            try:
+                await asyncio.wait(
+                    {running, connected},
+                    timeout=CONNECT_TIMEOUT.total_seconds(),
+                    return_when=asyncio.FIRST_COMPLETED,
+                )
+            finally:
+                connected.cancel()
+            if not self._connected.is_set() and not running.done():
+                log.info("群通话没有连上，挂断")
+                await self._worker.cancel()
+            await running
+        except Exception:
+            log.exception("群通话失败了")
+        finally:
+            if self._limit is not None:
+                self._limit.cancel()
+            if self._settle is not None:
+                connected = self._connected_at is not None
+                duration = time.monotonic() - self._connected_at if connected else None
+                reason = self._end_reason or ("left" if connected else "failed")
+                self._settle("success" if connected else "not_connected", duration, reason)
+            await _within_disconnect_timeout(self._connection.disconnect(), "a group call")
+
+    async def _hung_up_for_turns(self) -> None:
+        """This call has used as many turns as the deployment lets one use: hang up."""
+        log.info("群通话到了回合上限，挂断")
+        await self.hang_up("turn_limit")
+
+    async def _hang_up_after(self, seconds: float) -> None:
+        """The call has run as long as the deployment lets one run: hang up."""
+        await asyncio.sleep(seconds)
+        log.info("群通话到了时长上限，挂断")
+        await self.hang_up()
 
 
 class CallTurns(FrameProcessor):
@@ -1689,6 +1961,7 @@ class CallTurns(FrameProcessor):
         async for event in self._engine.turn(
             self._call.conversation, text, self._call.llms, self._call.device_timezone, stop,
             self._outcome.in_call, self._call.voiced_by, self._call.own_image,
+            place=self._call.place,
         ):
             if isinstance(event, CallTurnRecorded):
                 recorded = event

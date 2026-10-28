@@ -16,7 +16,7 @@ from eidolon.retrieval import RECALL_STORY_TOOL
 from eidolon.story_import import import_csv_directory
 from tests.conftest import ClientFactory
 from tests.fakes import FakeEmbedder, FakeJudge, FakeLLM, FakeReranker, context_of, system_of
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 PARK_LINE = "公園で鳩と一緒に歌っていました"
 ANSWER = ["<ja>公園でピーちゃんたちと歌ってたんです</ja><zh>我在公园和小皮它们唱歌</zh>"]
@@ -73,8 +73,8 @@ async def test_the_reply_is_based_on_the_recalled_episode_and_its_place_in_the_c
     assert f"真乃：{PARK_LINE}" in result.content
     assert "歌が好きなのか？" not in result.content  # the producer's choices never were
 
-    assert events[-1]["type"] == "done"
-    assert events[-1]["message"]["ja"] == "公園でピーちゃんたちと歌ってたんです"
+    assert done_of(events)["type"] == "done"
+    assert done_of(events)["message"]["ja"] == "公園でピーちゃんたちと歌ってたんです"
     messages = (await client.get(f"/api/conversations/{conversation_id}/messages")).json()
     assert [(m["role"], m["text"], m["ja"]) for m in messages] == [
         ("user", "那次在公园唱歌是怎么回事？", None),
@@ -117,7 +117,7 @@ async def test_what_the_model_thought_goes_back_with_its_calls_within_the_turn_a
     assert (call.content, call.tool_calls, call.reasoning) == (
         "<ja>えっと</ja><zh>嗯</zh>", (recall("公園"),), (thought,)
     )
-    assert events[-1]["message"]["segments"][0] == {"ja": "えっと", "zh": "嗯"}
+    assert done_of(events)["message"]["segments"][0] == {"ja": "えっと", "zh": "嗯"}
     # The next turn reads the conversation as recorded, which has her words alone.
     assert not any(m.reasoning for m in llm.prompts[-1])
     messages = (await client.get(f"/api/conversations/{conversation_id}/messages")).text
@@ -162,7 +162,7 @@ async def test_what_she_says_before_calling_the_tool_is_part_of_the_reply(
     events = await send_turn(client, conversation_id, "公园那次呢？")
 
     assert llm.prompts[1][-2].content == "<ja>えっと……</ja><zh>嗯……</zh>"
-    assert events[-1]["message"]["segments"] == [
+    assert done_of(events)["message"]["segments"] == [
         {"ja": "えっと……", "zh": "嗯……"},
         {"ja": "公園でピーちゃんたちと歌ってたんです", "zh": "我在公园和小皮它们唱歌"},
     ]
@@ -187,8 +187,8 @@ async def test_tool_calls_stop_after_a_few_rounds_and_a_call_made_then_goes_unan
     assert [len(tools) for tools in llm.tools] == [1] * (MAX_TOOL_ROUNDS + 1)
     assert llm.forbidden == [False] * MAX_TOOL_ROUNDS + [True]
     assert len(llm.prompts) == MAX_TOOL_ROUNDS + 1
-    assert events[-1]["type"] == "done"
-    assert events[-1]["message"]["ja"] == "公園でピーちゃんたちと歌ってたんです"
+    assert done_of(events)["type"] == "done"
+    assert done_of(events)["message"]["ja"] == "公園でピーちゃんたちと歌ってたんです"
 
 
 async def test_a_failed_or_malformed_call_is_answered_and_the_turn_goes_on(
@@ -214,7 +214,7 @@ async def test_a_failed_or_malformed_call_is_answered_and_the_turn_goes_on(
     assert "query" in malformed
     assert "take_selfie" in unknown
     assert "暂时想不起来" in failed
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     # Every result of the last round says no more tools are coming, the failed ones too.
     assert all(r.endswith(LAST_ROUND_NOTE) for r in (malformed, unknown, failed))
 
@@ -231,7 +231,7 @@ async def test_the_note_is_never_recorded_or_seen_again_in_later_turns(
     events = await send_turn(client, conversation_id, "公园那次呢？")
     await send_turn(client, conversation_id, "后来呢？")
 
-    assert events[-1]["message"]["segments"] == [
+    assert done_of(events)["message"]["segments"] == [
         {"ja": "公園でピーちゃんたちと歌ってたんです", "zh": "我在公园和小皮它们唱歌"}
     ]
     # The later turn, without tool calls, asks the model once, with no note.
@@ -284,7 +284,7 @@ async def test_when_jev_sees_a_recall_question_the_episode_is_recalled_before_th
     assert "（W.I.N.G.編中你出场的剧情依次是：" in system and "「決勝後コミュ」" in system
     # Embedded once, as the turn began, for recalling and writing down alike.
     assert embedder.queries == ["那次在公园唱歌是怎么回事？"]
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
 
 
 async def test_with_the_reranker_down_the_nearest_episode_is_recalled(
@@ -305,7 +305,7 @@ async def test_with_the_reranker_down_the_nearest_episode_is_recalled(
     await send_turn(client, conversation_id, "那次是怎么回事？")
     [called] = tool_results(llm.prompts[-1])
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     assert len(reranker.calls) == 2  # each asked, each failing
     for recalled in [judged[judged.index("# 回顾剧情") :], called]:
         assert recalled.count("\n## ") == 1  # the nearest episode alone

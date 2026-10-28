@@ -120,20 +120,32 @@ from eidolon.affinity import (
     warns,
 )
 from eidolon.affinity_judge import AffinityJudge
+from eidolon.affinity_prompts import DEFAULT_PROMPTS, Prompts
+from eidolon.character_modes import CharacterModes
 from eidolon.characters import Character
 from eidolon.clock import Clock
 from eidolon.config import FishAudioModel, ImageSettings
+from eidolon.explicit import explicit_prompt
 from eidolon.gift_catalog import Gift
 from eidolon.happenings import Happenings, Rewarded
 from eidolon.judge import JudgeError
 from eidolon.llm import ChatLLM, ChatMessage, Reasoning, Tool, ToolCall, TurnLLMs
 from eidolon.memory import Memories, last_turn_query
+from eidolon.modes import Mode
 from eidolon.own_keys import OwnKeyFailed
 from eidolon.photos import CANNOT_SEND, NOT_RECEIVED, Eligibility, Photos, photo_turn
-from eidolon.producer import effective_timezone, local_date, now_prompt, producer_prompt
+from eidolon.producer import (
+    Place,
+    effective_timezone,
+    local_date,
+    now_prompt,
+    producer_prompt,
+)
 from eidolon.reply_format import (
     format_instructions,
+    MODE_FIRST,
     PhotoTagged,
+    reads_minds,
     ReplyParser,
     Segment,
     SegmentComplete,
@@ -141,6 +153,7 @@ from eidolon.reply_format import (
     SpeechDelta,
     format_reply,
     TEXT_ACTIONS,
+    without_thoughts,
 )
 from eidolon.retrieval import RECALL_STORY_TOOL, Retrieval, Retrieved
 from eidolon.store import (
@@ -521,6 +534,10 @@ class ConversationEngine:
         affinity_judge: AffinityJudge | None = None,
         photos: Photos | None = None,
         happenings: Happenings | None = None,
+        modes: Mapping[str, Mode] | None = None,
+        explicit_content: Callable[[], bool] = lambda: False,
+        character_modes: CharacterModes | None = None,
+        affinity_prompts: Prompts | None = None,
     ) -> None:
         """Without `retrieval`, turns carry no story or character facts and find no
         memories. Each turn reads only the conversation's latest turns, as many as
@@ -530,7 +547,14 @@ class ConversationEngine:
         retrieval's judge judges what turns do to it, or without retrieval
         `affinity_judge`, which judges whether turns ask for a photo too. Without `photos`,
         or without the judge model, no turn has a photo. Each turn recorded is told to
-        `happenings`, if any."""
+        `happenings`, if any. `modes` are the modes the producer profile may choose, by id;
+        the chosen one's prompt is added at love and nowhere else. `explicit_content` says
+        whether the deployer allows adult content; the age gate in `explicit_prompt` still
+        decides whether any line is written. `character_modes` says which special modes the
+        user turned on for her (特殊档等), hers alone: they are added at love and nowhere
+        else. Without it, no mode is added. `affinity_prompts` are the words each tier of
+        affinity adds (`affinity_prompts`): the deployment's own, or, without them, the
+        defaults."""
         self._store = store
         self._characters = characters
         self._gift_catalog = gift_catalog
@@ -544,7 +568,21 @@ class ConversationEngine:
         self._affinity_judge = affinity_judge
         self._photos = photos
         self._happenings = happenings
+        self._modes = modes or {}
+        self._explicit_content = explicit_content
+        self._character_modes = character_modes
+        self._affinity_prompts = affinity_prompts or DEFAULT_PROMPTS
         self._ended_listeners: list[Callable[[str, EndsFor], None]] = []
+
+    def reload_modes(self, modes: Mapping[str, Mode]) -> None:
+        """Use `modes` for every turn and call from now on, as the admin console changes
+        what is appended at love. Turns already under way keep the prompt they began with."""
+        self._modes = modes
+
+    def reload_affinity_prompts(self, prompts: Prompts) -> None:
+        """Use `prompts` for every turn and call from now on, as the admin console changes
+        what each tier says. Turns already under way keep the prompt they began with."""
+        self._affinity_prompts = prompts
 
     def on_ended(self, listener: Callable[[str, EndsFor], None]) -> None:
         """Have `listener` told the conversation's id, and why, as she ends one, once it is
@@ -565,12 +603,14 @@ class ConversationEngine:
         picture_note: str | None = None,
         picture_is_her: bool | None = None,
         picture_other: str | None = None,
+        place: Place | None = None,
     ) -> AsyncGenerator[TurnEvent, None]:
         """Take one turn on `llms`, `in_call` if it is taken in one, its reply voiced with
         `voiced_by` (None for a text turn's), which has her write delivery cues as it reads
         them, her photo on the user's `own_image` generation if it brings it. `device_timezone`
         is the time zone the user's device reports, used unless the producer profile sets
-        one. Once `stop` is set, the turn goes no further and is recorded with the segments
+        one. `place` is where she is right now, as the conversation page shows it. Once
+        `stop` is set, the turn goes no further and is recorded with the segments
         complete by then."""
         text = text.strip()
         yield UserSaid(text)
@@ -586,7 +626,7 @@ class ConversationEngine:
             with taking:
                 async for event in self._reply(
                     conversation, text, llms, device_timezone, stop, in_call, voiced_by, photo,
-                    image, picture_note, picture_is_her, picture_other,
+                    image, picture_note, picture_is_her, picture_other, place,
                 ):
                     yield event
         except OwnKeyFailed as e:  # theirs to fix, so they are told what went wrong
@@ -614,6 +654,7 @@ class ConversationEngine:
         picture_note: str | None = None,
         picture_is_her: bool | None = None,
         picture_other: str | None = None,
+        place: Place | None = None,
     ) -> AsyncIterator[TurnEvent]:
         if self._store.ended(conversation.id) is not None:
             yield TurnRejected(ENDED)
@@ -676,6 +717,12 @@ class ConversationEngine:
                 judged_apart.cancel()
         now = self._clock()
         cools = self._cools(conversation, judged)
+        # 管理者锁着好感度（锁定好感度）：这一回合既不因为她的话分开，也不因此挂断。
+        locked = self._affinities is not None and self._affinities.locked(
+            conversation.user_id, conversation.character_id
+        )
+        if locked:
+            cools = False
         if in_call is not None:
             out_of_line_before, hurt_before = in_call.out_of_line, in_call.hurts
         else:
@@ -684,14 +731,19 @@ class ConversationEngine:
             earlier = self._store.typed_turns(conversation.id, FED_UP_TURNS)
             out_of_line_before = sum(t.out_of_line for t in earlier[-(FED_UP_TURNS - 1):])
             hurt_before = [t.hurt for t in earlier]
-        ending = ends(judged, cools, out_of_line_before, hurt_before)
+        ending = None if locked else ends(judged, cools, out_of_line_before, hurt_before)
         way: Parting = "hangs_up" if in_call is not None else "parts"
+        mode = self._mode_prompt(conversation)
+        # 特殊档在好感各档都追加，单独成段放在最后（`_prompt` 的 `mode`）。
         affinity_lines = (
             affinity_prompt(
                 affinity.tier,
                 judged,
                 way if ending or cools else None,
-                way if warns(judged, cools, out_of_line_before, hurt_before) else None,
+                way
+                if not locked and warns(judged, cools, out_of_line_before, hurt_before)
+                else None,
+                self._affinity_prompts,
             )
             if affinity is not None
             else []
@@ -710,13 +762,14 @@ class ConversationEngine:
             [
                 now_prompt(
                     profile, now, timezone, "in_call" if in_call is not None else "typing",
-                    affinity_lines, last_contact,
+                    affinity_lines, last_contact, place,
                 ),
                 *([about_photo] if about_photo else []),
             ],
             [p for p in (retrieved.memories_prompt, retrieved.prompt) if p],
             text, voiced_by,
             image, picture_note, picture_is_her, picture_other,
+            mode,
         )
 
         # Offered on every turn, so that what goes before the history (the tools, with
@@ -845,18 +898,22 @@ class ConversationEngine:
         memories = await self._memory.for_reaching_out(
             conversation, timezone, last_turn_query(messages)
         )
+        mode = self._mode_prompt(conversation)
         prompt = self._prompt(
             character, world_prompt, producer_prompt(profile),
             chat_history(messages, self._history_turns()), told,
             [
                 now_prompt(
                     profile, now, timezone, "apart",
-                    affinity_prompt(affinity.tier, None) if affinity is not None else [],
+                    affinity_prompt(
+                        affinity.tier, None, prompts=self._affinity_prompts
+                    ) if affinity is not None else [],
                     self._store.last_contact(conversation.user_id, conversation.character_id),
                 ),
             ],
             [*([memories] if memories else []), REACH_OUT_RULES],
             WANTS_TO_REACH_OUT, None,
+            mode=mode,
         )
         parser = ReplyParser()
         stream = llm.stream(prompt)
@@ -900,6 +957,18 @@ class ConversationEngine:
         assert self._photos is not None
         photo.id, photo.tag = self._photos.begin(character, tag, user_id, photo.own), tag
         return PhotoPending(photo.id)
+
+    def _mode_prompt(self, conversation: Conversation) -> str:
+        """What her prompt is told of the special modes the user turned on for her: hers
+        alone, in the order the mode table lists them, and '' without any of them."""
+        if self._character_modes is None:
+            return ""
+        turned_on = set(
+            self._character_modes.of(conversation.user_id, conversation.character_id)
+        )
+        return "\n\n".join(
+            mode.prompt for mode in self._modes.values() if mode.id in turned_on
+        )
 
     def _affinity(self, conversation: Conversation) -> Status | None:
         """Her affinity with the user as the turn begins; None where affinity is off."""
@@ -965,15 +1034,24 @@ class ConversationEngine:
         picture_note: str | None = None,
         picture_is_her: bool | None = None,
         picture_other: str | None = None,
+        mode: str = "",
     ) -> list[ChatMessage]:
         """The prompt (ADR-0020): what changes from turn to turn tells first `about_turn`, then,
-        should any photo of the history not have been sent, what that means, then `closing`:
-        what retrieval found, or how she is to reach out."""
+        should any photo of the history not have been sent, what that means, then `mode` (the
+        special modes she has on, `_mode_prompt`, in its own section that says it comes first),
+        then `closing`: what retrieval found, or how she is to reach out.
+
+        The mode's section stands right after the turn's context and before the adult-content
+        gate: later, titled and worded as the one to follow, so it weighs more than the
+        character sheet and the rest of the context, while the gate still comes after it."""
         # What every user's turns with her that day open with, apart, for a service to cache.
         shared = [character.sheet]
         if world_prompt:
             shared.append(world_prompt)
         shared.append(format_instructions(voiced_by))
+        # 他用引号写的心声：只有她的角色卡或开着的档写明能读心，她才听得见；别人读到的是
+        # 一句「他没出声」，不会知道内容。群聊同一条规则（`group_chat.group_prompt`）。
+        hears_thoughts = reads_minds(character.sheet, mode)
         prompt = [
             ChatMessage("system", "\n\n".join(shared), cache_breakpoint=True),
             ChatMessage("system", about_producer),
@@ -981,7 +1059,10 @@ class ConversationEngine:
         for message in history:
             if message.role == "user":
                 told = narration.get(message.id, "")
-                prompt.append(ChatMessage("user", f"{told}{message.text or ''}"))
+                said = message.text or ""
+                prompt.append(
+                    ChatMessage("user", f"{told}{said if hears_thoughts else without_thoughts(said)}")
+                )
             else:
                 prompt.append(ChatMessage("assistant", format_reply(
                     message.segments,
@@ -991,6 +1072,10 @@ class ConversationEngine:
         if history:  # what the next turn opens with too, for a service to cache
             prompt[-1] = replace(prompt[-1], cache_breakpoint=True)
         context = [*about_turn]
+        # 特殊档紧接在「此刻」之后（照片、闸门、收尾之前）：位置显眼、开头又明说以它为准，
+        # 比角色卡和这一回合的其他描述都更重；闸门和收尾仍然在它后面。
+        if mode:
+            context.insert(1 if context else 0, f"{MODE_FIRST}\n{mode}")
         if image is not None:  # tell her, or a model may answer as though it saw nothing
             if picture_is_her:
                 context.append(
@@ -1012,9 +1097,11 @@ class ConversationEngine:
                 context.append(PICTURE_SENT)
         if any(m.photo_failed for m in history):
             context.append(NOT_RECEIVED)
+        context += [line] if (line := explicit_prompt(character, self._explicit_content())) else []
         context += closing
         if voiced_by is None:  # 文字回合才允许用圆括号写她的动作，通话里那会被念出来
             context = [*context, TEXT_ACTIONS]
         prompt.append(ChatMessage("system", "\n\n".join(context)))
-        prompt.append(ChatMessage("user", f"{narration.get(None, '')}{text}", image=image))
+        said_now = text if hears_thoughts else without_thoughts(text)
+        prompt.append(ChatMessage("user", f"{narration.get(None, '')}{said_now}", image=image))
         return prompt

@@ -27,7 +27,7 @@ from tests.test_data_package import import_package
 from tests.test_data_package_conversations import conversations_package, packaged_conversation
 from tests.test_delete_account import DELETE
 from tests.test_gift_giving import CAKE, catalog, draw_them, given, holding  # noqa: F401
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 
@@ -67,8 +67,8 @@ async def turns(client: httpx.AsyncClient, conversation: str, count: int) -> dic
     events: list[dict] = [{}]
     for i in range(count):
         events = await send_turn(client, conversation, f"第{i}句")
-        assert events[-1]["type"] == "done", events
-    return events[-1]
+        assert done_of(events)["type"] == "done", events
+    return done_of(events)
 
 
 async def test_ten_turns_with_her_unlock_the_first_stage_and_give_a_draw(
@@ -394,7 +394,7 @@ async def test_two_turns_at_once_reaching_a_goal_unlock_it_once(make_client: Cli
     )
     after = await state(client)
 
-    assert [events[-1]["type"] for events in both] == ["done", "done"]
+    assert [done_of(events)["type"] for events in both] == ["done", "done"]
     assert achievement(await hers(client), "turns")["progress"] == 11
     assert unlocked(await hers(client), "turns") == [1]
     # The stage's one, and the ten turns daily task's.

@@ -30,7 +30,7 @@ from tests.fakes import (
 )
 from tests.test_delete_account import rows_mentioning
 from tests.test_shared_memory import CAT, memorized
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はいっ</ja><zh>好的</zh>"]
 MINE = "sk-my-own-key-1234"
@@ -80,7 +80,7 @@ async def test_a_turn_bringing_an_own_llm_plays_on_it_and_one_bringing_none_on_t
 
     on_own = await send_turn(client, conversation_id, "在吗", own_llm=LLM)
 
-    assert on_own[-1]["type"] == "done"
+    assert done_of(on_own)["type"] == "done"
     assert own_llm.llm.keys == [MINE]
     assert own_llm.opened[-1].base_url == "https://llm.example.com/v1"
     assert own_llm.opened[-1].model == "my-model"
@@ -90,7 +90,7 @@ async def test_a_turn_bringing_an_own_llm_plays_on_it_and_one_bringing_none_on_t
 
     on_deployers = await send_turn(client, conversation_id, "在吗")
 
-    assert on_deployers[-1]["type"] == "done"
+    assert done_of(on_deployers)["type"] == "done"
     assert deployers.keys == [DEPLOYER_KEY]
     assert own_llm.llm.keys == [MINE]
 
@@ -113,7 +113,7 @@ async def test_a_turn_from_a_page_from_before_bringing_own_llm_is_told_to_refres
     assert MINE not in refused.text
     assert own_llm.llm.keys == [] and deployers.keys == []
     # Not counted: the one turn the limit allows is still there.
-    assert (await send_turn(client, conversation_id, "在吗"))[-1]["type"] == "done"
+    assert done_of(await send_turn(client, conversation_id, "在吗"))["type"] == "done"
 
 
 async def test_the_users_own_llm_writes_down_their_memories(
@@ -154,7 +154,7 @@ async def test_a_failing_own_llm_fails_the_turn_without_the_deployers_key_or_cou
     assert deployers.keys == []
     # The next turn goes on. Turns on an own LLM never count, so with the limit of one this
     # does not show the failed turn was given back (test_rate_limit does).
-    assert again[-1]["type"] == "done"
+    assert done_of(again)["type"] == "done"
     messages = await client.get(f"/api/conversations/{conversation_id}/messages")
     assert len(messages.json()) == 2
 
@@ -169,7 +169,7 @@ async def test_without_a_secret_key_users_still_bring_their_own(
     turn = await send_turn(client, await start_conversation(client), "在吗", own_llm=LLM)
 
     assert checked.status_code == 200
-    assert turn[-1]["type"] == "done"
+    assert done_of(turn)["type"] == "done"
     assert own_llm.llm.keys == [MINE]
 
 

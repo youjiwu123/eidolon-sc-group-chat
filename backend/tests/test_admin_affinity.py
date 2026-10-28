@@ -9,7 +9,7 @@ import pytest
 
 from eidolon.config import Settings
 from tests.conftest import ClientFactory
-from tests.fakes import FAKE_JUDGE, START, FakeIdentityProvider, FakeLLM
+from tests.fakes import FAKE_JUDGE, START, FakeIdentityProvider
 from tests.test_admin_users import admin_client, github_user
 from tests.test_affinity import keep, status
 
@@ -44,13 +44,15 @@ async def test_an_admin_sets_affinity_and_the_user_sees_only_the_tier(
     listed = await admin.get(f"/api/admin/users/{uid}/affinity")
     assert listed.status_code == 200, listed.text
     [mano] = [a for a in listed.json()["affinities"] if a["character_id"] == "mano"]
-    assert mano == {"character_id": "mano", "value": 50.0, "tier": "trust"}
+    assert mano == {"character_id": "mano", "value": 50.0, "tier": "trust", "locked": False}
 
     set_it = await admin.put(
         f"/api/admin/users/{uid}/affinity", json={"character_id": "mano", "value": 120}
     )
     assert set_it.status_code == 200, set_it.text
-    assert set_it.json() == {"character_id": "mano", "value": 120.0, "tier": "love"}
+    assert set_it.json() == {
+        "character_id": "mano", "value": 120.0, "tier": "love", "locked": False
+    }
 
     seen = await status(octo)
     assert seen.json() == {"tier": "love", "cooldown_until": None}
@@ -70,7 +72,9 @@ async def test_setting_it_lifts_a_cooldown(
         f"/api/admin/users/{uid}/affinity", json={"character_id": "mano", "value": 60}
     )
 
-    assert res.json() == {"character_id": "mano", "value": 60.0, "tier": "trust"}
+    assert res.json() == {
+        "character_id": "mano", "value": 60.0, "tier": "trust", "locked": False
+    }
     assert (await status(octo)).json() == {"tier": "trust", "cooldown_until": None}
 
 

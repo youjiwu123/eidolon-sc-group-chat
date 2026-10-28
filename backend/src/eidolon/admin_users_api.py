@@ -84,10 +84,12 @@ class LimitsInput(BaseModel):
 
 class AffinityInput(BaseModel):
     """A value to set a user's affinity with a character to by hand, from the lowest to the
-    highest; out of any cooldown, the day's gains starting over."""
+    highest; out of any cooldown, the day's gains starting over. `locked` freezes it against
+    turns and gifts when given, and lets it move again when false."""
 
     character_id: str
     value: float = Field(ge=0, le=HIGHEST)
+    locked: bool | None = None
 
 
 def recent_usage(records: list[RecordRow], since: datetime) -> dict:
@@ -226,6 +228,7 @@ def add_admin_user_routes(app: FastAPI, backend: Backend) -> None:
                     "character_id": character_id,
                     "value": round(backend.affinities.value(user_id, character_id), 1),
                     "tier": backend.affinities.tier(user_id, character_id),
+                    "locked": backend.affinities.locked(user_id, character_id),
                 }
                 for character_id in backend.characters
             ]
@@ -233,14 +236,18 @@ def add_admin_user_routes(app: FastAPI, backend: Backend) -> None:
 
     @app.put("/api/admin/users/{user_id}/affinity")
     def set_affinity(user_id: str, body: AffinityInput, _: Admin) -> dict:
-        """Set the user's affinity with the character by hand, out of any cooldown; 404 for
-        no such user or character."""
+        """Set the user's affinity with the character by hand, out of any cooldown, and lock
+        it or let it move again when `locked` is given; 404 for no such user or character."""
         details(user_id)
         if body.character_id not in backend.characters:
             raise HTTPException(404, "没有这位角色")
         after = backend.affinities.set_value(user_id, body.character_id, body.value)
+        locked = backend.affinities.locked(user_id, body.character_id)
+        if body.locked is not None:
+            locked = backend.affinities.set_locked(user_id, body.character_id, body.locked)
         return {
             "character_id": body.character_id,
             "value": round(after.value, 1),
             "tier": after.tier,
+            "locked": locked,
         }

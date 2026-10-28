@@ -214,9 +214,15 @@ async def test_the_background_model_is_told_to_keep_only_what_still_matters_late
     # What lasts a few days and a friend would ask about later is written down…
     assert "持续几天" in instructions and "过后会问起" in instructions
     assert all(event in instructions for event in ("生病", "考试", "面试", "搬家", "出差"))
-    # …what is over by the end of the day is not.
-    assert "当天就会过去" in instructions
-    assert all(state in instructions for state in ("累", "困", "心情不好"))
+    # …and so is the day itself: what he did, where he went, whom he saw.
+    assert "今天做过、去过、见了谁" in instructions
+    # Intense moments are kept too — a clash, an offense, a warm time — and written in detail.
+    assert "情绪激烈的时刻" in instructions
+    assert all(moment in instructions for moment in ("冲突", "冒犯", "温馨"))
+    assert "写详细一点" in instructions and "什么反应" in instructions
+    # What is over at once is not, unless it is part of such a moment.
+    assert "一过就散" in instructions
+    assert all(state in instructions for state in ("累", "困", "无聊"))
 
 
 async def test_irrelevant_memories_are_not_found(world: World, make_memories: MemoriesFactory):
@@ -234,7 +240,35 @@ async def test_only_the_most_relevant_few_are_found(world: World, make_memories:
     await tell(memories, world, world.conversation("mano"), "我喜欢好多点心")
     section = await find(memories, world, world.conversation("mano"), "你知道我喜欢什么点心吗？")
 
-    assert sum(t in section for t in told) == 3
+    assert sum(t in section for t in told) == 5
+
+
+async def test_what_is_said_in_a_group_is_written_down_too(
+    world: World, make_memories: MemoriesFactory
+):
+    """群里的对话不是单聊，但制作人透露的事照样要记下来：记在第一个接话的人名下，
+    没有对应的 conversation 行。"""
+    wrote = memorized("制作人上周去了京都")
+    background = FakeBackgroundLLM(wrote)
+    memories = make_memories(background_llm=background)
+
+    memories.write_group(
+        world.producer,
+        world.characters["mano"],
+        TZ,
+        [("真乃", "今天也一起加油吧"), ("巡", "制作人最近怎么样？")],
+        "我上周去了京都",
+        background,
+    )
+    await memories.entries(world.producer)  # waits for the write to land
+
+    [kept] = memories.kept(world.producer)
+    assert kept.text == "制作人上周去了京都"
+    assert kept.source_character_id == "mano"
+    assert kept.conversation_id is None
+    prompt = "\n".join(m.content for m in background.prompts[0])
+    assert "# 群里的对话" in prompt
+    assert "制作人（最新的一句话）：我上周去了京都" in prompt
 
 
 @pytest.mark.parametrize(

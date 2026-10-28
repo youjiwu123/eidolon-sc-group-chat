@@ -42,7 +42,7 @@ import threading
 from collections.abc import AsyncIterator, Awaitable, Callable, Sequence
 from contextlib import asynccontextmanager
 from dataclasses import asdict, dataclass, replace
-from typing import Any, Literal
+from typing import TYPE_CHECKING, Any, Literal
 from urllib.parse import urlsplit
 
 import httpx
@@ -125,6 +125,9 @@ from eidolon.retrieval import ModelRetrievalJudge, Need
 from eidolon.service_clients import Lease, ServiceClients, Swappable
 from eidolon.store import Message
 
+if TYPE_CHECKING:  # 只为标注：greetings 会带进读音词典，运行时在 `voice` 里现引
+    from eidolon.greetings import FishAudioSettings
+
 log = logging.getLogger(__name__)
 
 Status = Literal["env", "overridden", "failed"]
@@ -142,6 +145,7 @@ RERANK = "rerank"
 LIMITS = "limits"
 AFFINITY = "affinity"
 REACH_OUTS = "reach_outs"
+EXPLICIT_CONTENT = "explicit_content"
 PROXY = "proxy"
 SERVICE_STATUS = "service_status"
 
@@ -739,6 +743,23 @@ class _ReachOuts(_Item):
         return current | change
 
 
+class _ExplicitContent(_Item):
+    """Whether adult content is allowed at all, as `.env` has it (off by default); not
+    tried. It never lets a character under 18 through: that gate is her age in code,
+    not this item."""
+
+    name = EXPLICIT_CONTENT
+    fields = ("enabled",)
+
+    def env(self) -> Values:
+        return {"enabled": self.c.settings.explicit_content}
+
+    def candidate(self, current: Values, change: Values) -> Values:
+        if not isinstance(change.get("enabled"), bool):
+            raise ConfigInvalid(f"成人向开关需要是 true 或 false，而不是 {change.get('enabled')!r}")
+        return current | change
+
+
 PROXY_LABELS: dict[ProxiedService, str] = {
     "chat_llm": "扮演角色的 LLM",
     "memory_llm": "后台模型",
@@ -918,7 +939,8 @@ class LiveConfig:
                 # The proxy first: as the server starts, the services are tried through it.
                 _Proxy(self), _ChatLLM(self), _MemoryLLM(self), _TTS(self), _STT(self),
                 _Image(self), _Judge(self), _JudgeThresholds(self), _Rerank(self),
-                _Limits(self), _Affinity(self), _ReachOuts(self), _ServiceStatus(self),
+                _Limits(self), _Affinity(self), _ReachOuts(self), _ExplicitContent(self),
+                _ServiceStatus(self),
             )
         }
         self._failures: dict[str, str] = {}
@@ -1044,6 +1066,12 @@ class LiveConfig:
         most."""
         values = self.effective(REACH_OUTS)
         return ReachOutSettings(values["enabled"], values["per_day"])
+
+    @property
+    def explicit_content(self) -> bool:
+        """Whether adult content is allowed now; not whether any character may be written
+        that way, which the code's age gate decides."""
+        return bool(self.effective(EXPLICIT_CONTENT)["enabled"])
 
     @property
     def proxy_settings(self) -> ProxySettings:

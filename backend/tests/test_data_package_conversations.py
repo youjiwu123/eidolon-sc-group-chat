@@ -42,7 +42,7 @@ from tests.test_memory_management import memories
 from tests.test_past_conversations import hers
 from tests.test_she_ends_conversation import end
 from tests.test_stats import registered_at, said_at, stats
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>[小声で]はい</ja><zh>好的</zh>"]
 """Her reply, with a delivery cue that the record shows without and the package keeps."""
@@ -176,7 +176,7 @@ async def test_conversations_move_to_another_deployment_as_they_were(
     # The newest of each of hers is her current one, to go on in.
     for character in ("mano", "kogane"):
         current = (await hers(there, character))[0]["id"]
-        assert (await send_turn(there, current, "我回来了"))[-1]["type"] == "done"
+        assert done_of(await send_turn(there, current, "我回来了"))["type"] == "done"
 
 
 def said(text: str, at: str, *, hurt: float | None = 0.0) -> dict:
@@ -250,7 +250,7 @@ async def test_her_conversation_here_stays_current_and_one_imported_is_where_the
     assert latest["mano"]["conversation_id"] == mine
     kogane = latest["kogane"]["conversation_id"]
     assert latest["kogane"]["last_message"]["zh"] == "好的"
-    assert (await send_turn(client, kogane, "接着聊"))[-1]["type"] == "done"
+    assert done_of(await send_turn(client, kogane, "接着聊"))["type"] == "done"
 
 
 async def test_a_conversation_already_here_is_passed_over_whole(
@@ -337,7 +337,7 @@ async def test_a_gift_not_in_the_catalog_here_is_left_out_and_the_conversation_g
     assert [e.get("gift_id") for e in await record(client, conversation["id"])] == [
         None, None, "pudding",
     ]
-    assert (await send_turn(client, conversation["id"], "还在吗"))[-1]["type"] == "done"
+    assert done_of(await send_turn(client, conversation["id"], "还在吗"))["type"] == "done"
     assert [e.get("kind") for e in await record(client, conversation["id"])][-2:] == [None, None]
 
 

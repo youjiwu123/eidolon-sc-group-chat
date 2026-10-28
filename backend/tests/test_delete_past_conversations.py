@@ -27,7 +27,7 @@ from tests.test_memory_management import memories, memory_client
 from tests.test_past_conversations import hers
 from tests.test_reach_outs import MIDDLE, REACH_OUT, backend_of, last_contact, talked
 from tests.test_shared_memory import CAT, REPLY, memorized, turn
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 
 def memory_sources(database: Path) -> list[str | None]:
@@ -144,7 +144,7 @@ async def test_a_conversation_deleted_while_being_named_stays_deleted(
     )
     past = await start_conversation(client)
     for i in range(3):
-        assert (await send_turn(client, past, f"第{i}句"))[-1]["type"] == "done"
+        assert done_of(await send_turn(client, past, f"第{i}句"))["type"] == "done"
     await start_conversation(client)
 
     assert (await client.delete(f"/api/conversations/{past}")).status_code == 204

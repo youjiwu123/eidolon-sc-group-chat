@@ -18,7 +18,7 @@ from tests.conftest import KOGANE_SHEET, MANO_SHEET, CharacterConfig, ClientFact
 from tests.fakes import FakeBackgroundLLM, FakeEmbedder, FakeJudge, FakeLLM, FakeReranker, context_of, system_of
 from tests.test_live_config import until
 from tests.test_shared_memory import CAT, memorized
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はいっ</ja><zh>好的</zh>"]
 
@@ -70,7 +70,7 @@ async def system_prompt(
 ) -> str:
     conversation_id = await start_conversation(client, character)
     events = await send_turn(client, conversation_id, text)
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     return system_of(llm.prompts[-1])
 
 
@@ -177,7 +177,7 @@ async def test_references_are_looked_up_with_her_previous_reply_as_people_see_it
 
     events = await send_turn(client, conversation_id, "那时候累吗？")
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     query = "是和鸽子一起在公园唱歌的那天吧\n那时候累吗？"
     [(reranked, candidates)] = reranker.calls
     assert reranked == query
@@ -329,7 +329,7 @@ async def test_the_query_is_embedded_while_the_judge_model_judges(
     assert reranker.calls == []  # not until the judge model has answered
     judge.let_go()
     events = await turn
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     assert PARK_LINE in system_of(llm.prompts[-1])
 
 
@@ -351,7 +351,7 @@ async def test_a_turn_needing_nothing_drops_what_it_found_while_the_judge_model_
     judge.let_go()
     events = await turn
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     assert reranker.calls == []
     system = system_of(llm.prompts[-1])
     assert "# 回忆与资料" not in system and "# 关于制作人的记忆" not in system

@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Any, Literal, Required, TypedDict, get_args
 from urllib.parse import urlsplit, urlunsplit
 
+from eidolon.affinity_prompts import affinity_prompts_path
+
 log = logging.getLogger(__name__)
 
 
@@ -163,8 +165,9 @@ BailianRegion = Literal["beijing", "singapore"]
 DEFAULT_BAILIAN_STT_MODEL = "qwen-audio-3.1-asr-flash-streaming"
 BAILIAN_STT_MODELS = (DEFAULT_BAILIAN_STT_MODEL,)
 """The models Alibaba Cloud Model Studio may recognize speech with: those that take turns
-as the call needs (ticket bailian-stt 01). The 3.0 model and fun-asr-realtime speak the
-same protocol, but without `vad_model` a cough comes out as an empty sentence, or as 「咳咳。」."""
+as the call needs (ticket bailian-stt 01). No `vad_model` goes with them (see
+`bailian.PARAMETERS`): a cough may come out as a sentence, which beats quiet speech being
+heard as nothing at all."""
 
 
 @dataclass(frozen=True)
@@ -461,6 +464,14 @@ class Settings:
     reach_outs: bool = False
     """Whether characters reach out to users (GLOSSARY.md「搭话」), on the deployer's chat
     model; off unless `.env` turns it on, and the admin console may override it."""
+    scene_moves: bool = False
+    """Whether a turn that talks them into another place moves her there (DESIGN.md「通话场景」):
+    asked of the chat model once after `done`, so off unless `.env` turns it on."""
+    explicit_content: bool = True
+    """Whether adult content is allowed at all, a deployer-level setting; off unless
+    `.env` turns it on, and the admin console may override it. It never lets a character
+    under 18 through: her age gates that in code. Not a user setting, and not a frontend
+    switch."""
     proxy: ProxySettings = field(default_factory=ProxySettings)
     """Which of the deployer's services go through which proxy; none unless `.env` sets
     one, and the admin console may override it."""
@@ -490,6 +501,9 @@ class Settings:
     """Where browsers download the stands from, without a trailing slash: the public URL
     of the object storage they are synced to (ADR-0003, revised 2026-09-30). None shows
     every character's call background without her stand."""
+    small_talk_path: Path = field(default_factory=lambda: Path("../corpus/small-talk"))
+    """Where her small talk lines and their voices are (DESIGN.md「对话页的立绘小人」);
+    without them she says nothing when poked."""
 
     def __post_init__(self) -> None:
         if self.background_llm is None:
@@ -499,6 +513,17 @@ class Settings:
                 "EIDOLON_DEV_LOGIN=1 让任何人都能不经登录冒充任何用户，只能在开发环境打开；"
                 "配置了 EIDOLON_DOMAIN 的公开部署不会启动，请去掉 EIDOLON_DEV_LOGIN"
             )
+
+    @property
+    def modes_path(self) -> Path:
+        """The mode table (特殊档等), beside `characters.toml`; absent means no modes."""
+        return self.characters_path.parent / "modes.toml"
+
+    @property
+    def affinity_prompts_path(self) -> Path:
+        """The affinity tiers' prompts (好感度), beside `characters.toml`; absent means the
+        built-in ones (`affinity_prompts.DEFAULT_PROMPTS`)."""
+        return affinity_prompts_path(self.characters_path)
 
     @property
     def chat_model(self) -> ChatModelSettings:
@@ -531,6 +556,7 @@ class Settings:
         return cls(
             database_path=database_path_from_env(),
             characters_path=characters_path_from_env(),
+            small_talk_path=small_talk_path_from_env(),
             chat_llm=chat_llm,
             background_llm=LLMSettings.background_from_env(),
             background_llm_explicit=any(
@@ -558,6 +584,8 @@ class Settings:
             exempting_keys=exempting_keys_from_env(),
             affinity_and_gifts=_switch("EIDOLON_AFFINITY_AND_GIFTS", default=True),
             reach_outs=_switch("EIDOLON_REACH_OUTS"),
+            scene_moves=_switch("EIDOLON_SCENE_MOVES"),
+            explicit_content=_switch("EIDOLON_EXPLICIT_CONTENT", default=True),
             proxy=proxy_from_env(),
             service_status=service_status_from_env(),
             domain=os.environ.get("EIDOLON_DOMAIN", "").strip() or None,
@@ -606,6 +634,11 @@ def database_path_from_env() -> Path:
 
 def characters_path_from_env() -> Path:
     return Path(os.environ.get("EIDOLON_CHARACTERS_PATH", "../characters/characters.toml"))
+
+
+def small_talk_path_from_env() -> Path:
+    """Her small talk lines and voices, as `scripts/import-sc-time-small-talk.py` lays them out."""
+    return Path(os.environ.get("EIDOLON_SMALL_TALK_PATH", "../corpus/small-talk"))
 
 
 def story_path_from_env() -> Path:

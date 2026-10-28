@@ -39,7 +39,7 @@ from tests.fakes import level
 from tests.test_affinity import keep
 from tests.test_conversation_events import hang_up
 from tests.test_delete_account import DELETE, rows_mentioning
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 from tests.test_turns import Turns
 
 IMAGE = ImageSettings("nai-key", "https://image.novelai.test")
@@ -106,7 +106,7 @@ async def test_asked_she_sends_one_before_her_words_and_it_is_kept_with_her_repl
     assert photo == {"type": "photo", "id": photo["id"], "status": "pending"}
     shown = [e["text"] for e in events if e["type"] == "delta"]
     assert "".join(shown) == "はい、どうぞ给，你看"
-    done = events[-1]["message"]
+    done = done_of(events)["message"]
     assert (done["ja"], done["zh"]) == ("はい、どうぞ", "给，你看")
     assert done["photo"] == {"id": photo["id"], "status": "pending", "reason": None}
     assert pending.json() == {"status": "pending", "reason": None}
@@ -224,7 +224,7 @@ async def test_a_turn_that_could_have_no_photo_tells_her_she_cannot_send_one(
     assert CANNOT_SEND in context_of(llm.prompts[0])
     assert photo_events(events) == []
     assert image.requests == []
-    assert events[-1]["message"]["ja"] == "はい、どうぞ"
+    assert done_of(events)["message"]["ja"] == "はい、どうぞ"
 
 
 @pytest.mark.parametrize("judged", ["no", "judge model down", "coldest tier"])
@@ -273,10 +273,11 @@ async def test_asked_apart_a_photo_answer_not_read_still_leaves_her_affinity_jud
 
     events = await send_turn(client, conversation, "发张自拍给我看看")
 
-    assert [k for _, k in clients.judge.asked] == ["affinity"]
+    # 照片的回答读不出来，好感照样判；回复记下之后她又判了一次语气（DESIGN.md「对话页的立绘小人」）。
+    assert [k for _, k in clients.judge.asked] == ["affinity", "emotion"]
     assert photo_events(events) == []
     assert image.requests == []
-    assert events[-1]["message"]["affinity"]["up"] is True
+    assert done_of(events)["message"]["affinity"]["up"] is True
 
 
 @pytest.mark.parametrize("asked_with", ["nothing else", "affinity", "retrieval"])
@@ -300,7 +301,7 @@ async def test_whether_she_is_asked_for_one_is_judged_with_whatever_else_is(
     events = await send_turn(client, conversation, "发张自拍给我看看")
 
     kind = {"nothing else": "photo", "affinity": "affinity", "retrieval": "turn"}[asked_with]
-    assert [k for _, k in clients.judge.asked] == [kind]
+    assert [k for _, k in clients.judge.asked] == [kind, "emotion"]  # then how she said it
     assert clients.judge.photo_asked == ["发张自拍给我看看"]
     assert len(photo_events(events)) == 1
 
@@ -353,7 +354,7 @@ async def test_only_a_first_tag_at_the_front_is_kept_and_any_other_left_out_of_h
 
     assert photo_events(behind) == []
     for events in (behind, twice):
-        message = events[-1]["message"]
+        message = done_of(events)["message"]
         assert (message["ja"], message["zh"]) == ("はい、どうぞ", "给，你看")
     assert len(image.requests) == 1
     assert "selfie" in image.requests[0]["body"]["input"]
@@ -374,7 +375,8 @@ async def test_her_later_turns_carry_her_tag_where_the_judge_model_never_reads_i
 
     replies = [m.content for m in llm.prompts[1] if m.role == "assistant"]
     assert replies == [f"<photo>{SELFIE}</photo>{WORDS}"]
-    told = clients.judge.states[-1]["上文"]
+    # 最后一次问的是她这句回复的语气（`done` 之后），上文要看那一回合里被问的那次。
+    told = next(state["上文"] for state in reversed(clients.judge.states) if "上文" in state)
     assert not any("<photo>" in line or "selfie" in line for line in told)
 
 

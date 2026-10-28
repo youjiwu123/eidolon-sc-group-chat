@@ -33,10 +33,13 @@ from eidolon.accounts import Accounts
 from eidolon.activity import ActivityLog, metered_retrieval
 from eidolon.admission import Admissions
 from eidolon.affinity import Affinities
+from eidolon.affinity_prompts import load_affinity_prompts
 from eidolon.announcements import Announcements
 from eidolon.backup import Backups
 from eidolon.call import Calls, Speech, SpeechServices
+from eidolon.character_modes import CharacterModes
 from eidolon.characters import Character, load_characters
+from eidolon.conversation_scenes import ConversationScenes
 from eidolon.gift_catalog import Gift, check_liked_gifts, gifts_path, load_gift_catalog
 from eidolon.gifts import Gifts
 from eidolon.happenings import Happenings
@@ -51,6 +54,7 @@ from eidolon.identity import IdentityProvider, ProviderName, open_identity_provi
 from eidolon.image_generation import GENERATION_TIMEOUT
 from eidolon.live_config import LiveConfig, Reach
 from eidolon.memory import Memories
+from eidolon.modes import Mode, load_modes
 from eidolon.price_catalog import Catalog
 from eidolon.prices import Prices
 from eidolon.own_keys import LLMService, OwnImageService, OwnKeys, ProviderLLMService
@@ -114,6 +118,10 @@ class Backend:
     """The code users may scan to sponsor the deployment, where it is on."""
     affinities: Affinities
     """Every user's affinity with every character, where it is on."""
+    character_modes: CharacterModes
+    """Which modes each user turned on for each character (特殊档等); hers alone."""
+    conversation_scenes: ConversationScenes
+    """Where each conversation moved to, if it did (DESIGN.md「通话场景」)."""
     gifts: Gifts
     """Every user's draw chances, backpack and reset cards, where gifts are open."""
     happenings: Happenings
@@ -130,6 +138,8 @@ class Backend:
     """Has characters reach out to users once their time comes."""
     world: World | None = None
     """The world setting; None without its data file."""
+    modes: dict[str, Mode] = field(default_factory=dict)
+    """The modes the producer profile may choose (特殊档等), by id; none without their file."""
     _closers: list[Closer] = field(default_factory=list, repr=False)
     _keeping_fresh: asyncio.Task[None] | None = field(default=None, repr=False)
     _probing: asyncio.Task[None] | None = field(default=None, repr=False)
@@ -177,6 +187,8 @@ def build(
     configuration (her liked gifts and all), the world setting or the gift catalog is broken,
     or a character is none of its idols and none of its staff."""
     characters = load_characters(settings.characters_path)
+    modes = load_modes(settings.modes_path)
+    affinity_prompts = load_affinity_prompts(settings.affinity_prompts_path)
     gift_catalog = load_gift_catalog(gifts_path(settings.characters_path))
     check_liked_gifts(characters, gift_catalog)
     world = load_world(path := world_path(settings.characters_path))
@@ -311,6 +323,10 @@ def build(
 
     affinities = Affinities(settings.database_path, clock, lambda: config.affinity_on)
     closers.append(affinities.close)
+    character_modes = CharacterModes(settings.database_path)
+    closers.append(character_modes.close)
+    conversation_scenes = ConversationScenes(settings.database_path)
+    closers.append(conversation_scenes.close)
     unphotographed = [c.id for c in characters.values() if not c.photographed]
     if config.image_settings is not None and unphotographed:
         log.warning(
@@ -340,7 +356,8 @@ def build(
     engine = ConversationEngine(
         store, characters, gift_catalog, memories, titles, clock, retrieval,
         lambda: config.history_turns, world, affinities, config.affinity_judge(), photos,
-        happenings,
+        happenings, modes, explicit_content=lambda: config.explicit_content,
+        character_modes=character_modes, affinity_prompts=affinity_prompts,
     )
     own_keys = OwnKeys(
         own_llm_service, config, activity, speech, exempting=lambda: config.exempting_keys,
@@ -384,6 +401,8 @@ def build(
         announcements=announcements,
         sponsor=sponsor,
         affinities=affinities,
+        character_modes=character_modes,
+        conversation_scenes=conversation_scenes,
         gifts=gifts,
         happenings=happenings,
         backups=backups,
@@ -394,5 +413,6 @@ def build(
         ),
         reach_outs=reach_outs,
         world=world,
+        modes=modes,
         _closers=closers,
     )

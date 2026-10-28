@@ -25,7 +25,7 @@ from tests.test_conversation_events import HUNG_UP, hang_up, record, shape
 from tests.test_conversation_history import history, told
 from tests.test_delete_account import user_id
 from tests.test_gift_backpack import RESET_CARD, state
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 USE = "/api/gifts/resets"
@@ -99,7 +99,7 @@ async def test_one_in_a_cooldown_can_be_talked_to_straight_away_none_the_wiser(
     assert (await client.post(USE)).status_code == 200
     turn = await send_turn(client, conversation, "还在生气吗")
 
-    assert turn[-1]["type"] == "done"
+    assert done_of(turn)["type"] == "done"
     assert shape(await record(client, conversation)) == ["hung_up", "user:还在生气吗", "character:好的"]
     assert history(llm) == [("user", f"{HUNG_UP}\n还在生气吗")]
     # In trust, her prompt is as it always is: nothing of the card, nor of how she was.

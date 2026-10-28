@@ -77,32 +77,54 @@ class EmotionJudging:
     async def message(self, reply: int, segment: int, said: SegmentToJudge) -> dict | None:
         """The `emotion` server message for segment `segment` of reply `reply`, or None if
         it could not be judged in time."""
+        judged = await self.answer(said)
+        if judged is None:
+            return None
+        emotion, nod, sure = judged
+        return {
+            "type": "emotion",
+            "reply": reply,
+            "segment": segment,
+            "emotion": emotion,
+            "nod": nod,
+            "strength": round(sure, 2),
+        }
+
+    async def answer(
+        self, said: SegmentToJudge, min_probability: float | None = None
+    ) -> tuple[Emotion, Nod | None, float] | None:
+        """How she says `said`: her emotion, whether she nods or shakes her head, and how sure
+        the judge was of the emotion (0–1), or None when it could not be judged in time. A text
+        turn has its whole reply asked as one. `min_probability` overrides the model's, for
+        callers that would rather have a bolder answer than a calm one."""
         try:
             answer = await asyncio.wait_for(self.judge.judge_emotion(said), self.timeout)
         except TimeoutError:
-            log.info("emotion judge took over %ss; the segment goes unjudged", self.timeout)
+            log.info("emotion judge took over %ss; it goes unjudged", self.timeout)
             return None
         except JudgeError:
-            log.warning("emotion judge failed; the segment goes unjudged", exc_info=True)
+            log.warning("emotion judge failed; it goes unjudged", exc_info=True)
             return None
-        emotion, nod = decide(answer, self.min_probability)
-        return {"type": "emotion", "reply": reply, "segment": segment, "emotion": emotion, "nod": nod}
+        floor = self.min_probability if min_probability is None else min_probability
+        return decide(answer, floor)
 
 
-def decide(answer: EmotionAnswer, min_probability: float) -> tuple[Emotion, Nod | None]:
-    """The emotion and the nod `answer` says, each its likeliest option unless that is
-    below `min_probability`: then she is calm, and neither nods nor shakes her head."""
-    return (
-        _likeliest(answer.emotions, min_probability, "calm"),
-        _likeliest(answer.nods, min_probability, None),
-    )
+def decide(answer: EmotionAnswer, min_probability: float) -> tuple[Emotion, Nod | None, float]:
+    """The emotion, the nod `answer` says and how sure it is of the emotion (0–1), each its
+    likeliest option unless that is below `min_probability`: then she is calm, and neither
+    nods nor shakes her head."""
+    emotion, sure = _likeliest_with(answer.emotions, min_probability, "calm")
+    nod, _ = _likeliest_with(answer.nods, min_probability, None)
+    return emotion, nod, sure
 
 
-def _likeliest(probabilities: Mapping[T, float], min_probability: float, otherwise: T) -> T:
+def _likeliest_with(
+    probabilities: Mapping[T, float], min_probability: float, otherwise: T
+) -> tuple[T, float]:
     if not probabilities:
-        return otherwise
+        return otherwise, 0.0
     best, probability = max(probabilities.items(), key=lambda item: item[1])
-    return best if probability >= min_probability else otherwise
+    return (best if probability >= min_probability else otherwise), probability
 
 
 _EMOTION_OPTIONS: dict[str, tuple[Emotion, str]] = {
@@ -126,7 +148,9 @@ _SCENE = (
 )
 _EMOTION_QUESTION = {
     "type": "choice",
-    "instructions": _SCENE + "说这一段时，她脸上最主要的情绪是哪一种？",
+    "instructions": _SCENE
+    + "说这一段时，她脸上最明显、最外露的情绪是哪一种？哪怕只有一点，也选她最明显的那个；"
+    "整句都平铺直叙、看不出情绪时才选平静。",
     "criteria": {name: description for name, (_, description) in _EMOTION_OPTIONS.items()},
 }
 _NOD_QUESTION = {

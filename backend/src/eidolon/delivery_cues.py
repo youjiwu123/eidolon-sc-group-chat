@@ -4,9 +4,12 @@ A cue as Fish Audio reads it is English in square brackets. Drama 3 also reads p
 tags around the words they are for (`<whisper>内緒だよ</whisper>`), from a few it knows
 (`PAIRED_TAGS`); voiced with any other model, they are left out (`spoken_by`). The reply
 keeps what the model wrote, but only speech synthesis hears the cues, and only
-well-formed ones: what looks like a cue written some other way (`(happy)`, `（小声で）`,
-`【嬉しそうに】`, `[嬉しそうに]`, `<|speaker:0|>`) is dropped for everyone rather than read
-out as words. What people see, and what the background models read, has no cues at all.
+well-formed ones: what looks like a cue written some other way (`(happy)`, `【嬉しそうに】`,
+`[嬉しそうに]`, `<|speaker:0|>`) is dropped for everyone rather than read out as words. What
+people see, and what the background models read, has no cues at all.
+
+Round brackets are not cues: what is in them is hers, an action or, for a character who
+cannot speak, what she is thinking. It is shown as written, and never voiced.
 """
 
 import re
@@ -23,6 +26,10 @@ TAG_READERS: frozenset[FishAudioModel] = frozenset({"drama-3"})
 _CLOSERS = {"[": "]", "(": ")）", "（": ")）", "【": "】", "<": ">"}
 _CUE = re.compile(r"\[[A-Za-z][A-Za-z ,'\-]*\]")
 _TAG = re.compile(rf"<(/?)(?:{'|'.join(PAIRED_TAGS)})>")
+_MISWRITTEN_CUE = re.compile(r"[（(]\s*[A-Za-z][A-Za-z0-9 ,'\-]*\s*[)）]")
+"""A cue written in round brackets, as `(happy)` is: hidden and unvoiced, as a miswritten cue.
+Every other round-bracket group is hers — an action or, when she cannot speak, what she is
+thinking — so it is shown, and still never voiced (`voiced`)."""
 LONGEST_CUE = 80
 """An opening bracket not closed within this many characters is not a cue but part of
 the line, and goes on as written rather than holding the line back."""
@@ -70,6 +77,17 @@ class CueFilter:
                             voiced += bracketed
                     elif tag is not None or _CUE.fullmatch(bracketed):
                         self._voiced += bracketed
+                    elif _MISWRITTEN_CUE.fullmatch(bracketed):
+                        continue  # 写成圆括号的语气提示：谁都不看
+                    elif bracketed[0] in "（(":
+                        # 她写的动作或心里话：给人看，也念出来（语音里也听得到）。
+                        piece = bracketed if self._shown_any else bracketed.lstrip()
+                        shown += self._space + piece
+                        self._space = ""
+                        self._shown_any = True
+                        voiced += bracketed
+                    else:
+                        continue  # 方头括号、写错样子的标签：谁都不看
                     continue
             more_shown, more_voiced = self._take(text)
             shown += more_shown
@@ -105,15 +123,16 @@ def without_cues(text: str) -> str:
     return shown + line.finish()[0]
 
 
-_ACTION = re.compile(r"[（(][^（()）]{1,40}[）)]")
+_ACTION = re.compile(r"[（(][^（()）]{1,200}[）)]")
 
 
 def voiced(text: str) -> str:
-    """`text` as speech synthesis hears it: what people see, with its well-formed cues, and
-    without the actions she wrote in round brackets, which are not said aloud."""
+    """`text` as speech synthesis hears it: what people see, with its well-formed cues and,
+    now, what she wrote in round brackets too — actions and, for a character who cannot
+    speak, her thoughts are said aloud."""
     line = CueFilter()
     _, said = line.feed(text)
-    return _ACTION.sub("", said + line.finish()[1])
+    return said + line.finish()[1]
 
 
 def spoken_by(voiced: str, model: FishAudioModel) -> str:

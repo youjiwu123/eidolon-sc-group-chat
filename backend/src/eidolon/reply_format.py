@@ -19,6 +19,7 @@ anywhere else, between segments or in the middle of her words, or after the firs
 out of the reply as if never written.
 """
 
+import re
 from dataclasses import dataclass, field
 from typing import Literal
 
@@ -53,7 +54,8 @@ _CUES = """\
 常用的有 [happily] [excitedly] [shyly] [embarrassed] [sadly] [disappointed] [sulking] [angrily] [worried] [surprised] [gently] [teasing] [whispering] [laughing] [sleepy]，也可以自由描述，例如 [laughing nervously]，但不要超过四个英文单词。
 - 每段最多两个语气提示；拿不准要不要加时就不加。
 - 语气提示只写在 <ja> 里；<zh> 只翻译台词，不带语气提示。
-- 语气提示只用方括号加英文，不要用圆括号、方头括号写语气提示，也不要用日语或中文写提示。"""
+- 语气提示只用方括号加英文，不要用圆括号、方头括号写语气提示，也不要用日语或中文写提示。
+- 圆括号不是语气提示：（）里的内容会和台词一起被念出来。只能写你此刻心里那一句（第一人称、一句短的，例如（……他还会碰我吗）），不要写动作或神态——通话里没有人看得见。"""
 
 _DIRECTED_CUES = """\
 通话时日语原文会被念出来，配音会像演员一样照你的指示念。情绪明显的段，可以在日语原文里加上语气提示，告诉配音这里该怎么念：
@@ -66,19 +68,28 @@ _DIRECTED_CUES = """\
 <ja>[small laugh] これ、<whisper>みんなには内緒</whisper>だよ？</ja><zh>这个，要对大家保密哦？</zh>
 - 每段最多两三处语气提示；拿不准要不要加时就不加。
 - 语气提示只写在 <ja> 里；<zh> 只翻译台词，不带语气提示。
-- 语气提示只用方括号加英文，和上面这几种成对标签；不要用圆括号、方头括号或别的标签写语气提示，也不要用日语或中文写提示。"""
+- 语气提示只用方括号加英文，和上面这几种成对标签；不要用圆括号、方头括号或别的标签写语气提示，也不要用日语或中文写提示。
+- 圆括号不是语气提示：（）里的内容会和台词一起被念出来。只能写你此刻心里那一句（第一人称、一句短的，例如（……他还会碰我吗）），不要写动作或神态——通话里没有人看得见。"""
 
 
 _ACTIONS = """\
-# 动作与神态
-对方可能在消息里用圆括号写他正在做的动作，例如（走过去抱住她）。那不是他说出口的话，
+# 对方的动作和心声
+对方可能在消息里用圆括号写他正在做的动作，例如（走过去抱住她）或 (走过去抱住她)。那不是他说出口的话，
 是他真的这么做了：把它当成已经发生的事来回应，不要说成「你说你抱了我」这类话，也不必复述他的动作。
 你也可以用圆括号写自己的动作和神态，例如（红着脸低下头）（轻轻握住他的手）。
 - 写在 <ja> 里，一次回复最多一处，十个字以内，只写看得见或听得见的动作，不写心理活动。
 - 中文字幕里在相同的位置写同样的动作，例如（红着脸低下头）。
 - 对方用圆括号写了动作时，你必须用一个动作回应，不要只回台词。例如对方说「（抱住她）今天辛苦了」，你可以答：
 <ja>（肩をびくっと跳ねさせて）わっ……えへへ、ありがとうございます。</ja><zh>（肩膀猛地一跳）哇……欸嘿嘿，谢谢您。</zh>
-- 对方没用动作、气氛也平常时，不必每句都加。
+- 对方没用圆括号、气氛也平常时，不必每句都加。
+- 唯一的例外：如果你此刻说不成句、出不了声（例如语言被关掉、被要求安静、嗓子哑了、隔着门或玻璃），
+（）里写的是你心里那一句，不是动作——第一人称、一句话、不加引号，例如（……他还会来看我吗）。
+这是唯一可以拿（）写心里话的时候，别的时候照旧只写动作。
+- 对方也可能用引号写他没说出口的心声，例如“其实我今天很怕一个人回家”或"其实我今天很怕一个人回家"：
+那不是他说的话，是他心里想的。你有没有听见，只看你的设定。
+  - 你的设定或当前模式写明你能读到他的心声（读心、感知他的念头和情绪、听得见他心里的话……）时，
+你才可以对引号里的内容有反应：用你自己的方式点破、回应，或者装作听见了。
+  - 没有写明的时候，就当没听见：不要回应、不要复述、不要表现出知道，也别问他「你刚才在想什么」。
 """
 
 FORMAT_INSTRUCTIONS = _FORMAT + _CUES
@@ -98,6 +109,30 @@ def format_instructions(voiced_by: FishAudioModel | None) -> str:
 TEXT_ACTIONS = _ACTIONS
 """Round-bracket actions, told to a text turn only: a call's lines are read aloud, and her
 actions in them would be read out too."""
+
+MODE_FIRST = """现在最要紧的是下面这段——这是你此刻的样子：说话和态度都以它为准，比别的描述都更该照着做。但你还是你，不要变成另一个人。"""
+"""How a mode she has on is introduced (`特殊档`): its own section, worded as the one to follow,
+in a text turn (`engine._prompt`) and in a group (`group_chat.group_prompt`)."""
+
+MIND_READING = ("读心", "心声", "心里的话", "听见他心", "听得见他心", "听见他的心", "听得见制作人心里")
+"""What a character's sheet, or one of her modes, says to declare that she hears his thoughts."""
+
+_THOUGHTS = re.compile(r"[“\"][^“”\"\n]{1,300}[”\"]")
+"""An unspoken thought of his: what “…” or "…" holds (the input convention, `TEXT_ACTIONS`)."""
+
+_NOT_HEARD = "（他张了张嘴，没有出声。）"
+
+
+def reads_minds(sheet: str, modes: str = "") -> bool:
+    """Whether she is written down as able to read his mind: her sheet, or a mode she has on,
+    says so. Everyone else does not hear what he only thinks."""
+    return any(word in sheet or word in modes for word in MIND_READING)
+
+
+def without_thoughts(text: str) -> str:
+    """`text` as someone who cannot read his mind takes it in: the thoughts in “…” are not
+    heard at all, so there is nothing there to answer."""
+    return _THOUGHTS.sub(_NOT_HEARD, text)
 
 
 @dataclass(frozen=True)

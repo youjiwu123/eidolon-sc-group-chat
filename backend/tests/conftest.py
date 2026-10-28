@@ -73,15 +73,66 @@ SCSP_AVATAR = b"\xff\xd8\xff fake SCSP avatar"
 BACKGROUND = b"\xff\xd8\xff fake background"
 REPO_GIFTS = Path(__file__).parents[2] / "characters" / GIFTS_FILE
 
+SCENES = """
+# The smallest scene table `create_app` starts on: `characters/scenes.toml` is read by
+# `scenes.load_scenes` as the app is made, so every test's temporary character directory
+# needs one. `sky` is `scenes.FALLBACK`; the rest are the scenes the tests name.
+[[scenes]]
+id = "home"
+name = "她的家"
+hint = "粉色房间"
+image = "home.jpg"
+
+[[scenes]]
+id = "lounge"
+name = "事务所休息室"
+hint = "沙发、茶水间"
+image = "lounge.jpg"
+
+[[scenes]]
+id = "studio"
+name = "练习室"
+hint = "镜子、把杆"
+image = "studio.jpg"
+
+[[scenes]]
+id = "sky"
+name = "说不准"
+hint = "外景天空"
+image = "sky.jpg"
+
+# One behavior every character shares, so a cold call has somewhere to connect.
+[[behaviors]]
+character = "*"
+scene = "studio"
+text = "在练习室练新曲"
+"""
+"""A minimal but valid scene table, written beside the character configuration as a
+deployment keeps it. A test that wants other scenes writes its own over this one."""
+
+SCENE_IDS = ("home", "lounge", "studio", "sky")
+"""The scenes `SCENES` lists, each with a picture in `characters/scenes/`."""
+
+SCENE_IMAGE = b"\xff\xd8\xff fake scene"
+"""Stands in for a scene's picture: `/api/scenes/<id>` serves the file the table names."""
+
 
 class CharacterConfig:
     """Writes a character configuration directory, the way an administrator would, with the
-    repository's gift catalog beside it unless a test writes its own (`gifts.toml`)."""
+    repository's gift catalog beside it unless a test writes its own (`gifts.toml`), and the
+    minimal scene table `create_app` reads (`scenes.toml`, `scenes/`)."""
 
     def __init__(self, directory: Path) -> None:
         self.directory = directory
         self.path = directory / "characters.toml"
         self._entries: list[str] = []
+        # `create_app` reads `characters/scenes.toml` as it starts (`scenes.load_scenes`) and
+        # serves the pictures it names from `characters/scenes/`, so every directory a fixture
+        # makes carries them; a test that tests other scenes writes its own over this one.
+        if not (directory / "scenes.toml").exists():
+            self.write("scenes.toml", SCENES)
+            for scene_id in SCENE_IDS:
+                self.write(f"scenes/{scene_id}.jpg", SCENE_IMAGE)
 
     def add(
         self,

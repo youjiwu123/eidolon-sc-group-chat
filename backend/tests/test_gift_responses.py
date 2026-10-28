@@ -40,7 +40,7 @@ from tests.test_gift_giving import (  # noqa: F401
     holding,
 )
 from tests.test_she_hangs_up import say
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 SAID = "<ja>はい</ja><zh>好的</zh>"
 REPLY = [SAID]
@@ -146,7 +146,7 @@ async def test_in_a_call_the_next_turn_responds_to_one_given_from_elsewhere(
         turn = await say(speech, browser, "怎么了")
         await browser.hang_up()
 
-    assert turn[-1]["type"] == "done"
+    assert done_of(turn)["type"] == "done"
     assert history(llm)[-1] == ("user", f"{GIVEN_CAKE}\n{RESPOND}\n怎么了")
 
 
@@ -178,6 +178,7 @@ async def test_memory_and_the_judge_model_never_see_it_nor_her_hanging_up(
     memories = [prompt for prompt in memory.prompts if "起标题" not in prompt[0].content]
     seen = [*(str(state) for state in clients.judge.states),
             *(m.content for prompt in memories for m in prompt)]
-    assert len(clients.judge.states) == 3 and len(memories) == 3
+    # 每个回合问两次：这一回合的事，和回复记下之后她那句话的语气。
+    assert len(clients.judge.states) == 6 and len(memories) == 3
     assert not [s for s in seen if "制作人送给你" in s or "回应收到的礼物" in s or "挂断" in s]
     assert clients.judge.affinity_asked == ["第一句", "送你的", "还有这个"]

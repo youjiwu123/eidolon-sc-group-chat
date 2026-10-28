@@ -16,6 +16,7 @@ from eidolon.config import Settings
 from eidolon.engine import MAX_INPUT_LENGTH
 from eidolon.llm import ToolCall
 from eidolon.own_keys import BroughtKeys
+from eidolon.producer import Place
 from eidolon.reply_format import SegmentComplete, SpeechDelta
 from eidolon.store import Conversation, Store
 from tests.fakes import (
@@ -26,6 +27,7 @@ from tests.fakes import (
     FakeLLM,
     FakeReranker,
     build_faked,
+    context_of,
 )
 
 NOW = datetime(2026, 9, 26, 12, 0, tzinfo=UTC)
@@ -48,19 +50,23 @@ class Turns:
         *,
         in_house: bool = False,
         stop_after: int | None = None,
+        place: Place | None = None,
         **services: Any,
     ) -> list[dict]:
         """Take one turn; returns its events as they go out on the wire, and with
         `in_house` also those that stay on the server. With `stop_after`, the turn is told
         to stop a moment after that segment is complete, by when it is waiting on the
-        model or a tool. Any other keyword is a script for the deployer's models or an
-        outside service to use (see `fakes.build_faked`)."""
+        model or a tool. `place` is where she is, as the page shows it. Any other keyword
+        is a script for the deployer's models or an outside service to use (see
+        `fakes.build_faked`)."""
         backend = build_faked(self._settings, llm, clock=lambda: NOW, **services)
         stop = asyncio.Event()
         events = []
         try:
             llms = backend.own_keys.for_turn(BroughtKeys()).llms
-            async for event in backend.engine.turn(self.conversation, text, llms, stop=stop):
+            async for event in backend.engine.turn(
+                self.conversation, text, llms, stop=stop, place=place
+            ):
                 events.append(event)
                 if isinstance(event, SegmentComplete) and event.segment == stop_after:
                     asyncio.get_running_loop().call_later(0.05, stop.set)
@@ -214,3 +220,23 @@ async def test_a_turn_told_to_stop_while_a_tool_runs_is_recorded_with_its_comple
     assert len(llm.prompts) == 1  # the model was not asked again
     assert events[-1]["type"] == "done"
     assert turns.record()[-1] == ("character", None, "ええと")
+
+
+async def test_a_turn_tells_her_where_she_is_now(turns: Turns):
+    """Where the page says she is is in the prompt, with what she is doing there."""
+    llm = FakeLLM(REPLY)
+
+    events = await turns.take(llm, "你现在在哪？", place=Place("小练习室", "在练习室练新曲"))
+
+    assert events[-1]["type"] == "done"
+    context = context_of(llm.prompts[-1])
+    assert "你此刻在「小练习室」：在练习室练新曲。" in context
+    assert "如果这段对话里你们已经说好去了别处，以对话为准。" in context
+
+
+async def test_a_turn_without_a_place_says_nothing_of_one(turns: Turns):
+    llm = FakeLLM(REPLY)
+
+    await turns.take(llm, "你现在在哪？")
+
+    assert "你此刻在" not in context_of(llm.prompts[-1])

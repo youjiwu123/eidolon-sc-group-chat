@@ -436,6 +436,9 @@ class TurnKeys:
     """Called once the turn has ended, to let go of the deployer's keys it ran on."""
     own_llm: bool = False
     """Whether `llms` are the user's own LLM."""
+    emotions: EmotionJudging | None = None
+    """The deployer's judge, for how she says a text turn's reply (DESIGN.md「对话页的立绘小人」);
+    None when the turn runs on the user's own LLM."""
 
 
 @dataclass(frozen=True)
@@ -492,7 +495,9 @@ class OwnKeys:
         if brought.llm is not None:
             return TurnKeys(self._llms(brought, None), exempt, own_llm=True)
         lease = self._deployer.lease()
-        return TurnKeys(self._llms(brought, lease.keys), exempt, lease.release)
+        return TurnKeys(
+            self._llms(brought, lease.keys), exempt, lease.release, emotions=lease.keys.emotions
+        )
 
     def for_call(self, brought: BroughtKeys) -> CallKeys:
         """Whose keys a call bringing `brought` runs on: each of speech recognition and

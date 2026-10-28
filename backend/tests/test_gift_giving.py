@@ -28,7 +28,7 @@ from tests.test_conversation_history import history
 from tests.test_gift_backpack import COMMON, FIRST, RARE, SECOND, UNCOMMON
 from tests.test_gift_catalog import gift
 from tests.test_she_ends_conversation import end
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 
@@ -206,7 +206,7 @@ async def test_it_is_no_turn_no_limit_counts_it_and_no_activity_record_is_left(
     await given(client, "tea")
     turn = await send_turn(client, conversation, "在吗")
 
-    assert turn[-1]["type"] == "done"  # the hour's one turn was left
+    assert done_of(turn)["type"] == "done"  # the hour's one turn was left
     async with admin_beside(client, github) as admin:
         board = await dashboard(admin)
     assert board["turns"]["total"] == 1

@@ -49,7 +49,7 @@ from tests.test_gift_backpack import RESET_CARD
 from tests.test_reset_cards import USE
 from tests.test_she_hangs_up import HANGING_UP, OUT_OF_LINE, say
 from tests.test_she_hangs_up import WARNING as HANG_UP_WARNING
-from tests.test_text_turn import send_turn, start_conversation
+from tests.test_text_turn import done_of, send_turn, start_conversation
 
 REPLY = ["<ja>はい</ja><zh>好的</zh>"]
 WARNING = "制作人再这样下去你就不想聊了"
@@ -81,7 +81,7 @@ async def say_each(client: httpx.AsyncClient, conversation: str, n: int) -> list
 
 
 def ended_by(turn: list[dict]) -> bool:
-    return turn[-1]["type"] == "done" and turn[-1]["ended"] is not None
+    return done_of(turn)["ended"] is not None
 
 
 async def test_hurt_turn_after_turn_she_warns_once_then_ends_the_conversation_after_her_last_line(
@@ -100,9 +100,9 @@ async def test_hurt_turn_after_turn_she_warns_once_then_ends_the_conversation_af
         HANG_UP_WARNING in about_now(llm, n) or HANGING_UP in about_now(llm, n) for n in range(6)
     )
     assert [ended_by(turn) for turn in turns] == [False] * 5 + [True]
-    assert turns[-1][-1]["affinity"]["cooldown_until"] is None
+    assert done_of(turns[-1])["affinity"]["cooldown_until"] is None
     assert shape(recorded)[-3:] == ["user:第5句", "character:好的", "ended"]
-    assert turns[-1][-1]["ended"] == recorded[-1]
+    assert done_of(turns[-1])["ended"] == recorded[-1]
     [mano] = listed
     assert mano["last_message"]["role"] == "character"
     assert ended_kept(settings.database_path) == [None] * 5 + ["fed_up"]
@@ -133,7 +133,7 @@ async def test_once_ended_turns_are_rejected_counting_towards_nothing_and_calls_
     for refused in (asked, call):
         assert refused.status_code == 409, refused.text
         assert refused.json()["detail"] == ENDED
-    assert elsewhere[-1]["type"] == "done"
+    assert done_of(elsewhere)["type"] == "done"
     assert len(llm.prompts) == 7
 
 
@@ -173,7 +173,7 @@ async def test_a_turn_not_judged_ends_nothing_but_takes_its_place_among_the_late
 
     turns = await say_each(client, conversation, 9)
 
-    assert all(turn[-1]["type"] == "done" for turn in turns)
+    assert all(done_of(turn)["type"] == "done" for turn in turns)
     assert not any(ended_by(turn) for turn in turns)
     assert not any(PARTING in about_now(llm, n) for n in range(9))
 
@@ -209,7 +209,7 @@ async def test_a_calls_turns_count_in_it_alone_and_her_hanging_up_leaves_the_con
             await asyncio.sleep(0.05)
     typed = await send_turn(client, conversation, "刚才说过头了")
 
-    assert typed[-1]["type"] == "done"
+    assert done_of(typed)["type"] == "done"
     assert not ended_by(typed)
     assert WARNING not in about_now(llm)
     assert "ended" not in shape(await record(client, conversation))
@@ -223,7 +223,7 @@ async def test_off_she_never_ends_it(make_client: ClientFactory, settings: Setti
 
     turns = await say_each(client, conversation, 6)
 
-    assert all(turn[-1]["type"] == "done" and turn[-1]["ended"] is None for turn in turns)
+    assert all(done_of(turn)["type"] == "done" and done_of(turn)["ended"] is None for turn in turns)
     assert not any(WARNING in about_now(llm, n) for n in range(6))
     assert "ended" not in shape(await record(client, conversation))
 
@@ -266,7 +266,7 @@ async def test_the_turn_that_cools_her_ends_it_saying_till_when_and_the_cooldown
     conversation = await start_conversation(client)
     keep(settings.database_path, "producer", 5, clock.now)
 
-    [*_, done] = await send_turn(client, conversation, "随便你")
+    done = done_of(await send_turn(client, conversation, "随便你"))
     recorded = await record(client, conversation)
     clock.advance(days=2)
     rejected = await send_turn(client, conversation, "对不起")
@@ -278,7 +278,7 @@ async def test_the_turn_that_cools_her_ends_it_saying_till_when_and_the_cooldown
     assert shape(recorded) == ["user:随便你", "character:好的", "ended"]
     assert ended_kept(settings.database_path)[0] == "cooldown"
     assert rejected[-1] == {"type": "error", "message": ENDED}
-    assert elsewhere[-1]["type"] == "done"
+    assert done_of(elsewhere)["type"] == "done"
     assert "ended" not in shape(await record(client, other))
 
 
@@ -327,7 +327,7 @@ async def test_cooling_her_in_a_call_ends_no_conversation(
     typed = await send_turn(client, conversation, "刚才说过头了")
 
     assert ended["reason"] == "cooldown"
-    assert typed[-1]["type"] == "done"
+    assert done_of(typed)["type"] == "done"
     assert not ended_by(typed)
     assert "ended" not in shape(await record(client, conversation))
 
@@ -368,7 +368,7 @@ async def test_a_turn_under_way_as_it_is_ended_elsewhere_is_rejected_and_counts_
     assert turn[-1] == {"type": "error", "message": ENDED}
     assert shape(recorded) == ["ended"]
     assert (await status(client)).json()["tier"] == "trust"
-    assert elsewhere[-1]["type"] == "done"
+    assert done_of(elsewhere)["type"] == "done"
 
 
 async def test_a_call_in_it_as_she_ends_it_she_hangs_up_telling_it_she_ended_it(

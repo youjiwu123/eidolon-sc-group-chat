@@ -48,7 +48,7 @@ from tests.test_openai_compat import RECORDED_STREAM
 from tests.test_own_llm import LLM, MINE
 from tests.test_rate_limit import post_turn
 from tests.test_shared_memory import CAT, memorized
-from tests.test_text_turn import leave_turn, send_turn, start_conversation
+from tests.test_text_turn import done_of, leave_turn, send_turn, start_conversation
 
 REPLY = ["<ja>はいっ</ja><zh>好的</zh>"]
 SAID = "我家的猫叫小白哦"
@@ -154,10 +154,11 @@ async def test_a_failing_judge_shows_in_health_though_the_turn_goes_on(
     events = await send_turn(client, conversation_id, "你还记得我的猫吗")
     board = await dashboard(admin)
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     assert board["turns"]["by_result"]["success"] == 2
     judge = health(board, "judge")
-    assert judge is not None and (judge["calls"], judge["errors"]) == (2, 2)
+    # 每回合两次：这一回合自己的问题（这次判不出来），以及回复记下之后判的语气。
+    assert judge is not None and (judge["calls"], judge["errors"]) == (4, 2)
     # Retrieving anyway, the turns looked up references and memories, the second finding
     # and reranking the one the first wrote down with the background model, embedding it.
     for service in ["embedding", "rerank", "memory_llm", "chat_llm"]:
@@ -188,7 +189,7 @@ async def test_a_request_made_again_counts_as_a_call_of_its_own(
     events = await send_turn(client, conversation_id, "你还记得我的猫吗")
     board = await dashboard(admin)
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     assert CAT in context_of(llm.prompts[-1])  # found once asked again
     rerank = health(board, "rerank")
     assert rerank is not None
@@ -382,7 +383,7 @@ async def test_the_tokens_each_protocol_bills_are_recorded(
     events = await send_turn(client, await start_conversation(client), "你好")
     chat = health(await dashboard(admin), "chat_llm")
 
-    assert events[-1]["type"] == "done"
+    assert done_of(events)["type"] == "done"
     assert chat is not None
     assert chat["usage"] == [
         {"unit": "tokens", "input": input_tokens, "output": output_tokens, "cached": cached}
@@ -478,7 +479,8 @@ async def test_the_dashboard_shows_an_llm_at_every_effort_on_one_row_with_its_fi
     assert chat["first_token_ms"]["p50"] is not None
     assert chat["first_token_ms"]["p95"] is not None
     judge = health(board, "judge")
-    assert judge is not None and judge["calls"] == 1
+    # 他这一回合的问题，和回复记下之后判的那次语气。
+    assert judge is not None and judge["calls"] == 2
     assert "first_token_ms" not in judge
 
 

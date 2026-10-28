@@ -209,7 +209,8 @@ async def test_the_judge_model_retrieval_and_memory_read_it_as_her_latest_words(
 
     await send_turn(client, conversation, "辛苦了")
 
-    state = clients.judge.states[-1]
+    # 最后被问的是这句回复的语气（`done` 之后），上文要看那一回合里被问的那次。
+    state = next(s for s in reversed(clients.judge.states) if "上文" in s)
     assert state["上文"] == [
         "制作人：我去练习了", "櫻木真乃：はい", "櫻木真乃：プロデューサーさん！レッスン終わったよ",
     ]

@@ -50,7 +50,7 @@ from eidolon.identity import PROVIDER_NAMES, IdentityError
 from eidolon.own_keys import NO_PHOTOS, BroughtKeys, OwnKeyRejected, named_services
 from eidolon.price_catalog import describe_offer, describe_provider, describe_thinking
 from eidolon.reach_outs import ReachOutsOff
-from eidolon.store import LastSignInMethod
+from eidolon.store import IdentityTaken, LastSignInMethod, SignInMethod
 from eidolon.throttle import Throttle
 from eidolon.sessions import (
     SESSION_COOKIE,
@@ -549,8 +549,28 @@ def add_account_routes(app: FastAPI, backend: Backend) -> None:
 
     if settings.dev_login:
 
+        def developer_identity(user_id: str, name: str) -> None:
+            """Record the identity `github:<name>` for a developer-login user, unless they
+            already sign in with GitHub.
+
+            `EIDOLON_ADMINS` names identities (`github:<身份标识>`), never users, and a
+            development deployment has no OAuth configured to sign in with one: without this
+            nobody could be an admin locally. Listing `github:<name>` there makes whoever
+            logs in by that name an admin (ADR-0013). Only this route, which exists only
+            while `EIDOLON_DEV_LOGIN=1`, records so."""
+            if any(m.provider == "github" for m in store.sign_in_methods(user_id)):
+                return
+            try:
+                store.add_sign_in_method(
+                    user_id, SignInMethod("github", name, name, None, clock().isoformat())
+                )
+            except IdentityTaken:  # 另一个名字已经占了这个身份（本地库改过名才会遇到）
+                log.warning("dev-login: github:%s already belongs to another user", name)
+
         @app.post("/api/auth/dev-login", status_code=204)
         def dev_login(body: DevLogin, request: Request, response: Response) -> None:
-            """Sign in as the user with this name, made if there is none (development only)."""
+            """Sign in as the user with this name, made if there is none (development only),
+            with the identity `github:<name>` so that `EIDOLON_ADMINS` can name them."""
             user = store.first_user_named(body.name) or store.create_user(body.name)
+            developer_identity(user.id, body.name)
             signed_in(user.id, response, request)
