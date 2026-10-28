@@ -8,6 +8,7 @@ import { copy } from "@/i18n";
 import { photoImageUrl, type Photo } from "@/lib/api";
 import { photoFailureNote } from "@/lib/photoFailure";
 import { settingsHref } from "@/lib/settingsCategory";
+import { cn } from "@/lib/utils";
 import { PhotoFailedIcon, PhotoIcon } from "@/theme/icons";
 
 import { PhotoViewer } from "./PhotoViewer";
@@ -16,11 +17,13 @@ const t = copy.conversation.photo;
 
 /**
  * 她那条回复的第一块：她发来的照片（GLOSSARY.md「照片」，DESIGN.md「Chat bubbles · 照片」）。
- * 宽 192px，按 832×1216 等比；生成中是同样大小的占位，到了直接换上，位置不跳。点开整屏放大。
+ * 按图片自己的比例显示：宽度不超过气泡区的宽度，高度最多 32rem（`max-h-[min(60vh,32rem)]`），
+ * 小图不放大。加载出来以前先用一块 192px 宽的占位，到了直接换上，位置不跳。点开整屏放大。
  * 没发出来时换成同宽的一块矮说明：「照片没发出来」和原因，自带的生图密钥没能用时多一行「去设置自带密钥」。
  */
 export function PhotoBlock({ photo }: { photo: Photo }) {
   const [viewing, setViewing] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   if (photo.status === "pending") {
     return (
       <div
@@ -41,9 +44,19 @@ export function PhotoBlock({ photo }: { photo: Photo }) {
         type="button"
         aria-label={t.open}
         onClick={() => setViewing(true)}
-        className="w-48 overflow-hidden rounded-bubble outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+        className="max-w-full overflow-hidden rounded-bubble outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
       >
-        <img src={src} alt={t.sent} width={832} height={1216} className="aspect-[832/1216] w-full object-cover" />
+        <img
+          src={src}
+          alt={t.sent}
+          onLoad={() => setLoaded(true)}
+          className={cn(
+            "block max-w-full rounded-bubble",
+            loaded
+              ? "h-auto max-h-[min(60vh,32rem)] w-auto"
+              : "h-64 w-48 object-cover",
+          )}
+        />
       </button>
       <PhotoViewer id={photo.id} open={viewing} onOpenChange={setViewing} />
     </>
